@@ -1,3 +1,5 @@
 Data,Crema,Exercici,Cafe,Son,Verdures,Dents,Dutxa,Diners,Motiu,Udemy,Articles,Coding,Projects,Planning,Aleman,Interaccions,Social
-2022-06-04,Si,136,3,10,0,Si,S1,0,' ',0,30,90.0,0,0,0,0,0
+2022-06-04,Si,40,2,9,4,Si,No,0,' ',0,0,0.0,0,0,0,0,0
+2022-06-05,Si,26,1,8,0,Si,No,0,' ',0,0,0,1,38,0,0,0
+2022-06-04,Si,136,3,10,0,Si,Si,0,' ',0,30,90.0,0,0,0,0,0
 2022-06-05,Si,26,1,12,0,Si,No,30,Menjar,0,16,153.0,1,38,0,0,0
