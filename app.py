@@ -158,7 +158,7 @@ if user != "":
                     Data = Data.strftime('%d/%m/%Y')
                     d = [Data,Crema,Exercici,Cafe,Son,Verdures,Dents,Dutxa,Diners,' '.join(Motiu),Udemy,Articles,Coding,Projects,Planning,Aleman,Interaccions,Social]
                     
-                    df.loc[len(df)] = d
+                    df.loc[len(df)-1] = d
                     st.dataframe(df)
                     
                     #df.to_csv('cartera.csv', sep=',',index=False)
