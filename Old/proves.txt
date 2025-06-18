@@ -1,1 +1,7 @@
+Llista de idees de petites aplicacions / automatizacions / projectes
 
+- Aplicacio per fer el seguiment dels intents de fer pa de massa mare 
+- Aplicacio gestio de casa, dietes, compra,...
+- aplicacio gasolineres ruta
+- aplicacio bugaderia zuric
+- joc Hister en Python cansons en catal
