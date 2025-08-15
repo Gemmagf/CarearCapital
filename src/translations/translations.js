@@ -1,126 +1,78 @@
-// src/translations/translations.js
 const translations = {
   catalan: {
-    name: "Nom de la Persona",
-    nav: {
-      home: "Inici",
-      experience: "Experiència",
-      personalProjects: "Projectes Personals",
-      skills: "CV",
-      contact: "Contacte",
+    personal: {
+      name: "Gemma Garcia de la Fuente",
+      title: "Data Scientist i Business Analyst Financera",
+      description: "Apassionada per les dades i les finances, amb MSc en Direcció Financera i Comptabilitat. Busco un rol on pugui donar suport a la presa de decisions estratègiques en equips financers.",
+      contact: {
+        phone: ["+41 76 269 8038", "+34 637 588 854"],
+        email: "gemmagdlf@gmail.com",
+        linkedin: "http://linkedin.com/in/gemma-garcia-de-la-fuente",
+        location: "Zurich 8004"
+      }
     },
-    homeSection: {
-      welcome: "Benvingut al meu portfolio!",
-    },
+    experience: [
+      {
+        role: "Data Scientist & Product Owner",
+        company: "UBS Business Solutions AG, Zürich, Suïssa",
+        duration: "Novembre 2022 - Present",
+        description: [
+          "Product Owner de dues eines: dashboard de detecció d'anomalies i motor de validació estadística.",
+          "Gestió d’un equip de 5 membres (IT i Business) amb metodologia Agile.",
+          "Transició de Tableau a Power BI, millorant rendiment i usabilitat.",
+          "Disseny de models ML per detectar errors crítics en dades.",
+          "Mentoria d’un becari durant 1,5 anys."
+        ]
+      },
+      {
+        role: "Business Analyst",
+        company: "Google by Adecco, Zürich",
+        duration: "Abril 2022 - Setembre 2022",
+        description: [
+          "Desenvolupament d’un dashboard en temps real a Google Data Studio.",
+          "Col·laboració amb product i enginyeria per definir KPIs.",
+          "Presentació d’informes per orientar decisions de llançament de noves funcionalitats."
+        ]
+      },
+      {
+        role: "Business Analyst (Controlling Support)",
+        company: "KH Lloreda, Granollers, Espanya",
+        duration: "Gener 2021 – Abril 2022",
+        description: [
+          "Creació de dashboards estratègics integrant SEO, SEM, TV, Amazon i social media.",
+          "Models de regressió per predir vendes segons geografia, temps i inversions en màrqueting.",
+          "Informe d’eficiència de canals i suport en planificació pressupostària."
+        ]
+      }
+    ],
+    education: [
+      { degree: "MSc en Direcció Financera", university: "UOC", year: "2022–2024" },
+      { degree: "MSc en Data Science", university: "UOC", year: "2020–2022" },
+      { degree: "BSc en Estadística", university: "UPC", year: "2015–2019" },
+      { degree: "BSc en Psicologia", university: "UB", year: "2014–2019" }
+    ],
+    languages: [
+      { language: "Català", level: "Natiu" },
+      { language: "Espanyol", level: "Natiu" },
+      { language: "Anglès", level: "Fluent" },
+      { language: "Francès", level: "Fluent" },
+      { language: "Italià", level: "Intermedi" },
+      { language: "Alemany", level: "Intermedi - Aprenent actiu" }
+    ],
     projects: [
       {
-        title: "Producte de Qualitat de Dades de Risc",
-        description: "Lideratge del producte per millorar la qualitat de dades de risc a UBS.",
-        image: "https://via.placeholder.com/400x250/4A4A4A/FFFFFF?text=Risk+Data+Quality",
-      },
-      {
-        title: "Dashboard de Detecció d'Anomalies",
-        description: "Product Owner d'una eina clau per detectar anomalies en dades crítiques.",
-        image: "https://via.placeholder.com/400x250/6B6B6B/FFFFFF?text=Anomaly+Detection",
-      },
-      {
-        title: "Motor de Validació Estadística",
-        description: "Gestió d'un motor per validar dades estadísticament, reduint temps de projecte un 50%.",
-        image: "https://via.placeholder.com/400x250/8C8C8C/FFFFFF?text=Statistical+Validation",
-      },
-    ],
-    personalProjects: [
-      {
         title: "Anàlisi de Sentiments en Xarxes Socials",
-        description: "Projecte personal per analitzar el sentiment de tuits amb NLP i models de classificació.",
-        link: "https://github.com/tuusuario/sentiment-analysis-project",
-        futureIdeas: "Integrar amb altres xarxes socials i crear un dashboard interactiu en temps real.",
+        description: "Projecte personal per analitzar sentiment de tuits amb NLP i models de classificació.",
+        link: "https://github.com/tuusuario/sentiment-analysis-project"
       },
       {
         title: "Simulador de Mercat de Valors",
-        description: "Aplicació web per simular inversions sense risc real amb visualitzacions amb Plotly.",
-        link: "https://github.com/tuusuario/stock-market-simulator",
-        futureIdeas: "Afegir backtesting i connexió amb APIs de brokers reals.",
-      },
-    ],
-    experience: [
-      {
-        company: "UBS",
-        role: "Data Product Owner",
-        description: "Gestió i desenvolupament de productes de dades de risc.",
-      },
-      {
-        company: "Empresa XYZ",
-        role: "Data Analyst",
-        description: "Anàlisi de dades i creació de dashboards per a la presa de decisions.",
-      },
-    ],
-    contact: {
-      email: "Correu electrònic",
-      phone: "Telèfon",
-    },
+        description: "Simulador d’inversions amb dades històriques i visualitzacions interactives.",
+        link: "https://github.com/tuusuario/stock-market-simulator"
+      }
+    ]
   },
-
-  english: {
-    name: "Your Name",
-    nav: {
-      home: "Home",
-      experience: "Experience",
-      personalProjects: "Personal Projects",
-      skills: "CV",
-      contact: "Contact",
-    },
-    homeSection: {
-      welcome: "Welcome to my portfolio!",
-    },
-    projects: [
-      {
-        title: "Risk Data Quality Product",
-        description: "Led the product to improve risk data quality at UBS.",
-        image: "https://via.placeholder.com/400x250/4A4A4A/FFFFFF?text=Risk+Data+Quality",
-      },
-      {
-        title: "Anomaly Detection Dashboard",
-        description: "Product Owner of a key tool to detect anomalies in critical data.",
-        image: "https://via.placeholder.com/400x250/6B6B6B/FFFFFF?text=Anomaly+Detection",
-      },
-      {
-        title: "Statistical Validation Engine",
-        description: "Managed a statistical validation engine, reducing project times by 50%.",
-        image: "https://via.placeholder.com/400x250/8C8C8C/FFFFFF?text=Statistical+Validation",
-      },
-    ],
-    personalProjects: [
-      {
-        title: "Social Media Sentiment Analysis",
-        description: "Personal project to analyze tweet sentiment with NLP and classification models.",
-        link: "https://github.com/tuusuario/sentiment-analysis-project",
-        futureIdeas: "Integrate other social media APIs and create a live interactive dashboard.",
-      },
-      {
-        title: "Stock Market Simulator",
-        description: "Web app to simulate stock investments without real risk using Plotly charts.",
-        link: "https://github.com/tuusuario/stock-market-simulator",
-        futureIdeas: "Add backtesting and connect to real broker APIs.",
-      },
-    ],
-    experience: [
-      {
-        company: "UBS",
-        role: "Data Product Owner",
-        description: "Managed and developed risk data products.",
-      },
-      {
-        company: "XYZ Company",
-        role: "Data Analyst",
-        description: "Data analysis and dashboard creation for decision-making.",
-      },
-    ],
-    contact: {
-      email: "Email",
-      phone: "Phone",
-    },
-  },
+  // Aquí podries afegir castellà i anglès amb la mateixa estructura
 };
 
 export default translations;

@@ -1,12 +1,15 @@
-import React from "react";
+import translations from "../translations/translations";
+const lang = "catalan";
 
-const CvSection = ({ translations }) => {
+export default function CvSection() {
   return (
-    <section className="p-8 bg-white rounded-2xl shadow-lg mx-4 my-6 text-center">
-      <h2 className="text-4xl font-bold text-gray-800 mb-4">{translations.nav.skills}</h2>
-      <p className="text-gray-700">Aquí podries afegir el teu CV o habilitats clau.</p>
+    <section>
+      <h2>Formació</h2>
+      {translations[lang].education.map((edu, index) => (
+        <div key={index}>
+          <strong>{edu.degree}</strong> - {edu.university} ({edu.year})
+        </div>
+      ))}
     </section>
   );
-};
-
-export default CvSection;
+}

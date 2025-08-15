@@ -1,12 +1,13 @@
-import React from "react";
+import translations from "../translations/translations";
+const lang = "catalan";
 
-const HomeSection = ({ translations }) => {
+export default function HomeSection() {
+  const { name, title, description } = translations[lang].personal;
   return (
-    <section className="p-8 bg-white rounded-2xl shadow-lg mx-4 my-6 text-center">
-      <h1 className="text-5xl font-bold text-gray-900 mb-4">{translations.name}</h1>
-      <p className="text-xl text-gray-700">{translations.homeSection.welcome}</p>
+    <section>
+      <h1>{name}</h1>
+      <h2>{title}</h2>
+      <p>{description}</p>
     </section>
   );
-};
-
-export default HomeSection;
+}
