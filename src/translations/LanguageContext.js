@@ -1,4 +1,4 @@
-eimport { createContext, useState, useContext } from "react";
+import { createContext, useState, useContext } from "react";
 
 const LanguageContext = createContext();
 
