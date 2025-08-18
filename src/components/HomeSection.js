@@ -3,8 +3,11 @@ import React from 'react';
 const HomeSection = ({ translations }) => {
   return (
     <section className="p-8 bg-white rounded-2xl shadow-lg mx-4 my-6 text-center">
-      <h2 className="text-4xl font-bold text-gray-800 mb-4">{translations.title}</h2>
-      {/* Photo below title & description */}
+     {/* Títol */}
+      <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 mb-4 leading-tight tracking-tight">
+        {translations.title}
+      </h2>
+      {/* Photo */}
       <div className="mt-8 flex justify-center">
         <img
           src="/images/gemma.jpg"              // <-- path inside /public
@@ -14,7 +17,13 @@ const HomeSection = ({ translations }) => {
         />
       </div>
       
-      <p className="text-lg text-gray-700">{translations.description}</p>
+      {/* Descripció */}
+      <p className="text-lg md:text-xl text-gray-700 mb-10 max-w-3xl mx-auto text-center">
+        {translations.description}
+      </p>
+     
+
+
     </section>
   );
 };
