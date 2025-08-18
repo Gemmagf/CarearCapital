@@ -1,18 +1,29 @@
 import React, { useState } from 'react';
+import translations from './translations/translations';
+import LayoutHeader from './components/LayoutHeader';
+import HomeSection from './components/HomeSection';
 import CvSection from './components/CvSection';
 import ContactSection from './components/ContactSection';
 
 function App() {
-  const [lang, setLang] = useState('ca');
+  const [appLanguage, setAppLanguage] = useState('catalan');
+  const [currentPage, setCurrentPage] = useState('home');
+
+  const currentTranslations = translations[appLanguage];
 
   return (
-    <div className="bg-gray-100 min-h-screen">
-      <div className="flex justify-end p-4 space-x-2">
-        <button onClick={() => setLang('ca')} className="px-4 py-2 bg-gray-200 rounded">CA</button>
-        <button onClick={() => setLang('en')} className="px-4 py-2 bg-gray-200 rounded">EN</button>
-      </div>
-      <CvSection lang={lang} />
-      <ContactSection lang={lang} />
+    <div className="min-h-screen bg-gray-100">
+      <LayoutHeader
+        setCurrentPage={setCurrentPage}
+        setAppLanguage={setAppLanguage}
+        translations={currentTranslations}
+      />
+
+      {currentPage === 'home' && <HomeSection translations={currentTranslations.home} />}
+      {currentPage === 'experience' && <HomeSection translations={currentTranslations.experience} />}
+      {currentPage === 'personalProjects' && <HomeSection translations={currentTranslations.personalProjects} />}
+      {currentPage === 'cv' && <CvSection translations={currentTranslations.cv} />}
+      {currentPage === 'contact' && <ContactSection translations={currentTranslations.contact} />}
     </div>
   );
 }
