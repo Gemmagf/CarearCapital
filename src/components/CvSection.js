@@ -1,7 +1,10 @@
 import React from "react";
 
 const CVSection = ({ translations }) => {
-  const { title, subtitle, description, contact, experiences, education, languages } = translations;
+  const { 
+    title, subtitle, description, contact, experiences, education, languages,
+    contactTitle, experienceTitle, educationTitle, languagesTitle
+  } = translations;
 
   return (
     <section className="p-8 bg-white rounded-2xl shadow-lg mx-4 my-6">
@@ -10,7 +13,7 @@ const CVSection = ({ translations }) => {
       <p className="text-lg text-gray-700 mb-6 text-center">{description}</p>
 
       <div className="mb-6">
-        <h4 className="text-xl font-semibold mb-2">Contact</h4>
+        <h4 className="text-xl font-semibold mb-2">{contactTitle}</h4>
         <ul className="text-gray-700">
           <li>Phone: {contact.phone}</li>
           <li>Email: {contact.email}</li>
@@ -20,7 +23,7 @@ const CVSection = ({ translations }) => {
       </div>
 
       <div className="mb-6">
-        <h4 className="text-xl font-semibold mb-2">Experience</h4>
+        <h4 className="text-xl font-semibold mb-2">{experienceTitle}</h4>
         {experiences.map((exp, idx) => (
           <div key={idx} className="mb-4">
             <p className="font-semibold">{exp.role} - {exp.company}, {exp.location}</p>
@@ -33,14 +36,14 @@ const CVSection = ({ translations }) => {
       </div>
 
       <div className="mb-6">
-        <h4 className="text-xl font-semibold mb-2">Education</h4>
+        <h4 className="text-xl font-semibold mb-2">{educationTitle}</h4>
         <ul className="list-disc list-inside text-gray-700">
           {education.map((edu, i) => <li key={i}>{edu}</li>)}
         </ul>
       </div>
 
       <div>
-        <h4 className="text-xl font-semibold mb-2">Languages</h4>
+        <h4 className="text-xl font-semibold mb-2">{languagesTitle}</h4>
         <ul className="list-disc list-inside text-gray-700">
           {languages.map((lang, i) => <li key={i}>{lang}</li>)}
         </ul>
