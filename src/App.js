@@ -20,8 +20,6 @@ function App() {
       />
 
       {currentPage === 'home' && <HomeSection translations={currentTranslations.home} />}
-      {currentPage === 'experience' && <HomeSection translations={currentTranslations.experience} />}
-      {currentPage === 'personalProjects' && <HomeSection translations={currentTranslations.personalProjects} />}
       {currentPage === 'cv' && <CvSection translations={currentTranslations.cv} />}
       {currentPage === 'contact' && <ContactSection translations={currentTranslations.contact} />}
     </div>
