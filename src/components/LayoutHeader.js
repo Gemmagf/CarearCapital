@@ -7,6 +7,7 @@ const LayoutHeader = ({ setCurrentPage, setAppLanguage, translations }) => {
       <nav className="flex space-x-4 items-center">
         <button onClick={() => setCurrentPage('home')} className="text-gray-600 hover:text-black transition-colors font-medium">{translations.nav.home}</button>
         <button onClick={() => setCurrentPage('cv')} className="text-gray-600 hover:text-black transition-colors font-medium">{translations.nav.skills}</button>
+        <button onClick={() => setCurrentPage('personalProjects')} className="text-gray-600 hover:text-black transition-colors font-medium">{translations.nav.personalProjects}</button>
         <button onClick={() => setCurrentPage('contact')} className="text-gray-600 hover:text-black transition-colors font-medium">{translations.nav.contact}</button>
         <select onChange={(e) => setAppLanguage(e.target.value)} className="ml-4 p-2 border border-gray-300 rounded-md text-gray-700 bg-white">
           <option value="catalan">Català</option>

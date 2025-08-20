@@ -4,6 +4,7 @@ import LayoutHeader from './components/LayoutHeader';
 import HomeSection from './components/HomeSection';
 import CvSection from './components/CvSection';
 import ContactSection from './components/ContactSection';
+import PersonalProjectsSection from "./components/PersonalProjectsSection";
 
 function App() {
   const [appLanguage, setAppLanguage] = useState('catalan');
@@ -21,6 +22,7 @@ function App() {
 
       {currentPage === 'home' && <HomeSection translations={currentTranslations.home} />}
       {currentPage === 'cv' && <CvSection translations={currentTranslations.cv} />}
+      {currentPage === 'personalProjects' && <PersonalProjectsSection translations={currentTranslations.personalProjects} />}
       {currentPage === 'contact' && <ContactSection translations={currentTranslations.contact} />}
     </div>
   );

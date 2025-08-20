@@ -101,6 +101,25 @@ const translations = {
         submitButton: "Enviar Missatge",
       },
     },
+    personalProjects: {
+      title: "Projectes Personals",
+      projects: [
+        {
+          id: 1,
+          title: "Web de Portafoli",
+          description: "Un projecte amb React + Tailwind per mostrar el meu CV i projectes.",
+          link: "https://myportfolio.com",
+          futureIdeas: "Afegir animacions, suport multilingüe i una secció de bloc.",
+        },
+        {
+          id: 2,
+          title: "Aplicació de Gestió de Tasques",
+          description: "Aplicació full-stack amb backend en Node.js i frontend en React.",
+          link: "https://github.com/gemma/task-manager",
+          futureIdeas: "Implementar mode offline al mòbil i notificacions push.",
+        },
+      ],
+    },
   },
   spanish: {
     name: "Gemma Garcia de la Fuente",
@@ -204,6 +223,29 @@ const translations = {
         messagePlaceholder: "Escribe tu mensaje aquí...",
         submitButton: "Enviar Mensaje",
       },
+    },
+    personalProjects: {
+      title: "Proyectos Personales",
+      projects: [
+        {
+          id: 1,
+          title: "Análisis de Sentimientos en Redes Sociales",
+          description:
+            "Proyecto personal para analizar sentimientos de tweets sobre ciertos temas utilizando NLP y modelos de clasificación. Uso de bibliotecas como NLTK y scikit-learn.",
+          link: "https://github.com/youruser/sentiment-analysis-project",
+          futureIdeas:
+            "Integración con APIs de otras redes sociales y desarrollo de un panel interactivo en tiempo real.",
+        },
+        {
+          id: 2,
+          title: "Simulador del Mercado de Valores",
+          description:
+            "Aplicación web para simular inversiones bursátiles, que permite a los usuarios probar estrategias sin riesgo real. Uso de datos históricos y visualizaciones con Plotly.",
+          link: "https://github.com/youruser/stock-market-simulator",
+          futureIdeas:
+            "Agregar funciones de backtesting y conectar con APIs de brokers para datos en vivo.",
+        },
+      ],
     },
   },
   english: {
@@ -309,6 +351,29 @@ const translations = {
         submitButton: "Send Message",
       },
     },
+    personalProjects: {
+      title: "Personal Projects",
+      projects: [
+        {
+          id: 1,
+          title: "Social Media Sentiment Analysis",
+          description:
+            "Personal project analyzing the sentiment of tweets on specific topics using NLP and classification models. Explored libraries such as NLTK and scikit-learn.",
+          link: "https://github.com/youruser/sentiment-analysis-project",
+          futureIdeas:
+            "Integrate with APIs of other social networks and develop a real-time interactive dashboard.",
+        },
+        {
+          id: 2,
+          title: "Stock Market Simulator",
+          description:
+            "Web application simulating stock market investments, allowing users to test strategies without real risk. Uses historical data and visualizations with Plotly.",
+          link: "https://github.com/youruser/stock-market-simulator",
+          futureIdeas:
+            "Add strategy backtesting and connect with real broker APIs for live data.",
+        },
+      ],
+    }
   },
   french: {
     name: "Gemma Garcia de la Fuente",
@@ -410,6 +475,29 @@ const translations = {
         messagePlaceholder: "Écrivez votre message ici...",
         submitButton: "Envoyer",
       },
+    },
+    personalProjects: {
+      title: "Projets Personnels",
+      projects: [
+        {
+          id: 1,
+          title: "Analyse de Sentiments sur les Réseaux Sociaux",
+          description:
+            "Projet personnel pour analyser le sentiment de tweets sur un sujet spécifique en utilisant le NLP et des modèles de classification. Exploration de bibliothèques comme NLTK et scikit-learn.",
+          link: "https://github.com/youruser/sentiment-analysis-project",
+          futureIdeas:
+            "Intégrer avec des APIs d'autres réseaux sociaux et développer un tableau de bord interactif en temps réel.",
+        },
+        {
+          id: 2,
+          title: "Simulateur de Marché Boursier",
+          description:
+            "Application web pour simuler des investissements en bourse, permettant aux utilisateurs de tester des stratégies sans risque réel. Utilisation de données historiques et de visualisations avec Plotly.",
+          link: "https://github.com/youruser/stock-market-simulator",
+          futureIdeas:
+            "Ajouter des fonctionnalités de backtesting et connecter avec des APIs de courtiers pour des données en direct.",
+        },
+      ],
     },
   },
   german: {
@@ -513,6 +601,29 @@ const translations = {
         submitButton: "Senden",
       },
     },
+    personalProjects: {
+      title: "Persönliche Projekte",
+      projects: [
+        {
+          id: 1,
+          title: "Sentiment-Analyse in sozialen Netzwerken",
+          description:
+            "Persönliches Projekt zur Analyse von Tweet-Stimmungen zu bestimmten Themen mit NLP und Klassifikationsmodellen. Nutzung von Bibliotheken wie NLTK und scikit-learn.",
+          link: "https://github.com/youruser/sentiment-analysis-project",
+          futureIdeas:
+            "Integration mit APIs anderer sozialer Netzwerke und Entwicklung eines interaktiven Dashboards in Echtzeit.",
+        },
+        {
+          id: 2,
+          title: "Börsenmarkt-Simulator",
+          description:
+            "Webanwendung zur Simulation von Börseninvestitionen, die es Nutzern ermöglicht, Strategien ohne echtes Risiko zu testen. Nutzung historischer Daten und Visualisierungen mit Plotly.",
+          link: "https://github.com/youruser/stock-market-simulator",
+          futureIdeas:
+            "Backtesting-Funktionen hinzufügen und mit Broker-APIs für Live-Daten verbinden.",
+        },
+      ],
+    },
   },
   italian: {
     name: "Gemma Garcia de la Fuente",
@@ -614,6 +725,29 @@ const translations = {
         messagePlaceholder: "Scrivi qui il tuo messaggio...",
         submitButton: "Invia",
       },
+    },
+    personalProjects: {
+      title: "Persönliche Projekte",
+      projects: [
+        {
+          id: 1,
+          title: "Sentiment-Analyse in sozialen Netzwerken",
+          description:
+            "Persönliches Projekt zur Analyse von Tweet-Stimmungen zu bestimmten Themen mit NLP und Klassifikationsmodellen. Nutzung von Bibliotheken wie NLTK und scikit-learn.",
+          link: "https://github.com/youruser/sentiment-analysis-project",
+          futureIdeas:
+            "Integration mit APIs anderer sozialer Netzwerke und Entwicklung eines interaktiven Dashboards in Echtzeit.",
+        },
+        {
+          id: 2,
+          title: "Börsenmarkt-Simulator",
+          description:
+            "Webanwendung zur Simulation von Börseninvestitionen, die es Nutzern ermöglicht, Strategien ohne echtes Risiko zu testen. Nutzung historischer Daten und Visualisierungen mit Plotly.",
+          link: "https://github.com/youruser/stock-market-simulator",
+          futureIdeas:
+            "Backtesting-Funktionen hinzufügen und mit Broker-APIs für Live-Daten verbinden.",
+        },
+      ],
     },
   }
 
