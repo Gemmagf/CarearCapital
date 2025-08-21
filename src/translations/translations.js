@@ -115,7 +115,7 @@ const translations = {
           id: 2,
           title: "Aplicació de Gestió de Tasques",
           description: "Aplicació full-stack amb backend en Node.js i frontend en React.",
-          link: "https://github.com/gemma/task-manager",
+          link: "https://dietaripa.vercel.app",
           futureIdeas: "Implementar mode offline al mòbil i notificacions push.",
         },
       ],
