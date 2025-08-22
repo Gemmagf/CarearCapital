@@ -80,7 +80,7 @@ const translations = {
         "BSc in Psychology, Universitat de Barcelona (2014–2019)",
       ],
       languages: [
-        "Catalan (Native)",
+        "Català (Native)",
         "Spanish (Native)",
         "English (Fluent)",
         "French (Fluent)",
