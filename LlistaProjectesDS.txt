@@ -27,6 +27,15 @@ Futurs passos:
 	•	Integrar dades en temps real de SBB o Swiss Travel API.
 	•	Afegir prediccions de tendències de mobilitat amb models de regressió o Prophet.
 
+Tool: Power BI (Microsoft free desktop version)
+Why Power BI: Excellent for KPIs, maps, and filters — and the free desktop app works offline.
+
+Key Features:
+	•	Data cleaning in Excel or Python → import to Power BI.
+	•	DAX measures for % of sustainable transport and CO₂ per person.
+	•	Interactive map of commuters (Pendler) by canton.
+
+N
 ⸻
 
 🏦 2. Swiss Household Finance – Despeses i Estalvi per Cantó
@@ -58,6 +67,8 @@ Futurs passos:
 	•	Crear un model de predicció d’estalvi segons ingressos i ubicació.
 	•	Integrar dades amb APIs de bancs o fintechs suïsses per actualitzar automàticament el dashboard.
 
+Tool: Tableau Public (completely free and online)
+Why Tableau: Great for storytelling, animated maps, and dashboards online.
 ⸻
 
 🌿 3. Swiss Sustainability Metrics – Energia i Emissions
@@ -89,6 +100,8 @@ Futurs passos:
 	•	Afegir sèries temporals amb models ARIMA o Prophet per predir emissions futures.
 	•	Crear un model Power BI amb objectius ESG comparatius entre cantons.
 
+Tool: Looker Studio (Google Data Studio) (free)
+Why Looker: Fast, cloud-based, and connects easily to public CSVs or Google Sheets.
 ⸻
 
 💼 4. Swiss Job Market & Salaries Dashboard
@@ -183,4 +196,12 @@ Futurs passos:
 	•	Entrenar un classificador que identifiqui de quin cantó prové un text.
 	•	Integrar un model de reconeixement de veu suís (speech-to-text).
 	•	Crear una app lúdica (DialektQuiz) per aprendre dialectes interactius.
+
+⸻
+
+🤖 7. Predicting Swiss Housing Prices (Data Science Project)
+
+Tool: Python (pandas, scikit-learn, matplotlib)
+Goal: Train a regression model to predict housing prices by canton using OFS housing datasets.
+Visuals: Interactive matplotlib charts
 
