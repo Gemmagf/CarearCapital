@@ -1,0 +1,186 @@
+🇨🇭 1. Swiss Mobility Dashboard – Pendularis i Transport Públic
+
+Presentació:
+Dashboard interactiu per analitzar els patrons de mobilitat a Suïssa: com la població es desplaça entre regions, quins mitjans de transport utilitza i com ha evolucionat la sostenibilitat de la mobilitat al llarg del temps.
+
+Objectius:
+	•	Entendre la distribució de pendularis per cantó i distància mitjana dels trajectes.
+	•	Analitzar la transició cap a mitjans de transport sostenibles.
+	•	Estimar l’impacte ambiental en termes d’emissions de CO₂.
+
+Dades:
+	•	Font: Bundesamt für Statistik (OFS) – Pendlerstatistik, Verkehr und Umwelt, Mobilität in der Schweiz.
+	•	Variables clau: tipus de transport, temps de trajecte, distància, emissions, any, regió.
+
+Tecnologies:
+Power BI, DAX, SQL, Python (pandas per preprocessar dades), GeoJSON (mapes cantonals).
+
+Visualitzacions principals:
+	•	Mapa de calor per densitat de pendularis per cantó.
+	•	Gràfic de línies amb l’evolució anual de l’ús del transport públic.
+	•	KPIs per mode de transport sostenible (tren, bus, bici, peu).
+
+Rellevància:
+Projecte altament contextualitzat amb l’agenda suïssa de mobilitat sostenible i neutralitat climàtica. Mostra habilitats de data storytelling amb dades oficials.
+
+Futurs passos:
+	•	Integrar dades en temps real de SBB o Swiss Travel API.
+	•	Afegir prediccions de tendències de mobilitat amb models de regressió o Prophet.
+
+⸻
+
+🏦 2. Swiss Household Finance – Despeses i Estalvi per Cantó
+
+Presentació:
+Anàlisi visual del comportament financer de les llars suïsses: ingressos, despeses i estalvi segons el cantó i la categoria econòmica.
+
+Objectius:
+	•	Comparar els nivells d’estalvi mitjà entre regions i al llarg del temps.
+	•	Visualitzar la distribució de despesa per categoria.
+	•	Identificar patrons de comportament financer segons el nivell d’ingrés.
+
+Dades:
+	•	Font: Haushaltsbudgeterhebung (HABE) – Enquesta suïssa de pressupost familiar (OFS).
+	•	Variables: ingressos, despeses per categoria (habitatge, salut, transport, menjar), regió, any.
+
+Tecnologies:
+Power BI, DAX (càlcul del % d’estalvi = (ingrés - despesa) / ingrés), Excel, Python per neteja de dades.
+
+Visualitzacions principals:
+	•	Mapes coroplètics per cantó (nivell d’estalvi i cost de vida).
+	•	Gràfics de barres i donuts per categoria de despesa.
+	•	KPI cards per ingressos, estalvi i despesa mitjana.
+
+Rellevància:
+Mostra competència en anàlisi econòmica, finances personals i visualització de dades oficials suïsses. És especialment atractiu per rols en Fintech o Data Analyst (Finance).
+
+Futurs passos:
+	•	Crear un model de predicció d’estalvi segons ingressos i ubicació.
+	•	Integrar dades amb APIs de bancs o fintechs suïsses per actualitzar automàticament el dashboard.
+
+⸻
+
+🌿 3. Swiss Sustainability Metrics – Energia i Emissions
+
+Presentació:
+Dashboard que mostra l’evolució dels objectius de sostenibilitat per cantó: emissions de CO₂, fonts renovables i eficiència energètica.
+
+Objectius:
+	•	Analitzar la reducció d’emissions al llarg dels anys.
+	•	Comparar l’ús d’energies renovables entre regions.
+	•	Visualitzar KPIs de sostenibilitat i compliment d’objectius climàtics.
+
+Dades:
+	•	Font: Bundesamt für Umwelt (BAFU), OFEN – CO₂ Statistics, Energy Consumption, Renewable Energy.
+	•	Variables: emissions CO₂ per habitant, fonts d’energia, eficiència, any, cantó.
+
+Tecnologies:
+Power BI, Python (pandas, matplotlib per anàlisi prèvia), GeoPandas per mapes, Excel.
+
+Visualitzacions principals:
+	•	KPIs: % energia renovable, tones CO₂ / habitant, millora anual.
+	•	Gràfics de línies i mapes de color segons evolució.
+	•	Taula dinàmica amb filtres per any i font energètica.
+
+Rellevància:
+Projecte alineat amb la política suïssa “Net Zero 2050”. Mostra capacitat d’aplicar analítica de dades a la sostenibilitat (àmbit molt demandat en consultoria i ESG analytics).
+
+Futurs passos:
+	•	Afegir sèries temporals amb models ARIMA o Prophet per predir emissions futures.
+	•	Crear un model Power BI amb objectius ESG comparatius entre cantons.
+
+⸻
+
+💼 4. Swiss Job Market & Salaries Dashboard
+
+Presentació:
+Anàlisi interactiva del mercat laboral suís, amb enfocament en salaris, sectors i bretxa salarial per gènere i nivell educatiu.
+
+Objectius:
+	•	Entendre les diferències salarials entre cantons i sectors.
+	•	Analitzar l’impacte del nivell d’educació sobre el salari.
+	•	Mesurar la bretxa salarial de gènere i la seva evolució.
+
+Dades:
+	•	Font: Lohnstrukturerhebung (LSE) – Swiss Earnings Structure Survey, OFS.
+	•	Variables: salari brut, sector, ocupació, educació, gènere, any, regió.
+
+Tecnologies:
+Power BI, DAX (calculs de mitjana i bretxa salarial), Python (ETL i neteja de dades).
+
+Visualitzacions principals:
+	•	Gràfics de dispersió per salari segons educació.
+	•	Barres per sector i mapa per cantó.
+	•	KPI sobre salari mitjà i bretxa salarial.
+
+Rellevància:
+Projecte aplicable a HR Analytics, People Data Science i Workforce Planning. Connecta amb la realitat econòmica suïssa i la política d’igualtat salarial.
+
+Futurs passos:
+	•	Afegir models predictius de salari segons perfil (Machine Learning).
+	•	Integrar dades d’ofertes laborals en temps real (JobRadar, Indeed API).
+
+⸻
+
+🏥 5. Swiss Healthcare Analytics – Costos i Qualitat Sanitària
+
+Presentació:
+Dashboard que analitza la despesa sanitària suïssa per cantó, asseguradora i tipus de servei mèdic.
+
+Objectius:
+	•	Mesurar el cost mitjà per pacient i per hospital.
+	•	Identificar les diferències regionals en despeses mèdiques.
+	•	Correlacionar qualitat del servei amb costos i cobertura.
+
+Dades:
+	•	Font: Bundesamt für Gesundheit (BAG) i Santésuisse.
+	•	Variables: cost per pacient, hospitals per cantó, primes d’assegurança, any.
+
+Tecnologies:
+Power BI, Python (ETL i estadística), Excel, GeoJSON (mapes cantonals).
+
+Visualitzacions principals:
+	•	KPIs: cost mitjà, hospitals per habitant, cobertura asseguradora.
+	•	Mapes comparatius per cantó.
+	•	Gràfics de tendència temporal de despesa.
+
+Rellevància:
+Ideal per rols en healthtech, assegurances o analítica de polítiques públiques. Demostra domini de dades sensibles i mètriques de qualitat.
+
+Futurs passos:
+	•	Incorporar dades de salut pública (esperança de vida, mortalitat evitable).
+	•	Fer correlacions entre despesa i resultats sanitaris.
+
+⸻
+
+🗺️ 6. DialektMap – L’evolució del suís alemany
+
+Presentació:
+Projecte de lingüística computacional i visualització de dades que mostra com varien els dialectes del suís alemany entre cantons i generacions.
+
+Objectius:
+	•	Visualitzar la distribució geogràfica de paraules i expressions dialectals.
+	•	Analitzar canvis lingüístics amb el temps.
+	•	Explorar la relació entre llengua, cultura i identitat regional.
+
+Dades:
+	•	Atlas der schweizerischen Volkskunde (SAGW) – dades dialectals històriques.
+	•	Archimob Corpus – àudios i transcripcions per regió.
+	•	Swiss SMS Corpus – missatges reals en dialecte anotats lingüísticament.
+
+Tecnologies:
+Python (NLP, speech-to-text, word frequency), Power BI / Tableau, React (per aplicació web interactiva), HuggingFace models.
+
+Visualitzacions principals:
+	•	Mapa dialectal interactiu per cantó.
+	•	Xarxa semàntica de paraules similars.
+	•	Gràfics de freqüència o word clouds per dialecte.
+
+Rellevància:
+Projecte interdisciplinari únic que combina data visualization, lingüística i machine learning. Reflecteix sensibilitat cultural i domini tècnic de NLP.
+
+Futurs passos:
+	•	Entrenar un classificador que identifiqui de quin cantó prové un text.
+	•	Integrar un model de reconeixement de veu suís (speech-to-text).
+	•	Crear una app lúdica (DialektQuiz) per aprendre dialectes interactius.
+
