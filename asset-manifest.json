@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/CarearCapital/static/css/main.4c5cd9eb.css",
+    "main.js": "/CarearCapital/static/js/main.a6f40571.js",
+    "index.html": "/CarearCapital/index.html",
+    "main.4c5cd9eb.css.map": "/CarearCapital/static/css/main.4c5cd9eb.css.map",
+    "main.a6f40571.js.map": "/CarearCapital/static/js/main.a6f40571.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.4c5cd9eb.css",
+    "static/js/main.a6f40571.js"
+  ]
+}
