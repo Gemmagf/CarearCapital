@@ -482,6 +482,9 @@ const translations = {
         messageLabel: "Missatge",
         messagePlaceholder: "Escriu el teu missatge aquí...",
         submitButton: "Enviar Missatge",
+        sendingText: "Enviant...",
+        successText: "Missatge enviat. Gràcies!",
+        errorText: "Hi ha hagut un error. Prova-ho de nou o escriu-me a l'email directament.",
       },
     },
     personalProjects: {
@@ -627,6 +630,9 @@ const translations = {
         messageLabel: "Mensaje",
         messagePlaceholder: "Escribe tu mensaje aquí...",
         submitButton: "Enviar Mensaje",
+        sendingText: "Enviando...",
+        successText: "Mensaje enviado. ¡Gracias!",
+        errorText: "Ha habido un error. Inténtalo de nuevo o escríbeme directamente al email.",
       },
     },
     personalProjects: {
@@ -772,6 +778,9 @@ const translations = {
         messageLabel: "Message",
         messagePlaceholder: "Write your message here...",
         submitButton: "Send Message",
+        sendingText: "Sending...",
+        successText: "Message sent. Thank you!",
+        errorText: "Something went wrong. Please try again or email me directly.",
       },
     },
     personalProjects: {
@@ -917,6 +926,9 @@ const translations = {
         messageLabel: "Message",
         messagePlaceholder: "Écrivez votre message ici...",
         submitButton: "Envoyer",
+        sendingText: "Envoi en cours...",
+        successText: "Message envoyé. Merci !",
+        errorText: "Une erreur est survenue. Réessayez ou écrivez-moi directement par email.",
       },
     },
     personalProjects: {
@@ -1062,6 +1074,9 @@ const translations = {
         messageLabel: "Nachricht",
         messagePlaceholder: "Schreiben Sie hier Ihre Nachricht...",
         submitButton: "Senden",
+        sendingText: "Wird gesendet...",
+        successText: "Nachricht gesendet. Danke!",
+        errorText: "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt per E-Mail.",
       },
     },
     personalProjects: {
@@ -1207,6 +1222,9 @@ const translations = {
         messageLabel: "Messaggio",
         messagePlaceholder: "Scrivi qui il tuo messaggio...",
         submitButton: "Invia",
+        sendingText: "Invio in corso...",
+        successText: "Messaggio inviato. Grazie!",
+        errorText: "Si è verificato un errore. Riprova o scrivimi direttamente via email.",
       },
     },
     personalProjects: {
