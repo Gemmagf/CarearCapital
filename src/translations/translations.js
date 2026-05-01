@@ -118,6 +118,15 @@ const translations = {
           link: "https://dietaripa.vercel.app",
           futureIdeas: "Implementar mode offline al mòbil i notificacions push.",
         },
+        {
+          id: 3,
+          title: "Marketing Science Lab",
+          description:
+            "App Streamlit interactiva que demostra Marketing Mix Modeling Bayesià, Inferència Causal (DiD, Synthetic Control, PSM) i disseny d'experiments sobre dades sintètiques d'una marca D2C de running.",
+          link: "https://github.com/Gemmagf/marketing-science-lab",
+          futureIdeas:
+            "Desplegar a Streamlit Community Cloud, afegir notebook PyMC-Marketing complet i secció d'elasticitat-preu.",
+        },
       ],
     },
   },
@@ -244,6 +253,15 @@ const translations = {
           link: "https://github.com/youruser/stock-market-simulator",
           futureIdeas:
             "Agregar funciones de backtesting y conectar con APIs de brokers para datos en vivo.",
+        },
+        {
+          id: 3,
+          title: "Marketing Science Lab",
+          description:
+            "App Streamlit interactiva que demuestra Marketing Mix Modeling Bayesiano, Inferencia Causal (DiD, Synthetic Control, PSM) y diseño de experimentos sobre datos sintéticos de una marca D2C de running.",
+          link: "https://github.com/Gemmagf/marketing-science-lab",
+          futureIdeas:
+            "Desplegar en Streamlit Community Cloud, añadir notebook PyMC-Marketing completo y una sección de elasticidad-precio.",
         },
       ],
     },
@@ -372,6 +390,15 @@ const translations = {
           futureIdeas:
             "Add strategy backtesting and connect with real broker APIs for live data.",
         },
+        {
+          id: 3,
+          title: "Marketing Science Lab",
+          description:
+            "Interactive Streamlit app demonstrating Bayesian Marketing Mix Modeling, Causal Inference (DiD, Synthetic Control, PSM) and experiment design on synthetic data from a D2C running brand.",
+          link: "https://github.com/Gemmagf/marketing-science-lab",
+          futureIdeas:
+            "Deploy on Streamlit Community Cloud, add a full PyMC-Marketing notebook and a price-elasticity micro-section.",
+        },
       ],
     }
   },
@@ -496,6 +523,15 @@ const translations = {
           link: "https://github.com/youruser/stock-market-simulator",
           futureIdeas:
             "Ajouter des fonctionnalités de backtesting et connecter avec des APIs de courtiers pour des données en direct.",
+        },
+        {
+          id: 3,
+          title: "Marketing Science Lab",
+          description:
+            "Application Streamlit interactive démontrant le Marketing Mix Modeling bayésien, l'inférence causale (DiD, Synthetic Control, PSM) et la conception d'expériences sur données synthétiques d'une marque D2C de running.",
+          link: "https://github.com/Gemmagf/marketing-science-lab",
+          futureIdeas:
+            "Déployer sur Streamlit Community Cloud, ajouter un notebook PyMC-Marketing complet et une section d'élasticité-prix.",
         },
       ],
     },
@@ -622,6 +658,15 @@ const translations = {
           futureIdeas:
             "Backtesting-Funktionen hinzufügen und mit Broker-APIs für Live-Daten verbinden.",
         },
+        {
+          id: 3,
+          title: "Marketing Science Lab",
+          description:
+            "Interaktive Streamlit-App, die Bayesianisches Marketing Mix Modeling, kausale Inferenz (DiD, Synthetic Control, PSM) und Experimentdesign auf synthetischen Daten einer D2C-Laufmarke demonstriert.",
+          link: "https://github.com/Gemmagf/marketing-science-lab",
+          futureIdeas:
+            "Deployment auf Streamlit Community Cloud, vollständiges PyMC-Marketing-Notebook und Preis-Elastizitäts-Modul ergänzen.",
+        },
       ],
     },
   },
@@ -746,6 +791,15 @@ const translations = {
           link: "https://github.com/youruser/stock-market-simulator",
           futureIdeas:
             "Backtesting-Funktionen hinzufügen und mit Broker-APIs für Live-Daten verbinden.",
+        },
+        {
+          id: 3,
+          title: "Marketing Science Lab",
+          description:
+            "App Streamlit interattiva che dimostra Marketing Mix Modeling Bayesiano, Inferenza Causale (DiD, Synthetic Control, PSM) e progettazione di esperimenti su dati sintetici di un brand D2C running.",
+          link: "https://github.com/Gemmagf/marketing-science-lab",
+          futureIdeas:
+            "Deploy su Streamlit Community Cloud, aggiungere un notebook PyMC-Marketing completo e una sezione di elasticità-prezzo.",
         },
       ],
     },
