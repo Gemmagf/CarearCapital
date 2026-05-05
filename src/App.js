@@ -1,19 +1,41 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import translations from './translations/translations';
 import LayoutHeader from './components/LayoutHeader';
 import HomeSection from './components/HomeSection';
 import CvSection from './components/CvSection';
 import ContactSection from './components/ContactSection';
 import PersonalProjectsSection from "./components/PersonalProjectsSection";
+import CvBuilderSection from "./components/CvBuilderSection";
+
+const SECRET_HASH = "#secret";
 
 function App() {
   const [appLanguage, setAppLanguage] = useState('catalan');
   const [currentPage, setCurrentPage] = useState('home');
+  const [secret, setSecret] = useState(
+    typeof window !== 'undefined' && window.location.hash === SECRET_HASH
+  );
+
+  // React to hash changes (e.g. user navigates back/forward)
+  useEffect(() => {
+    const onHash = () => setSecret(window.location.hash === SECRET_HASH);
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
 
   const t = translations[appLanguage];
 
+  // Secret CV-builder page: hide normal nav, render only the builder
+  if (secret) {
+    return (
+      <div className="min-h-screen bg-gray-50">
+        <CvBuilderSection translations={t} currentLanguage={appLanguage} />
+      </div>
+    );
+  }
+
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-50">
       <LayoutHeader
         setCurrentPage={setCurrentPage}
         setAppLanguage={setAppLanguage}

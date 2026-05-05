@@ -63,6 +63,27 @@ const PROJECT_META = [
     repo: "https://github.com/Gemmagf/DietariPa",
   },
   {
+    id: "rovello",
+    tag: "AI / Nature",
+    stack: ["React", "Node.js", "MongoDB", "Image Recognition"],
+    link: null,
+    repo: "https://github.com/Gemmagf/Rovello",
+  },
+  {
+    id: "aleman",
+    tag: "AI / Language",
+    stack: ["Next.js", "TypeScript", "Supabase", "Claude API", "OpenAI"],
+    link: "https://gemmagf.github.io/aleman/demo/",
+    repo: "https://github.com/Gemmagf/aleman",
+  },
+  {
+    id: "xina",
+    tag: "Language / PWA",
+    stack: ["HTML", "CSS", "JavaScript", "PWA"],
+    link: "https://gemmagf.github.io/xina/",
+    repo: "https://github.com/Gemmagf/xina",
+  },
+  {
     id: "receptes",
     tag: "Web / Cultural",
     stack: ["Vite", "JavaScript", "Tailwind", "Netlify"],
@@ -112,6 +133,21 @@ const PROJECT_TEXTS = {
       description:
         "Aplicació full-stack per planificar dietes i menús setmanals: registre de receptes, càlcul de macronutrients i generació automàtica de la llista de la compra.",
     },
+    rovello: {
+      title: "Rovelló — Identificador de bolets",
+      description:
+        "App web que identifica bolets a partir de fotos amb reconeixement d'imatges per IA. Inclou diccionari d'espècies, tips de verificació, distinció entre comestibles i tòxics i mapa de zones i temporades. Backend en Node.js + MongoDB.",
+    },
+    aleman: {
+      title: "Alemany — App d'aprenentatge amb IA",
+      description:
+        "Plataforma per aprendre alemany pensada per al dia a dia a Suïssa. Usa Claude i OpenAI per generar exercicis i feedback personalitzats. Auth i persistència amb Supabase, frontend Next.js + TypeScript.",
+    },
+    xina: {
+      title: "瑾曼学 — Xinès per al viatge",
+      description:
+        "PWA mobile-first per aprendre els bàsics del xinès mandarí abans d'un viatge: vocabulari essencial, frases clau, pinyin i caràcters. Instal·lable al mòbil i funciona offline.",
+    },
     receptes: {
       title: "Receptes Catalanes (1080)",
       description:
@@ -153,6 +189,21 @@ const PROJECT_TEXTS = {
       title: "Dietaripa — Planificador de dietas",
       description:
         "Aplicación full-stack para planificar dietas y menús semanales: registro de recetas, cálculo de macronutrientes y generación automática de la lista de la compra.",
+    },
+    rovello: {
+      title: "Rovelló — Identificador de setas",
+      description:
+        "App web que identifica setas a partir de fotos con reconocimiento de imágenes por IA. Incluye diccionario de especies, tips de verificación, distinción entre comestibles y tóxicas y mapa de zonas y temporadas. Backend en Node.js + MongoDB.",
+    },
+    aleman: {
+      title: "Alemán — App de aprendizaje con IA",
+      description:
+        "Plataforma para aprender alemán pensada para el día a día en Suiza. Usa Claude y OpenAI para generar ejercicios y feedback personalizados. Auth y persistencia con Supabase, frontend Next.js + TypeScript.",
+    },
+    xina: {
+      title: "瑾曼学 — Chino para el viaje",
+      description:
+        "PWA mobile-first para aprender lo básico del chino mandarín antes de un viaje: vocabulario esencial, frases clave, pinyin y caracteres. Instalable en el móvil y funciona offline.",
     },
     receptes: {
       title: "Recetas Catalanas (1080)",
@@ -196,6 +247,21 @@ const PROJECT_TEXTS = {
       description:
         "Full-stack application for weekly diet and menu planning: recipe library, macronutrient calculation and automatic shopping-list generation.",
     },
+    rovello: {
+      title: "Rovelló — Mushroom Identifier",
+      description:
+        "Web app that identifies mushrooms from photos using AI image recognition. Includes a species dictionary, verification tips, edible-vs-toxic distinction, and a map of typical regions and seasons. Node.js + MongoDB backend.",
+    },
+    aleman: {
+      title: "German — AI-powered Learning app",
+      description:
+        "Platform to learn German tailored to daily life in Switzerland. Uses Claude and OpenAI to generate personalised exercises and feedback. Auth and persistence with Supabase, Next.js + TypeScript frontend.",
+    },
+    xina: {
+      title: "瑾曼学 — Mandarin for travel",
+      description:
+        "Mobile-first PWA to learn the basics of Mandarin Chinese before a trip: essential vocabulary, key phrases, pinyin and characters. Installable on mobile and works offline.",
+    },
     receptes: {
       title: "Catalan Recipes (1080)",
       description:
@@ -237,6 +303,21 @@ const PROJECT_TEXTS = {
       title: "Dietaripa — Planificateur de régimes",
       description:
         "Application full-stack pour la planification de régimes et de menus hebdomadaires : bibliothèque de recettes, calcul des macronutriments et génération automatique de la liste de courses.",
+    },
+    rovello: {
+      title: "Rovelló — Identification de champignons",
+      description:
+        "App web qui identifie les champignons à partir de photos grâce à la reconnaissance d'images par IA. Inclut un dictionnaire d'espèces, des conseils de vérification, la distinction comestibles/toxiques et une carte des zones et saisons. Backend Node.js + MongoDB.",
+    },
+    aleman: {
+      title: "Allemand — App d'apprentissage par IA",
+      description:
+        "Plateforme pour apprendre l'allemand pensée pour le quotidien en Suisse. Utilise Claude et OpenAI pour générer exercices et feedback personnalisés. Auth et persistance avec Supabase, frontend Next.js + TypeScript.",
+    },
+    xina: {
+      title: "瑾曼学 — Mandarin pour voyager",
+      description:
+        "PWA mobile-first pour apprendre les bases du chinois mandarin avant un voyage : vocabulaire essentiel, phrases clés, pinyin et caractères. Installable sur mobile et fonctionne hors ligne.",
     },
     receptes: {
       title: "Recettes Catalanes (1080)",
@@ -280,6 +361,21 @@ const PROJECT_TEXTS = {
       description:
         "Full-Stack-App zur Planung von Diäten und Wochenmenüs: Rezeptbibliothek, Makronährstoff-Berechnung und automatische Einkaufslisten-Generierung.",
     },
+    rovello: {
+      title: "Rovelló — Pilz-Erkenner",
+      description:
+        "Web-App, die Pilze anhand von Fotos mit KI-Bilderkennung identifiziert. Enthält ein Arten-Wörterbuch, Verifikationstipps, Unterscheidung essbar/giftig und eine Karte typischer Regionen und Saisonzeiten. Backend mit Node.js + MongoDB.",
+    },
+    aleman: {
+      title: "Deutsch — KI-gestützte Lern-App",
+      description:
+        "Plattform zum Deutschlernen, zugeschnitten auf den Alltag in der Schweiz. Nutzt Claude und OpenAI, um personalisierte Übungen und Feedback zu generieren. Auth und Persistenz mit Supabase, Frontend mit Next.js + TypeScript.",
+    },
+    xina: {
+      title: "瑾曼学 — Mandarin für die Reise",
+      description:
+        "Mobile-First-PWA, um vor einer Reise die Grundlagen des Mandarin-Chinesisch zu lernen: essenzielles Vokabular, Schlüsselphrasen, Pinyin und Schriftzeichen. Auf dem Smartphone installierbar und offline nutzbar.",
+    },
     receptes: {
       title: "Katalanische Rezepte (1080)",
       description:
@@ -322,6 +418,21 @@ const PROJECT_TEXTS = {
       description:
         "App full-stack per pianificare diete e menù settimanali: libreria di ricette, calcolo dei macronutrienti e generazione automatica della lista della spesa.",
     },
+    rovello: {
+      title: "Rovelló — Identificatore di funghi",
+      description:
+        "Web app che identifica i funghi a partire da foto tramite riconoscimento di immagini con IA. Include dizionario di specie, consigli di verifica, distinzione tra commestibili e tossici e mappa di zone e stagioni. Backend in Node.js + MongoDB.",
+    },
+    aleman: {
+      title: "Tedesco — App di apprendimento con IA",
+      description:
+        "Piattaforma per imparare il tedesco pensata per la vita quotidiana in Svizzera. Usa Claude e OpenAI per generare esercizi e feedback personalizzati. Auth e persistenza con Supabase, frontend Next.js + TypeScript.",
+    },
+    xina: {
+      title: "瑾曼学 — Mandarino per il viaggio",
+      description:
+        "PWA mobile-first per imparare le basi del cinese mandarino prima di un viaggio: vocabolario essenziale, frasi chiave, pinyin e caratteri. Installabile sul cellulare e funziona offline.",
+    },
     receptes: {
       title: "Ricette Catalane (1080)",
       description:
@@ -359,10 +470,21 @@ const translations = {
     },
     home: {
       title: "Hola i gràcies per visitar la meva pàgina!",
+      roleHeadline: "Senior Data Scientist & Product Owner",
       description:
         "Sóc la Gemma, Senior Data Scientist & Product Owner amb més de 4 anys d'experiència construint models que impulsen decisions en marketing, risc i producte. M'apassiona connectar equips de negoci i tècnics, transformar dades en insights accionables i fomentar la col·laboració. La meva trajectòria combina modelatge estadístic, disseny de dashboards, gestió d'stakeholders i ownership de producte en entorns àgils.",
+      personalNote:
+        "Resolc problemes amb creativitat i em moc bé en l'ambigüitat. M'encanta treballar en equip i gaudeixo implementant noves tecnologies i solucions amb IA i automatització. Em complemento amb perfils més orientats al detall. Parlo 6 idiomes — crec que les millors idees surten quan cadascú s'expressa en la seva llengua materna.",
       ctaCV: "Veure currículum",
       ctaProjects: "Veure projectes",
+      stats: {
+        experienceLabel: "Experiència",
+        experienceValue: "Més de 4 anys",
+        projectsLabel: "Projectes",
+        projectsValue: "11 publicats",
+        languagesLabel: "Idiomes",
+        languagesValue: "6 parlats",
+      },
     },
     cv: {
       title: "Currículum",
@@ -462,13 +584,16 @@ const translations = {
       techStack,
       methodologies: [
         "Agile (Scrum)",
-        "A/B Testing",
+        "Disseny d'experiments",
         "Detecció d'anomalies",
+        "Detecció d'outliers",
         "Disseny de dashboards",
         "Disseny de KPIs",
         "Modelatge de regressió",
-        "Forecasting",
-        "Inferència causal",
+        "Forecasting de vendes",
+        "Anàlisi de ROI / ROAS / CPA",
+        "Avaluació de marketing mix",
+        "Gestió de stakeholders",
       ],
     },
     contact: {
@@ -491,6 +616,7 @@ const translations = {
       title: "Projectes Personals",
       linkText: "Veure projecte",
       repoText: "Codi font",
+      featuredLabel: "Destacat",
       projects: buildProjects("catalan"),
     },
   },
@@ -507,10 +633,21 @@ const translations = {
     },
     home: {
       title: "¡Hola y gracias por visitar mi página!",
+      roleHeadline: "Senior Data Scientist & Product Owner",
       description:
         "Soy Gemma, Senior Data Scientist & Product Owner con más de 4 años de experiencia construyendo modelos que impulsan decisiones en marketing, riesgo y producto. Me apasiona conectar equipos de negocio y técnicos, transformar datos en insights accionables y fomentar la colaboración. Mi trayectoria combina modelado estadístico, diseño de dashboards, gestión de stakeholders y ownership de producto en entornos ágiles.",
+      personalNote:
+        "Resuelvo problemas con creatividad y me muevo bien en la ambigüedad. Me encanta el trabajo en equipo y disfruto implementando nuevas tecnologías y soluciones con IA y automatización. Me complemento con perfiles más orientados al detalle. Hablo 6 idiomas — creo que las mejores ideas surgen cuando cada uno se expresa en su lengua materna.",
       ctaCV: "Ver currículum",
       ctaProjects: "Ver proyectos",
+      stats: {
+        experienceLabel: "Experiencia",
+        experienceValue: "Más de 4 años",
+        projectsLabel: "Proyectos",
+        projectsValue: "11 publicados",
+        languagesLabel: "Idiomas",
+        languagesValue: "6 hablados",
+      },
     },
     cv: {
       title: "Currículum",
@@ -610,13 +747,16 @@ const translations = {
       techStack,
       methodologies: [
         "Agile (Scrum)",
-        "A/B Testing",
+        "Diseño de experimentos",
         "Detección de anomalías",
+        "Detección de outliers",
         "Diseño de dashboards",
         "Diseño de KPIs",
         "Modelado de regresión",
-        "Forecasting",
-        "Inferencia causal",
+        "Forecasting de ventas",
+        "Análisis de ROI / ROAS / CPA",
+        "Evaluación de marketing mix",
+        "Gestión de stakeholders",
       ],
     },
     contact: {
@@ -639,6 +779,7 @@ const translations = {
       title: "Proyectos Personales",
       linkText: "Ver proyecto",
       repoText: "Código fuente",
+      featuredLabel: "Destacado",
       projects: buildProjects("spanish"),
     },
   },
@@ -655,10 +796,21 @@ const translations = {
     },
     home: {
       title: "Welcome, and thanks for stopping by!",
+      roleHeadline: "Senior Data Scientist & Product Owner",
       description:
         "I'm Gemma, a Senior Data Scientist & Product Owner with over 4 years of experience building decision-driving models across marketing, risk, and product. I love bridging business and technical teams, turning data into actionable insights, and fostering collaboration. My background combines statistical modeling, dashboard design, stakeholder management, and product ownership in agile environments.",
+      personalNote:
+        "I solve problems creatively and feel at home in ambiguity. I love teamwork and enjoy implementing new technologies and solutions with AI and automation. I pair best with more detail-oriented teammates. I speak 6 languages — I believe the best ideas surface when people express themselves in their mother tongue.",
       ctaCV: "See CV",
       ctaProjects: "See projects",
+      stats: {
+        experienceLabel: "Experience",
+        experienceValue: "4+ years",
+        projectsLabel: "Projects",
+        projectsValue: "11 published",
+        languagesLabel: "Languages",
+        languagesValue: "6 spoken",
+      },
     },
     cv: {
       title: "Curriculum",
@@ -758,13 +910,16 @@ const translations = {
       techStack,
       methodologies: [
         "Agile (Scrum)",
-        "A/B Testing",
+        "Experiment Design",
         "Anomaly Detection",
+        "Outlier Detection",
         "Dashboard Design",
         "KPI Design",
         "Regression Modeling",
-        "Forecasting",
-        "Causal Inference",
+        "Sales Forecasting",
+        "ROI / ROAS / CPA Analysis",
+        "Marketing Mix Evaluation",
+        "Stakeholder Management",
       ],
     },
     contact: {
@@ -787,6 +942,7 @@ const translations = {
       title: "Personal Projects",
       linkText: "View project",
       repoText: "Source code",
+      featuredLabel: "Featured",
       projects: buildProjects("english"),
     },
   },
@@ -803,10 +959,21 @@ const translations = {
     },
     home: {
       title: "Bienvenue et merci de votre visite !",
+      roleHeadline: "Senior Data Scientist & Product Owner",
       description:
         "Je suis Gemma, Senior Data Scientist & Product Owner avec plus de 4 ans d'expérience à construire des modèles qui orientent les décisions en marketing, risque et produit. Je suis passionnée par le rapprochement des équipes business et techniques, la transformation des données en insights actionnables et la collaboration. Mon parcours combine modélisation statistique, conception de dashboards, gestion des parties prenantes et product ownership en environnement Agile.",
+      personalNote:
+        "Je résous les problèmes avec créativité et je suis à l'aise dans l'ambiguïté. J'adore le travail en équipe et j'apprécie de mettre en œuvre de nouvelles technologies et solutions avec l'IA et l'automatisation. Je me complète avec des profils plus orientés détail. Je parle 6 langues — je crois que les meilleures idées émergent quand chacun s'exprime dans sa langue maternelle.",
       ctaCV: "Voir le CV",
       ctaProjects: "Voir les projets",
+      stats: {
+        experienceLabel: "Expérience",
+        experienceValue: "Plus de 4 ans",
+        projectsLabel: "Projets",
+        projectsValue: "11 publiés",
+        languagesLabel: "Langues",
+        languagesValue: "6 parlées",
+      },
     },
     cv: {
       title: "Curriculum Vitae",
@@ -906,13 +1073,16 @@ const translations = {
       techStack,
       methodologies: [
         "Agile (Scrum)",
-        "A/B Testing",
+        "Conception d'expériences",
         "Détection d'anomalies",
+        "Détection d'outliers",
         "Conception de dashboards",
         "Conception de KPI",
         "Modélisation de régression",
-        "Forecasting",
-        "Inférence causale",
+        "Prévision des ventes",
+        "Analyse ROI / ROAS / CPA",
+        "Évaluation du marketing mix",
+        "Gestion des stakeholders",
       ],
     },
     contact: {
@@ -935,6 +1105,7 @@ const translations = {
       title: "Projets Personnels",
       linkText: "Voir le projet",
       repoText: "Code source",
+      featuredLabel: "Mis en avant",
       projects: buildProjects("french"),
     },
   },
@@ -951,10 +1122,21 @@ const translations = {
     },
     home: {
       title: "Willkommen und danke für Ihren Besuch!",
+      roleHeadline: "Senior Data Scientist & Product Owner",
       description:
         "Ich bin Gemma, Senior Data Scientist & Product Owner mit über 4 Jahren Erfahrung im Aufbau von Modellen, die Entscheidungen in Marketing, Risk und Product vorantreiben. Ich verbinde gerne Business- und Tech-Teams, mache aus Daten handlungsleitende Insights und fördere Zusammenarbeit. Mein Hintergrund umfasst statistische Modellierung, Dashboard-Design, Stakeholder-Management und Product Ownership in agilen Umgebungen.",
+      personalNote:
+        "Ich löse Probleme kreativ und fühle mich in Ambiguität wohl. Ich liebe Teamarbeit und setze gerne neue Technologien und Lösungen mit KI und Automatisierung um. Ich ergänze mich am besten mit detailorientierteren Profilen. Ich spreche 6 Sprachen — ich glaube, die besten Ideen entstehen, wenn jeder in seiner Muttersprache spricht.",
       ctaCV: "Lebenslauf ansehen",
       ctaProjects: "Projekte ansehen",
+      stats: {
+        experienceLabel: "Erfahrung",
+        experienceValue: "Über 4 Jahre",
+        projectsLabel: "Projekte",
+        projectsValue: "11 veröffentlicht",
+        languagesLabel: "Sprachen",
+        languagesValue: "6 gesprochen",
+      },
     },
     cv: {
       title: "Lebenslauf",
@@ -1054,13 +1236,16 @@ const translations = {
       techStack,
       methodologies: [
         "Agile (Scrum)",
-        "A/B Testing",
+        "Experiment-Design",
         "Anomalieerkennung",
+        "Outlier Detection",
         "Dashboard-Design",
         "KPI-Design",
         "Regressionsmodellierung",
-        "Forecasting",
-        "Kausale Inferenz",
+        "Umsatzprognose",
+        "ROI / ROAS / CPA-Analyse",
+        "Marketing-Mix-Bewertung",
+        "Stakeholder-Management",
       ],
     },
     contact: {
@@ -1083,6 +1268,7 @@ const translations = {
       title: "Persönliche Projekte",
       linkText: "Projekt ansehen",
       repoText: "Quellcode",
+      featuredLabel: "Hervorgehoben",
       projects: buildProjects("german"),
     },
   },
@@ -1099,10 +1285,21 @@ const translations = {
     },
     home: {
       title: "Benvenuti e grazie per essere passati!",
+      roleHeadline: "Senior Data Scientist & Product Owner",
       description:
         "Sono Gemma, Senior Data Scientist & Product Owner con oltre 4 anni di esperienza nella costruzione di modelli che guidano le decisioni in marketing, rischio e prodotto. Mi appassiona collegare team business e tecnici, trasformare i dati in insights azionabili e favorire la collaborazione. Il mio background combina modellazione statistica, design di dashboard, gestione degli stakeholder e product ownership in ambienti agili.",
+      personalNote:
+        "Risolvo problemi con creatività e mi sento a mio agio nell'ambiguità. Adoro il lavoro in team e mi piace implementare nuove tecnologie e soluzioni con IA e automazione. Mi completo al meglio con profili più orientati al dettaglio. Parlo 6 lingue — credo che le idee migliori emergano quando ognuno si esprime nella propria lingua madre.",
       ctaCV: "Vedi CV",
       ctaProjects: "Vedi progetti",
+      stats: {
+        experienceLabel: "Esperienza",
+        experienceValue: "Oltre 4 anni",
+        projectsLabel: "Progetti",
+        projectsValue: "11 pubblicati",
+        languagesLabel: "Lingue",
+        languagesValue: "6 parlate",
+      },
     },
     cv: {
       title: "Curriculum Vitae",
@@ -1202,13 +1399,16 @@ const translations = {
       techStack,
       methodologies: [
         "Agile (Scrum)",
-        "A/B Testing",
+        "Design degli esperimenti",
         "Rilevamento anomalie",
+        "Rilevamento outlier",
         "Design di dashboard",
         "Design di KPI",
         "Modellazione di regressione",
-        "Forecasting",
-        "Inferenza causale",
+        "Previsione vendite",
+        "Analisi ROI / ROAS / CPA",
+        "Valutazione del marketing mix",
+        "Gestione degli stakeholder",
       ],
     },
     contact: {
@@ -1231,6 +1431,7 @@ const translations = {
       title: "Progetti Personali",
       linkText: "Vedi progetto",
       repoText: "Codice sorgente",
+      featuredLabel: "In evidenza",
       projects: buildProjects("italian"),
     },
   },

@@ -40,23 +40,33 @@ const ContactSection = ({ translations, social = {} }) => {
   const successText = t.form.successText || "Missatge enviat. Gràcies!";
   const errorText = t.form.errorText || "Hi ha hagut un error. Prova-ho de nou o escriu directament al meu email.";
 
-  return (
-    <section className="p-8 bg-white rounded-2xl shadow-lg mx-4 my-6">
-      <h2 className="text-4xl font-bold text-gray-800 mb-8 text-center">
-        {t.title}
-      </h2>
-      <div className="max-w-2xl mx-auto">
-        <p className="text-lg text-gray-700 mb-6 text-center">
-          {t.description}
-        </p>
+  const inputClass =
+    "w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-rose-200 focus:border-rose-400 transition-all bg-white";
 
-        <div className="flex flex-wrap justify-center gap-3 mb-8">
+  return (
+    <section className="bg-white rounded-2xl shadow-sm border border-gray-100 mx-4 my-6 px-6 md:px-12 py-12 md:py-16">
+      <div className="max-w-2xl mx-auto">
+        <div className="text-center mb-10">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-gray-900">
+            {t.title}
+          </h2>
+          <div className="mt-4 mx-auto w-16 h-[3px] bg-rose-500 rounded-full" />
+          <p className="text-base md:text-lg text-gray-700 mt-6">
+            {t.description}
+          </p>
+        </div>
+
+        <div className="flex flex-wrap justify-center gap-3 mb-10">
           {social.email && (
             <a
               href={`mailto:${social.email}`}
-              className="px-4 py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-rose-500 text-white rounded-full font-medium hover:bg-rose-600 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
             >
-              ✉ {social.email}
+              <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
+                <polyline points="22,6 12,13 2,6" />
+              </svg>
+              {social.email}
             </a>
           )}
           {social.linkedin && (
@@ -64,16 +74,19 @@ const ContactSection = ({ translations, social = {} }) => {
               href={social.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 bg-sky-700 text-white rounded-lg font-medium hover:bg-sky-800 transition"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white text-gray-900 rounded-full font-medium border border-gray-300 hover:border-rose-300 hover:bg-rose-50 shadow-sm hover:shadow-md hover:-translate-y-0.5 transition-all"
             >
-              in LinkedIn
+              <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor" aria-hidden="true">
+                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+              LinkedIn
             </a>
           )}
         </div>
 
-        <form className="space-y-6" onSubmit={handleSubmit}>
+        <form className="space-y-5" onSubmit={handleSubmit}>
           <div>
-            <label htmlFor="name" className="block text-lg font-medium text-gray-700 mb-2">
+            <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-1.5">
               {t.form.nameLabel}
             </label>
             <input
@@ -82,12 +95,12 @@ const ContactSection = ({ translations, social = {} }) => {
               name="name"
               value={form.name}
               onChange={handleChange("name")}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-gray-500 focus:border-gray-500 transition-all"
+              className={inputClass}
               placeholder={t.form.namePlaceholder}
             />
           </div>
           <div>
-            <label htmlFor="email" className="block text-lg font-medium text-gray-700 mb-2">
+            <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1.5">
               {t.form.emailLabel}
             </label>
             <input
@@ -96,12 +109,12 @@ const ContactSection = ({ translations, social = {} }) => {
               name="email"
               value={form.email}
               onChange={handleChange("email")}
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-gray-500 focus:border-gray-500 transition-all"
+              className={inputClass}
               placeholder={t.form.emailPlaceholder}
             />
           </div>
           <div>
-            <label htmlFor="message" className="block text-lg font-medium text-gray-700 mb-2">
+            <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-1.5">
               {t.form.messageLabel}
             </label>
             <textarea
@@ -111,25 +124,25 @@ const ContactSection = ({ translations, social = {} }) => {
               value={form.message}
               onChange={handleChange("message")}
               required
-              className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-gray-500 focus:border-gray-500 transition-all resize-none"
+              className={`${inputClass} resize-none`}
               placeholder={t.form.messagePlaceholder}
             ></textarea>
           </div>
           <button
             type="submit"
             disabled={status === "sending"}
-            className="w-full py-3 bg-gray-800 text-white text-lg font-semibold rounded-lg shadow-md hover:bg-gray-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-3.5 bg-rose-500 text-white text-base font-semibold rounded-full shadow-md hover:bg-rose-600 hover:shadow-lg hover:-translate-y-0.5 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:translate-y-0"
           >
             {status === "sending" ? sendingText : t.form.submitButton}
           </button>
           {status === "success" && (
-            <p className="text-green-700 bg-green-50 border border-green-200 rounded-lg px-4 py-3 text-center">
-              ✓ {successText}
+            <p className="text-rose-700 bg-rose-50 border border-rose-200 rounded-xl px-4 py-3 text-center font-medium">
+              {successText}
             </p>
           )}
           {status === "error" && (
-            <p className="text-red-700 bg-red-50 border border-red-200 rounded-lg px-4 py-3 text-center">
-              ✗ {errorText}
+            <p className="text-red-700 bg-red-50 border border-red-200 rounded-xl px-4 py-3 text-center font-medium">
+              {errorText}
             </p>
           )}
         </form>

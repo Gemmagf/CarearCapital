@@ -1,3 +1,75 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Elegant display font for headings */
+.font-display {
+  font-family: "Playfair Display", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  letter-spacing: -0.02em;
+}
+
+/* Generated CV markdown rendering */
+.cv-print h1 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin: 0 0 0.25rem 0;
+  letter-spacing: -0.02em;
+  color: #111;
+}
+.cv-print h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin: 1.5rem 0 0.5rem 0;
+  padding-bottom: 0.25rem;
+  border-bottom: 2px solid #f43f5e;
+  color: #111;
+}
+.cv-print h3 {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin: 0.9rem 0 0.1rem 0;
+  color: #111;
+}
+.cv-print p {
+  margin: 0.4rem 0;
+  line-height: 1.55;
+  color: #333;
+}
+.cv-print strong { font-weight: 600; color: #111; }
+.cv-print em { color: #6b7280; font-style: italic; }
+.cv-print ul {
+  margin: 0.4rem 0 0.8rem 0;
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+.cv-print li {
+  margin: 0.15rem 0;
+  line-height: 1.5;
+  color: #333;
+}
+.cv-print li::marker { color: #f43f5e; }
+
+/* Print: only the generated CV, on plain white */
+@media print {
+  @page {
+    size: A4;
+    margin: 18mm 16mm;
+  }
+  body { background: #fff !important; }
+  /* Hide everything except the generated CV content */
+  body * { visibility: hidden; }
+  .cv-print, .cv-print * { visibility: visible; }
+  .cv-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  .cv-print h2 { page-break-after: avoid; }
+  .cv-print h3 { page-break-after: avoid; }
+  .cv-print li { page-break-inside: avoid; }
+}

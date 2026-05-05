@@ -2,13 +2,13 @@ import React from 'react';
 
 const LayoutHeader = ({ setCurrentPage, setAppLanguage, translations }) => {
   const linkClass =
-    "text-gray-200 hover:text-white transition-colors font-medium px-2";
+    "text-gray-700 hover:text-rose-600 transition-colors font-medium px-2";
 
   return (
-    <header className="flex flex-wrap justify-between items-center p-4 bg-gray-900 shadow-md rounded-b-2xl gap-3">
+    <header className="flex flex-wrap justify-between items-center px-6 py-4 bg-white border-b border-gray-100 gap-3">
       <button
         onClick={() => setCurrentPage('home')}
-        className="text-2xl font-bold text-white hover:text-gray-200 transition-colors"
+        className="font-display text-2xl font-bold text-gray-900 hover:text-rose-600 transition-colors"
       >
         {translations.name}
       </button>
@@ -43,7 +43,7 @@ const LayoutHeader = ({ setCurrentPage, setAppLanguage, translations }) => {
 
         <select
           onChange={(e) => setAppLanguage(e.target.value)}
-          className="ml-2 px-3 py-2 rounded-md text-sm font-medium bg-white text-gray-900 border border-gray-300 shadow-sm cursor-pointer hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-blue-400"
+          className="ml-2 px-3 py-2 rounded-full text-sm font-medium bg-white text-gray-900 border border-gray-300 shadow-sm cursor-pointer hover:bg-rose-50 hover:border-rose-300 focus:outline-none focus:ring-2 focus:ring-rose-300"
           aria-label="Language"
         >
           <option value="catalan">Català</option>
