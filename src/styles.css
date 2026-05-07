@@ -8,8 +8,8 @@
   letter-spacing: -0.02em;
 }
 
-/* Generated CV markdown rendering */
-.cv-print h1 {
+/* Markdown rendering used by the secret CV builder (.cv-md class) */
+.cv-md h1 {
   font-family: "Playfair Display", Georgia, serif;
   font-size: 2.25rem;
   font-weight: 700;
@@ -17,7 +17,7 @@
   letter-spacing: -0.02em;
   color: #111;
 }
-.cv-print h2 {
+.cv-md h2 {
   font-family: "Playfair Display", Georgia, serif;
   font-size: 1.4rem;
   font-weight: 700;
@@ -26,39 +26,38 @@
   border-bottom: 2px solid #f43f5e;
   color: #111;
 }
-.cv-print h3 {
+.cv-md h3 {
   font-size: 1.05rem;
   font-weight: 600;
   margin: 0.9rem 0 0.1rem 0;
   color: #111;
 }
-.cv-print p {
+.cv-md p {
   margin: 0.4rem 0;
   line-height: 1.55;
   color: #333;
 }
-.cv-print strong { font-weight: 600; color: #111; }
-.cv-print em { color: #6b7280; font-style: italic; }
-.cv-print ul {
+.cv-md strong { font-weight: 600; color: #111; }
+.cv-md em { color: #6b7280; font-style: italic; }
+.cv-md ul {
   margin: 0.4rem 0 0.8rem 0;
   padding-left: 1.25rem;
   list-style: disc;
 }
-.cv-print li {
+.cv-md li {
   margin: 0.15rem 0;
   line-height: 1.5;
   color: #333;
 }
-.cv-print li::marker { color: #f43f5e; }
+.cv-md li::marker { color: #f43f5e; }
 
-/* Print: only the generated CV, on plain white */
+/* Print: only the .cv-print container is visible, on plain white A4 */
 @media print {
   @page {
     size: A4;
-    margin: 18mm 16mm;
+    margin: 16mm 14mm;
   }
-  body { background: #fff !important; }
-  /* Hide everything except the generated CV content */
+  html, body { background: #fff !important; margin: 0 !important; padding: 0 !important; }
   body * { visibility: hidden; }
   .cv-print, .cv-print * { visibility: visible; }
   .cv-print {
@@ -66,10 +65,24 @@
     left: 0;
     top: 0;
     width: 100%;
-    padding: 0;
-    margin: 0;
+    background: transparent !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
-  .cv-print h2 { page-break-after: avoid; }
-  .cv-print h3 { page-break-after: avoid; }
-  .cv-print li { page-break-inside: avoid; }
+  .cv-print * {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    transition: none !important;
+    animation: none !important;
+  }
+  /* Avoid awkward breaks */
+  .cv-print h1, .cv-print h2, .cv-print h3 { page-break-after: avoid; }
+  .cv-print li, .cv-print article { page-break-inside: avoid; }
+  /* Hide print-only elements that show only on screen */
+  .print\:hidden { display: none !important; }
 }

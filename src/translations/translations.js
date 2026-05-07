@@ -10,6 +10,7 @@ const shared = {
     email: "gemmagdlf@gmail.com",
     phone: "+41 76 269 8038",
     phoneAlt: "+34 637 588 854",
+    website: "https://gemmagf.github.io/CarearCapital/",
   },
 };
 
@@ -64,8 +65,9 @@ const PROJECT_META = [
   },
   {
     id: "rovello",
-    tag: "AI / Nature",
-    stack: ["React", "Node.js", "MongoDB", "Image Recognition"],
+    tag: "Computer Vision / AI",
+    image: "/images/rovello_card.png",
+    stack: ["PyTorch", "ConvNeXt-Tiny", "React", "Flask", "KDE Bayesian Fusion", "MPS (Apple M4)", "iNaturalist API"],
     link: null,
     repo: "https://github.com/Gemmagf/Rovello",
   },
@@ -134,9 +136,9 @@ const PROJECT_TEXTS = {
         "Aplicació full-stack per planificar dietes i menús setmanals: registre de receptes, càlcul de macronutrients i generació automàtica de la llista de la compra.",
     },
     rovello: {
-      title: "Rovelló — Identificador de bolets",
+      title: "Rovello — MushroomScan AI",
       description:
-        "App web que identifica bolets a partir de fotos amb reconeixement d'imatges per IA. Inclou diccionari d'espècies, tips de verificació, distinció entre comestibles i tòxics i mapa de zones i temporades. Backend en Node.js + MongoDB.",
+        "Classificador de bolets entrenat sobre 1.035 espècies de Catalunya i Suïssa. Combina visió artificial (ConvNeXt-Tiny) amb fusió bayesiana geo-temporal: la teva ubicació i l'època de l'any milloren les prediccions. Assoleix 67% top-1 i 88% top-5 accuracy sobre 44k imatges d'iNaturalist. Construït amb PyTorch (MPS/Apple M4), React i Flask.",
     },
     aleman: {
       title: "Alemany — App d'aprenentatge amb IA",
@@ -191,9 +193,9 @@ const PROJECT_TEXTS = {
         "Aplicación full-stack para planificar dietas y menús semanales: registro de recetas, cálculo de macronutrientes y generación automática de la lista de la compra.",
     },
     rovello: {
-      title: "Rovelló — Identificador de setas",
+      title: "Rovello — MushroomScan AI",
       description:
-        "App web que identifica setas a partir de fotos con reconocimiento de imágenes por IA. Incluye diccionario de especies, tips de verificación, distinción entre comestibles y tóxicas y mapa de zonas y temporadas. Backend en Node.js + MongoDB.",
+        "Clasificador de setas entrenado sobre 1.035 especies de Cataluña y Suiza. Combina visión artificial (ConvNeXt-Tiny) con fusión bayesiana geo-temporal: tu ubicación y la época del año mejoran las predicciones. Alcanza 67% top-1 y 88% top-5 accuracy sobre 44k imágenes de iNaturalist. Construido con PyTorch (MPS/Apple M4), React y Flask.",
     },
     aleman: {
       title: "Alemán — App de aprendizaje con IA",
@@ -248,9 +250,9 @@ const PROJECT_TEXTS = {
         "Full-stack application for weekly diet and menu planning: recipe library, macronutrient calculation and automatic shopping-list generation.",
     },
     rovello: {
-      title: "Rovelló — Mushroom Identifier",
+      title: "Rovello — MushroomScan AI",
       description:
-        "Web app that identifies mushrooms from photos using AI image recognition. Includes a species dictionary, verification tips, edible-vs-toxic distinction, and a map of typical regions and seasons. Node.js + MongoDB backend.",
+        "Mushroom classifier trained on 1,035 species from Catalonia and Switzerland. Combines computer vision (ConvNeXt-Tiny) with geo-temporal Bayesian fusion: your location and time of year improve predictions. Reaches 67% top-1 and 88% top-5 accuracy on 44k iNaturalist images. Built with PyTorch (MPS/Apple M4), React and Flask.",
     },
     aleman: {
       title: "German — AI-powered Learning app",
@@ -305,9 +307,9 @@ const PROJECT_TEXTS = {
         "Application full-stack pour la planification de régimes et de menus hebdomadaires : bibliothèque de recettes, calcul des macronutriments et génération automatique de la liste de courses.",
     },
     rovello: {
-      title: "Rovelló — Identification de champignons",
+      title: "Rovello — MushroomScan AI",
       description:
-        "App web qui identifie les champignons à partir de photos grâce à la reconnaissance d'images par IA. Inclut un dictionnaire d'espèces, des conseils de vérification, la distinction comestibles/toxiques et une carte des zones et saisons. Backend Node.js + MongoDB.",
+        "Classificateur de champignons entraîné sur 1 035 espèces de Catalogne et de Suisse. Combine vision par ordinateur (ConvNeXt-Tiny) et fusion bayésienne géo-temporelle : ta localisation et la saison améliorent les prédictions. Atteint 67 % top-1 et 88 % top-5 d'accuracy sur 44k images iNaturalist. Construit avec PyTorch (MPS/Apple M4), React et Flask.",
     },
     aleman: {
       title: "Allemand — App d'apprentissage par IA",
@@ -362,9 +364,9 @@ const PROJECT_TEXTS = {
         "Full-Stack-App zur Planung von Diäten und Wochenmenüs: Rezeptbibliothek, Makronährstoff-Berechnung und automatische Einkaufslisten-Generierung.",
     },
     rovello: {
-      title: "Rovelló — Pilz-Erkenner",
+      title: "Rovello — MushroomScan AI",
       description:
-        "Web-App, die Pilze anhand von Fotos mit KI-Bilderkennung identifiziert. Enthält ein Arten-Wörterbuch, Verifikationstipps, Unterscheidung essbar/giftig und eine Karte typischer Regionen und Saisonzeiten. Backend mit Node.js + MongoDB.",
+        "Pilz-Klassifikator, trainiert auf 1.035 Arten aus Katalonien und der Schweiz. Kombiniert Computer Vision (ConvNeXt-Tiny) mit geo-temporaler Bayes'scher Fusion: Standort und Jahreszeit verbessern die Vorhersagen. Erreicht 67 % Top-1- und 88 % Top-5-Genauigkeit auf 44k iNaturalist-Bildern. Aufgebaut mit PyTorch (MPS/Apple M4), React und Flask.",
     },
     aleman: {
       title: "Deutsch — KI-gestützte Lern-App",
@@ -419,9 +421,9 @@ const PROJECT_TEXTS = {
         "App full-stack per pianificare diete e menù settimanali: libreria di ricette, calcolo dei macronutrienti e generazione automatica della lista della spesa.",
     },
     rovello: {
-      title: "Rovelló — Identificatore di funghi",
+      title: "Rovello — MushroomScan AI",
       description:
-        "Web app che identifica i funghi a partire da foto tramite riconoscimento di immagini con IA. Include dizionario di specie, consigli di verifica, distinzione tra commestibili e tossici e mappa di zone e stagioni. Backend in Node.js + MongoDB.",
+        "Classificatore di funghi addestrato su 1.035 specie di Catalogna e Svizzera. Combina computer vision (ConvNeXt-Tiny) con fusione bayesiana geo-temporale: la tua posizione e la stagione migliorano le previsioni. Raggiunge il 67% top-1 e l'88% top-5 di accuracy su 44k immagini iNaturalist. Costruito con PyTorch (MPS/Apple M4), React e Flask.",
     },
     aleman: {
       title: "Tedesco — App di apprendimento con IA",
@@ -504,6 +506,7 @@ const translations = {
         email: "Email",
         linkedin: "LinkedIn",
         github: "GitHub",
+        website: "Web",
         location: "Ubicació",
       },
       contact: {
@@ -512,6 +515,7 @@ const translations = {
         email: shared.social.email,
         linkedin: shared.social.linkedin,
         github: shared.social.github,
+        website: shared.social.website,
         location: "Zuric 8004, Suïssa",
       },
       experiences: [
@@ -667,6 +671,7 @@ const translations = {
         email: "Email",
         linkedin: "LinkedIn",
         github: "GitHub",
+        website: "Web",
         location: "Ubicación",
       },
       contact: {
@@ -675,6 +680,7 @@ const translations = {
         email: shared.social.email,
         linkedin: shared.social.linkedin,
         github: shared.social.github,
+        website: shared.social.website,
         location: "Zúrich 8004, Suiza",
       },
       experiences: [
@@ -830,6 +836,7 @@ const translations = {
         email: "Email",
         linkedin: "LinkedIn",
         github: "GitHub",
+        website: "Website",
         location: "Location",
       },
       contact: {
@@ -838,6 +845,7 @@ const translations = {
         email: shared.social.email,
         linkedin: shared.social.linkedin,
         github: shared.social.github,
+        website: shared.social.website,
         location: "Zurich 8004, Switzerland",
       },
       experiences: [
@@ -993,6 +1001,7 @@ const translations = {
         email: "Email",
         linkedin: "LinkedIn",
         github: "GitHub",
+        website: "Site web",
         location: "Localisation",
       },
       contact: {
@@ -1001,6 +1010,7 @@ const translations = {
         email: shared.social.email,
         linkedin: shared.social.linkedin,
         github: shared.social.github,
+        website: shared.social.website,
         location: "Zurich 8004, Suisse",
       },
       experiences: [
@@ -1156,6 +1166,7 @@ const translations = {
         email: "E-Mail",
         linkedin: "LinkedIn",
         github: "GitHub",
+        website: "Website",
         location: "Standort",
       },
       contact: {
@@ -1164,6 +1175,7 @@ const translations = {
         email: shared.social.email,
         linkedin: shared.social.linkedin,
         github: shared.social.github,
+        website: shared.social.website,
         location: "Zürich 8004, Schweiz",
       },
       experiences: [
@@ -1319,6 +1331,7 @@ const translations = {
         email: "Email",
         linkedin: "LinkedIn",
         github: "GitHub",
+        website: "Sito",
         location: "Localizzazione",
       },
       contact: {
@@ -1327,6 +1340,7 @@ const translations = {
         email: shared.social.email,
         linkedin: shared.social.linkedin,
         github: shared.social.github,
+        website: shared.social.website,
         location: "Zurigo 8004, Svizzera",
       },
       experiences: [

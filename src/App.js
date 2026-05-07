@@ -29,7 +29,7 @@ function App() {
   if (secret) {
     return (
       <div className="min-h-screen bg-gray-50">
-        <CvBuilderSection translations={t} currentLanguage={appLanguage} />
+        <CvBuilderSection />
       </div>
     );
   }
