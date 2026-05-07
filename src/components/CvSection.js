@@ -18,7 +18,7 @@ const CvSection = ({ translations, photo }) => {
   const photoSrc = photo ? `${process.env.PUBLIC_URL}${photo}` : null;
 
   return (
-    <section className="bg-white rounded-2xl shadow-sm border border-gray-100 mx-4 my-6 overflow-hidden">
+    <section className="cv-print bg-white rounded-2xl shadow-sm border border-gray-100 mx-4 my-6 overflow-hidden">
 
       {/* Hero band */}
       <div className="bg-white px-6 md:px-12 py-12 md:py-16 border-b border-gray-100">
@@ -42,10 +42,10 @@ const CvSection = ({ translations, photo }) => {
                 {headline}
               </p>
             )}
-            <a
-              href={`${process.env.PUBLIC_URL}/CV_Gemma_Garcia.pdf`}
-              download
-              className="inline-flex items-center gap-2 mt-6 px-6 py-3 bg-rose-500 text-white rounded-full font-semibold hover:bg-rose-600 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
+            <button
+              type="button"
+              onClick={() => window.print()}
+              className="print:hidden inline-flex items-center gap-2 mt-6 px-6 py-3 bg-rose-500 text-white rounded-full font-semibold hover:bg-rose-600 shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all"
             >
               <svg viewBox="0 0 24 24" className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
@@ -53,7 +53,7 @@ const CvSection = ({ translations, photo }) => {
                 <line x1="12" y1="15" x2="12" y2="3" />
               </svg>
               {downloadText}
-            </a>
+            </button>
           </div>
         </div>
       </div>
@@ -88,6 +88,14 @@ const CvSection = ({ translations, photo }) => {
                 <span className="font-semibold text-gray-900">{labels.github}:</span>{" "}
                 <a href={contact.github} className="text-rose-600 hover:text-rose-700 hover:underline" target="_blank" rel="noopener noreferrer">
                   github.com/Gemmagf
+                </a>
+              </p>
+            )}
+            {contact.website && (
+              <p>
+                <span className="font-semibold text-gray-900">{labels.website}:</span>{" "}
+                <a href={contact.website} className="text-rose-600 hover:text-rose-700 hover:underline break-all" target="_blank" rel="noopener noreferrer">
+                  gemmagf.github.io/CarearCapital
                 </a>
               </p>
             )}

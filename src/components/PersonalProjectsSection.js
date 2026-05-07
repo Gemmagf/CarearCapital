@@ -23,13 +23,24 @@ const PersonalProjectsSection = ({ translations = {} }) => {
           {projects.map((project, idx) => (
             <article
               key={project.id}
-              className="group relative flex flex-col bg-white border border-gray-200 rounded-2xl p-6 hover:shadow-xl hover:border-rose-300 hover:-translate-y-1 transition-all duration-200"
+              className="group relative flex flex-col bg-white border border-gray-200 rounded-2xl overflow-hidden hover:shadow-xl hover:border-rose-300 hover:-translate-y-1 transition-all duration-200"
             >
               {idx === 0 && (
-                <span className="absolute -top-3 right-5 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] bg-rose-500 text-white rounded-full shadow-md">
+                <span className="absolute top-3 right-3 z-10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] bg-rose-500 text-white rounded-full shadow-md">
                   {featuredLabel}
                 </span>
               )}
+              {project.image && (
+                <div className="relative w-full aspect-[16/9] bg-gray-900 overflow-hidden border-b border-gray-200">
+                  <img
+                    src={`${process.env.PUBLIC_URL}${project.image}`}
+                    alt={project.title}
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              )}
+              <div className="flex flex-col flex-grow p-6">
               {project.tag && (
                 <span className="self-start px-2.5 py-0.5 text-[11px] font-bold uppercase tracking-[0.15em] bg-rose-50 text-rose-700 rounded-md mb-4 border border-rose-100">
                   {project.tag}
@@ -78,6 +89,7 @@ const PersonalProjectsSection = ({ translations = {} }) => {
                     {repoText}
                   </a>
                 )}
+              </div>
               </div>
             </article>
           ))}
