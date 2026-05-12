@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/CarearCapital/static/css/main.d8ac9665.css",
-    "main.js": "/CarearCapital/static/js/main.f5ec463f.js",
+    "main.css": "/CarearCapital/static/css/main.8cd397e3.css",
+    "main.js": "/CarearCapital/static/js/main.7e64a943.js",
     "index.html": "/CarearCapital/index.html",
-    "main.d8ac9665.css.map": "/CarearCapital/static/css/main.d8ac9665.css.map",
-    "main.f5ec463f.js.map": "/CarearCapital/static/js/main.f5ec463f.js.map"
+    "main.8cd397e3.css.map": "/CarearCapital/static/css/main.8cd397e3.css.map",
+    "main.7e64a943.js.map": "/CarearCapital/static/js/main.7e64a943.js.map"
   },
   "entrypoints": [
-    "static/css/main.d8ac9665.css",
-    "static/js/main.f5ec463f.js"
+    "static/css/main.8cd397e3.css",
+    "static/js/main.7e64a943.js"
   ]
 }
