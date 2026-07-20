@@ -3,11 +3,13 @@ import React from "react";
 const PersonalProjectsSection = ({ translations = {} }) => {
   const {
     title,
-    projects = [],
+    projects: allProjects = [],
     linkText = "View project",
     repoText = "Code",
     featuredLabel = "Featured",
   } = translations;
+  // Hide projects flagged as cvOnly (only used inside the CV Builder dropdown).
+  const projects = allProjects.filter((p) => !p.cvOnly);
 
   return (
     <section className="bg-white rounded-2xl shadow-sm border border-gray-100 mx-4 my-6 px-6 md:px-12 py-12 md:py-16">

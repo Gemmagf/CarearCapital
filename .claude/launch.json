@@ -1,0 +1,18 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "portfolio",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["start"],
+      "port": 3000,
+      "autoPort": true
+    },
+    {
+      "name": "caleta-dev",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev", "--prefix", "../caleta-tracker"],
+      "port": 5173
+    }
+  ]
+}

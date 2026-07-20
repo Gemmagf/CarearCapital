@@ -28,6 +28,28 @@ const techStack = [
 // Translatable fields (title, description) live in PROJECT_TEXTS below.
 const PROJECT_META = [
   {
+    id: "sensorlab",
+    tag: "Industrial / Chemical Process Analytics",
+    stack: ["Python", "scikit-learn", "PyTorch", "XGBoost", "SHAP", "Streamlit"],
+    link: "https://sensorlab.streamlit.app",
+    repo: "https://github.com/Gemmagf/sensorlab",
+    cvOnly: true, // available in CV Builder dropdown; hidden from public Projects section
+  },
+  {
+    id: "labm",
+    tag: "Marketing Science / Scale ML",
+    stack: ["Python", "PyMC", "ArviZ", "SciPy", "PySpark", "Streamlit", "pytest"],
+    link: "https://labm-app.streamlit.app",
+    repo: "https://github.com/Gemmagf/LabM",
+  },
+  {
+    id: "farma",
+    tag: "Causal Inference / Pharma RWD",
+    stack: ["Python", "scikit-learn", "DoWhy", "EconML", "SHAP", "Streamlit"],
+    link: "https://farma-rwd-causal-lab.streamlit.app",
+    repo: "https://github.com/Gemmagf/farma",
+  },
+  {
     id: "cvHunter",
     tag: "AI / HR Tech",
     stack: ["FastAPI", "Claude API", "pgvector", "PostgreSQL", "React", "Docker"],
@@ -36,7 +58,7 @@ const PROJECT_META = [
   },
   {
     id: "retail",
-    tag: "Retail / Data Viz",
+    tag: "Supply Chain / Forecasting",
     stack: ["Next.js", "TypeScript", "Recharts", "Tailwind", "next-intl"],
     link: "https://retail-lake.vercel.app/fr",
     repo: "https://github.com/Gemmagf/retail",
@@ -64,9 +86,9 @@ const PROJECT_META = [
   },
   {
     id: "rovello",
-    tag: "AI / Nature",
-    stack: ["React", "Node.js", "MongoDB", "Image Recognition"],
-    link: null,
+    tag: "Computer Vision / Nature",
+    stack: ["PyTorch", "ConvNeXt-Tiny", "iNaturalist", "Apple MPS", "React"],
+    link: "https://gemmagf.github.io/Rovello/",
     repo: "https://github.com/Gemmagf/Rovello",
   },
   {
@@ -91,32 +113,47 @@ const PROJECT_META = [
     repo: "https://github.com/Gemmagf/receptes",
   },
   {
-    id: "swissMobility",
-    tag: "Data Analysis",
-    stack: ["Python", "Pandas", "GeoPandas"],
-    link: "https://github.com/Gemmagf/CarearCapital/tree/main/projects/SwissMobilityDashboard",
-    repo: null,
+    id: "zuriKreislauf",
+    tag: "Energy / Process Analytics",
+    stack: ["Python", "statsmodels", "scikit-learn", "Streamlit"],
+    link: "https://zuri-kreislauf.streamlit.app",
+    repo: "https://github.com/Gemmagf/zuri-kreislauf",
   },
   {
-    id: "portfolio",
-    tag: "Portfolio",
-    stack: ["React", "Tailwind", "GitHub Pages"],
-    link: "https://gemmagf.github.io/CarearCapital/",
-    repo: "https://github.com/Gemmagf/CarearCapital",
+    id: "trackerLab",
+    tag: "Consumer Insights / Marketing Science",
+    stack: ["Python", "statsmodels", "scikit-learn", "PyMC", "Streamlit"],
+    link: "https://tracker-lab.streamlit.app",
+    repo: "https://github.com/Gemmagf/tracker-lab",
   },
 ];
 
 const PROJECT_TEXTS = {
   catalan: {
+    sensorlab: {
+      title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
+      description:
+        "Pipeline end-to-end de detection-diagnosis-RUL sobre el benchmark Tennessee Eastman (TEP, 41 sensors · 21 fault scenarios): tres detectors comparats (Hotelling T²/Q · IsolationForest · LSTM autoencoder amb AUROC 0,93), classificador XGBoost amb atribució SHAP per fault, RUL amb quantile gradient boosting i CoxPH, i capa de decisió cost-aware que transforma scores en accions 'intervene/schedule/wait' denominades en CHF. Production-grade: 11 mòduls pytest, GitHub Actions CI (Python 3.11+3.12), ruff-clean, paquet hatchling.",
+    },
+    labm: {
+      title: "LabM — Marketing Science & Scale ML Portfolio",
+      description:
+        "Portfoli combinat de marketing science causal i data engineering a escala industrial, construït localment en un MacBook de 32 GB sense cloud spend. Lab 01: MMM bayesià en PyMC sobre el dataset Robyn — ROI incremental per canal amb CIs del 90 % i un optimitzador SciPy SLSQP que proposa una reassignació amb +31,5 M€ d'uplift a budget constant. Lab 02: pipeline PySpark de CTR-prediction sobre 195,8 M files reals de Criteo (AUC 0,766; log-loss −11,3 % vs baseline); 4 rondes d'OutOfMemory resoltes materialitzant el split a disc. 20 tests pytest, incloent integration tests amb Spark.",
+    },
+    farma: {
+      title: "Pharma RWD Causal Lab — Pipeline d'Inferència Causal",
+      description:
+        "Pipeline end-to-end d'inferència causal sobre dades públiques d'UCI (cohort RHC, n=5.735, també replicat al demo de MIMIC-IV): cinc estimadors complementaris (naïve, PSM via DoWhy, AIPW cross-fitted, EconML LinearDRLearner) amb anàlisi de sensibilitat E-value i inspecció de propensity amb SHAP. Replica Connors et al. (1996); el matching 1:1 redueix el desequilibri |SMD| de 33 a 1 de 53 covariables. Production-grade: 36 tests pytest, GitHub Actions CI i dashboard Streamlit per a exploració what-if en viu.",
+    },
     cvHunter: {
       title: "CV Hunter — Talent Matching amb IA",
       description:
         "Eina d'HR Tech que ingesta CVs (PDF/DOCX), extreu informació estructurada i fa matching semàntic candidat-vacant amb embeddings vectorials. Usa Claude API per parsing intel·ligent i pgvector per cerca per similitud. Inclou dashboard, importació massiva asíncrona i exportació de fitxes en PDF.",
     },
     retail: {
-      title: "Allocation Studio — Retail Inventory",
+      title: "Supply Chain Lab — Demand Forecasting",
       description:
-        "Demo interactiva per a un Retail Allocation Analyst: dashboard de salut d'estoc, catàleg de productes, recomanador d'allocations amb insights AI, forecasting de demanda i simulador d'escenaris. Multilingüe (7 idiomes) amb dades sintètiques.",
+        "Demo end-to-end construïda específicament per modelar les decisions diàries d'un equip d'allocation retail: dashboard de salut d'estoc, catàleg de productes, recomanador d'allocations amb IA, forecasting de demanda a nivell de SKU i simulador d'escenaris what-if. Next.js, TypeScript, Recharts, Tailwind sobre dades sintètiques però realistes; multilingüe (7 idiomes). Mostra, en una sola eina, com les sortides del forecasting es tradueixen en decisions concretes d'allocation entre botigues i canals.",
     },
     logistic: {
       title: "Plataforma logística multi-seu",
@@ -134,9 +171,9 @@ const PROJECT_TEXTS = {
         "Aplicació full-stack per planificar dietes i menús setmanals: registre de receptes, càlcul de macronutrients i generació automàtica de la llista de la compra.",
     },
     rovello: {
-      title: "Rovelló — Identificador de bolets",
+      title: "Rovelló — Classificador de bolets",
       description:
-        "App web que identifica bolets a partir de fotos amb reconeixement d'imatges per IA. Inclou diccionari d'espècies, tips de verificació, distinció entre comestibles i tòxics i mapa de zones i temporades. Backend en Node.js + MongoDB.",
+        "Classificador d'espècies de bolets per Catalunya i Suïssa: ConvNeXt-Tiny fine-tuned sobre 44.000 imatges research-grade d'iNaturalist amb 1.035 espècies. Aconsegueix 73,4% Top-1 / 89,8% Top-5 al test set independent — competitiu per a fine-grained visual classification a aquesta escala. Entrenat localment ~52h en Apple M4 (MPS) amb MixUp, RandAugment, label smoothing i WeightedRandomSampler. Inclou diccionari d'espècies, tips comestible-vs-tòxic i mapa de zones i temporades.",
     },
     aleman: {
       title: "Alemany — App d'aprenentatge amb IA",
@@ -153,27 +190,42 @@ const PROJECT_TEXTS = {
       description:
         "Web amb una col·lecció de 1080 receptes tradicionals catalanes amb cerca i navegació per categoria. Projecte cultural per preservar i difondre el receptari clàssic en català.",
     },
-    swissMobility: {
-      title: "Swiss Mobility Dashboard",
+    zuriKreislauf: {
+      title: "Züri-Kreislauf — Waste-to-Energy Analytics de Zúric",
       description:
-        "Notebook que analitza els patrons de mobilitat a Suïssa amb dades oficials de l'OFS: distribució de pendularis per cantó, evolució del transport públic i estimació d'emissions de CO₂. Pas previ a un dashboard Power BI.",
+        "Forecasting, monitorització d'eficiència de procés i capa de decisió CHF/tCO2eq per a la planta KVA Hagenholz de Zúric, sobre dades obertes de la Stadt Zürich. Hotelling T²/Q + IsolationForest detecta automàticament una aturada real de turbina de 8 mesos, valorada en ~CHF 18,8M i ~9.000 tCO2eq — amb cada constant documentada i citada. El SARIMA es valida honestament contra un baseline naive. Production-grade: pytest, CI, dashboard Streamlit bilingüe.",
     },
-    portfolio: {
-      title: "Portfolio Web (aquesta mateixa)",
+    trackerLab: {
+      title: "Tracker Lab — Consumer Tracker Analytics",
       description:
-        "Web personal multilingüe (6 idiomes) amb React i Tailwind, desplegada automàticament a GitHub Pages. Inclou CV interactiu, secció de projectes i formulari de contacte.",
+        "Simulador d'un brand tracker global (30 mercats · onades mensuals · ~72 KPIs) i tres anàlisis que responen el que un programa de tracking FMCG necessita però rarament resol. 1) Senyal vs. soroll: control estadístic de procés amb límits derivats de l'error mostral real, per deixar de llegir soroll com si fossin notícies. 2) Invariància de mesura: test configural/mètric/escalar d'una escala de Brand Attachment entre 30 mercats — comparar mitjanes brutes no vol dir res si les escales no són equivalents; genera una scorecard de comparabilitat per mercat. 3) Drivers causals: screening amb Lasso controlant confusors (preu, distribució, promoció, mitjans, estacionalitat) + model bayesià jeràrquic per saber quins KPIs prediuen volum o quota i quins són mètriques de vanitat.",
     },
   },
   spanish: {
+    sensorlab: {
+      title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
+      description:
+        "Pipeline end-to-end de detection-diagnosis-RUL sobre el benchmark Tennessee Eastman (TEP, 41 sensores · 21 escenarios de fault): tres detectores comparados (Hotelling T²/Q · IsolationForest · LSTM autoencoder con AUROC 0,93), clasificador XGBoost con atribución SHAP por fault, RUL con quantile gradient boosting y CoxPH, y capa de decisión cost-aware que transforma scores en acciones 'intervene/schedule/wait' denominadas en CHF. Production-grade: 11 módulos pytest, GitHub Actions CI (Python 3.11+3.12), ruff-clean, paquete hatchling.",
+    },
+    labm: {
+      title: "LabM — Marketing Science & Scale ML Portfolio",
+      description:
+        "Portafolio combinado de marketing science causal e ingeniería de datos a escala industrial, construido localmente en un MacBook de 32 GB sin gasto en cloud. Lab 01: MMM bayesiano en PyMC sobre el dataset Robyn — ROI incremental por canal con CIs del 90 % y un optimizador SciPy SLSQP que propone una reasignación con +31,5 M€ de uplift a presupuesto constante. Lab 02: pipeline PySpark de CTR-prediction sobre 195,8 M filas reales de Criteo (AUC 0,766; log-loss −11,3 % vs baseline); 4 rondas de OutOfMemory resueltas materializando el split a disco. 20 tests pytest, incluyendo integration tests con Spark.",
+    },
+    farma: {
+      title: "Pharma RWD Causal Lab — Pipeline de Inferencia Causal",
+      description:
+        "Pipeline end-to-end de inferencia causal sobre datos públicos de UCI (cohorte RHC, n=5.735, también replicado en el demo de MIMIC-IV): cinco estimadores complementarios (naïve, PSM vía DoWhy, AIPW cross-fitted, EconML LinearDRLearner) con análisis de sensibilidad E-value e inspección de propensity con SHAP. Replica Connors et al. (1996); el matching 1:1 reduce el desequilibrio |SMD| de 33 a 1 de 53 covariables. Production-grade: 36 tests pytest, GitHub Actions CI y dashboard Streamlit para exploración what-if en vivo.",
+    },
     cvHunter: {
       title: "CV Hunter — Talent Matching con IA",
       description:
         "Herramienta de HR Tech que ingesta CVs (PDF/DOCX), extrae información estructurada y realiza matching semántico candidato-vacante con embeddings vectoriales. Usa Claude API para parsing inteligente y pgvector para búsqueda por similitud. Incluye dashboard, importación masiva asíncrona y exportación de fichas en PDF.",
     },
     retail: {
-      title: "Allocation Studio — Retail Inventory",
+      title: "Supply Chain Lab — Demand Forecasting",
       description:
-        "Demo interactiva para un Retail Allocation Analyst: dashboard de salud de stock, catálogo de productos, recomendador de allocations con insights AI, forecasting de demanda y simulador de escenarios. Multilingüe (7 idiomas) con datos sintéticos.",
+        "Demo end-to-end construida específicamente para modelar las decisiones diarias de un equipo de allocation retail: dashboard de salud de stock, catálogo de productos, recomendador de allocations con IA, forecasting de demanda a nivel de SKU y simulador de escenarios what-if. Next.js, TypeScript, Recharts, Tailwind sobre datos sintéticos pero realistas; multilingüe (7 idiomas). Muestra, en una sola herramienta, cómo las salidas del forecasting se traducen en decisiones concretas de allocation entre tiendas y canales.",
     },
     logistic: {
       title: "Plataforma logística multi-sede",
@@ -191,9 +243,9 @@ const PROJECT_TEXTS = {
         "Aplicación full-stack para planificar dietas y menús semanales: registro de recetas, cálculo de macronutrientes y generación automática de la lista de la compra.",
     },
     rovello: {
-      title: "Rovelló — Identificador de setas",
+      title: "Rovelló — Clasificador de setas",
       description:
-        "App web que identifica setas a partir de fotos con reconocimiento de imágenes por IA. Incluye diccionario de especies, tips de verificación, distinción entre comestibles y tóxicas y mapa de zonas y temporadas. Backend en Node.js + MongoDB.",
+        "Clasificador de especies de setas para Cataluña y Suiza: ConvNeXt-Tiny fine-tuned sobre 44.000 imágenes research-grade de iNaturalist con 1.035 especies. Alcanza 73,4% Top-1 / 89,8% Top-5 en el test set independiente — competitivo para fine-grained visual classification a esta escala. Entrenado localmente ~52h en Apple M4 (MPS) con MixUp, RandAugment, label smoothing y WeightedRandomSampler. Incluye diccionario de especies, tips comestible-vs-tóxico y mapa de zonas y temporadas.",
     },
     aleman: {
       title: "Alemán — App de aprendizaje con IA",
@@ -210,27 +262,42 @@ const PROJECT_TEXTS = {
       description:
         "Web con una colección de 1080 recetas tradicionales catalanas con búsqueda y navegación por categoría. Proyecto cultural para preservar y difundir el recetario clásico en catalán.",
     },
-    swissMobility: {
-      title: "Swiss Mobility Dashboard",
+    zuriKreislauf: {
+      title: "Züri-Kreislauf — Waste-to-Energy Analytics de Zúrich",
       description:
-        "Notebook que analiza los patrones de movilidad en Suiza con datos oficiales de OFS: distribución de pendulares por cantón, evolución del transporte público y estimación de emisiones de CO₂. Paso previo a un dashboard Power BI.",
+        "Forecasting, monitorización de eficiencia de proceso y capa de decisión CHF/tCO2eq para la planta KVA Hagenholz de Zúrich, sobre datos abiertos de la Stadt Zürich. Hotelling T²/Q + IsolationForest detecta automáticamente una parada real de turbina de 8 meses, valorada en ~CHF 18,8M y ~9.000 tCO2eq — con cada constante documentada y citada. El SARIMA se valida honestamente frente a un baseline naive. Production-grade: pytest, CI, dashboard Streamlit bilingüe.",
     },
-    portfolio: {
-      title: "Portfolio Web (esta misma)",
+    trackerLab: {
+      title: "Tracker Lab — Consumer Tracker Analytics",
       description:
-        "Web personal multilingüe (6 idiomas) con React y Tailwind, desplegada automáticamente en GitHub Pages. Incluye CV interactivo, sección de proyectos y formulario de contacto.",
+        "Simulador de un brand tracker global (30 mercados · oleadas mensuales · ~72 KPIs) y tres análisis que responden lo que un programa de tracking FMCG necesita pero rara vez resuelve. 1) Señal vs. ruido: control estadístico de proceso con límites derivados del error muestral real, para dejar de leer ruido como si fueran noticias. 2) Invariancia de medida: test configural/métrico/escalar de una escala de Brand Attachment entre 30 mercados — comparar medias brutas no significa nada si las escalas no son equivalentes; genera una scorecard de comparabilidad por mercado. 3) Drivers causales: screening con Lasso controlando confusores (precio, distribución, promoción, medios, estacionalidad) + modelo bayesiano jerárquico para saber qué KPIs predicen volumen o cuota y cuáles son métricas de vanidad.",
     },
   },
   english: {
+    sensorlab: {
+      title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
+      description:
+        "End-to-end detection-diagnosis-RUL pipeline on the Tennessee Eastman benchmark (TEP, 41 sensors · 21 fault scenarios): three detectors compared (Hotelling T²/Q · IsolationForest · LSTM autoencoder reaching AUROC 0.93), XGBoost classifier with SHAP per-fault attribution, RUL via quantile gradient boosting + CoxPH, and a cost-aware decision layer that maps detector scores onto 'intervene/schedule/wait' actions denominated in CHF. Production-grade: 11 pytest modules, GitHub Actions CI (Python 3.11+3.12), ruff-clean, hatchling-built package.",
+    },
+    labm: {
+      title: "LabM — Marketing Science & Scale ML Portfolio",
+      description:
+        "Combined portfolio of causal marketing science and industrial-scale data engineering, built locally on a 32 GB MacBook with zero cloud spend. Lab 01: Bayesian MMM in PyMC on the Robyn dataset — incremental per-channel ROI with 90% credible intervals plus a SciPy SLSQP optimiser proposing a reallocation with +€31.5M uplift at unchanged budget. Lab 02: PySpark CTR-prediction pipeline on 195.8M real Criteo ad-impression rows (AUC 0.766; log-loss −11.3% vs baseline); four OutOfMemory rounds resolved by materialising the split to disk. 20 pytest tests, including Spark-backed integration tests.",
+    },
+    farma: {
+      title: "Pharma RWD Causal Lab — Causal Inference Pipeline",
+      description:
+        "End-to-end causal inference pipeline on public ICU data (RHC cohort, n=5,735, also replicated on MIMIC-IV demo): five complementary estimators (naïve, PSM via DoWhy, cross-fitted AIPW, EconML LinearDRLearner) with E-value sensitivity and SHAP-based propensity inspection. Replicates Connors et al. (1996); 1:1 matching cuts |SMD| imbalance from 33 to 1 of 53 covariates. Production-grade: 36 pytest tests, GitHub Actions CI and a Streamlit dashboard for live what-if exploration.",
+    },
     cvHunter: {
       title: "CV Hunter — AI Talent Matching",
       description:
         "HR-tech tool that ingests CVs (PDF/DOCX), extracts structured data and performs semantic candidate-to-role matching with vector embeddings. Uses the Claude API for smart parsing and pgvector for similarity search. Includes a dashboard, async bulk import and PDF profile export.",
     },
     retail: {
-      title: "Allocation Studio — Retail Inventory",
+      title: "Supply Chain Lab — Demand Forecasting",
       description:
-        "Interactive demo for a Retail Allocation Analyst: stock-health dashboard, product catalog, AI-driven allocation recommender, demand forecasting, and scenario simulator. Multilingual (7 languages) with synthetic data.",
+        "End-to-end demo built specifically to model the daily decisions of a retail allocation team: stock-health dashboard, product catalogue, AI-driven allocation recommender, SKU-level demand forecasting and what-if scenario simulator. Next.js, TypeScript, Recharts, Tailwind on synthetic but realistic retail data; multilingual (7 languages). Shows, in one tool, how forecasting outputs translate into concrete allocation decisions across stores and channels.",
     },
     logistic: {
       title: "Multi-location Logistics Platform",
@@ -248,9 +315,9 @@ const PROJECT_TEXTS = {
         "Full-stack application for weekly diet and menu planning: recipe library, macronutrient calculation and automatic shopping-list generation.",
     },
     rovello: {
-      title: "Rovelló — Mushroom Identifier",
+      title: "Rovelló — Mushroom Classifier",
       description:
-        "Web app that identifies mushrooms from photos using AI image recognition. Includes a species dictionary, verification tips, edible-vs-toxic distinction, and a map of typical regions and seasons. Node.js + MongoDB backend.",
+        "Mushroom species classifier for Catalonia and Switzerland: ConvNeXt-Tiny fine-tuned on 44k research-grade iNaturalist images across 1,035 species. Reaches 73.4% Top-1 / 89.8% Top-5 accuracy on an independent test set — competitive for fine-grained visual classification at this scale. Trained locally in ~52h on Apple M4 (MPS) with MixUp, RandAugment, label smoothing and WeightedRandomSampler. Ships with a species dictionary, edible-vs-toxic verification tips and a map of typical regions and seasons.",
     },
     aleman: {
       title: "German — AI-powered Learning app",
@@ -267,27 +334,42 @@ const PROJECT_TEXTS = {
       description:
         "Web app featuring 1080 traditional Catalan recipes, with search and category browsing. Cultural project to preserve and share the classic Catalan cookbook.",
     },
-    swissMobility: {
-      title: "Swiss Mobility Dashboard",
+    zuriKreislauf: {
+      title: "Züri-Kreislauf — Zurich Waste-to-Energy Analytics",
       description:
-        "Notebook analyzing Swiss mobility patterns with official OFS data: commuter distribution by canton, public-transport evolution and CO₂ emission estimates. Groundwork for a Power BI dashboard.",
+        "Forecasting, process-efficiency monitoring and a CHF/tCO2eq decision layer for Zurich's KVA Hagenholz waste-to-energy plant, built on open City of Zurich data. Hotelling T²/Q + IsolationForest automatically flags a real 8-month turbine outage, priced at ~CHF 18.8M and ~9,000 tCO2eq — with every constant sourced and documented. SARIMA is backtested honestly against a naive baseline. Production-grade: pytest, CI, bilingual Streamlit dashboard.",
     },
-    portfolio: {
-      title: "Portfolio Website (this one)",
+    trackerLab: {
+      title: "Tracker Lab — Consumer Tracker Analytics",
       description:
-        "Multilingual personal site (6 languages) built with React and Tailwind, auto-deployed to GitHub Pages. Includes interactive CV, projects section and contact form.",
+        "A simulated global brand tracker (30 markets · monthly waves · ~72 KPIs) plus three analyses answering what a large FMCG-scale tracking programme needs but rarely resolves. 1) Signal vs. noise: statistical process control with limits derived from the tracker's own reported sampling error, so sampling noise stops being reported as news; a two-tier watch/signal rule prevents false alarms. 2) Measurement invariance: configural / metric / scalar testing of a Brand Attachment scale across 30 markets — comparing raw means is meaningless if markets use the scale differently — producing a per-market comparability scorecard (safe to compare / adjust / do not compare). 3) Causal driver linkage: confounder-controlled Lasso screen (residualised on price, distribution, promo, media, seasonality) plus a hierarchical Bayesian model, to separate KPIs that predict volume and share from vanity metrics.",
     },
   },
   french: {
+    sensorlab: {
+      title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
+      description:
+        "Pipeline end-to-end détection-diagnostic-RUL sur le benchmark Tennessee Eastman (TEP, 41 capteurs · 21 scénarios de défaut) : trois détecteurs comparés (Hotelling T²/Q · IsolationForest · autoencodeur LSTM atteignant AUROC 0,93), classifieur XGBoost avec attribution SHAP par défaut, RUL via quantile gradient boosting + CoxPH, et couche de décision cost-aware qui traduit les scores en actions 'intervene/schedule/wait' en CHF. Production-grade : 11 modules pytest, GitHub Actions CI (Python 3.11+3.12), ruff-clean, package hatchling.",
+    },
+    labm: {
+      title: "LabM — Marketing Science & Scale ML Portfolio",
+      description:
+        "Portfolio combiné de marketing science causal et d'ingénierie de données à l'échelle industrielle, construit localement sur un MacBook 32 Go sans dépense cloud. Lab 01 : MMM bayésien en PyMC sur le dataset Robyn — ROI incrémental par canal avec IC à 90 % et un optimiseur SciPy SLSQP proposant une réaffectation avec +31,5 M€ d'uplift à budget constant. Lab 02 : pipeline PySpark de CTR-prediction sur 195,8 M lignes réelles de Criteo (AUC 0,766 ; log-loss −11,3 % vs baseline) ; 4 rounds de OutOfMemory résolus en matérialisant le split sur disque. 20 tests pytest, incluant des integration tests Spark.",
+    },
+    farma: {
+      title: "Pharma RWD Causal Lab — Pipeline d'Inférence Causale",
+      description:
+        "Pipeline d'inférence causale de bout en bout sur des données publiques d'USI (cohorte RHC, n=5 735, également répliqué sur le demo MIMIC-IV) : cinq estimateurs complémentaires (naïf, PSM via DoWhy, AIPW cross-fitted, EconML LinearDRLearner) avec analyse de sensibilité E-value et inspection de propensity via SHAP. Réplique Connors et al. (1996) ; le matching 1:1 réduit le déséquilibre |SMD| de 33 à 1 sur 53 covariables. Production-grade : 36 tests pytest, CI GitHub Actions et dashboard Streamlit pour l'exploration what-if en direct.",
+    },
     cvHunter: {
       title: "CV Hunter — Matching de talents par IA",
       description:
         "Outil HR-tech qui ingère des CV (PDF/DOCX), en extrait des données structurées et effectue un matching sémantique candidat-poste via embeddings vectoriels. Utilise l'API Claude pour le parsing intelligent et pgvector pour la recherche par similarité. Dashboard, import en masse asynchrone et export de fiches en PDF.",
     },
     retail: {
-      title: "Allocation Studio — Retail Inventory",
+      title: "Supply Chain Lab — Demand Forecasting",
       description:
-        "Démo interactive pour un Retail Allocation Analyst : dashboard de santé du stock, catalogue produits, recommandateur d'allocations avec insights IA, prévision de demande et simulateur de scénarios. Multilingue (7 langues) avec données synthétiques.",
+        "Démo de bout en bout conçue spécifiquement pour modéliser les décisions quotidiennes d'une équipe d'allocation retail : dashboard de santé du stock, catalogue produits, recommandateur d'allocations par IA, prévision de demande au niveau SKU et simulateur de scénarios what-if. Next.js, TypeScript, Recharts, Tailwind sur des données synthétiques mais réalistes ; multilingue (7 langues). Montre, en un seul outil, comment les sorties de prévision se traduisent en décisions concrètes d'allocation entre magasins et canaux.",
     },
     logistic: {
       title: "Plateforme logistique multi-sites",
@@ -305,9 +387,9 @@ const PROJECT_TEXTS = {
         "Application full-stack pour la planification de régimes et de menus hebdomadaires : bibliothèque de recettes, calcul des macronutriments et génération automatique de la liste de courses.",
     },
     rovello: {
-      title: "Rovelló — Identification de champignons",
+      title: "Rovelló — Classifieur de champignons",
       description:
-        "App web qui identifie les champignons à partir de photos grâce à la reconnaissance d'images par IA. Inclut un dictionnaire d'espèces, des conseils de vérification, la distinction comestibles/toxiques et une carte des zones et saisons. Backend Node.js + MongoDB.",
+        "Classifieur d'espèces de champignons pour la Catalogne et la Suisse : ConvNeXt-Tiny fine-tuné sur 44 000 images research-grade d'iNaturalist sur 1 035 espèces. Atteint 73,4 % Top-1 / 89,8 % Top-5 sur le test set indépendant — compétitif pour la classification visuelle fine-grained à cette échelle. Entraîné localement en ~52 h sur Apple M4 (MPS) avec MixUp, RandAugment, label smoothing et WeightedRandomSampler. Dictionnaire d'espèces, conseils comestible-vs-toxique et carte des zones et saisons inclus.",
     },
     aleman: {
       title: "Allemand — App d'apprentissage par IA",
@@ -324,27 +406,42 @@ const PROJECT_TEXTS = {
       description:
         "Web app avec 1080 recettes traditionnelles catalanes, recherche et navigation par catégorie. Projet culturel pour préserver et diffuser le recueil classique catalan.",
     },
-    swissMobility: {
-      title: "Swiss Mobility Dashboard",
+    zuriKreislauf: {
+      title: "Züri-Kreislauf — Waste-to-Energy Analytics de Zurich",
       description:
-        "Notebook analysant les patterns de mobilité en Suisse à partir de données officielles OFS : pendulaires par canton, évolution des transports publics et estimation des émissions de CO₂. Préalable à un dashboard Power BI.",
+        "Forecasting, monitoring d'efficacité de procédé et couche de décision CHF/tCO2eq pour l'usine KVA Hagenholz de Zurich, sur des données ouvertes de la Stadt Zürich. Hotelling T²/Q + IsolationForest détecte automatiquement un arrêt réel de turbine de 8 mois, chiffré à ~CHF 18,8M et ~9 000 tCO2eq — chaque constante étant documentée et sourcée. Le SARIMA est validé honnêtement face à un baseline naive. Production-grade : pytest, CI, dashboard Streamlit bilingue.",
     },
-    portfolio: {
-      title: "Site Portfolio (celui-ci)",
+    trackerLab: {
+      title: "Tracker Lab — Consumer Tracker Analytics",
       description:
-        "Site personnel multilingue (6 langues) en React et Tailwind, déployé automatiquement sur GitHub Pages. CV interactif, section projets et formulaire de contact.",
+        "Simulateur d'un brand tracker global (30 marchés · vagues mensuelles · ~72 KPIs) et trois analyses répondant à ce qu'un programme de tracking FMCG doit résoudre mais traite rarement. 1) Signal vs. bruit : maîtrise statistique des procédés avec des limites dérivées de l'erreur d'échantillonnage réelle, pour cesser de lire le bruit comme une information. 2) Invariance de mesure : tests configural / métrique / scalaire d'une échelle de Brand Attachment sur 30 marchés — comparer des moyennes brutes n'a aucun sens si les échelles ne sont pas équivalentes ; produit une scorecard de comparabilité par marché. 3) Drivers causaux : screening Lasso contrôlé pour les facteurs de confusion (prix, distribution, promotion, médias, saisonnalité) et modèle bayésien hiérarchique, pour distinguer les KPIs qui prédisent le volume ou la part des métriques de vanité.",
     },
   },
   german: {
+    sensorlab: {
+      title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
+      description:
+        "End-to-End Detection-Diagnose-RUL-Pipeline auf dem Tennessee Eastman Benchmark (TEP, 41 Sensoren · 21 Fault-Szenarien): drei Detektoren verglichen (Hotelling T²/Q · IsolationForest · LSTM-Autoencoder mit AUROC 0,93), XGBoost-Klassifikator mit SHAP-Attribution je Fault, RUL über Quantile Gradient Boosting + CoxPH, und eine kostenbewusste Entscheidungs-Schicht, die Scores in CHF-denominierte 'intervene/schedule/wait'-Aktionen übersetzt. Production-grade: 11 pytest-Module, GitHub Actions CI (Python 3.11+3.12), ruff-clean, hatchling-Paket.",
+    },
+    labm: {
+      title: "LabM — Marketing Science & Scale ML Portfolio",
+      description:
+        "Kombiniertes Portfolio aus kausaler Marketing Science und industriellem Data Engineering, lokal auf einem 32 GB MacBook ohne Cloud-Spend gebaut. Lab 01: Bayessches MMM in PyMC auf dem Robyn-Datensatz — inkrementeller Kanal-ROI mit 90 % Credible Intervals plus SciPy SLSQP-Optimierer, der eine Umverteilung mit +31,5 Mio. € Uplift bei unverändertem Budget vorschlägt. Lab 02: PySpark CTR-Prediction-Pipeline auf 195,8 Mio. echten Criteo-Impression-Rows (AUC 0,766; Log-Loss −11,3 % vs Baseline); vier OOM-Runden gelöst durch Materialisierung des Splits auf Disk. 20 pytest-Tests, inkl. Spark-basierter Integration-Tests.",
+    },
+    farma: {
+      title: "Pharma RWD Causal Lab — Causal-Inference-Pipeline",
+      description:
+        "End-to-End-Causal-Inference-Pipeline auf öffentlichen ICU-Daten (RHC-Kohorte, n=5.735, ebenfalls auf dem MIMIC-IV-Demo repliziert): fünf komplementäre Schätzer (naiv, PSM via DoWhy, cross-fitted AIPW, EconML LinearDRLearner) mit E-value-Sensitivitätsanalyse und SHAP-basierter Propensity-Inspektion. Repliziert Connors et al. (1996); 1:1-Matching reduziert die |SMD|-Ungleichgewichtung von 33 auf 1 von 53 Kovariaten. Production-grade: 36 pytest-Tests, GitHub Actions CI und ein Streamlit-Dashboard für Live-What-if-Exploration.",
+    },
     cvHunter: {
       title: "CV Hunter — AI Talent Matching",
       description:
         "HR-Tech-Tool, das Lebensläufe (PDF/DOCX) einliest, strukturierte Daten extrahiert und mittels Vektor-Embeddings semantisches Matching zwischen Kandidaten und Rollen durchführt. Nutzt die Claude-API für intelligentes Parsing und pgvector für Ähnlichkeitssuche. Dashboard, asynchroner Bulk-Import und PDF-Export der Profile.",
     },
     retail: {
-      title: "Allocation Studio — Retail Inventory",
+      title: "Supply Chain Lab — Demand Forecasting",
       description:
-        "Interaktive Demo für eine Retail Allocation Analystin: Stock-Health-Dashboard, Produktkatalog, AI-gestützter Allocation-Recommender, Demand Forecasting und Szenario-Simulator. Mehrsprachig (7 Sprachen) mit synthetischen Daten.",
+        "End-to-End-Demo, speziell entwickelt, um die täglichen Entscheidungen eines Retail-Allocation-Teams abzubilden: Stock-Health-Dashboard, Produktkatalog, KI-gestützter Allocation-Recommender, Demand Forecasting auf SKU-Ebene und What-if-Szenario-Simulator. Next.js, TypeScript, Recharts, Tailwind auf synthetischen, aber realistischen Daten; mehrsprachig (7 Sprachen). Zeigt in einem einzigen Tool, wie Forecasting-Ergebnisse in konkrete Allocation-Entscheidungen über Filialen und Kanäle hinweg übersetzt werden.",
     },
     logistic: {
       title: "Multi-Standort Logistik-Plattform",
@@ -362,9 +459,9 @@ const PROJECT_TEXTS = {
         "Full-Stack-App zur Planung von Diäten und Wochenmenüs: Rezeptbibliothek, Makronährstoff-Berechnung und automatische Einkaufslisten-Generierung.",
     },
     rovello: {
-      title: "Rovelló — Pilz-Erkenner",
+      title: "Rovelló — Pilz-Klassifikator",
       description:
-        "Web-App, die Pilze anhand von Fotos mit KI-Bilderkennung identifiziert. Enthält ein Arten-Wörterbuch, Verifikationstipps, Unterscheidung essbar/giftig und eine Karte typischer Regionen und Saisonzeiten. Backend mit Node.js + MongoDB.",
+        "Klassifikator für Pilzarten in Katalonien und der Schweiz: ConvNeXt-Tiny fine-tuned auf 44.000 research-grade Bildern von iNaturalist über 1.035 Arten. Erreicht 73,4% Top-1 / 89,8% Top-5 Accuracy auf einem unabhängigen Test-Set — kompetitiv für Fine-Grained Visual Classification in dieser Grössenordnung. Lokal in ~52h auf Apple M4 (MPS) trainiert mit MixUp, RandAugment, Label Smoothing und WeightedRandomSampler. Inklusive Arten-Wörterbuch, Tipps essbar-vs-giftig und Karte typischer Regionen und Saisonzeiten.",
     },
     aleman: {
       title: "Deutsch — KI-gestützte Lern-App",
@@ -381,27 +478,42 @@ const PROJECT_TEXTS = {
       description:
         "Web-App mit 1080 traditionellen katalanischen Rezepten, Suche und Kategoriedurchsicht. Kulturprojekt zur Bewahrung und Verbreitung des klassischen katalanischen Kochbuchs.",
     },
-    swissMobility: {
-      title: "Swiss Mobility Dashboard",
+    zuriKreislauf: {
+      title: "Züri-Kreislauf — Waste-to-Energy Analytics für Zürich",
       description:
-        "Notebook zur Analyse von Mobilitätsmustern in der Schweiz mit offiziellen BFS-Daten: Pendlerverteilung nach Kanton, Entwicklung des ÖV und Schätzung von CO₂-Emissionen. Vorarbeit für ein Power-BI-Dashboard.",
+        "Forecasting, Prozesseffizienz-Monitoring und eine CHF/tCO2eq-Entscheidungs-Schicht für die KVA Hagenholz in Zürich, auf offenen Daten der Stadt Zürich. Hotelling T²/Q + IsolationForest erkennt automatisch einen realen 8-monatigen Turbinenausfall, beziffert mit ~CHF 18,8 Mio. und ~9'000 tCO2eq — jede Konstante dokumentiert und belegt. Das SARIMA-Modell wird ehrlich gegen eine Naiv-Baseline validiert. Production-grade: pytest, CI, zweisprachiges Streamlit-Dashboard.",
     },
-    portfolio: {
-      title: "Portfolio-Website (diese)",
+    trackerLab: {
+      title: "Tracker Lab — Consumer Tracker Analytics",
       description:
-        "Mehrsprachige persönliche Seite (6 Sprachen) mit React und Tailwind, automatisch auf GitHub Pages deployt. Interaktiver Lebenslauf, Projektbereich und Kontaktformular.",
+        "Simulierter globaler Brand Tracker (30 Märkte · monatliche Wellen · ~72 KPIs) plus drei Analysen für das, was ein FMCG-Tracking-Programm braucht, aber selten löst. 1) Signal vs. Rauschen: statistische Prozesskontrolle mit Grenzen aus dem tatsächlichen Stichprobenfehler, damit Rauschen nicht länger als Nachricht gelesen wird. 2) Messinvarianz: konfigurale / metrische / skalare Tests einer Brand-Attachment-Skala über 30 Märkte — der Vergleich von Rohmittelwerten ist bedeutungslos, wenn Skalen unterschiedlich genutzt werden; ergibt eine Vergleichbarkeits-Scorecard je Markt. 3) Kausale Treiber: konfounder-kontrolliertes Lasso-Screening (bereinigt um Preis, Distribution, Promotion, Media, Saisonalität) plus hierarchisches bayessches Modell, um KPIs mit echter Volumen- bzw. Share-Vorhersage von Vanity-Metriken zu trennen.",
     },
   },
   italian: {
+    sensorlab: {
+      title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
+      description:
+        "Pipeline end-to-end detection-diagnosis-RUL sul benchmark Tennessee Eastman (TEP, 41 sensori · 21 scenari di fault): tre rilevatori a confronto (Hotelling T²/Q · IsolationForest · LSTM autoencoder con AUROC 0,93), classificatore XGBoost con attribuzione SHAP per fault, RUL tramite quantile gradient boosting + CoxPH, e uno strato decisionale cost-aware che traduce gli score in azioni 'intervene/schedule/wait' denominate in CHF. Production-grade: 11 moduli pytest, GitHub Actions CI (Python 3.11+3.12), ruff-clean, pacchetto hatchling.",
+    },
+    labm: {
+      title: "LabM — Marketing Science & Scale ML Portfolio",
+      description:
+        "Portfolio combinato di marketing science causale e data engineering su scala industriale, costruito localmente su un MacBook 32 GB senza spese cloud. Lab 01: MMM bayesiano in PyMC sul dataset Robyn — ROI incrementale per canale con CI al 90 % e un optimizer SciPy SLSQP che propone una riallocazione con +31,5 M€ di uplift a budget invariato. Lab 02: pipeline PySpark di CTR-prediction su 195,8 M righe reali di Criteo (AUC 0,766; log-loss −11,3 % vs baseline); 4 round di OutOfMemory risolti materializzando lo split su disco. 20 test pytest, inclusi integration test con Spark.",
+    },
+    farma: {
+      title: "Pharma RWD Causal Lab — Pipeline di Inferenza Causale",
+      description:
+        "Pipeline di inferenza causale end-to-end su dati pubblici di ICU (coorte RHC, n=5.735, replicato anche sul demo MIMIC-IV): cinque stimatori complementari (naïve, PSM via DoWhy, AIPW cross-fitted, EconML LinearDRLearner) con analisi di sensibilità E-value e ispezione di propensity con SHAP. Replica Connors et al. (1996); il matching 1:1 riduce lo sbilanciamento |SMD| da 33 a 1 su 53 covariate. Production-grade: 36 test pytest, GitHub Actions CI e dashboard Streamlit per l'esplorazione what-if in tempo reale.",
+    },
     cvHunter: {
       title: "CV Hunter — Talent Matching con IA",
       description:
         "Strumento HR-tech che ingerisce CV (PDF/DOCX), estrae dati strutturati ed esegue matching semantico candidato-ruolo tramite embeddings vettoriali. Usa l'API Claude per parsing intelligente e pgvector per la ricerca per similarità. Dashboard, import massivo asincrono ed esportazione delle schede in PDF.",
     },
     retail: {
-      title: "Allocation Studio — Retail Inventory",
+      title: "Supply Chain Lab — Demand Forecasting",
       description:
-        "Demo interattiva per una Retail Allocation Analyst: dashboard di stock health, catalogo prodotti, recommender di allocations con insights AI, forecasting della domanda e simulatore di scenari. Multilingue (7 lingue) con dati sintetici.",
+        "Demo end-to-end costruita specificamente per modellare le decisioni quotidiane di un team di allocation retail: dashboard di stock health, catalogo prodotti, recommender di allocations con IA, forecasting della domanda a livello SKU e simulatore di scenari what-if. Next.js, TypeScript, Recharts, Tailwind su dati sintetici ma realistici; multilingue (7 lingue). Mostra, in un unico strumento, come gli output del forecasting si traducono in decisioni concrete di allocation tra negozi e canali.",
     },
     logistic: {
       title: "Piattaforma logistica multi-sede",
@@ -419,9 +531,9 @@ const PROJECT_TEXTS = {
         "App full-stack per pianificare diete e menù settimanali: libreria di ricette, calcolo dei macronutrienti e generazione automatica della lista della spesa.",
     },
     rovello: {
-      title: "Rovelló — Identificatore di funghi",
+      title: "Rovelló — Classificatore di funghi",
       description:
-        "Web app che identifica i funghi a partire da foto tramite riconoscimento di immagini con IA. Include dizionario di specie, consigli di verifica, distinzione tra commestibili e tossici e mappa di zone e stagioni. Backend in Node.js + MongoDB.",
+        "Classificatore di specie di funghi per Catalogna e Svizzera: ConvNeXt-Tiny fine-tuned su 44.000 immagini research-grade di iNaturalist con 1.035 specie. Raggiunge 73,4% Top-1 / 89,8% Top-5 sul test set indipendente — competitivo per la fine-grained visual classification a questa scala. Addestrato localmente in ~52h su Apple M4 (MPS) con MixUp, RandAugment, label smoothing e WeightedRandomSampler. Include dizionario di specie, consigli commestibile-vs-tossico e mappa di zone e stagioni.",
     },
     aleman: {
       title: "Tedesco — App di apprendimento con IA",
@@ -438,15 +550,15 @@ const PROJECT_TEXTS = {
       description:
         "Web app con 1080 ricette tradizionali catalane, con ricerca e navigazione per categoria. Progetto culturale per preservare e diffondere il ricettario classico catalano.",
     },
-    swissMobility: {
-      title: "Swiss Mobility Dashboard",
+    zuriKreislauf: {
+      title: "Züri-Kreislauf — Waste-to-Energy Analytics di Zurigo",
       description:
-        "Notebook che analizza i pattern di mobilità in Svizzera con dati ufficiali OFS: distribuzione dei pendolari per cantone, evoluzione dei trasporti pubblici e stima delle emissioni CO₂. Base per una dashboard Power BI.",
+        "Forecasting, monitoraggio dell'efficienza di processo e strato decisionale CHF/tCO2eq per l'impianto KVA Hagenholz di Zurigo, su dati aperti della Stadt Zürich. Hotelling T²/Q + IsolationForest rileva automaticamente un reale fermo turbina di 8 mesi, valutato in ~CHF 18,8M e ~9.000 tCO2eq — con ogni costante documentata e citata. Il SARIMA è validato onestamente contro un baseline naive. Production-grade: pytest, CI, dashboard Streamlit bilingue.",
     },
-    portfolio: {
-      title: "Portfolio Web (questo stesso)",
+    trackerLab: {
+      title: "Tracker Lab — Consumer Tracker Analytics",
       description:
-        "Sito personale multilingue (6 lingue) con React e Tailwind, pubblicato automaticamente su GitHub Pages. CV interattivo, sezione progetti e form di contatto.",
+        "Simulatore di un brand tracker globale (30 mercati · wave mensili · ~72 KPI) e tre analisi che rispondono a ciò di cui un programma di tracking FMCG ha bisogno ma raramente risolve. 1) Segnale vs. rumore: controllo statistico di processo con limiti derivati dall'errore campionario reale, per smettere di leggere il rumore come notizia. 2) Invarianza di misura: test configurale / metrico / scalare di una scala di Brand Attachment su 30 mercati — confrontare medie grezze non significa nulla se le scale vengono usate diversamente; produce una scorecard di comparabilità per mercato. 3) Driver causali: screening Lasso controllato per confondenti (prezzo, distribuzione, promozione, media, stagionalità) e modello bayesiano gerarchico, per distinguere i KPI che predicono volume o quota dalle metriche di vanità.",
     },
   },
 };
@@ -512,7 +624,7 @@ const translations = {
         email: shared.social.email,
         linkedin: shared.social.linkedin,
         github: shared.social.github,
-        location: "Zuric 8004, Suïssa",
+        location: "Zuric 8064, Suïssa",
       },
       experiences: [
         {
@@ -557,15 +669,6 @@ const translations = {
             "Recomanacions estratègiques que van influir en decisions d'inversió i adquisició de clients.",
           ],
         },
-        {
-          role: "Data Analyst",
-          company: "Additius Santa Maria",
-          location: "Santa Maria de Palautordera, ES",
-          period: "Juliol 2020 – Desembre 2020",
-          description: [
-            "Aplicació de machine learning per detectar cultius a partir d'imatges per satèl·lit.",
-          ],
-        },
       ],
       education: [
         "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
@@ -576,10 +679,10 @@ const translations = {
       languages: [
         "Català (Nativa)",
         "Castellà (Nativa)",
-        "Anglès (C1)",
-        "Francès (B2)",
-        "Italià (B2)",
-        "Alemany (B1, en aprenentatge actiu)",
+        "Anglès (Fluid)",
+        "Francès (Fluid)",
+        "Italià (Intermedi)",
+        "Alemany (Intermedi)",
       ],
       techStack,
       methodologies: [
@@ -675,7 +778,7 @@ const translations = {
         email: shared.social.email,
         linkedin: shared.social.linkedin,
         github: shared.social.github,
-        location: "Zúrich 8004, Suiza",
+        location: "Zúrich 8064, Suiza",
       },
       experiences: [
         {
@@ -720,15 +823,6 @@ const translations = {
             "Recomendaciones estratégicas que influyeron en decisiones de inversión y adquisición de clientes.",
           ],
         },
-        {
-          role: "Data Analyst",
-          company: "Additius Santa Maria",
-          location: "Santa Maria de Palautordera, ES",
-          period: "Julio 2020 – Diciembre 2020",
-          description: [
-            "Aplicación de machine learning para detectar cultivos a partir de imágenes por satélite.",
-          ],
-        },
       ],
       education: [
         "MSc en Dirección Financiera — Universitat Oberta de Catalunya (UOC), 2022–2024",
@@ -739,10 +833,10 @@ const translations = {
       languages: [
         "Catalán (Nativo)",
         "Español (Nativo)",
-        "Inglés (C1)",
-        "Francés (B2)",
-        "Italiano (B2)",
-        "Alemán (B1, en aprendizaje activo)",
+        "Inglés (Fluido)",
+        "Francés (Fluido)",
+        "Italiano (Intermedio)",
+        "Alemán (Intermedio)",
       ],
       techStack,
       methodologies: [
@@ -838,7 +932,7 @@ const translations = {
         email: shared.social.email,
         linkedin: shared.social.linkedin,
         github: shared.social.github,
-        location: "Zurich 8004, Switzerland",
+        location: "Zurich 8064, Switzerland",
       },
       experiences: [
         {
@@ -883,15 +977,6 @@ const translations = {
             "Delivered strategic recommendations that shaped campaign investment and customer acquisition strategy.",
           ],
         },
-        {
-          role: "Data Analyst",
-          company: "Additius Santa Maria",
-          location: "Santa Maria de Palautordera, ES",
-          period: "July 2020 – December 2020",
-          description: [
-            "Applied machine learning to detect crops from satellite imagery.",
-          ],
-        },
       ],
       education: [
         "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
@@ -902,10 +987,10 @@ const translations = {
       languages: [
         "Catalan (Native)",
         "Spanish (Native)",
-        "English (C1)",
-        "French (B2)",
-        "Italian (B2)",
-        "German (B1, actively learning)",
+        "English (Fluent)",
+        "French (Fluent)",
+        "Italian (Intermediate)",
+        "German (Intermediate)",
       ],
       techStack,
       methodologies: [
@@ -1001,7 +1086,7 @@ const translations = {
         email: shared.social.email,
         linkedin: shared.social.linkedin,
         github: shared.social.github,
-        location: "Zurich 8004, Suisse",
+        location: "Zurich 8064, Suisse",
       },
       experiences: [
         {
@@ -1046,15 +1131,6 @@ const translations = {
             "Recommandations stratégiques influençant les décisions d'investissement et d'acquisition.",
           ],
         },
-        {
-          role: "Data Analyst",
-          company: "Additius Santa Maria",
-          location: "Santa Maria de Palautordera, ES",
-          period: "Juillet 2020 – Décembre 2020",
-          description: [
-            "Application du machine learning à la détection de cultures à partir d'imagerie satellite.",
-          ],
-        },
       ],
       education: [
         "MSc en Gestion Financière — Universitat Oberta de Catalunya (UOC), 2022–2024",
@@ -1065,10 +1141,10 @@ const translations = {
       languages: [
         "Catalan (Langue maternelle)",
         "Espagnol (Langue maternelle)",
-        "Anglais (C1)",
-        "Français (B2)",
-        "Italien (B2)",
-        "Allemand (B1, en apprentissage actif)",
+        "Anglais (Courant)",
+        "Français (Courant)",
+        "Italien (Intermédiaire)",
+        "Allemand (Intermédiaire)",
       ],
       techStack,
       methodologies: [
@@ -1164,7 +1240,7 @@ const translations = {
         email: shared.social.email,
         linkedin: shared.social.linkedin,
         github: shared.social.github,
-        location: "Zürich 8004, Schweiz",
+        location: "Zürich 8064, Schweiz",
       },
       experiences: [
         {
@@ -1209,15 +1285,6 @@ const translations = {
             "Strategische Empfehlungen, die Entscheidungen zu Kampagneninvestitionen und Kundenakquise geprägt haben.",
           ],
         },
-        {
-          role: "Data Analyst",
-          company: "Additius Santa Maria",
-          location: "Santa Maria de Palautordera, ES",
-          period: "Juli 2020 – Dezember 2020",
-          description: [
-            "Einsatz von Machine Learning zur Erkennung von Kulturen aus Satellitenbildern.",
-          ],
-        },
       ],
       education: [
         "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
@@ -1228,10 +1295,10 @@ const translations = {
       languages: [
         "Katalanisch (Muttersprache)",
         "Spanisch (Muttersprache)",
-        "Englisch (C1)",
-        "Französisch (B2)",
-        "Italienisch (B2)",
-        "Deutsch (B1, aktiv lernend)",
+        "Englisch (Fliessend)",
+        "Französisch (Fliessend)",
+        "Italienisch (Mittelstufe)",
+        "Deutsch (Mittelstufe)",
       ],
       techStack,
       methodologies: [
@@ -1327,7 +1394,7 @@ const translations = {
         email: shared.social.email,
         linkedin: shared.social.linkedin,
         github: shared.social.github,
-        location: "Zurigo 8004, Svizzera",
+        location: "Zurigo 8064, Svizzera",
       },
       experiences: [
         {
@@ -1372,15 +1439,6 @@ const translations = {
             "Raccomandazioni strategiche che hanno influenzato le decisioni di investimento e acquisizione clienti.",
           ],
         },
-        {
-          role: "Data Analyst",
-          company: "Additius Santa Maria",
-          location: "Santa Maria de Palautordera, ES",
-          period: "Luglio 2020 – Dicembre 2020",
-          description: [
-            "Applicazione del machine learning per rilevare colture da immagini satellitari.",
-          ],
-        },
       ],
       education: [
         "MSc in Gestione Finanziaria — Universitat Oberta de Catalunya (UOC), 2022–2024",
@@ -1391,10 +1449,10 @@ const translations = {
       languages: [
         "Catalano (Madrelingua)",
         "Spagnolo (Madrelingua)",
-        "Inglese (C1)",
-        "Francese (B2)",
-        "Italiano (B2)",
-        "Tedesco (B1, in apprendimento attivo)",
+        "Inglese (Fluente)",
+        "Francese (Fluente)",
+        "Italiano (Intermedio)",
+        "Tedesco (Intermedio)",
       ],
       techStack,
       methodologies: [
@@ -1436,5 +1494,88 @@ const translations = {
     },
   },
 };
+
+// ---------------------------------------------------------------------------
+// CV VARIANTS
+// Each variant re-angles the same factual CV for a family of roles: it swaps the
+// summary, reorders education (so the most relevant degrees lead) and reorders
+// methodologies. Nothing here invents facts — every item also exists in cv.*.
+// Applied by CvBuilderSection via applyCvVariant(); `null`/absent fields fall
+// back to the base CV. Currently authored for English output only.
+// ---------------------------------------------------------------------------
+export const CV_VARIANTS = [
+  {
+    id: "",
+    label: "— Base (general) —",
+  },
+  {
+    id: "consumer",
+    label: "Consumer Insights & Marketing Science",
+    summary:
+      "Senior Data Scientist with a background in statistics and psychology and 4+ years turning measurement into business decisions. Specialised in consumer and marketing measurement, KPI framework design, and translating complex data into clear strategic recommendations for senior stakeholders. Experienced defining success metrics across markets and channels, evaluating marketing mix and channel contribution, and leading cross-functional delivery in global organisations.",
+    education: [
+      "BSc in Statistics — Universitat Politècnica de Catalunya (UPC), 2015–2019",
+      "BSc in Psychology — Universitat de Barcelona (UB), 2014–2019",
+      "MSc in Data Science — Universitat Oberta de Catalunya (UOC), 2020–2022",
+      "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
+    ],
+    methodologies: [
+      "KPI Design",
+      "Experiment Design",
+      "Marketing Mix Evaluation",
+      "ROI / ROAS / CPA Analysis",
+      "Regression Modeling",
+      "Sales Forecasting",
+      "Stakeholder Management",
+      "Dashboard Design",
+      "Agile (Scrum)",
+    ],
+  },
+  {
+    id: "industrial",
+    label: "Industrial & Process Analytics",
+    summary:
+      "Senior Data Scientist with a strong foundation in statistics and 4+ years building decision-driving models in regulated, data-critical environments. Specialised in anomaly and outlier detection, statistical validation, and turning model outputs into operational decisions. Experienced refactoring production Python pipelines for scalability and testing, and leading cross-functional delivery as Product Owner in agile environments.",
+    methodologies: [
+      "Anomaly Detection",
+      "Outlier Detection",
+      "Experiment Design",
+      "Regression Modeling",
+      "Forecasting",
+      "KPI Design",
+      "Dashboard Design",
+      "Stakeholder Management",
+      "Agile (Scrum)",
+    ],
+  },
+  {
+    id: "dataeng",
+    label: "Data / Analytics Engineering",
+    summary:
+      "Senior Data Scientist with 4+ years bridging business needs and technical delivery. Strong in SQL, Python and Power BI — led a Tableau to Power BI migration across a risk function and refactored production Python data pipelines for scalability, testing and deployment readiness. Experienced as Product Owner translating business requirements into data products for cross-functional teams.",
+    methodologies: [
+      "Dashboard Design",
+      "KPI Design",
+      "Data Quality & Validation",
+      "Anomaly Detection",
+      "Regression Modeling",
+      "Stakeholder Management",
+      "Agile (Scrum)",
+    ],
+  },
+];
+
+// Merge a variant onto a language's cv object. Unknown/empty id → unchanged.
+export function applyCvVariant(cv, variantId) {
+  if (!cv || !variantId) return cv;
+  const v = CV_VARIANTS.find((x) => x.id === variantId);
+  if (!v) return cv;
+  return {
+    ...cv,
+    ...(v.summary ? { summary: v.summary } : {}),
+    ...(v.education ? { education: v.education } : {}),
+    ...(v.methodologies ? { methodologies: v.methodologies } : {}),
+  };
+}
 
 export default translations;
