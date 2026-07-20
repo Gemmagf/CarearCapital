@@ -5,7 +5,7 @@ const HomeSection = ({ translations, hero, setCurrentPage }) => {
   const stats = translations.stats || {};
 
   return (
-    <section className="bg-white rounded-2xl border border-gray-100 mx-4 my-6">
+    <section className="bg-white rounded-2xl shadow-sm border border-gray-100 mx-4 my-6">
       <div className="grid grid-cols-1 md:grid-cols-[1.3fr_1fr] gap-10 md:gap-16 items-center max-w-6xl mx-auto px-6 md:px-14 py-14 md:py-20">
 
         {/* Text column */}
