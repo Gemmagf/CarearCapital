@@ -193,12 +193,12 @@ const PROJECT_TEXTS = {
     zuriKreislauf: {
       title: "Züri-Kreislauf — Waste-to-Energy Analytics de Zúric",
       description:
-        "Forecasting, monitorització d'eficiència de procés i capa de decisió CHF/tCO2eq per a la planta KVA Hagenholz de Zúric, sobre dades obertes de la Stadt Zürich. Hotelling T²/Q + IsolationForest detecta automàticament una aturada real de turbina de 8 mesos, valorada en ~CHF 18,8M i ~9.000 tCO2eq — amb cada constant documentada i citada. El SARIMA es valida honestament contra un baseline naive. Production-grade: pytest, CI, dashboard Streamlit bilingüe.",
+        "Forecasting, monitoratge d'eficiència de procés i capa de decisió CHF/tCO2eq per a la planta KVA Hagenholz, amb dades obertes de la Stadt Zürich. Hotelling T²/Q + IsolationForest detecten una aturada real de turbina de 8 mesos (~CHF 18,8M · ~9.000 tCO2eq). SARIMA validat contra baseline naive; pytest, CI i dashboard Streamlit bilingüe.",
     },
     trackerLab: {
       title: "Tracker Lab — Consumer Tracker Analytics",
       description:
-        "Simulador d'un brand tracker global (30 mercats · onades mensuals · ~72 KPIs) i tres anàlisis que responen el que un programa de tracking FMCG necessita però rarament resol. 1) Senyal vs. soroll: control estadístic de procés amb límits derivats de l'error mostral real, per deixar de llegir soroll com si fossin notícies. 2) Invariància de mesura: test configural/mètric/escalar d'una escala de Brand Attachment entre 30 mercats — comparar mitjanes brutes no vol dir res si les escales no són equivalents; genera una scorecard de comparabilitat per mercat. 3) Drivers causals: screening amb Lasso controlant confusors (preu, distribució, promoció, mitjans, estacionalitat) + model bayesià jeràrquic per saber quins KPIs prediuen volum o quota i quins són mètriques de vanitat.",
+        "Simulador d'un brand tracker global (30 mercats · onades mensuals · ~72 KPIs) amb tres anàlisis: control estadístic de procés per separar senyal de soroll mostral; test d'invariància de mesura (configural/mètric/escalar) entre 30 mercats amb scorecard de comparabilitat; i screening causal de drivers (Lasso + bayesià jeràrquic) per distingir els KPIs que prediuen volum i quota de les mètriques de vanitat.",
     },
   },
   spanish: {
@@ -265,12 +265,12 @@ const PROJECT_TEXTS = {
     zuriKreislauf: {
       title: "Züri-Kreislauf — Waste-to-Energy Analytics de Zúrich",
       description:
-        "Forecasting, monitorización de eficiencia de proceso y capa de decisión CHF/tCO2eq para la planta KVA Hagenholz de Zúrich, sobre datos abiertos de la Stadt Zürich. Hotelling T²/Q + IsolationForest detecta automáticamente una parada real de turbina de 8 meses, valorada en ~CHF 18,8M y ~9.000 tCO2eq — con cada constante documentada y citada. El SARIMA se valida honestamente frente a un baseline naive. Production-grade: pytest, CI, dashboard Streamlit bilingüe.",
+        "Forecasting, monitorización de eficiencia de proceso y capa de decisión CHF/tCO2eq para la planta KVA Hagenholz, con datos abiertos de la Stadt Zürich. Hotelling T²/Q + IsolationForest detectan una parada real de turbina de 8 meses (~CHF 18,8M · ~9.000 tCO2eq). SARIMA validado contra baseline naive; pytest, CI y dashboard Streamlit bilingüe.",
     },
     trackerLab: {
       title: "Tracker Lab — Consumer Tracker Analytics",
       description:
-        "Simulador de un brand tracker global (30 mercados · oleadas mensuales · ~72 KPIs) y tres análisis que responden lo que un programa de tracking FMCG necesita pero rara vez resuelve. 1) Señal vs. ruido: control estadístico de proceso con límites derivados del error muestral real, para dejar de leer ruido como si fueran noticias. 2) Invariancia de medida: test configural/métrico/escalar de una escala de Brand Attachment entre 30 mercados — comparar medias brutas no significa nada si las escalas no son equivalentes; genera una scorecard de comparabilidad por mercado. 3) Drivers causales: screening con Lasso controlando confusores (precio, distribución, promoción, medios, estacionalidad) + modelo bayesiano jerárquico para saber qué KPIs predicen volumen o cuota y cuáles son métricas de vanidad.",
+        "Simulador de un brand tracker global (30 mercados · oleadas mensuales · ~72 KPIs) con tres análisis: control estadístico de proceso para separar señal de ruido muestral; test de invariancia de medida (configural/métrico/escalar) entre 30 mercados con scorecard de comparabilidad; y screening causal de drivers (Lasso + bayesiano jerárquico) para distinguir los KPIs que predicen volumen y cuota de las métricas de vanidad.",
     },
   },
   english: {
@@ -337,12 +337,12 @@ const PROJECT_TEXTS = {
     zuriKreislauf: {
       title: "Züri-Kreislauf — Zurich Waste-to-Energy Analytics",
       description:
-        "Forecasting, process-efficiency monitoring and a CHF/tCO2eq decision layer for Zurich's KVA Hagenholz waste-to-energy plant, built on open City of Zurich data. Hotelling T²/Q + IsolationForest automatically flags a real 8-month turbine outage, priced at ~CHF 18.8M and ~9,000 tCO2eq — with every constant sourced and documented. SARIMA is backtested honestly against a naive baseline. Production-grade: pytest, CI, bilingual Streamlit dashboard.",
+        "Forecasting, process-efficiency monitoring and a CHF/tCO2eq decision layer for Zurich's KVA Hagenholz plant, on Stadt Zürich open data. Hotelling T²/Q + IsolationForest automatically flag a real 8-month turbine outage (~CHF 18.8M · ~9,000 tCO2eq). SARIMA validated against a naive baseline; pytest, CI and a bilingual Streamlit dashboard.",
     },
     trackerLab: {
       title: "Tracker Lab — Consumer Tracker Analytics",
       description:
-        "A simulated global brand tracker (30 markets · monthly waves · ~72 KPIs) plus three analyses answering what a large FMCG-scale tracking programme needs but rarely resolves. 1) Signal vs. noise: statistical process control with limits derived from the tracker's own reported sampling error, so sampling noise stops being reported as news; a two-tier watch/signal rule prevents false alarms. 2) Measurement invariance: configural / metric / scalar testing of a Brand Attachment scale across 30 markets — comparing raw means is meaningless if markets use the scale differently — producing a per-market comparability scorecard (safe to compare / adjust / do not compare). 3) Causal driver linkage: confounder-controlled Lasso screen (residualised on price, distribution, promo, media, seasonality) plus a hierarchical Bayesian model, to separate KPIs that predict volume and share from vanity metrics.",
+        "A simulated global brand tracker (30 markets · monthly waves · ~72 KPIs) with three analyses: statistical process control to separate signal from sampling noise; configural/metric/scalar measurement-invariance testing across 30 markets with a per-market comparability scorecard; and a confounder-controlled driver screen (Lasso + hierarchical Bayesian) separating KPIs that predict volume and share from vanity metrics.",
     },
   },
   french: {
@@ -409,12 +409,12 @@ const PROJECT_TEXTS = {
     zuriKreislauf: {
       title: "Züri-Kreislauf — Waste-to-Energy Analytics de Zurich",
       description:
-        "Forecasting, monitoring d'efficacité de procédé et couche de décision CHF/tCO2eq pour l'usine KVA Hagenholz de Zurich, sur des données ouvertes de la Stadt Zürich. Hotelling T²/Q + IsolationForest détecte automatiquement un arrêt réel de turbine de 8 mois, chiffré à ~CHF 18,8M et ~9 000 tCO2eq — chaque constante étant documentée et sourcée. Le SARIMA est validé honnêtement face à un baseline naive. Production-grade : pytest, CI, dashboard Streamlit bilingue.",
+        "Prévision, suivi de l'efficacité du procédé et couche de décision CHF/tCO2eq pour l'usine KVA Hagenholz, sur données ouvertes de la Stadt Zürich. Hotelling T²/Q + IsolationForest détectent un arrêt réel de turbine de 8 mois (~CHF 18,8M · ~9 000 tCO2eq). SARIMA validé contre un baseline naïf ; pytest, CI et dashboard Streamlit bilingue.",
     },
     trackerLab: {
       title: "Tracker Lab — Consumer Tracker Analytics",
       description:
-        "Simulateur d'un brand tracker global (30 marchés · vagues mensuelles · ~72 KPIs) et trois analyses répondant à ce qu'un programme de tracking FMCG doit résoudre mais traite rarement. 1) Signal vs. bruit : maîtrise statistique des procédés avec des limites dérivées de l'erreur d'échantillonnage réelle, pour cesser de lire le bruit comme une information. 2) Invariance de mesure : tests configural / métrique / scalaire d'une échelle de Brand Attachment sur 30 marchés — comparer des moyennes brutes n'a aucun sens si les échelles ne sont pas équivalentes ; produit une scorecard de comparabilité par marché. 3) Drivers causaux : screening Lasso contrôlé pour les facteurs de confusion (prix, distribution, promotion, médias, saisonnalité) et modèle bayésien hiérarchique, pour distinguer les KPIs qui prédisent le volume ou la part des métriques de vanité.",
+        "Simulateur d'un brand tracker global (30 marchés · vagues mensuelles · ~72 KPIs) avec trois analyses : maîtrise statistique des procédés pour séparer le signal du bruit d'échantillonnage ; tests d'invariance de mesure (configural/métrique/scalaire) sur 30 marchés avec scorecard de comparabilité ; et screening causal de drivers (Lasso + bayésien hiérarchique) distinguant les KPIs qui prédisent volume et part des métriques de vanité.",
     },
   },
   german: {
@@ -481,12 +481,12 @@ const PROJECT_TEXTS = {
     zuriKreislauf: {
       title: "Züri-Kreislauf — Waste-to-Energy Analytics für Zürich",
       description:
-        "Forecasting, Prozesseffizienz-Monitoring und eine CHF/tCO2eq-Entscheidungs-Schicht für die KVA Hagenholz in Zürich, auf offenen Daten der Stadt Zürich. Hotelling T²/Q + IsolationForest erkennt automatisch einen realen 8-monatigen Turbinenausfall, beziffert mit ~CHF 18,8 Mio. und ~9'000 tCO2eq — jede Konstante dokumentiert und belegt. Das SARIMA-Modell wird ehrlich gegen eine Naiv-Baseline validiert. Production-grade: pytest, CI, zweisprachiges Streamlit-Dashboard.",
+        "Forecasting, Prozesseffizienz-Monitoring und eine CHF/tCO2eq-Entscheidungsschicht für die KVA Hagenholz, auf Basis offener Daten der Stadt Zürich. Hotelling T²/Q + IsolationForest erkennen einen realen 8-monatigen Turbinenausfall (~CHF 18,8 Mio. · ~9.000 tCO2eq). SARIMA gegen eine naive Baseline validiert; pytest, CI und zweisprachiges Streamlit-Dashboard.",
     },
     trackerLab: {
       title: "Tracker Lab — Consumer Tracker Analytics",
       description:
-        "Simulierter globaler Brand Tracker (30 Märkte · monatliche Wellen · ~72 KPIs) plus drei Analysen für das, was ein FMCG-Tracking-Programm braucht, aber selten löst. 1) Signal vs. Rauschen: statistische Prozesskontrolle mit Grenzen aus dem tatsächlichen Stichprobenfehler, damit Rauschen nicht länger als Nachricht gelesen wird. 2) Messinvarianz: konfigurale / metrische / skalare Tests einer Brand-Attachment-Skala über 30 Märkte — der Vergleich von Rohmittelwerten ist bedeutungslos, wenn Skalen unterschiedlich genutzt werden; ergibt eine Vergleichbarkeits-Scorecard je Markt. 3) Kausale Treiber: konfounder-kontrolliertes Lasso-Screening (bereinigt um Preis, Distribution, Promotion, Media, Saisonalität) plus hierarchisches bayessches Modell, um KPIs mit echter Volumen- bzw. Share-Vorhersage von Vanity-Metriken zu trennen.",
+        "Simulierter globaler Brand Tracker (30 Märkte · monatliche Wellen · ~72 KPIs) mit drei Analysen: statistische Prozesskontrolle zur Trennung von Signal und Stichprobenrauschen; Messinvarianz-Tests (konfigural/metrisch/skalar) über 30 Märkte mit Vergleichbarkeits-Scorecard; und ein konfounder-kontrolliertes Treiber-Screening (Lasso + hierarchisch bayessch), das KPIs mit echter Volumen- und Share-Vorhersage von Vanity-Metriken trennt.",
     },
   },
   italian: {
@@ -553,12 +553,12 @@ const PROJECT_TEXTS = {
     zuriKreislauf: {
       title: "Züri-Kreislauf — Waste-to-Energy Analytics di Zurigo",
       description:
-        "Forecasting, monitoraggio dell'efficienza di processo e strato decisionale CHF/tCO2eq per l'impianto KVA Hagenholz di Zurigo, su dati aperti della Stadt Zürich. Hotelling T²/Q + IsolationForest rileva automaticamente un reale fermo turbina di 8 mesi, valutato in ~CHF 18,8M e ~9.000 tCO2eq — con ogni costante documentata e citata. Il SARIMA è validato onestamente contro un baseline naive. Production-grade: pytest, CI, dashboard Streamlit bilingue.",
+        "Forecasting, monitoraggio dell'efficienza di processo e layer decisionale CHF/tCO2eq per l'impianto KVA Hagenholz, su dati aperti della Stadt Zürich. Hotelling T²/Q + IsolationForest rilevano un fermo reale di turbina di 8 mesi (~CHF 18,8M · ~9.000 tCO2eq). SARIMA validato contro baseline naive; pytest, CI e dashboard Streamlit bilingue.",
     },
     trackerLab: {
       title: "Tracker Lab — Consumer Tracker Analytics",
       description:
-        "Simulatore di un brand tracker globale (30 mercati · wave mensili · ~72 KPI) e tre analisi che rispondono a ciò di cui un programma di tracking FMCG ha bisogno ma raramente risolve. 1) Segnale vs. rumore: controllo statistico di processo con limiti derivati dall'errore campionario reale, per smettere di leggere il rumore come notizia. 2) Invarianza di misura: test configurale / metrico / scalare di una scala di Brand Attachment su 30 mercati — confrontare medie grezze non significa nulla se le scale vengono usate diversamente; produce una scorecard di comparabilità per mercato. 3) Driver causali: screening Lasso controllato per confondenti (prezzo, distribuzione, promozione, media, stagionalità) e modello bayesiano gerarchico, per distinguere i KPI che predicono volume o quota dalle metriche di vanità.",
+        "Simulatore di un brand tracker globale (30 mercati · wave mensili · ~72 KPI) con tre analisi: controllo statistico di processo per separare segnale e rumore campionario; test di invarianza di misura (configurale/metrico/scalare) su 30 mercati con scorecard di comparabilità; e screening causale dei driver (Lasso + bayesiano gerarchico) per distinguere i KPI che predicono volume e quota dalle metriche di vanità.",
     },
   },
 };
