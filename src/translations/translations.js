@@ -644,10 +644,12 @@ const translations = {
           location: "Zuric, CH",
           period: "Novembre 2022 – Desembre 2025",
           description: [
+            "Lideratge de la visió, desenvolupament i lliurament d'un producte de qualitat de dades de risc.",
             "Product Owner de dues eines crítiques: dashboard de detecció d'anomalies i motor de validació estadística.",
             "Gestió d'un pod cross-functional de 5 persones (IT i negoci) en cicles Agile complets, reduint el temps de projecte en un 50%.",
             "Lideratge de la migració de Tableau a Power BI dins la funció de risc.",
             "Traducció de sortides de models complexos en recomanacions accionables per a stakeholders sèniors.",
+            "Mentoria d'un becari durant 1,5 anys (onboarding, skills i alineació de projecte).",
           ],
         },
         {
@@ -668,8 +670,10 @@ const translations = {
           period: "Gener 2021 – Abril 2022",
           description: [
             "Desenvolupament de models de regressió per predir vendes segons inversió en marketing, geografia i timing de campanya.",
+            "Integració de dades de SEO, SEM, TV, Instagram, Facebook i Amazon Marketplace en dashboards estratègics.",
             "Anàlisi d'efectivitat de ROI, ROAS i CPA per guiar decisions d'assignació de mitjans.",
             "Avaluació de marketing mix, quantificant contribució de canal i eficiència d'inversió.",
+            "Recomanacions estratègiques que van influir en decisions d'inversió i adquisició de clients.",
           ],
         },
       ],
@@ -801,10 +805,12 @@ const translations = {
           location: "Zúrich, CH",
           period: "Noviembre 2022 – Diciembre 2025",
           description: [
+            "Liderazgo de la visión, desarrollo y entrega de un producto de calidad de datos de riesgo.",
             "Product Owner de dos herramientas críticas: dashboard de detección de anomalías y motor de validación estadística.",
             "Gestión de un pod cross-functional de 5 personas (IT y negocio) en ciclos Agile completos, reduciendo el tiempo de proyecto en un 50%.",
             "Liderazgo de la migración de Tableau a Power BI dentro de la función de riesgo.",
             "Traducción de salidas de modelos complejos en recomendaciones accionables para stakeholders senior.",
+            "Mentoría de un becario durante 1,5 años (onboarding, skills y alineación de proyecto).",
           ],
         },
         {
@@ -825,8 +831,10 @@ const translations = {
           period: "Enero 2021 – Abril 2022",
           description: [
             "Desarrollo de modelos de regresión para predecir ventas según inversión en marketing, geografía y timing de campaña.",
+            "Integración de datos de SEO, SEM, TV, Instagram, Facebook y Amazon Marketplace en dashboards estratégicos.",
             "Análisis de efectividad de ROI, ROAS y CPA para guiar decisiones de asignación de medios.",
             "Evaluación de marketing mix, cuantificando contribución de canal y eficiencia de inversión.",
+            "Recomendaciones estratégicas que influyeron en decisiones de inversión y adquisición de clientes.",
           ],
         },
       ],
@@ -958,10 +966,12 @@ const translations = {
           location: "Zurich, CH",
           period: "November 2022 – December 2025",
           description: [
+            "Led the vision, development and delivery of a risk data quality product.",
             "Product Owner for two critical tools: an anomaly detection dashboard and a statistical validation engine.",
             "Managed a cross-functional pod of 5 (IT and business) through full agile cycles, cutting project time by 50%.",
-            "Championed the Tableau → Power BI migration across the risk function.",
+            "Championed the Tableau to Power BI migration across the risk function.",
             "Translated complex model outputs into actionable recommendations for senior stakeholders.",
+            "Mentored an intern over 1.5 years, overseeing onboarding, skill development, and project alignment.",
           ],
         },
         {
@@ -982,8 +992,10 @@ const translations = {
           period: "January 2021 – April 2022",
           description: [
             "Developed regression-based sales forecasting models linking marketing spend, geography, and campaign timing to revenue.",
+            "Integrated data from SEO, SEM, TV, Instagram, Facebook, and Amazon Marketplace into strategic dashboards.",
             "Conducted ROI, ROAS, and CPA effectiveness analysis to guide media allocation decisions.",
             "Supported marketing mix evaluation, quantifying channel contribution and investment efficiency.",
+            "Delivered strategic recommendations that shaped campaign investment and customer acquisition strategy.",
           ],
         },
       ],
@@ -1115,10 +1127,12 @@ const translations = {
           location: "Zurich, CH",
           period: "Novembre 2022 – Décembre 2025",
           description: [
+            "Pilotage de la vision, du développement et de la livraison d'un produit de qualité des données de risque.",
             "Product Owner de deux outils critiques : dashboard de détection d'anomalies et moteur de validation statistique.",
             "Gestion d'un pod cross-functional de 5 personnes (IT et métier) en cycles Agile complets, réduisant le time-to-market de 50 %.",
-            "Pilotage de la migration Tableau → Power BI dans la fonction risque.",
+            "Pilotage de la migration Tableau vers Power BI dans la fonction risque.",
             "Traduction des sorties de modèles complexes en recommandations actionnables pour les stakeholders seniors.",
+            "Mentorat d'un stagiaire pendant 1,5 an (onboarding, montée en compétences, alignement projet).",
           ],
         },
         {
@@ -1139,8 +1153,10 @@ const translations = {
           period: "Janvier 2021 – Avril 2022",
           description: [
             "Développement de modèles de régression pour prévoir les ventes selon l'investissement marketing, la géographie et le timing des campagnes.",
+            "Intégration des données SEO, SEM, TV, Instagram, Facebook et Amazon Marketplace dans des dashboards stratégiques.",
             "Analyse ROI, ROAS et CPA pour guider les décisions d'allocation média.",
             "Évaluation du marketing mix, quantifiant la contribution par canal et l'efficacité des investissements.",
+            "Recommandations stratégiques influençant les décisions d'investissement et d'acquisition.",
           ],
         },
       ],
@@ -1272,10 +1288,12 @@ const translations = {
           location: "Zürich, CH",
           period: "November 2022 – Dezember 2025",
           description: [
+            "Leitung der Vision, Entwicklung und Auslieferung eines Produkts zur Risikodatenqualität.",
             "Product Owner für zwei kritische Tools: Anomalie-Dashboard und statistische Validierungs-Engine.",
             "Steuerung eines cross-funktionalen Pods aus 5 Mitgliedern (IT und Business) in vollen Agile-Zyklen, Projektzeit um 50 % reduziert.",
             "Treiber der Migration von Tableau zu Power BI innerhalb der Risk-Funktion.",
             "Übersetzung komplexer Modellergebnisse in handlungsleitende Empfehlungen für Senior-Stakeholder.",
+            "Mentoring eines Praktikanten über 1,5 Jahre (Onboarding, Skill-Aufbau, Projektausrichtung).",
           ],
         },
         {
@@ -1296,8 +1314,10 @@ const translations = {
           period: "Januar 2021 – April 2022",
           description: [
             "Entwicklung von Regressionsmodellen zur Umsatzprognose auf Basis von Marketing-Investitionen, Region und Kampagnen-Timing.",
+            "Integration von Daten aus SEO, SEM, TV, Instagram, Facebook und Amazon Marketplace in strategische Dashboards.",
             "ROI-, ROAS- und CPA-Analysen zur Steuerung der Media-Allokation.",
             "Marketing-Mix-Bewertung: Kanalbeitrag und Investitionseffizienz quantifiziert.",
+            "Strategische Empfehlungen, die Entscheidungen zu Kampagneninvestitionen und Kundenakquise geprägt haben.",
           ],
         },
       ],
@@ -1429,10 +1449,12 @@ const translations = {
           location: "Zurigo, CH",
           period: "Novembre 2022 – Dicembre 2025",
           description: [
+            "Guida della vision, sviluppo e consegna di un prodotto di qualità dei dati di rischio.",
             "Product Owner di due strumenti critici: dashboard di rilevamento anomalie e motore di validazione statistica.",
             "Gestione di un pod cross-funzionale di 5 persone (IT e business) in cicli Agile completi, riducendo del 50% il tempo di progetto.",
             "Guida della migrazione da Tableau a Power BI nella funzione rischio.",
             "Traduzione degli output di modelli complessi in raccomandazioni azionabili per stakeholder senior.",
+            "Mentoring di un tirocinante per 1,5 anni (onboarding, sviluppo skill, allineamento del progetto).",
           ],
         },
         {
@@ -1453,8 +1475,10 @@ const translations = {
           period: "Gennaio 2021 – Aprile 2022",
           description: [
             "Sviluppo di modelli di regressione per prevedere le vendite in funzione di investimento marketing, geografia e timing delle campagne.",
+            "Integrazione di dati da SEO, SEM, TV, Instagram, Facebook e Amazon Marketplace in dashboard strategiche.",
             "Analisi ROI, ROAS e CPA per guidare le decisioni di allocazione media.",
             "Valutazione del marketing mix, quantificando il contributo per canale e l'efficienza dell'investimento.",
+            "Raccomandazioni strategiche che hanno influenzato le decisioni di investimento e acquisizione clienti.",
           ],
         },
       ],
