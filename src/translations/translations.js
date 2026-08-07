@@ -633,12 +633,9 @@ const translations = {
           location: "Zuric, CH",
           period: "Gener 2026 – Present",
           description: [
-            "Transformació de dades operatives en valor de negoci mesurable i recomanacions accionables.",
             "Construcció d'insights analítics que donen suport a la presa de decisions del management.",
-            "Lideratge d'iniciatives de qualitat i validació de dades abans del desplegament a producció.",
             "Disseny i simplificació de models de dades per millorar la governança i la usabilitat.",
             "Automatització de reporting manual i ús d'eines d'IA i analytics per augmentar productivitat i escalabilitat.",
-            "Impuls de l'estandardització de processos entre funcions i traducció de requeriments dels stakeholders en solucions pràctiques.",
           ],
         },
         {
@@ -670,9 +667,9 @@ const translations = {
           location: "Granollers, ES",
           period: "Gener 2021 – Abril 2022",
           description: [
-            "Sviluppo di modelli di regressione per prevedere le vendite in base a investimento marketing, geografia e timing delle campagne.",
-            "Analisi di efficacia di ROI, ROAS e CPA per guidare le decisioni di allocazione dei media.",
-            "Valutazione del marketing mix, quantificando il contributo dei canali e l'efficienza dell'investimento.",
+            "Desenvolupament de models de regressió per predir vendes segons inversió en marketing, geografia i timing de campanya.",
+            "Anàlisi d'efectivitat de ROI, ROAS i CPA per guiar decisions d'assignació de mitjans.",
+            "Avaluació de marketing mix, quantificant contribució de canal i eficiència d'inversió.",
           ],
         },
       ],
@@ -793,12 +790,9 @@ const translations = {
           location: "Zúrich, CH",
           period: "Enero 2026 – Presente",
           description: [
-            "Transformación de datos operativos en valor de negocio medible y recomendaciones accionables.",
             "Construcción de insights analíticos que apoyan la toma de decisiones del management.",
-            "Liderazgo de iniciativas de calidad y validación de datos antes del despliegue a producción.",
             "Diseño y simplificación de modelos de datos para mejorar la gobernanza y la usabilidad.",
             "Automatización de reporting manual y uso de herramientas de IA y analytics para aumentar productividad y escalabilidad.",
-            "Impulso de la estandarización de procesos entre funciones y traducción de requisitos de stakeholders en soluciones prácticas.",
           ],
         },
         {
@@ -831,11 +825,8 @@ const translations = {
           period: "Enero 2021 – Abril 2022",
           description: [
             "Desarrollo de modelos de regresión para predecir ventas según inversión en marketing, geografía y timing de campaña.",
-            "Integración de datos de SEO, SEM, TV, Instagram, Facebook y Amazon Marketplace en dashboards estratégicos.",
             "Análisis de efectividad de ROI, ROAS y CPA para guiar decisiones de asignación de medios.",
-            "Optimización de la distribución presupuestaria con insights de elasticidad de performance.",
             "Evaluación de marketing mix, cuantificando contribución de canal y eficiencia de inversión.",
-            "Recomendaciones estratégicas que influyeron en decisiones de inversión y adquisición de clientes.",
           ],
         },
       ],
@@ -956,12 +947,9 @@ const translations = {
           location: "Zurich, CH",
           period: "January 2026 – Present",
           description: [
-            "Turn operational data into measurable business value and actionable recommendations.",
             "Build analytical insights that support management decision-making.",
-            "Lead data quality and validation initiatives before production deployment.",
             "Design and simplify data models to improve governance and usability.",
             "Automate manual reporting and leverage AI and analytics tools to increase productivity and scalability.",
-            "Drive process standardization across functions and translate stakeholder requirements into practical solutions.",
           ],
         },
         {
@@ -994,11 +982,8 @@ const translations = {
           period: "January 2021 – April 2022",
           description: [
             "Developed regression-based sales forecasting models linking marketing spend, geography, and campaign timing to revenue.",
-            "Integrated data from SEO, SEM, TV, Instagram, Facebook, and Amazon Marketplace into strategic dashboards.",
             "Conducted ROI, ROAS, and CPA effectiveness analysis to guide media allocation decisions.",
-            "Optimized budget distribution across channels using performance elasticity insights.",
             "Supported marketing mix evaluation, quantifying channel contribution and investment efficiency.",
-            "Delivered strategic recommendations that shaped campaign investment and customer acquisition strategy.",
           ],
         },
       ],
@@ -1119,12 +1104,9 @@ const translations = {
           location: "Zurich, CH",
           period: "Janvier 2026 – Présent",
           description: [
-            "Transformation des données opérationnelles en valeur métier mesurable et recommandations actionnables.",
             "Construction d'insights analytiques qui soutiennent la prise de décision du management.",
-            "Pilotage d'initiatives de qualité et de validation des données avant le déploiement en production.",
             "Conception et simplification de modèles de données pour améliorer la gouvernance et l'usabilité.",
             "Automatisation du reporting manuel et utilisation d'outils d'IA et d'analytics pour accroître productivité et scalabilité.",
-            "Impulsion de la standardisation des processus entre fonctions et traduction des besoins des stakeholders en solutions pratiques.",
           ],
         },
         {
@@ -1157,11 +1139,8 @@ const translations = {
           period: "Janvier 2021 – Avril 2022",
           description: [
             "Développement de modèles de régression pour prévoir les ventes selon l'investissement marketing, la géographie et le timing des campagnes.",
-            "Intégration des données SEO, SEM, TV, Instagram, Facebook et Amazon Marketplace dans des dashboards stratégiques.",
             "Analyse ROI, ROAS et CPA pour guider les décisions d'allocation média.",
-            "Optimisation de la distribution budgétaire grâce à des insights d'élasticité de performance.",
             "Évaluation du marketing mix, quantifiant la contribution par canal et l'efficacité des investissements.",
-            "Recommandations stratégiques influençant les décisions d'investissement et d'acquisition.",
           ],
         },
       ],
@@ -1282,12 +1261,9 @@ const translations = {
           location: "Zürich, CH",
           period: "Januar 2026 – Gegenwart",
           description: [
-            "Umwandlung operativer Daten in messbaren Geschäftswert und handlungsleitende Empfehlungen.",
             "Aufbau analytischer Insights zur Unterstützung von Management-Entscheidungen.",
-            "Leitung von Datenqualitäts- und Validierungsinitiativen vor dem Produktivdeployment.",
             "Design und Vereinfachung von Datenmodellen zur Verbesserung von Governance und Usability.",
             "Automatisierung manuellen Reportings und Einsatz von KI- und Analytics-Tools für mehr Produktivität und Skalierbarkeit.",
-            "Vorantreiben der Prozessstandardisierung über Funktionen hinweg und Übersetzung von Stakeholder-Anforderungen in praktische Lösungen.",
           ],
         },
         {
@@ -1320,11 +1296,8 @@ const translations = {
           period: "Januar 2021 – April 2022",
           description: [
             "Entwicklung von Regressionsmodellen zur Umsatzprognose auf Basis von Marketing-Investitionen, Region und Kampagnen-Timing.",
-            "Integration von Daten aus SEO, SEM, TV, Instagram, Facebook und Amazon Marketplace in strategische Dashboards.",
             "ROI-, ROAS- und CPA-Analysen zur Steuerung der Media-Allokation.",
-            "Optimierung der Budgetverteilung über Kanäle mithilfe von Performance-Elastizitäts-Insights.",
             "Marketing-Mix-Bewertung: Kanalbeitrag und Investitionseffizienz quantifiziert.",
-            "Strategische Empfehlungen, die Entscheidungen zu Kampagneninvestitionen und Kundenakquise geprägt haben.",
           ],
         },
       ],
@@ -1445,12 +1418,9 @@ const translations = {
           location: "Zurigo, CH",
           period: "Gennaio 2026 – Presente",
           description: [
-            "Trasformazione dei dati operativi in valore di business misurabile e raccomandazioni azionabili.",
             "Costruzione di insight analitici a supporto delle decisioni del management.",
-            "Guida di iniziative di qualità e validazione dei dati prima del deployment in produzione.",
             "Progettazione e semplificazione di modelli di dati per migliorare governance e usabilità.",
             "Automazione del reporting manuale e utilizzo di strumenti di IA e analytics per aumentare produttività e scalabilità.",
-            "Guida della standardizzazione dei processi tra funzioni e traduzione dei requisiti degli stakeholder in soluzioni pratiche.",
           ],
         },
         {
@@ -1483,11 +1453,8 @@ const translations = {
           period: "Gennaio 2021 – Aprile 2022",
           description: [
             "Sviluppo di modelli di regressione per prevedere le vendite in funzione di investimento marketing, geografia e timing delle campagne.",
-            "Integrazione di dati da SEO, SEM, TV, Instagram, Facebook e Amazon Marketplace in dashboard strategiche.",
             "Analisi ROI, ROAS e CPA per guidare le decisioni di allocazione media.",
-            "Ottimizzazione della distribuzione del budget tramite insights di elasticità di performance.",
             "Valutazione del marketing mix, quantificando il contributo per canale e l'efficienza dell'investimento.",
-            "Raccomandazioni strategiche che hanno influenzato le decisioni di investimento e acquisizione clienti.",
           ],
         },
       ],
