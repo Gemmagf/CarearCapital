@@ -147,6 +147,22 @@ const CvDocument = ({
   const c = cvData?.contact || {};
   const tagline = positionTitle?.trim() || cvData?.headline;
 
+  // Localised UI labels — fall back to English when a translation is missing.
+  const lbl = cvData?.labels || {};
+  const L = {
+    home: lbl.location || "Home",
+    phone: lbl.phone || "Phone",
+    email: lbl.email || "Email",
+    portfolio: "Portfolio",
+    summary: cvData?.summaryTitle || "Summary",
+    featured: cvData?.featuredProjectTitle || "Featured project",
+    experience: cvData?.experienceTitle || "Experience",
+    education: cvData?.educationTitle || "Education",
+    techMethods: cvData?.techMethodsTitle || "Tech & Methodologies",
+    languages: cvData?.languagesTitle || "Languages",
+    methods: cvData?.methodsLabel || "Methods",
+  };
+
   const Bullet = ({ children }) => (
     <View style={styles.bulletRow} wrap={false}>
       <Text style={styles.bulletMark}>•</Text>
@@ -180,13 +196,13 @@ const CvDocument = ({
               <View style={styles.contactCol}>
                 {c.location && (
                   <Text style={styles.contactValue}>
-                    <Text style={styles.contactLabel}>Home: </Text>
+                    <Text style={styles.contactLabel}>{L.home}: </Text>
                     {c.location}
                   </Text>
                 )}
                 {c.phone && (
                   <Text style={styles.contactValue}>
-                    <Text style={styles.contactLabel}>Phone: </Text>
+                    <Text style={styles.contactLabel}>{L.phone}: </Text>
                     {c.phone}
                   </Text>
                 )}
@@ -194,7 +210,7 @@ const CvDocument = ({
               <View style={styles.contactCol}>
                 {c.email && (
                   <Text style={styles.contactValue}>
-                    <Text style={styles.contactLabel}>Email: </Text>
+                    <Text style={styles.contactLabel}>{L.email}: </Text>
                     <Link
                       src={`mailto:${c.email}`}
                       style={styles.contactLink}
@@ -204,7 +220,7 @@ const CvDocument = ({
                   </Text>
                 )}
                 <Text style={styles.contactValue}>
-                  <Text style={styles.contactLabel}>Portfolio: </Text>
+                  <Text style={styles.contactLabel}>{L.portfolio}: </Text>
                   <Link src={PORTFOLIO_URL} style={styles.contactLink}>
                     {stripProto(PORTFOLIO_URL)}
                   </Link>
@@ -218,7 +234,7 @@ const CvDocument = ({
 
         {/* SUMMARY ---------------------------------------------------------- */}
         {(cvData?.summary || motivation) && (
-          <Section title={cvData?.summaryTitle || "Summary"}>
+          <Section title={L.summary}>
             {cvData?.summary && (
               <Text style={styles.body}>{cvData.summary}</Text>
             )}
@@ -230,7 +246,7 @@ const CvDocument = ({
 
         {/* FEATURED PROJECT ------------------------------------------------- */}
         {featuredProject && (
-          <Section title="Featured project">
+          <Section title={L.featured}>
             <Text style={styles.projectTitle}>{featuredProject.title}</Text>
             {(featuredProject.link || featuredProject.repo) && (
               <Text style={styles.projectMeta}>
@@ -274,7 +290,7 @@ const CvDocument = ({
 
         {/* EXPERIENCE ------------------------------------------------------- */}
         {Array.isArray(cvData?.experiences) && cvData.experiences.length > 0 && (
-          <Section title={cvData?.experienceTitle || "Experience"}>
+          <Section title={L.experience}>
             {cvData.experiences.map((exp, i) => (
               <View key={i} style={styles.expEntry} wrap={false}>
                 <View style={styles.expHeader}>
@@ -296,7 +312,7 @@ const CvDocument = ({
 
         {/* EDUCATION -------------------------------------------------------- */}
         {Array.isArray(cvData?.education) && cvData.education.length > 0 && (
-          <Section title={cvData?.educationTitle || "Education"}>
+          <Section title={L.education}>
             {cvData.education.map((e, i) => (
               <Bullet key={i}>{e}</Bullet>
             ))}
@@ -307,7 +323,7 @@ const CvDocument = ({
         {((Array.isArray(cvData?.techStack) && cvData.techStack.length > 0) ||
           (Array.isArray(cvData?.methodologies) &&
             cvData.methodologies.length > 0)) && (
-          <Section title="Tech & Methodologies">
+          <Section title={L.techMethods}>
             {Array.isArray(cvData?.techStack) &&
               cvData.techStack.length > 0 && (
                 <Text style={styles.body}>
@@ -318,7 +334,7 @@ const CvDocument = ({
             {Array.isArray(cvData?.methodologies) &&
               cvData.methodologies.length > 0 && (
                 <Text style={styles.body}>
-                  <Text style={styles.inlineLabel}>Methods: </Text>
+                  <Text style={styles.inlineLabel}>{L.methods}: </Text>
                   {cvData.methodologies.join(" · ")}
                 </Text>
               )}
@@ -327,7 +343,7 @@ const CvDocument = ({
 
         {/* LANGUAGES -------------------------------------------------------- */}
         {Array.isArray(cvData?.languages) && cvData.languages.length > 0 && (
-          <Section title={cvData?.languagesTitle || "Languages"}>
+          <Section title={L.languages}>
             <Text style={styles.body}>{cvData.languages.join(" · ")}</Text>
           </Section>
         )}
