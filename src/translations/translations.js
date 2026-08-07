@@ -628,10 +628,24 @@ const translations = {
       },
       experiences: [
         {
-          role: "Senior Data Scientist & Product Owner",
+          role: "Data & Analytics Specialist",
+          company: "UBS Business Solutions AG – CAO & Risk Integration Office",
+          location: "Zuric, CH",
+          period: "Gener 2026 – Present",
+          description: [
+            "Transformació de dades operatives en valor de negoci mesurable i recomanacions accionables.",
+            "Construcció d'insights analítics que donen suport a la presa de decisions del management.",
+            "Lideratge d'iniciatives de qualitat i validació de dades abans del desplegament a producció.",
+            "Disseny i simplificació de models de dades per millorar la governança i la usabilitat.",
+            "Automatització de reporting manual i ús d'eines d'IA i analytics per augmentar productivitat i escalabilitat.",
+            "Impuls de l'estandardització de processos entre funcions i traducció de requeriments dels stakeholders en solucions pràctiques.",
+          ],
+        },
+        {
+          role: "Data Scientist & Product Owner",
           company: "UBS Business Solutions AG",
           location: "Zuric, CH",
-          period: "Novembre 2022 – Present",
+          period: "Novembre 2022 – Desembre 2025",
           description: [
             "Lideratge de la visió, desenvolupament i lliurament d'un producte de qualitat de dades de risc.",
             "Product Owner de dues eines crítiques: dashboard de detecció d'anomalies i motor de validació estadística.",
@@ -782,10 +796,24 @@ const translations = {
       },
       experiences: [
         {
-          role: "Senior Data Scientist & Product Owner",
+          role: "Data & Analytics Specialist",
+          company: "UBS Business Solutions AG – CAO & Risk Integration Office",
+          location: "Zúrich, CH",
+          period: "Enero 2026 – Presente",
+          description: [
+            "Transformación de datos operativos en valor de negocio medible y recomendaciones accionables.",
+            "Construcción de insights analíticos que apoyan la toma de decisiones del management.",
+            "Liderazgo de iniciativas de calidad y validación de datos antes del despliegue a producción.",
+            "Diseño y simplificación de modelos de datos para mejorar la gobernanza y la usabilidad.",
+            "Automatización de reporting manual y uso de herramientas de IA y analytics para aumentar productividad y escalabilidad.",
+            "Impulso de la estandarización de procesos entre funciones y traducción de requisitos de stakeholders en soluciones prácticas.",
+          ],
+        },
+        {
+          role: "Data Scientist & Product Owner",
           company: "UBS Business Solutions AG",
           location: "Zúrich, CH",
-          period: "Noviembre 2022 – Presente",
+          period: "Noviembre 2022 – Diciembre 2025",
           description: [
             "Liderazgo de la visión, desarrollo y entrega de un producto de calidad de datos de riesgo.",
             "Product Owner de dos herramientas críticas: dashboard de detección de anomalías y motor de validación estadística.",
@@ -936,10 +964,24 @@ const translations = {
       },
       experiences: [
         {
-          role: "Senior Data Scientist & Product Owner",
+          role: "Data & Analytics Specialist",
+          company: "UBS Business Solutions AG – CAO & Risk Integration Office",
+          location: "Zurich, CH",
+          period: "January 2026 – Present",
+          description: [
+            "Turn operational data into measurable business value and actionable recommendations.",
+            "Build analytical insights that support management decision-making.",
+            "Lead data quality and validation initiatives before production deployment.",
+            "Design and simplify data models to improve governance and usability.",
+            "Automate manual reporting and leverage AI and analytics tools to increase productivity and scalability.",
+            "Drive process standardization across functions and translate stakeholder requirements into practical solutions.",
+          ],
+        },
+        {
+          role: "Data Scientist & Product Owner",
           company: "UBS Business Solutions AG",
           location: "Zurich, CH",
-          period: "November 2022 – Present",
+          period: "November 2022 – December 2025",
           description: [
             "Led the vision, development and delivery of a risk data quality product.",
             "Product Owner for two critical tools: an anomaly detection dashboard and a statistical validation engine.",
@@ -1090,10 +1132,24 @@ const translations = {
       },
       experiences: [
         {
-          role: "Senior Data Scientist & Product Owner",
+          role: "Data & Analytics Specialist",
+          company: "UBS Business Solutions AG – CAO & Risk Integration Office",
+          location: "Zurich, CH",
+          period: "Janvier 2026 – Présent",
+          description: [
+            "Transformation des données opérationnelles en valeur métier mesurable et recommandations actionnables.",
+            "Construction d'insights analytiques qui soutiennent la prise de décision du management.",
+            "Pilotage d'initiatives de qualité et de validation des données avant le déploiement en production.",
+            "Conception et simplification de modèles de données pour améliorer la gouvernance et l'usabilité.",
+            "Automatisation du reporting manuel et utilisation d'outils d'IA et d'analytics pour accroître productivité et scalabilité.",
+            "Impulsion de la standardisation des processus entre fonctions et traduction des besoins des stakeholders en solutions pratiques.",
+          ],
+        },
+        {
+          role: "Data Scientist & Product Owner",
           company: "UBS Business Solutions AG",
           location: "Zurich, CH",
-          period: "Novembre 2022 – Présent",
+          period: "Novembre 2022 – Décembre 2025",
           description: [
             "Pilotage de la vision, du développement et de la livraison d'un produit de qualité des données de risque.",
             "Product Owner de deux outils critiques : dashboard de détection d'anomalies et moteur de validation statistique.",
@@ -1244,10 +1300,24 @@ const translations = {
       },
       experiences: [
         {
-          role: "Senior Data Scientist & Product Owner",
+          role: "Data & Analytics Specialist",
+          company: "UBS Business Solutions AG – CAO & Risk Integration Office",
+          location: "Zürich, CH",
+          period: "Januar 2026 – Gegenwart",
+          description: [
+            "Umwandlung operativer Daten in messbaren Geschäftswert und handlungsleitende Empfehlungen.",
+            "Aufbau analytischer Insights zur Unterstützung von Management-Entscheidungen.",
+            "Leitung von Datenqualitäts- und Validierungsinitiativen vor dem Produktivdeployment.",
+            "Design und Vereinfachung von Datenmodellen zur Verbesserung von Governance und Usability.",
+            "Automatisierung manuellen Reportings und Einsatz von KI- und Analytics-Tools für mehr Produktivität und Skalierbarkeit.",
+            "Vorantreiben der Prozessstandardisierung über Funktionen hinweg und Übersetzung von Stakeholder-Anforderungen in praktische Lösungen.",
+          ],
+        },
+        {
+          role: "Data Scientist & Product Owner",
           company: "UBS Business Solutions AG",
           location: "Zürich, CH",
-          period: "November 2022 – Gegenwart",
+          period: "November 2022 – Dezember 2025",
           description: [
             "Leitung der Vision, Entwicklung und Auslieferung eines Produkts zur Risikodatenqualität.",
             "Product Owner für zwei kritische Tools: Anomalie-Dashboard und statistische Validierungs-Engine.",
@@ -1398,10 +1468,24 @@ const translations = {
       },
       experiences: [
         {
-          role: "Senior Data Scientist & Product Owner",
+          role: "Data & Analytics Specialist",
+          company: "UBS Business Solutions AG – CAO & Risk Integration Office",
+          location: "Zurigo, CH",
+          period: "Gennaio 2026 – Presente",
+          description: [
+            "Trasformazione dei dati operativi in valore di business misurabile e raccomandazioni azionabili.",
+            "Costruzione di insight analitici a supporto delle decisioni del management.",
+            "Guida di iniziative di qualità e validazione dei dati prima del deployment in produzione.",
+            "Progettazione e semplificazione di modelli di dati per migliorare governance e usabilità.",
+            "Automazione del reporting manuale e utilizzo di strumenti di IA e analytics per aumentare produttività e scalabilità.",
+            "Guida della standardizzazione dei processi tra funzioni e traduzione dei requisiti degli stakeholder in soluzioni pratiche.",
+          ],
+        },
+        {
+          role: "Data Scientist & Product Owner",
           company: "UBS Business Solutions AG",
           location: "Zurigo, CH",
-          period: "Novembre 2022 – Presente",
+          period: "Novembre 2022 – Dicembre 2025",
           description: [
             "Guida della vision, sviluppo e consegna di un prodotto di qualità dei dati di rischio.",
             "Product Owner di due strumenti critici: dashboard di rilevamento anomalie e motore di validazione statistica.",
