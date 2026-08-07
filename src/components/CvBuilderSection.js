@@ -12,24 +12,11 @@ const inputClass =
   "w-full px-4 py-3 border border-gray-300 rounded-xl shadow-sm focus:ring-2 focus:ring-rose-200 focus:border-rose-400 transition-all bg-white";
 
 // Photo options shown in the CV Builder dropdown.
-// Excluded: gemma_2 (only Everest, no Gemma) and gemma_portrait (same shoot as gemma_1).
+// Only genuine professional studio headshots are offered — casual/travel shots
+// (portrait with dog, lakes, Matterhorn, café, etc.) are intentionally excluded.
 const photoOptions = [
-  // STUDIO HEADSHOTS — best for professional CV
-  { value: "8", label: "📷 Studio — pink striped shirt" },
   { value: "9", label: "📷 Studio — navy shirt" },
-  // SWISS ICONIC SCENERY
-  { value: "4", label: "🏔️ Matterhorn — snow & red jacket" },
-  { value: "7", label: "⛰️ Brienz Ridge — Alps & lake" },
-  { value: "hero", label: "🏞️ Lake Lucerne — white sweater" },
-  // CHARACTER / STORY
-  { value: "1", label: "🌅 Zurich rooftops with Everest — sunset" },
-  { value: "10", label: "⛸️ Ice skating — winter forest" },
-  { value: "12", label: "🎈 Cappadocia — hot air balloons" },
-  { value: "6", label: "🍄 Autumn forest — mushroom" },
-  { value: "11", label: "☕ Café — cozy moment" },
-  // LESS USABLE (face partly hidden)
-  { value: "3", label: "🚶 Alpine hike — flower meadow (back view)" },
-  { value: "5", label: "🪟 Mountain hut window — silhouette" },
+  { value: "8", label: "📷 Studio — pink striped shirt" },
   { value: "", label: "— Sense foto —" },
 ];
 
@@ -69,7 +56,7 @@ const CvBuilderSection = () => {
   const [companyName, setCompanyName] = useState("");
   const [positionTitle, setPositionTitle] = useState("");
   const [featuredProjectId, setFeaturedProjectId] = useState("");
-  const [photoChoice, setPhotoChoice] = useState("portrait");
+  const [photoChoice, setPhotoChoice] = useState("9");
   const [motivation, setMotivation] = useState("");
   const [cvVariant, setCvVariant] = useState("");
   const [outputLanguage, setOutputLanguage] = useState("english");
