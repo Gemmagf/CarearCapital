@@ -6,8 +6,10 @@ import CvSection from './components/CvSection';
 import ContactSection from './components/ContactSection';
 import PersonalProjectsSection from "./components/PersonalProjectsSection";
 import CvBuilderSection from "./components/CvBuilderSection";
+import RedesignApp from "./redesign/RedesignApp";
 
 const SECRET_HASH = "#secret";
+const REDESIGN_HASH = "#redesign";
 
 function App() {
   const [appLanguage, setAppLanguage] = useState('catalan');
@@ -15,13 +17,22 @@ function App() {
   const [secret, setSecret] = useState(
     typeof window !== 'undefined' && window.location.hash === SECRET_HASH
   );
+  const [redesign, setRedesign] = useState(
+    typeof window !== 'undefined' && window.location.hash === REDESIGN_HASH
+  );
 
   // React to hash changes (e.g. user navigates back/forward)
   useEffect(() => {
-    const onHash = () => setSecret(window.location.hash === SECRET_HASH);
+    const onHash = () => {
+      setSecret(window.location.hash === SECRET_HASH);
+      setRedesign(window.location.hash === REDESIGN_HASH);
+    };
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
+
+  // Redesign preview (isolated; live site untouched until we swap)
+  if (redesign) return <RedesignApp />;
 
   const t = translations[appLanguage];
 
