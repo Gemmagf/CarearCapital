@@ -99,13 +99,6 @@ const PROJECT_META = [
     repo: "https://github.com/Gemmagf/Rovello",
   },
   {
-    id: "aleman",
-    tag: "AI / Language",
-    stack: ["Next.js", "TypeScript", "Supabase", "Claude API", "OpenAI"],
-    link: "https://gemmagf.github.io/aleman/demo/",
-    repo: "https://github.com/Gemmagf/aleman",
-  },
-  {
     id: "xina",
     tag: "Language / PWA",
     stack: ["HTML", "CSS", "JavaScript", "PWA"],
@@ -187,11 +180,6 @@ const PROJECT_TEXTS = {
       description:
         "Classificador d'espècies de bolets per Catalunya i Suïssa: ConvNeXt-Tiny fine-tuned sobre 44.000 imatges research-grade d'iNaturalist amb 1.035 espècies. Aconsegueix 73,4% Top-1 / 89,8% Top-5 al test set independent — competitiu per a fine-grained visual classification a aquesta escala. Entrenat localment ~52h en Apple M4 (MPS) amb MixUp, RandAugment, label smoothing i WeightedRandomSampler. Inclou diccionari d'espècies, tips comestible-vs-tòxic i mapa de zones i temporades.",
     },
-    aleman: {
-      title: "Alemany — App d'aprenentatge amb IA",
-      description:
-        "Plataforma per aprendre alemany pensada per al dia a dia a Suïssa. Usa Claude i OpenAI per generar exercicis i feedback personalitzats. Auth i persistència amb Supabase, frontend Next.js + TypeScript.",
-    },
     xina: {
       title: "瑾曼学 — Xinès per al viatge",
       description:
@@ -263,11 +251,6 @@ const PROJECT_TEXTS = {
       title: "Rovelló — Clasificador de setas",
       description:
         "Clasificador de especies de setas para Cataluña y Suiza: ConvNeXt-Tiny fine-tuned sobre 44.000 imágenes research-grade de iNaturalist con 1.035 especies. Alcanza 73,4% Top-1 / 89,8% Top-5 en el test set independiente — competitivo para fine-grained visual classification a esta escala. Entrenado localmente ~52h en Apple M4 (MPS) con MixUp, RandAugment, label smoothing y WeightedRandomSampler. Incluye diccionario de especies, tips comestible-vs-tóxico y mapa de zonas y temporadas.",
-    },
-    aleman: {
-      title: "Alemán — App de aprendizaje con IA",
-      description:
-        "Plataforma para aprender alemán pensada para el día a día en Suiza. Usa Claude y OpenAI para generar ejercicios y feedback personalizados. Auth y persistencia con Supabase, frontend Next.js + TypeScript.",
     },
     xina: {
       title: "瑾曼学 — Chino para el viaje",
@@ -341,11 +324,6 @@ const PROJECT_TEXTS = {
       description:
         "Mushroom species classifier for Catalonia and Switzerland: ConvNeXt-Tiny fine-tuned on 44k research-grade iNaturalist images across 1,035 species. Reaches 73.4% Top-1 / 89.8% Top-5 accuracy on an independent test set — competitive for fine-grained visual classification at this scale. Trained locally in ~52h on Apple M4 (MPS) with MixUp, RandAugment, label smoothing and WeightedRandomSampler. Ships with a species dictionary, edible-vs-toxic verification tips and a map of typical regions and seasons.",
     },
-    aleman: {
-      title: "German — AI-powered Learning app",
-      description:
-        "Platform to learn German tailored to daily life in Switzerland. Uses Claude and OpenAI to generate personalised exercises and feedback. Auth and persistence with Supabase, Next.js + TypeScript frontend.",
-    },
     xina: {
       title: "瑾曼学 — Mandarin for travel",
       description:
@@ -417,11 +395,6 @@ const PROJECT_TEXTS = {
       title: "Rovelló — Classifieur de champignons",
       description:
         "Classifieur d'espèces de champignons pour la Catalogne et la Suisse : ConvNeXt-Tiny fine-tuné sur 44 000 images research-grade d'iNaturalist sur 1 035 espèces. Atteint 73,4 % Top-1 / 89,8 % Top-5 sur le test set indépendant — compétitif pour la classification visuelle fine-grained à cette échelle. Entraîné localement en ~52 h sur Apple M4 (MPS) avec MixUp, RandAugment, label smoothing et WeightedRandomSampler. Dictionnaire d'espèces, conseils comestible-vs-toxique et carte des zones et saisons inclus.",
-    },
-    aleman: {
-      title: "Allemand — App d'apprentissage par IA",
-      description:
-        "Plateforme pour apprendre l'allemand pensée pour le quotidien en Suisse. Utilise Claude et OpenAI pour générer exercices et feedback personnalisés. Auth et persistance avec Supabase, frontend Next.js + TypeScript.",
     },
     xina: {
       title: "瑾曼学 — Mandarin pour voyager",
@@ -495,11 +468,6 @@ const PROJECT_TEXTS = {
       description:
         "Klassifikator für Pilzarten in Katalonien und der Schweiz: ConvNeXt-Tiny fine-tuned auf 44.000 research-grade Bildern von iNaturalist über 1.035 Arten. Erreicht 73,4% Top-1 / 89,8% Top-5 Accuracy auf einem unabhängigen Test-Set — kompetitiv für Fine-Grained Visual Classification in dieser Grössenordnung. Lokal in ~52h auf Apple M4 (MPS) trainiert mit MixUp, RandAugment, Label Smoothing und WeightedRandomSampler. Inklusive Arten-Wörterbuch, Tipps essbar-vs-giftig und Karte typischer Regionen und Saisonzeiten.",
     },
-    aleman: {
-      title: "Deutsch — KI-gestützte Lern-App",
-      description:
-        "Plattform zum Deutschlernen, zugeschnitten auf den Alltag in der Schweiz. Nutzt Claude und OpenAI, um personalisierte Übungen und Feedback zu generieren. Auth und Persistenz mit Supabase, Frontend mit Next.js + TypeScript.",
-    },
     xina: {
       title: "瑾曼学 — Mandarin für die Reise",
       description:
@@ -571,11 +539,6 @@ const PROJECT_TEXTS = {
       title: "Rovelló — Classificatore di funghi",
       description:
         "Classificatore di specie di funghi per Catalogna e Svizzera: ConvNeXt-Tiny fine-tuned su 44.000 immagini research-grade di iNaturalist con 1.035 specie. Raggiunge 73,4% Top-1 / 89,8% Top-5 sul test set indipendente — competitivo per la fine-grained visual classification a questa scala. Addestrato localmente in ~52h su Apple M4 (MPS) con MixUp, RandAugment, label smoothing e WeightedRandomSampler. Include dizionario di specie, consigli commestibile-vs-tossico e mappa di zone e stagioni.",
-    },
-    aleman: {
-      title: "Tedesco — App di apprendimento con IA",
-      description:
-        "Piattaforma per imparare il tedesco pensata per la vita quotidiana in Svizzera. Usa Claude e OpenAI per generare esercizi e feedback personalizzati. Auth e persistenza con Supabase, frontend Next.js + TypeScript.",
     },
     xina: {
       title: "瑾曼学 — Mandarino per il viaggio",
