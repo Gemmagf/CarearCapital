@@ -42,6 +42,13 @@ const PROJECT_META = [
     repo: null,
   },
   {
+    id: "puppyTracker",
+    tag: "Product / Pet-Tech PWA",
+    stack: ["React", "Vite", "IndexedDB", "PWA"],
+    link: "https://gemmagf.github.io/CarearCapital/puppy-tracker.html",
+    repo: null,
+  },
+  {
     id: "sensorlab",
     tag: "Industrial / Chemical Process Analytics",
     stack: ["Python", "scikit-learn", "PyTorch", "XGBoost", "SHAP", "Streamlit"],
@@ -147,6 +154,11 @@ const PROJECT_TEXTS = {
       description:
         "Prototip PWA que uneix cinc registres diaris de salut — dejuni, pes, activitat, cicle i diari — en un sol registre, nascut de dos anys d'un full de càlcul fet a mà. El cicle adapta l'entrenament (els dies de regla passen a baix impacte) i una valoració d'un sol toc decideix quins dels 238 exercicis apareixen. Totalment offline i al dispositiu: sense servidor, comptes ni tercers; tot el producte ocupa 163 KB. Funciona amb dades d'exemple inventades.",
     },
+    puppyTracker: {
+      title: "Puppy Tracker — App per criar un cadell",
+      description:
+        "PWA offline-first per criar bé un cadell: repeticions d'entrenament que pugen de nivell (de Principiant a Dominat), creixement dibuixat contra el rang de pes sa de la raça, recordatoris de salut i cures, fases de socialització i una rutina diària curta i realista. Disseny de producte, front-end i data viz en un. React, Vite, IndexedDB, sincronitzat amb git; instal·lable i totalment offline. Funciona amb dades d'exemple.",
+    },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
       description:
@@ -223,6 +235,11 @@ const PROJECT_TEXTS = {
       title: "El meu espai — Registro de salud unificado",
       description:
         "Prototipo PWA que une cinco registros diarios de salud — ayuno, peso, actividad, ciclo y diario — en un solo registro, nacido de dos años de una hoja de cálculo hecha a mano. El ciclo adapta el entrenamiento (los días de regla pasan a bajo impacto) y una valoración de un toque decide cuáles de los 238 ejercicios aparecen. Totalmente offline y en el dispositivo: sin servidor, cuentas ni terceros; todo el producto ocupa 163 KB. Funciona con datos de ejemplo inventados.",
+    },
+    puppyTracker: {
+      title: "Puppy Tracker — App para criar un cachorro",
+      description:
+        "PWA offline-first para criar bien a un cachorro: repeticiones de entrenamiento que suben de nivel (de Principiante a Dominado), crecimiento dibujado contra el rango de peso sano de la raza, recordatorios de salud y cuidados, fases de socialización y una rutina diaria corta y realista. Diseño de producto, front-end y data viz en uno. React, Vite, IndexedDB, sincronizado con git; instalable y totalmente offline. Funciona con datos de ejemplo.",
     },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
@@ -301,6 +318,11 @@ const PROJECT_TEXTS = {
       description:
         "A working-prototype PWA that merges five daily health records — fasting, weight, activity, cycle and journal — into a single record, born from two years of a hand-kept spreadsheet. The cycle adapts the training (period days switch to low-impact), and a one-tap difficulty rating drives which of 238 exercises appear. Fully offline and on-device: no server, accounts or third parties; the whole product is 163 KB. Runs on invented demo data.",
     },
+    puppyTracker: {
+      title: "Puppy Tracker — Offline Puppy-Raising App",
+      description:
+        "An offline-first PWA for raising a puppy well: training reps that build a mastery level (Beginning to Mastered), growth plotted against the healthy breed weight range, health and care reminders, socialisation phases and a short, realistic daily routine. Product design, front-end and data viz in one. React, Vite, IndexedDB, git-synced; installable and fully offline. Runs on demo data.",
+    },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
       description:
@@ -377,6 +399,11 @@ const PROJECT_TEXTS = {
       title: "El meu espai — Suivi de santé unifié",
       description:
         "Prototype PWA qui réunit cinq suivis quotidiens de santé — jeûne, poids, activité, cycle et journal — en un seul enregistrement, né de deux ans d'un tableur tenu à la main. Le cycle adapte l'entraînement (les jours de règles passent en faible impact) et une évaluation en un tap décide lesquels des 238 exercices apparaissent. Entièrement hors ligne et sur l'appareil : sans serveur, comptes ni tiers ; tout le produit pèse 163 Ko. Fonctionne avec des données de démonstration inventées.",
+    },
+    puppyTracker: {
+      title: "Puppy Tracker — App pour élever un chiot",
+      description:
+        "PWA offline-first pour bien élever un chiot : répétitions d'entraînement qui montent en niveau (de Débutant à Maîtrisé), croissance tracée face à la plage de poids saine de la race, rappels de santé et de soins, phases de socialisation et une routine quotidienne courte et réaliste. Design produit, front-end et data viz réunis. React, Vite, IndexedDB, synchronisé via git ; installable et entièrement hors ligne. Fonctionne avec des données de démonstration.",
     },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
@@ -455,6 +482,11 @@ const PROJECT_TEXTS = {
       description:
         "PWA-Prototyp, der fünf tägliche Gesundheits-Datensätze — Fasten, Gewicht, Aktivität, Zyklus und Journal — in einem einzigen Datensatz vereint, entstanden aus zwei Jahren einer handgeführten Tabelle. Der Zyklus passt das Training an (an Periodentagen auf Low-Impact), und eine Ein-Tipp-Bewertung steuert, welche der 238 Übungen erscheinen. Vollständig offline und auf dem Gerät: kein Server, keine Konten, keine Dritten; das ganze Produkt sind 163 KB. Läuft mit erfundenen Demodaten.",
     },
+    puppyTracker: {
+      title: "Puppy Tracker — App zur Welpenaufzucht",
+      description:
+        "Offline-first-PWA für die gute Aufzucht eines Welpen: Trainings-Wiederholungen mit Mastery-Level (von Anfang bis Gemeistert), Wachstum gegen den gesunden Gewichtsbereich der Rasse geplottet, Gesundheits- und Pflege-Erinnerungen, Sozialisierungsphasen und eine kurze, realistische Tagesroutine. Produktdesign, Frontend und Data-Viz in einem. React, Vite, IndexedDB, git-synchronisiert; installierbar und vollständig offline. Läuft mit Demodaten.",
+    },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
       description:
@@ -531,6 +563,11 @@ const PROJECT_TEXTS = {
       title: "El meu espai — Registro di salute unificato",
       description:
         "Prototipo PWA che unisce cinque registri quotidiani di salute — digiuno, peso, attività, ciclo e diario — in un unico record, nato da due anni di un foglio di calcolo tenuto a mano. Il ciclo adatta l'allenamento (nei giorni di ciclo passa a basso impatto) e una valutazione con un solo tap decide quali dei 238 esercizi compaiono. Completamente offline e sul dispositivo: nessun server, account o terze parti; l'intero prodotto è 163 KB. Funziona con dati demo inventati.",
+    },
+    puppyTracker: {
+      title: "Puppy Tracker — App per crescere un cucciolo",
+      description:
+        "PWA offline-first per crescere bene un cucciolo: ripetizioni di addestramento che salgono di livello (da Principiante a Padroneggiato), crescita tracciata rispetto all'intervallo di peso sano della razza, promemoria di salute e cure, fasi di socializzazione e una routine quotidiana breve e realistica. Product design, front-end e data viz in uno. React, Vite, IndexedDB, sincronizzato con git; installabile e completamente offline. Funziona con dati demo.",
     },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
