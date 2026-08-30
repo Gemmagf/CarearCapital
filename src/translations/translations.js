@@ -35,6 +35,13 @@ const PROJECT_META = [
     repo: "https://github.com/Gemmagf/swiss-governance-dashboard",
   },
   {
+    id: "elMeuEspai",
+    tag: "Product / Health PWA",
+    stack: ["JavaScript", "PWA", "Offline-first", "On-device storage"],
+    link: "https://gemmagf.github.io/CarearCapital/elmeuespai.html",
+    repo: null,
+  },
+  {
     id: "sensorlab",
     tag: "Industrial / Chemical Process Analytics",
     stack: ["Python", "scikit-learn", "PyTorch", "XGBoost", "SHAP", "Streamlit"],
@@ -135,6 +142,11 @@ const PROJECT_TEXTS = {
       description:
         "Cockpit de governança que converteix 32 indicadors públics oficials (educació, mobilitat, energia, aigua, habitatge, residus, qualitat de l'aire) dels 26 cantons suïssos en suport a la decisió. Només dades certificades (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), amb forecasting probabilístic, simulació d'escenaris fins al 2035, rànquings cantonals i alertes d'anomalies. Cada xifra és traçable a la seva font.",
     },
+    elMeuEspai: {
+      title: "El meu espai — Registre de salut unificat",
+      description:
+        "Prototip PWA que uneix cinc registres diaris de salut — dejuni, pes, activitat, cicle i diari — en un sol registre, nascut de dos anys d'un full de càlcul fet a mà. El cicle adapta l'entrenament (els dies de regla passen a baix impacte) i una valoració d'un sol toc decideix quins dels 238 exercicis apareixen. Totalment offline i al dispositiu: sense servidor, comptes ni tercers; tot el producte ocupa 163 KB. Funciona amb dades d'exemple inventades.",
+    },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
       description:
@@ -206,6 +218,11 @@ const PROJECT_TEXTS = {
       title: "Swiss Governance Dashboard — Cockpit de datos cantonales",
       description:
         "Cockpit de gobernanza que convierte 32 indicadores públicos oficiales (educación, movilidad, energía, agua, vivienda, residuos, calidad del aire) de los 26 cantones suizos en soporte a la decisión. Solo datos certificados (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), con forecasting probabilístico, simulación de escenarios hasta 2035, rankings cantonales y alertas de anomalías. Cada cifra es trazable a su fuente.",
+    },
+    elMeuEspai: {
+      title: "El meu espai — Registro de salud unificado",
+      description:
+        "Prototipo PWA que une cinco registros diarios de salud — ayuno, peso, actividad, ciclo y diario — en un solo registro, nacido de dos años de una hoja de cálculo hecha a mano. El ciclo adapta el entrenamiento (los días de regla pasan a bajo impacto) y una valoración de un toque decide cuáles de los 238 ejercicios aparecen. Totalmente offline y en el dispositivo: sin servidor, cuentas ni terceros; todo el producto ocupa 163 KB. Funciona con datos de ejemplo inventados.",
     },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
@@ -279,6 +296,11 @@ const PROJECT_TEXTS = {
       description:
         "Governance cockpit turning 32 official public indicators (education, mobility, energy, water, housing, waste, air quality) across all 26 Swiss cantons into decision support. Certified data only (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), with probabilistic forecasting, scenario simulation to 2035, cantonal rankings and anomaly alerts. Every figure is traceable to its source.",
     },
+    elMeuEspai: {
+      title: "El meu espai — Unified Health Tracker",
+      description:
+        "A working-prototype PWA that merges five daily health records — fasting, weight, activity, cycle and journal — into a single record, born from two years of a hand-kept spreadsheet. The cycle adapts the training (period days switch to low-impact), and a one-tap difficulty rating drives which of 238 exercises appear. Fully offline and on-device: no server, accounts or third parties; the whole product is 163 KB. Runs on invented demo data.",
+    },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
       description:
@@ -350,6 +372,11 @@ const PROJECT_TEXTS = {
       title: "Swiss Governance Dashboard — Cockpit de données cantonales",
       description:
         "Cockpit de gouvernance qui transforme 32 indicateurs publics officiels (éducation, mobilité, énergie, eau, logement, déchets, qualité de l'air) des 26 cantons suisses en aide à la décision. Uniquement des données certifiées (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), avec prévision probabiliste, simulation de scénarios jusqu'en 2035, classements cantonaux et alertes d'anomalies. Chaque chiffre est traçable à sa source.",
+    },
+    elMeuEspai: {
+      title: "El meu espai — Suivi de santé unifié",
+      description:
+        "Prototype PWA qui réunit cinq suivis quotidiens de santé — jeûne, poids, activité, cycle et journal — en un seul enregistrement, né de deux ans d'un tableur tenu à la main. Le cycle adapte l'entraînement (les jours de règles passent en faible impact) et une évaluation en un tap décide lesquels des 238 exercices apparaissent. Entièrement hors ligne et sur l'appareil : sans serveur, comptes ni tiers ; tout le produit pèse 163 Ko. Fonctionne avec des données de démonstration inventées.",
     },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
@@ -423,6 +450,11 @@ const PROJECT_TEXTS = {
       description:
         "Governance-Cockpit, das 32 offizielle öffentliche Indikatoren (Bildung, Mobilität, Energie, Wasser, Wohnen, Abfall, Luftqualität) über alle 26 Schweizer Kantone in Entscheidungsunterstützung verwandelt. Ausschliesslich zertifizierte Daten (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), mit probabilistischem Forecasting, Szenariosimulation bis 2035, Kantonsrankings und Anomalie-Warnungen. Jede Zahl ist bis zur Quelle nachvollziehbar.",
     },
+    elMeuEspai: {
+      title: "El meu espai — Vereinheitlichtes Gesundheits-Tracking",
+      description:
+        "PWA-Prototyp, der fünf tägliche Gesundheits-Datensätze — Fasten, Gewicht, Aktivität, Zyklus und Journal — in einem einzigen Datensatz vereint, entstanden aus zwei Jahren einer handgeführten Tabelle. Der Zyklus passt das Training an (an Periodentagen auf Low-Impact), und eine Ein-Tipp-Bewertung steuert, welche der 238 Übungen erscheinen. Vollständig offline und auf dem Gerät: kein Server, keine Konten, keine Dritten; das ganze Produkt sind 163 KB. Läuft mit erfundenen Demodaten.",
+    },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
       description:
@@ -494,6 +526,11 @@ const PROJECT_TEXTS = {
       title: "Swiss Governance Dashboard — Cockpit di dati cantonali",
       description:
         "Cockpit di governance che trasforma 32 indicatori pubblici ufficiali (istruzione, mobilità, energia, acqua, abitazioni, rifiuti, qualità dell'aria) dei 26 cantoni svizzeri in supporto decisionale. Solo dati certificati (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), con forecasting probabilistico, simulazione di scenari fino al 2035, ranking cantonali e alert di anomalie. Ogni cifra è tracciabile alla sua fonte.",
+    },
+    elMeuEspai: {
+      title: "El meu espai — Registro di salute unificato",
+      description:
+        "Prototipo PWA che unisce cinque registri quotidiani di salute — digiuno, peso, attività, ciclo e diario — in un unico record, nato da due anni di un foglio di calcolo tenuto a mano. Il ciclo adatta l'allenamento (nei giorni di ciclo passa a basso impatto) e una valutazione con un solo tap decide quali dei 238 esercizi compaiono. Completamente offline e sul dispositivo: nessun server, account o terze parti; l'intero prodotto è 163 KB. Funziona con dati demo inventati.",
     },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
