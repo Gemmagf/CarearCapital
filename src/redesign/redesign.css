@@ -172,3 +172,28 @@
   .rd .reveal { transition: none; opacity: 1; transform: none; }
   .rd-cta .arrow { transition: none; }
 }
+
+/* ============ phase 2: dark sections + rich viz ============ */
+.rd-section--dark {
+  background: #0d0d0f; color: #f2f0eb;
+}
+.rd-section--dark .sec-title { color: #fff; }
+.rd-section--dark .sec-lead { color: #b9b6b0; }
+.rd-section--dark .section-index { color: var(--pink); }
+.rd-section--dark .mono { color: #8a8781; }
+.rd-section--dark .rule { background: #262629; }
+
+/* distribution strip: raw -> clean -> modeled -> insight */
+.rd-dist { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin-top: 34px; align-items: end; }
+.rd-dist .stage { text-align: center; }
+.rd-dist .stage svg { width: 100%; height: 130px; display: block; }
+.rd-dist .stage .lab { font-family: var(--mono); font-size: 10px; letter-spacing: 0.12em; color: var(--ink-soft); margin-top: 8px; }
+.rd-dist .arrow { align-self: center; color: var(--pink); font-family: var(--mono); }
+
+/* terrain growth (dark band) */
+.rd-terrain { position: relative; }
+.rd-terrain svg { width: 100%; height: auto; display: block; overflow: visible; }
+.rd-terrain .t-label { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; }
+
+/* draw-on-scroll paths start hidden until JS measures them */
+.rd .js-motion path[data-draw] { }
