@@ -12,6 +12,12 @@ const LANGS = [
 const SELECTED = ["swissGov", "labm", "farma", "cvHunter", "retail"];
 const yearOf = (period = "") => (period.match(/\d{4}/) || [""])[0];
 
+// ── Hero photo — SINGLE point of change ──────────────────────────
+// Drop a new file in public/images/ and change this filename. A plain
+// photo against a light wall works: it is desaturated and its edges are
+// masked so the person dissolves into the pink flow-field (no cutout needed).
+const HERO_PHOTO = `${process.env.PUBLIC_URL}/images/gemma_9.jpg`;
+
 export default function RedesignApp() {
   const [lang, setLang] = useState("english");
   const t = allTranslations[lang] || allTranslations.english;
@@ -92,6 +98,12 @@ export default function RedesignApp() {
       {/* HERO */}
       <section className="rd-hero">
         <FlowField />
+        {HERO_PHOTO && (
+          <div className="hero-photo">
+            <img src={HERO_PHOTO} alt="Gemma Garcia de la Fuente"
+              onError={(e) => { e.currentTarget.parentElement.style.display = "none"; }} />
+          </div>
+        )}
         <div className="wrap hero-inner">
           <h1 className="hero-name">
             <span>Gemma</span><span>Garcia</span><span>de la</span><span className="em">Fuente</span>
