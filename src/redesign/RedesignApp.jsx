@@ -142,8 +142,8 @@ export default function RedesignApp() {
             <h2 className="sec-title reveal">I make sense<br />of complexity</h2>
           </div>
           <p className="sec-lead reveal">Statistics, modelling, forecasting, experimentation and clear visualisation — the path from raw data to a decision someone can act on.</p>
-          <DistributionStrip />
-          <p className="mono reveal" style={{ marginTop: 22 }}>raw data → patterns → insight → decision</p>
+          <div className="reveal"><DataSurface /></div>
+          <p className="mono reveal" style={{ marginTop: 18 }}>raw data → patterns → insight → decision</p>
         </div>
       </section>
 
@@ -155,7 +155,7 @@ export default function RedesignApp() {
             <h2 className="sec-title reveal">I connect<br />the dots</h2>
           </div>
           <p className="sec-lead reveal">As a Product Owner I sit between data, business and people — translating needs into direction and analysis into decisions leaders act on.</p>
-          <div className="rd-network reveal" style={{ marginTop: 20 }}><Chord dark /></div>
+          <div className="rd-network reveal" style={{ marginTop: 20 }}><ChordOrbital /></div>
         </div>
       </section>
 
@@ -268,67 +268,92 @@ function NavMark() {
   );
 }
 
-// distribution: raw -> clean -> modeled -> insight (reference 05)
-function DistributionStrip() {
-  const W = 200, H = 130, peak = (x) => Math.exp(-Math.pow((x - 100) / 34, 2));
-  const scatter = (n, order) => Array.from({ length: n }, () => {
-    const x = 20 + Math.random() * 160;
-    const yb = H - 14 - peak(x) * 90 * order;
-    const jit = (1 - order) * 80;
-    return [x, yb - Math.random() * jit];
-  });
-  const stages = [
-    { lab: "RAW DATA", pts: scatter(120, 0.15), c: "#111", o: 0.35 },
-    { lab: "CLEAN", pts: scatter(120, 0.6), c: "#FF3B7D", o: 0.75 },
-    { lab: "MODELED", pts: scatter(120, 1), c: "#111", o: 0.7 },
-    { lab: "INSIGHT", pts: [[70, 40], [100, 24], [130, 52]], c: "#FF3B7D", o: 1 },
+// flowing dotted DATA SURFACE (reference 01) — perspective grid warped by a wave,
+// pink at the peaks, fading with depth; annotated callouts.
+function DataSurface() {
+  const COLS = 64, ROWS = 22, W = 1000, H = 380;
+  const dots = [];
+  for (let j = 0; j < ROWS; j++) {           // depth: 0 back -> 1 front
+    const fz = j / (ROWS - 1);
+    const persp = 0.4 + fz * 0.6;
+    for (let i = 0; i < COLS; i++) {
+      const fx = i / (COLS - 1);
+      const wave = Math.sin(fx * 7.5 + fz * 3.2) + 0.5 * Math.sin(fx * 15 - fz * 6) + 0.4 * Math.cos(fx * 3 + fz * 8);
+      const x = W / 2 + (fx - 0.5) * (W * 0.94) * persp;
+      const y = H * 0.30 + fz * (H * 0.52) - wave * 24 * persp;
+      const hgt = (wave + 1.9) / 3.8;         // 0..1
+      dots.push([x, y, hgt, persp]);
+    }
+  }
+  const ann = [
+    ["PATTERN RECOGNITION", 640, 60, 610, 150],
+    ["ANOMALY DETECTION", 150, 300, 250, 250],
+    ["INSIGHT EXTRACTION", 830, 300, 760, 250],
   ];
   return (
-    <div className="rd-dist reveal" style={{ marginTop: 10 }}>
-      {stages.map((s, i) => (
-        <React.Fragment key={s.lab}>
-          <div className="stage">
-            <svg viewBox={`0 0 ${W} ${H}`}>
-              {i === 3
-                ? s.pts.map(([x, y], j) => <g key={j}><line x1={x} y1={H - 14} x2={x} y2={y} stroke="#FF3B7D" strokeWidth="1.5" /><circle cx={x} cy={y} r="4" fill="#FF3B7D" /></g>)
-                : s.pts.map(([x, y], j) => <circle key={j} cx={x} cy={y} r="2" fill={s.c} opacity={s.o} />)}
-            </svg>
-            <div className="lab">{s.lab}</div>
-          </div>
-          {i < 3 && <span className="arrow" style={{ marginTop: -20 }}>→</span>}
-        </React.Fragment>
+    <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", marginTop: 30 }} aria-hidden="true">
+      {dots.map(([x, y, hgt, persp], i) => (
+        <circle key={i} cx={x.toFixed(1)} cy={y.toFixed(1)} r={(0.7 + persp * 1.3).toFixed(2)}
+          fill={hgt > 0.62 ? "#FF3B7D" : "#111"}
+          opacity={((hgt > 0.62 ? 0.35 + hgt * 0.6 : 0.12 + hgt * 0.3) * (0.45 + persp * 0.55)).toFixed(2)} />
       ))}
-    </div>
+      {ann.map(([label, tx, ty, lx, ly]) => (
+        <g key={label} fontFamily="Space Mono, monospace" fontSize="11" fill="#6b6b68" letterSpacing="0.5">
+          <line x1={tx} y1={ty + 4} x2={lx} y2={ly} stroke="#c9c6c0" strokeWidth="1" />
+          <circle cx={lx} cy={ly} r="2.5" fill="#FF3B7D" />
+          <text x={tx} y={ty} textAnchor={tx > 500 ? "start" : "start"}>{label}</text>
+        </g>
+      ))}
+    </svg>
   );
 }
 
-// chord-like connection diagram (reference 07 + 02) — light or dark
-function Chord({ dark }) {
-  const W = 1000, H = 460, cx = 500, cy = 220, R = 170;
-  const labels = ["DATA", "BUSINESS", "PRODUCT", "PEOPLE", "STRATEGY"];
-  const pts = labels.map((l, i) => {
-    const a = -Math.PI / 2 + (i / labels.length) * Math.PI * 2;
-    return [cx + Math.cos(a) * R, cy + Math.sin(a) * R, l];
+// orbital connection network (reference 02) — concentric orbits, scattered nodes,
+// four labelled anchors around a glowing CLARITY / IMPACT core. Dark section.
+function ChordOrbital() {
+  const W = 1000, H = 460, cx = 500, cy = 220;
+  const orbits = [[300, 120, -18], [250, 150, 12], [340, 90, 30], [200, 110, -40]];
+  const anchors = [["DATA", cx, cy - 165], ["BUSINESS", cx + 320, cy], ["PRODUCT", cx, cy + 165], ["PEOPLE", cx - 320, cy]];
+  // scattered nodes on orbit ellipses
+  const rng = (s) => { let x = Math.sin(s) * 10000; return x - Math.floor(x); };
+  const scatter = [];
+  orbits.forEach(([rx, ry, rot], oi) => {
+    for (let k = 0; k < 7; k++) {
+      const a = rng(oi * 9 + k) * Math.PI * 2;
+      const px = Math.cos(a) * rx, py = Math.sin(a) * ry;
+      const rr = (rot * Math.PI) / 180;
+      const x = cx + px * Math.cos(rr) - py * Math.sin(rr);
+      const y = cy + px * Math.sin(rr) + py * Math.cos(rr);
+      scatter.push([x, y, rng(oi + k * 3) > 0.5]);
+    }
   });
-  const arcs = [];
-  for (let i = 0; i < pts.length; i++)
-    for (let j = i + 1; j < pts.length; j++)
-      arcs.push([pts[i], pts[j]]);
-  const stroke = dark ? "#FF3B7D" : "#D91662";
-  const ink = dark ? "#f2f0eb" : "#111";
   return (
     <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%" }}>
-      {arcs.map(([a, b], i) => {
-        const mx = (a[0] + b[0]) / 2, my = (a[1] + b[1]) / 2;
-        const cxp = cx + (mx - cx) * 0.35, cyp = cy + (my - cy) * 0.35;
-        return <path key={i} data-draw d={`M ${a[0]} ${a[1]} Q ${cxp} ${cyp} ${b[0]} ${b[1]}`} fill="none" stroke={stroke} strokeWidth="1" opacity="0.45" />;
-      })}
-      <circle cx={cx} cy={cy} r="12" fill="#FF3B7D" />
-      <text x={cx} y={cy + 42} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="13" fill={stroke} letterSpacing="2">CLARITY / IMPACT</text>
-      {pts.map(([x, y, l], i) => (
+      <defs>
+        <radialGradient id="coreglow" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="#FF3B7D" stopOpacity="0.6" />
+          <stop offset="100%" stopColor="#FF3B7D" stopOpacity="0" />
+        </radialGradient>
+      </defs>
+      {orbits.map(([rx, ry, rot], i) => (
+        <ellipse key={i} cx={cx} cy={cy} rx={rx} ry={ry} fill="none" stroke="#33333a" strokeWidth="1"
+          transform={`rotate(${rot} ${cx} ${cy})`} opacity="0.8" />
+      ))}
+      {anchors.map(([l, x, y]) => (
+        <path key={"e" + l} data-draw d={`M ${cx} ${cy} Q ${(cx + x) / 2 + (y - cy) * 0.12} ${(cy + y) / 2 - (x - cx) * 0.12} ${x} ${y}`}
+          fill="none" stroke="#FF3B7D" strokeWidth="1" opacity="0.5" />
+      ))}
+      {scatter.map(([x, y, big], i) => (
+        <circle key={i} cx={x.toFixed(1)} cy={y.toFixed(1)} r={big ? 3 : 1.8} fill={big ? "#FF3B7D" : "#7a7a82"} opacity={big ? 0.9 : 0.6} />
+      ))}
+      <circle cx={cx} cy={cy} r="80" fill="url(#coreglow)" />
+      <circle cx={cx} cy={cy} r="7" fill="#FF3B7D" />
+      <text x={cx} y={cy - 2} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="12" fill="#fff" letterSpacing="1.5">STRATEGY</text>
+      <text x={cx} y={cy + 16} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="12" fill="#FF3B7D" letterSpacing="1.5">CLARITY · IMPACT</text>
+      {anchors.map(([l, x, y]) => (
         <g key={l} data-pop>
-          <circle cx={x} cy={y} r="6" fill={ink} />
-          <text x={x} y={y - 16} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="12" fill={ink} letterSpacing="1">{l}</text>
+          <circle cx={x} cy={y} r="6" fill="#f2f0eb" />
+          <text x={x} y={y < cy ? y - 14 : y + 22} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="12" fill="#f2f0eb" letterSpacing="1">{l}</text>
         </g>
       ))}
     </svg>
