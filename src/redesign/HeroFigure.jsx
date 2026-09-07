@@ -22,7 +22,7 @@ export default function HeroFigure({ src }) {
     const COUNT = isMobile ? 140 : 420;
 
     // emission source ≈ where the figure sits (right), burst radiates left/out
-    const SRC = { x: 0.66, y: 0.56 };
+    const SRC = { x: 0.72, y: 0.5 };
 
     function resize() {
       const r = wrap.getBoundingClientRect();
