@@ -10,6 +10,10 @@ const LANGS = [
   ["french", "FR"], ["german", "DE"], ["italian", "IT"],
 ];
 const SELECTED = ["swissGov", "labm", "farma", "cvHunter", "retail"];
+// project thumbnails (in public/images/projects/); missing ones fall back to the abstract
+// data motif. To use a real screenshot: save it as public/images/projects/proj_<id>.jpg
+// and add an entry here, e.g. swissGov: "proj_swissgov.jpg".
+const CASE_IMAGES = {};
 const yearOf = (period = "") => (period.match(/\d{4}/) || [""])[0];
 
 // ── Hero photo — SINGLE point of change ──────────────────────────
@@ -78,8 +82,10 @@ export default function RedesignApp() {
 
   return (
     <div className="rd" ref={rootRef}>
+      <a className="rd-brand-fixed" href="#redesign" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+        <NavMark /><span>Gemma Garcia</span>
+      </a>
       <header className="rd-topbar">
-        <div className="brand">GG · Data / Product</div>
         <nav>
           <button onClick={() => scrollTo("work")}>Work</button>
           <button onClick={() => scrollTo("path")}>Path</button>
@@ -106,7 +112,7 @@ export default function RedesignApp() {
         )}
         <div className="wrap hero-inner">
           <h1 className="hero-name">
-            <span>Gemma</span><span>Garcia</span><span>de la</span><span className="em">Fuente</span>
+            <span className="em">Gemma</span><span>Garcia</span><span>de la</span><span>Fuente</span>
           </h1>
           <div className="hero-labels">
             <span className="lab">Data Science</span><span className="lab">Product</span>
@@ -167,15 +173,20 @@ export default function RedesignApp() {
           <div className="rd-work">
             {selected.map((p, i) => (
               <article className="rd-case reveal" key={p.id}>
-                <div className="case-viz"><CaseViz kind={i} /></div>
+                <a className="case-viz" href={p.link || p.repo} target="_blank" rel="noreferrer">
+                  {CASE_IMAGES[p.id]
+                    ? <img src={`${process.env.PUBLIC_URL}/images/projects/${CASE_IMAGES[p.id]}`} alt={p.title}
+                        onError={(e) => { e.currentTarget.style.display = "none"; }} />
+                    : <CaseViz kind={i} />}
+                </a>
                 <div>
                   <span className="case-tag">{p.tag}</span>
                   <h3>{p.title}</h3>
                   <p className="case-body">{p.description}</p>
                   <p className="case-stack">{(p.stack || []).join(" · ")}</p>
-                  <div className="case-links" style={{ marginTop: 10 }}>
-                    {p.link && <a href={p.link} target="_blank" rel="noreferrer">View →</a>}
-                    {p.repo && <a href={p.repo} target="_blank" rel="noreferrer">Code →</a>}
+                  <div className="case-links" style={{ marginTop: 16 }}>
+                    {p.link && <a className="case-cta" href={p.link} target="_blank" rel="noreferrer">View project <span>→</span></a>}
+                    {p.repo && <a href={p.repo} target="_blank" rel="noreferrer">Code ↗</a>}
                   </div>
                 </div>
               </article>
@@ -192,7 +203,7 @@ export default function RedesignApp() {
             <h2 className="sec-title reveal">My path isn't<br />a straight line</h2>
           </div>
           <p className="sec-lead reveal">Different roles, sectors and countries — one trajectory. Growth isn't linear; it's layers of learning and impact.</p>
-          <div className="rd-terrain reveal"><CareerTerrain exp={exp} /></div>
+          <div className="rd-terrain reveal"><CareerTerrain exp={exp} edu={cv?.education} /></div>
         </div>
       </section>
 
@@ -246,6 +257,20 @@ export default function RedesignApp() {
 }
 
 /* ================= visuals ================= */
+
+// small pink "data" monogram for the nav (nodes + links)
+function NavMark() {
+  return (
+    <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true" style={{ display: "block" }}>
+      <g stroke="#FF3B7D" strokeWidth="1.2">
+        <line x1="4" y1="20" x2="12" y2="7" /><line x1="12" y1="7" x2="20" y2="14" /><line x1="4" y1="20" x2="20" y2="14" />
+      </g>
+      <g fill="#FF3B7D">
+        <circle cx="4" cy="20" r="2.4" /><circle cx="12" cy="7" r="2.4" /><circle cx="20" cy="14" r="2.4" />
+      </g>
+    </svg>
+  );
+}
 
 // distribution: raw -> clean -> modeled -> insight (reference 05)
 function DistributionStrip() {
@@ -323,19 +348,28 @@ function CaseViz({ kind }) {
   return <svg viewBox="0 0 200 150">{[20,40,60,80,100].map((r,i)=><ellipse key={i} cx="100" cy="75" rx={r} ry={r*0.6} fill="none" stroke={i===2?c:"#e5e2db"}/>)}</svg>;
 }
 
-// dark terrain + drawn career path with real stages (reference 03 + 08)
-function CareerTerrain({ exp }) {
-  const stages = [...exp].reverse();
-  const W = 1000, H = 340, pad = 70;
-  const n = stages.length;
-  // background terrain silhouette (static, subtle)
+// dark terrain + drawn path merging WORK and STUDIES on one trajectory
+function CareerTerrain({ exp, edu }) {
+  const work = [...exp].map((s) => ({
+    year: +((s.period.match(/\d{4}/) || [0])[0]),
+    label: s.company.split(" ")[0], sub: s.location, type: "work",
+  }));
+  const study = (edu || []).map((e) => {
+    const year = +((e.match(/\d{4}/) || [0])[0]);
+    const degree = e.split("—")[0].trim().replace(/\s+in\s+/i, " ");
+    const inst = (e.match(/\(([^)]+)\)/) || [, ""])[1];
+    return { year, label: degree, sub: inst, type: "study" };
+  });
+  const all = [...work, ...study].filter((d) => d.year).sort((a, b) => a.year - b.year);
+
+  const W = 1000, H = 420, pad = 64;
+  const n = all.length;
   const terr = [];
-  for (let x = 0; x <= W; x += 20) terr.push([x, 250 + Math.sin(x * 0.012) * 26 + Math.sin(x * 0.05) * 12 + (Math.random() - 0.5) * 8]);
+  for (let x = 0; x <= W; x += 20) terr.push([x, 330 + Math.sin(x * 0.012) * 24 + Math.sin(x * 0.05) * 10 + (Math.random() - 0.5) * 6]);
   const terrD = "M0," + H + " " + terr.map(([x, y]) => `L${x},${y.toFixed(1)}`).join(" ") + ` L${W},${H} Z`;
-  // career path
-  const pts = stages.map((s, i) => {
+  const pts = all.map((s, i) => {
     const x = pad + (i / Math.max(1, n - 1)) * (W - pad * 2);
-    const y = 180 - Math.sin(i * 1.1) * 60 - i * 6;
+    const y = 210 - Math.sin(i * 0.9) * 52 - i * 3;
     return [x, y, s];
   });
   const d = pts.map(([x, y], i) => {
@@ -350,13 +384,25 @@ function CareerTerrain({ exp }) {
       <path data-draw d={d} fill="none" stroke="#FF3B7D" strokeWidth="2.5" />
       {pts.map(([x, y, s], i) => (
         <g key={i} data-pop>
-          <line x1={x} y1={y} x2={x} y2={y + 70} stroke="#FF3B7D" strokeWidth="1" opacity="0.4" />
-          <circle cx={x} cy={y} r="6" fill="#FF3B7D" />
-          <text x={x} y={y - 16} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="11" fill="#FF3B7D">{(s.period.match(/\d{4}/) || [""])[0]}</text>
-          <text x={x} y={y + 88} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#f2f0eb">{s.company.split(" ")[0]}</text>
-          <text x={x} y={y + 104} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="9" fill="#8a8781">{s.location}</text>
+          {s.type === "work" ? (
+            <>
+              <circle cx={x} cy={y} r="6" fill="#FF3B7D" />
+              <text x={x} y={y + 26} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#f2f0eb">{s.label}</text>
+              <text x={x} y={y + 41} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="9" fill="#8a8781">{s.year} · {s.sub}</text>
+            </>
+          ) : (
+            <>
+              <circle cx={x} cy={y} r="5" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.5" />
+              <text x={x} y={y - 22} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="10" fill="#c9c6c0" letterSpacing="0.5">{s.label}</text>
+              <text x={x} y={y - 10} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="9" fill="#8a8781">{s.year} · {s.sub}</text>
+            </>
+          )}
         </g>
       ))}
+      <g fontFamily="Space Mono, monospace" fontSize="9" fill="#8a8781">
+        <circle cx={pad} cy={H - 16} r="4" fill="#FF3B7D" /><text x={pad + 10} y={H - 12}>WORK</text>
+        <circle cx={pad + 90} cy={H - 16} r="4" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.5" /><text x={pad + 100} y={H - 12}>STUDIES</text>
+      </g>
     </svg>
   );
 }
