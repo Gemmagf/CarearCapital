@@ -3,6 +3,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import allTranslations from "../translations/translations";
 import FlowField from "./FlowField";
+import HeroFigure from "./HeroFigure";
 import "./redesign.css";
 
 const LANGS = [
@@ -20,7 +21,7 @@ const yearOf = (period = "") => (period.match(/\d{4}/) || [""])[0];
 // Drop a new file in public/images/ and change this filename. A plain
 // photo against a light wall works: it is desaturated and its edges are
 // masked so the person dissolves into the pink flow-field (no cutout needed).
-const HERO_PHOTO = `${process.env.PUBLIC_URL}/images/gemma_hero_rd.jpg`;
+const HERO_PHOTO = `${process.env.PUBLIC_URL}/images/gemma_hero_cut.png`;
 
 export default function RedesignApp() {
   const [lang, setLang] = useState("english");
@@ -104,12 +105,7 @@ export default function RedesignApp() {
       {/* HERO */}
       <section className="rd-hero">
         <FlowField />
-        {HERO_PHOTO && (
-          <div className="hero-photo">
-            <img src={HERO_PHOTO} alt="Gemma Garcia de la Fuente"
-              onError={(e) => { e.currentTarget.parentElement.style.display = "none"; }} />
-          </div>
-        )}
+        {HERO_PHOTO && <HeroFigure src={HERO_PHOTO} />}
         <div className="wrap hero-inner">
           <h1 className="hero-name">
             <span className="em">Gemma</span><span>Garcia</span><span>de la</span><span>Fuente</span>

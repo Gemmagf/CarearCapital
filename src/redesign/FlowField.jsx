@@ -22,7 +22,7 @@ export default function FlowField() {
     const mouse = { x: -9999, y: -9999, active: false };
 
     const isMobile = window.matchMedia("(max-width: 820px)").matches;
-    const COUNT = isMobile ? 80 : 240;
+    const COUNT = isMobile ? 45 : 120;
     let ps = [];
 
     function resize() {
@@ -74,8 +74,8 @@ export default function FlowField() {
           p.vx = p.vy = 0; p.life = 120 + Math.random() * 200;
         }
         const spd = Math.min(Math.hypot(p.vx, p.vy), 3);
-        ctx.fillStyle = `rgba(255,59,125,${0.14 + spd * 0.14})`;
-        ctx.fillRect(p.x, p.y, 1.6, 1.6);
+        ctx.fillStyle = `rgba(255,59,125,${0.06 + spd * 0.08})`;
+        ctx.fillRect(p.x, p.y, 1.4, 1.4);
       }
     }
     let t0 = 0;
