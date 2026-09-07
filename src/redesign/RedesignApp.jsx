@@ -16,7 +16,7 @@ const yearOf = (period = "") => (period.match(/\d{4}/) || [""])[0];
 // Drop a new file in public/images/ and change this filename. A plain
 // photo against a light wall works: it is desaturated and its edges are
 // masked so the person dissolves into the pink flow-field (no cutout needed).
-const HERO_PHOTO = `${process.env.PUBLIC_URL}/images/gemma_9.jpg`;
+const HERO_PHOTO = `${process.env.PUBLIC_URL}/images/gemma_hero_rd.jpg`;
 
 export default function RedesignApp() {
   const [lang, setLang] = useState("english");

@@ -15,6 +15,7 @@ const inputClass =
 // Only genuine professional studio headshots are offered — casual/travel shots
 // (portrait with dog, lakes, Matterhorn, café, etc.) are intentionally excluded.
 const photoOptions = [
+  { value: "cv", label: "📷 Working portrait — pink cardigan" },
   { value: "9", label: "📷 Studio — navy shirt" },
   { value: "8", label: "📷 Studio — pink striped shirt" },
   { value: "", label: "— Sense foto —" },
@@ -56,7 +57,7 @@ const CvBuilderSection = () => {
   const [companyName, setCompanyName] = useState("");
   const [positionTitle, setPositionTitle] = useState("");
   const [featuredProjectId, setFeaturedProjectId] = useState("");
-  const [photoChoice, setPhotoChoice] = useState("9");
+  const [photoChoice, setPhotoChoice] = useState("cv");
   const [motivation, setMotivation] = useState("");
   const [cvVariant, setCvVariant] = useState("");
   const [outputLanguage, setOutputLanguage] = useState("english");
