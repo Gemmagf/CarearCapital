@@ -35,17 +35,19 @@
   font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
 
 /* hero ----------------------------------------------------- */
-.rd-hero { position: relative; min-height: 100vh; display: flex; align-items: center; }
+.rd-hero { position: relative; min-height: 100vh; display: flex; align-items: flex-end;
+  padding-bottom: clamp(40px, 7vh, 90px); }
 .rd-hero > canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
-.rd-hero .hero-inner { position: relative; z-index: 2; width: 100%; }
-.rd-hero .hero-name { font-family: var(--display); font-weight: 400; line-height: 0.84;
-  letter-spacing: -0.01em; font-size: clamp(58px, 14vw, 210px); text-transform: uppercase; margin: 0; }
+.rd-hero .hero-inner { position: relative; z-index: 2; width: 100%;
+  display: flex; flex-direction: column; align-items: flex-start; }
+.rd-hero .hero-name { font-family: var(--display); font-weight: 400; line-height: 0.86;
+  letter-spacing: -0.01em; font-size: clamp(54px, 12.5vw, 172px); text-transform: uppercase; margin: 0; }
 .rd-hero .hero-name span { display: block; }
 .rd-hero .hero-name .em { color: var(--pink); }
-.rd-hero .hero-labels { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 24px; }
+.rd-hero .hero-labels { display: flex; flex-wrap: wrap; gap: 6px 20px; margin-top: 18px; }
 .rd-hero .hero-labels .lab { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
 .rd-hero .hero-labels .lab::before { content: "◆ "; color: var(--pink); font-size: 8px; }
-.rd-hero .hero-meta { margin-top: 22px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
+.rd-hero .hero-meta { margin-top: 14px; display: flex; align-items: center; gap: 22px; flex-wrap: wrap; }
 .rd-hero .hero-loc { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--ink-soft); text-transform: uppercase; }
 .rd-cta { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); background: none; border: 0; cursor: pointer; padding: 0; }
@@ -54,8 +56,8 @@
 .rd-hero .scroll-hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 2;
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; }
 .rd-hero .hero-figure { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-.rd-hero .hero-figure .hero-cut { position: absolute; right: clamp(16px, 5vw, 90px); bottom: 0;
-  height: 70%; width: auto; max-width: 38%; object-fit: contain; object-position: bottom right;
+.rd-hero .hero-figure .hero-cut { position: absolute; right: clamp(0px, 2vw, 44px); bottom: 0;
+  height: 82%; width: auto; max-width: 42%; object-fit: contain; object-position: bottom right;
   filter: grayscale(1) contrast(1.08) drop-shadow(0 16px 28px rgba(0,0,0,0.18)); }
 .rd-hero .hero-figure canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 2; }
 
