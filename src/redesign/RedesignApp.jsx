@@ -82,16 +82,18 @@ export default function RedesignApp() {
       {/* HERO */}
       <section className="rd-hero">
         <FlowField />
-        {HERO_PHOTO && <HeroFigure src={HERO_PHOTO} />}
         <div className="wrap hero-inner">
-          <h1 className="hero-name"><span className="em">Gemma</span><span>Garcia</span><span>de la</span><span>Fuente</span></h1>
-          <div className="hero-labels">
-            <span className="lab">Data Science</span><span className="lab">Product</span><span className="lab">Strategy</span><span className="lab">Execution</span>
+          <div className="hero-text">
+            <h1 className="hero-name"><span className="em">Gemma</span><span>Garcia</span><span>de la</span><span>Fuente</span></h1>
+            <div className="hero-labels">
+              <span className="lab">Data Science</span><span className="lab">Product</span><span className="lab">Strategy</span><span className="lab">Execution</span>
+            </div>
+            <div className="hero-meta">
+              <span className="hero-loc">Based in Zürich · Working internationally</span>
+              <button className="rd-cta" onClick={() => scrollTo("complexity")}>Explore my work <span className="arrow">→</span></button>
+            </div>
           </div>
-          <div className="hero-meta">
-            <span className="hero-loc">Based in Zürich · Working internationally</span>
-            <button className="rd-cta" onClick={() => scrollTo("complexity")}>Explore my work <span className="arrow">→</span></button>
-          </div>
+          {HERO_PHOTO && <HeroFigure src={HERO_PHOTO} />}
         </div>
         <div className="scroll-hint">Scroll ↓</div>
       </section>
