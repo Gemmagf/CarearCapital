@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import allTranslations from "../translations/translations";
+import allTranslations, { applyCvVariant } from "../translations/translations";
 import FlowField from "./FlowField";
 import HeroFigure from "./HeroFigure";
 import "./redesign.css";
@@ -10,16 +10,32 @@ const LANGS = [
   ["english", "EN"], ["catalan", "CA"], ["spanish", "ES"],
   ["french", "FR"], ["german", "DE"], ["italian", "IT"],
 ];
-const SELECTED = ["swissGov", "labm", "farma", "cvHunter"];
+// Forward-deployed positioning: AI in production, tech tied to CHF decisions, end-to-end business tools.
+const SELECTED = ["cvHunter", "sensorlab", "zuriKreislauf", "retail"];
+const VIZ_KIND = { cvHunter: 3, sensorlab: 0, zuriKreislauf: 2, retail: 1 }; // CaseViz motif per project
+const EXPERTISE = [
+  "Rapid prototyping",
+  "LLM integration (Claude API, embeddings)",
+  "Forecasting & anomaly detection",
+  "Experiment design",
+  "Dashboard & KPI design",
+  "Production delivery (CI, Docker)",
+];
 const CASE_IMAGES = {}; // real screenshots → public/images/projects/proj_<id>.jpg
 const HERO_PHOTO = `${process.env.PUBLIC_URL}/images/gemma_hero_cut.png`;
 const yearOf = (period = "") => (period.match(/\d{4}/) || [""])[0];
-const IMPACT = ["Align stakeholders", "Define strategy", "Build products", "Drive decisions", "Measure impact"];
+const IMPACT = [
+  "Led a cross-functional pod of 5 — project time −50%",
+  "Product owner of 2 risk tools in production at UBS",
+  "Embedded with Google product & engineering teams",
+  "Mentored an intern for 1.5 years",
+  "Work in 6 languages across ES · CH · global teams",
+];
 
 export default function RedesignApp() {
   const [lang, setLang] = useState("english");
   const t = allTranslations[lang] || allTranslations.english;
-  const cv = t.cv;
+  const cv = applyCvVariant(t.cv, "fde"); // site copy is English; FDE positioning for summary/methods
   const rootRef = useRef(null);
   const [openExp, setOpenExp] = useState(0);
   const [modal, setModal] = useState(null);
@@ -86,7 +102,7 @@ export default function RedesignApp() {
           <div className="hero-text">
             <h1 className="hero-name"><span className="em">Gemma</span><span>Garcia</span><span>de la</span><span>Fuente</span></h1>
             <div className="hero-labels">
-              <span className="lab">Data Science</span><span className="lab">Product</span><span className="lab">Strategy</span><span className="lab">Execution</span>
+              <span className="lab">Data &amp; AI</span><span className="lab">Product</span><span className="lab">Business</span><span className="lab">Delivery</span>
             </div>
             <div className="hero-meta">
               <span className="hero-loc">Based in Zürich · Working internationally</span>
@@ -117,12 +133,12 @@ export default function RedesignApp() {
           <div className="colhead" style={{ gridColumn: "1 / 4" }}>
             <div className="band-head"><span className="section-index">01</span></div>
             <h2 className="rd-title reveal">I make sense<br />of complexity</h2>
-            <p className="band-lead reveal">From raw data to a decision someone can act on — statistics, modelling, forecasting, experimentation.</p>
+            <p className="band-lead reveal">From a vague business question to a working prototype — statistics, ML and LLMs, always in service of a decision someone has to make.</p>
           </div>
           <div className="rd-viz reveal" style={{ gridColumn: "4 / 10", alignSelf: "center" }}><DataSurface /></div>
           <div className="rd-list reveal" style={{ gridColumn: "10 / 13" }}>
             <h4>Expertise</h4>
-            <ul>{(cv?.methodologies || []).slice(0, 6).map((m) => <li key={m}>{m}<span className="pl">+</span></li>)}</ul>
+            <ul>{EXPERTISE.map((m) => <li key={m}>{m}<span className="pl">+</span></li>)}</ul>
           </div>
         </div>
       </section>
@@ -133,7 +149,7 @@ export default function RedesignApp() {
           <div className="colhead" style={{ gridColumn: "1 / 4" }}>
             <div className="band-head"><span className="section-index">02</span></div>
             <h2 className="rd-title reveal">I connect<br />the dots</h2>
-            <p className="band-lead reveal">Between data, business and people — turning needs into direction and analysis into decisions.</p>
+            <p className="band-lead reveal">I'm the person between the engineers and the business — the one who makes both sides understood.</p>
           </div>
           <div className="rd-viz reveal" style={{ gridColumn: "4 / 10", alignSelf: "center" }}><ChordOrbital /></div>
           <div className="rd-list reveal" style={{ gridColumn: "10 / 13" }}>
@@ -158,7 +174,7 @@ export default function RedesignApp() {
                 <span className="ct">{p.title}</span>
                 <span className="cviz">{CASE_IMAGES[p.id]
                   ? <img src={`${process.env.PUBLIC_URL}/images/projects/${CASE_IMAGES[p.id]}`} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={(e) => { e.currentTarget.replaceWith(document.createComment("")); }} />
-                  : <CaseViz kind={i} />}</span>
+                  : <CaseViz kind={VIZ_KIND[p.id] ?? i} />}</span>
                 <span className="cgo">→</span>
               </button>
             ))}

@@ -14,13 +14,17 @@ const shared = {
 };
 
 const techStack = [
-  "Python (Pandas, Streamlit, TensorFlow)",
+  "Python (Pandas, scikit-learn, PyTorch, PyMC)",
   "SQL",
-  "R",
-  "Power BI",
-  "Tableau",
-  "Google Data Studio / Looker Studio",
-  "JavaScript (basics)",
+  "Claude API & LLM tooling",
+  "Vector search (pgvector)",
+  "FastAPI",
+  "React / Next.js / TypeScript",
+  "Streamlit",
+  "Docker",
+  "GitHub Actions CI",
+  "Power BI / Tableau / Looker Studio",
+  "Power Apps",
   "Git",
 ];
 
@@ -54,7 +58,6 @@ const PROJECT_META = [
     stack: ["Python", "scikit-learn", "PyTorch", "XGBoost", "SHAP", "Streamlit"],
     link: "https://sensorlab.streamlit.app",
     repo: "https://github.com/Gemmagf/sensorlab",
-    cvOnly: true, // available in CV Builder dropdown; hidden from public Projects section
   },
   {
     id: "labm",
@@ -711,9 +714,9 @@ const translations = {
           location: "Zuric, CH",
           period: "Gener 2026 – Present",
           description: [
-            "Construcció d'insights analítics que donen suport a la presa de decisions del management.",
-            "Disseny i simplificació de models de dades per millorar la governança i la usabilitat.",
-            "Automatització de reporting manual i ús d'eines d'IA i analytics per augmentar productivitat i escalabilitat.",
+            "Construcció d'un sistema de control de processos amb Power Apps per a les àrees de risc, substituint el seguiment manual per fluxos automatitzats i monitoratge d'estat en temps real.",
+            "Contribuïdora principal a Greta, un programa estratègic d'integració de risc, en el workstream de dades i analítica.",
+            "Disseny i simplificació de models de dades per millorar governança i usabilitat; automatització del reporting amb eines d'IA i analytics.",
           ],
         },
         {
@@ -876,9 +879,9 @@ const translations = {
           location: "Zúrich, CH",
           period: "Enero 2026 – Presente",
           description: [
-            "Construcción de insights analíticos que apoyan la toma de decisiones del management.",
-            "Diseño y simplificación de modelos de datos para mejorar la gobernanza y la usabilidad.",
-            "Automatización de reporting manual y uso de herramientas de IA y analytics para aumentar productividad y escalabilidad.",
+            "Construcción de un sistema de control de procesos con Power Apps para las áreas de riesgo, sustituyendo el seguimiento manual por flujos automatizados y monitorización de estado en tiempo real.",
+            "Contribuidora principal en Greta, un programa estratégico de integración de riesgo, en el workstream de datos y analítica.",
+            "Diseño y simplificación de modelos de datos para mejorar gobernanza y usabilidad; automatización del reporting con herramientas de IA y analytics.",
           ],
         },
         {
@@ -1041,9 +1044,9 @@ const translations = {
           location: "Zurich, CH",
           period: "January 2026 – Present",
           description: [
-            "Build analytical insights that support management decision-making.",
-            "Design and simplify data models to improve governance and usability.",
-            "Automate manual reporting and leverage AI and analytics tools to increase productivity and scalability.",
+            "Built a Power Apps process-control system for the risk areas, replacing manual tracking with automated workflows and live status monitoring.",
+            "Core contributor to Greta, a strategic risk-integration programme, on the data and analytics workstream.",
+            "Design and simplify data models to improve governance and usability; automate reporting with AI and analytics tools.",
           ],
         },
         {
@@ -1206,9 +1209,9 @@ const translations = {
           location: "Zurich, CH",
           period: "Janvier 2026 – Présent",
           description: [
-            "Construction d'insights analytiques qui soutiennent la prise de décision du management.",
-            "Conception et simplification de modèles de données pour améliorer la gouvernance et l'usabilité.",
-            "Automatisation du reporting manuel et utilisation d'outils d'IA et d'analytics pour accroître productivité et scalabilité.",
+            "Conception d'un système de contrôle des processus sous Power Apps pour les domaines du risque, remplaçant le suivi manuel par des flux automatisés et un suivi d'état en temps réel.",
+            "Contributrice clé à Greta, programme stratégique d'intégration du risque, sur le volet données et analytique.",
+            "Conception et simplification de modèles de données pour améliorer gouvernance et usabilité ; automatisation du reporting avec des outils d'IA et d'analytics.",
           ],
         },
         {
@@ -1371,9 +1374,9 @@ const translations = {
           location: "Zürich, CH",
           period: "Januar 2026 – Gegenwart",
           description: [
-            "Aufbau analytischer Insights zur Unterstützung von Management-Entscheidungen.",
-            "Design und Vereinfachung von Datenmodellen zur Verbesserung von Governance und Usability.",
-            "Automatisierung manuellen Reportings und Einsatz von KI- und Analytics-Tools für mehr Produktivität und Skalierbarkeit.",
+            "Aufbau eines Prozesskontrollsystems mit Power Apps für die Risikobereiche – manuelles Tracking ersetzt durch automatisierte Workflows und Status-Monitoring in Echtzeit.",
+            "Zentrale Mitwirkung an Greta, einem strategischen Risk-Integration-Programm, im Daten- und Analytics-Workstream.",
+            "Design und Vereinfachung von Datenmodellen zur Verbesserung von Governance und Usability; Automatisierung des Reportings mit KI- und Analytics-Tools.",
           ],
         },
         {
@@ -1536,9 +1539,9 @@ const translations = {
           location: "Zurigo, CH",
           period: "Gennaio 2026 – Presente",
           description: [
-            "Costruzione di insight analitici a supporto delle decisioni del management.",
-            "Progettazione e semplificazione di modelli di dati per migliorare governance e usabilità.",
-            "Automazione del reporting manuale e utilizzo di strumenti di IA e analytics per aumentare produttività e scalabilità.",
+            "Realizzazione di un sistema di controllo dei processi con Power Apps per le aree di rischio, sostituendo il tracciamento manuale con flussi automatizzati e monitoraggio dello stato in tempo reale.",
+            "Contributrice chiave a Greta, programma strategico di integrazione del rischio, nel workstream dati e analytics.",
+            "Progettazione e semplificazione di modelli di dati per migliorare governance e usabilità; automazione del reporting con strumenti di IA e analytics.",
           ],
         },
         {
@@ -1699,6 +1702,28 @@ export const CV_VARIANTS = [
       "Data Quality & Validation",
       "Anomaly Detection",
       "Regression Modeling",
+      "Stakeholder Management",
+      "Agile (Scrum)",
+    ],
+  },
+  {
+    id: "fde",
+    label: "Forward Deployed / Solutions Engineer",
+    summary:
+      "Data scientist and product owner who joins teams to turn new technology into working solutions. 4+ years shipping decision-driving models, dashboards and AI tools across banking, marketing, industrial and public-sector problems — from the first conversation with the business to code in production. Comfortable in ambiguity, fast at learning a new domain, and at ease bridging engineers, analysts and senior stakeholders in six languages.",
+    education: [
+      "MSc in Data Science — Universitat Oberta de Catalunya (UOC), 2020–2022",
+      "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
+      "BSc in Statistics — Universitat Politècnica de Catalunya (UPC), 2015–2019",
+      "BSc in Psychology — Universitat de Barcelona (UB), 2014–2019",
+    ],
+    methodologies: [
+      "Rapid Prototyping",
+      "LLM Integration (Claude API, embeddings)",
+      "Forecasting & Anomaly Detection",
+      "Experiment Design",
+      "Dashboard & KPI Design",
+      "Production Delivery (CI, Docker)",
       "Stakeholder Management",
       "Agile (Scrum)",
     ],
