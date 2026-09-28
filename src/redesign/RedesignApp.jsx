@@ -174,7 +174,7 @@ export default function RedesignApp() {
                 <span className="ct">{p.title}</span>
                 <span className="cviz">{CASE_IMAGES[p.id]
                   ? <img src={`${process.env.PUBLIC_URL}/images/projects/${CASE_IMAGES[p.id]}`} alt="" style={{ width: "100%", height: "100%", objectFit: "cover" }} onError={(e) => { e.currentTarget.replaceWith(document.createComment("")); }} />
-                  : <CaseViz kind={VIZ_KIND[p.id] ?? i} />}</span>
+                  : <CaseViz id={p.id} kind={VIZ_KIND[p.id] ?? i} />}</span>
                 <span className="cgo">→</span>
               </button>
             ))}
@@ -264,22 +264,29 @@ function NavMark() {
 
 // flowing dotted DATA SURFACE — dense, fine, grey→pink, small annotations
 function DataSurface() {
-  const COLS = 88, ROWS = 26, W = 940, H = 300;
-  const dots = [];
+  const COLS = 96, ROWS = 28, W = 940, H = 300;
+  const dots = [], rows = [];
   for (let j = 0; j < ROWS; j++) {
-    const fz = j / (ROWS - 1), persp = 0.38 + fz * 0.62;
+    const fz = j / (ROWS - 1), persp = 0.38 + fz * 0.62, row = [];
     for (let i = 0; i < COLS; i++) {
       const fx = i / (COLS - 1);
       const wave = Math.sin(fx * 8 + fz * 3.4) + 0.5 * Math.sin(fx * 16 - fz * 6) + 0.35 * Math.cos(fx * 3 + fz * 9);
       const x = W / 2 + (fx - 0.5) * (W * 0.96) * persp;
-      const y = H * 0.24 + fz * (H * 0.6) - wave * 22 * persp;
+      const y = H * 0.24 + fz * (H * 0.6) - wave * 24 * persp;
       const h = Math.max(0, Math.min(1, (wave + 1.9) / 3.8));
-      dots.push([x, y, h, persp]);
+      dots.push([x, y, h, persp]); row.push([x, y]);
     }
+    rows.push(row);
   }
   const ann = [["PATTERN RECOGNITION", 600, 40, 560, 120], ["ANOMALY DETECTION", 90, 250, 190, 210], ["INSIGHT EXTRACTION", 790, 250, 720, 200]];
   return (
     <svg viewBox={`0 0 ${W} ${H}`} aria-hidden="true">
+      {/* ridge lines give the dotted surface a mesh feel; every second row, fading with depth */}
+      {rows.map((r, j) => j % 2 === 0 ? <polyline key={"r" + j} points={r.map(([x, y]) => x.toFixed(1) + "," + y.toFixed(1)).join(" ")} fill="none" stroke="#55534e" strokeWidth="0.5" opacity={(0.05 + (j / ROWS) * 0.12).toFixed(2)} /> : null)}
+      <g fontFamily="Space Mono, monospace" fontSize="8.5" fill="#a29e96" letterSpacing="0.3">
+        <line x1={W * 0.02} y1={H - 14} x2={W * 0.98} y2={H - 14} stroke="#ded9d0" strokeWidth="0.6" />
+        {[0.1, 0.3, 0.5, 0.7, 0.9].map((t, i) => <text key={i} x={(W * 0.02 + t * W * 0.96).toFixed(0)} y={H - 4} textAnchor="middle">{["t−4", "t−3", "t−2", "t−1", "t"][i]}</text>)}
+      </g>
       {dots.map(([x, y, h, persp], i) => {
         const pink = h > 0.58;
         return <circle key={i} cx={x.toFixed(1)} cy={y.toFixed(1)} r={(0.45 + h * 1.5).toFixed(2)}
@@ -302,19 +309,22 @@ function ChordOrbital() {
   const orbits = [[330, 95, -16], [270, 120, 14], [380, 70, 30], [210, 88, -42]];
   const anchors = [["DATA", cx, cy - 118], ["BUSINESS", cx + 360, cy], ["PRODUCT", cx, cy + 118], ["PEOPLE", cx - 360, cy]];
   const rng = (s) => { const x = Math.sin(s) * 10000; return x - Math.floor(x); };
+  const onOrbit = (oi, t) => { const [rx, ry, rot] = orbits[oi], a = t * Math.PI * 2, px = Math.cos(a) * rx, py = Math.sin(a) * ry, rr = (rot * Math.PI) / 180; return [cx + px * Math.cos(rr) - py * Math.sin(rr), cy + px * Math.sin(rr) + py * Math.cos(rr)]; };
   const scatter = [];
-  orbits.forEach(([rx, ry, rot], oi) => {
-    for (let k = 0; k < 7; k++) {
-      const a = rng(oi * 9 + k) * Math.PI * 2, px = Math.cos(a) * rx, py = Math.sin(a) * ry, rr = (rot * Math.PI) / 180;
-      scatter.push([cx + px * Math.cos(rr) - py * Math.sin(rr), cy + px * Math.sin(rr) + py * Math.cos(rr), rng(oi + k * 3) > 0.55]);
-    }
-  });
+  orbits.forEach((_, oi) => { for (let k = 0; k < 9; k++) { const [x, y] = onOrbit(oi, rng(oi * 9 + k)); scatter.push([x, y, rng(oi + k * 3) > 0.6]); } });
+  // labelled satellites: the concrete skills that orbit the strategy core
+  const sats = [["LLM", 0, 0.12], ["SQL", 1, 0.55], ["KPI", 2, 0.3], ["MMM", 3, 0.8], ["A/B", 0, 0.68], ["SPC", 1, 0.9], ["PO", 2, 0.62], ["CI/CD", 3, 0.28]].map(([l, oi, t]) => [l, ...onOrbit(oi, t)]);
+  const chords = [[0, 1], [1, 2], [2, 3], [3, 0], [0, 2], [1, 3]];
+  const ticks = Array.from({ length: 36 }, (_, i) => { const [x, y] = onOrbit(2, i / 36); return [x, y, cx + (x - cx) * 1.025, cy + (y - cy) * 1.025]; });
   return (
     <svg viewBox={`0 0 ${W} ${H}`}>
       <defs><radialGradient id="cg" cx="50%" cy="50%" r="50%"><stop offset="0%" stopColor="#FF3B7D" stopOpacity="0.6" /><stop offset="100%" stopColor="#FF3B7D" stopOpacity="0" /></radialGradient></defs>
       {orbits.map(([rx, ry, rot], i) => <ellipse key={i} cx={cx} cy={cy} rx={rx} ry={ry} fill="none" stroke="#34343b" strokeWidth="0.9" transform={`rotate(${rot} ${cx} ${cy})`} />)}
+      {ticks.map(([x1, y1, x2, y2], i) => <line key={"k" + i} x1={x1.toFixed(1)} y1={y1.toFixed(1)} x2={x2.toFixed(1)} y2={y2.toFixed(1)} stroke="#4a4a52" strokeWidth="0.8" />)}
+      {chords.map(([a, b], i) => <path key={"c" + i} data-draw d={`M ${anchors[a][1]} ${anchors[a][2]} Q ${cx} ${cy} ${anchors[b][1]} ${anchors[b][2]}`} fill="none" stroke="#FF3B7D" strokeWidth="0.7" opacity="0.22" />)}
       {anchors.map(([l, x, y]) => <path key={"a" + l} data-draw d={`M ${cx} ${cy} Q ${(cx + x) / 2 + (y - cy) * 0.12} ${(cy + y) / 2 - (x - cx) * 0.12} ${x} ${y}`} fill="none" stroke="#FF3B7D" strokeWidth="0.9" opacity="0.5" />)}
       {scatter.map(([x, y, big], i) => <circle key={i} cx={x.toFixed(1)} cy={y.toFixed(1)} r={big ? 2.6 : 1.5} fill={big ? "#FF3B7D" : "#7a7a82"} opacity={big ? 0.9 : 0.55} />)}
+      {sats.map(([l, x, y]) => <g key={"s" + l} data-pop><circle cx={x.toFixed(1)} cy={y.toFixed(1)} r="2.4" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.2" /><text x={(x + 6).toFixed(1)} y={(y - 5).toFixed(1)} fontFamily="Space Mono, monospace" fontSize="8.5" fill="#b9b6ae" letterSpacing="0.8">{l}</text></g>)}
       <circle cx={cx} cy={cy} r="62" fill="url(#cg)" />
       <circle cx={cx} cy={cy} r="6" fill="#FF3B7D" />
       <text x={cx} y={cy - 1} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="11" fill="#fff" letterSpacing="1.3">STRATEGY</text>
@@ -329,20 +339,196 @@ function ChordOrbital() {
   );
 }
 
-// per-project data motif — finer, denser, fills the card
-function CaseViz({ kind }) {
-  const c = "#FF3B7D", k = kind % 4;
-  if (k === 0) return ( // time-series / governance
-    <svg viewBox="0 0 240 180"><g stroke="#e5e2db" strokeWidth="0.8">{[40,80,120,160,200].map((x) => <line key={x} x1={x} y1="14" x2={x} y2="166" />)}{[50,90,130].map((y) => <line key={y} x1="10" y1={y} x2="230" y2={y} />)}</g>
-      <polyline fill="none" stroke={c} strokeWidth="1.4" points="10,140 34,120 58,128 82,90 106,104 130,70 154,86 178,48 202,64 226,40" />
-      {[[34,120],[82,90],[130,70],[178,48],[226,40]].map(([x,y],i)=><circle key={i} cx={x} cy={y} r="2" fill={c}/>)}</svg>);
-  if (k === 1) return ( // MMM / allocation bars
-    <svg viewBox="0 0 240 180">{Array.from({length:14}).map((_,i)=>{const v=20+Math.abs(Math.sin(i*1.3))*120;return <rect key={i} x={12+i*16} y={168-v} width="9" height={v} fill={i%2?c:"#111"} opacity={i%2?0.9:0.85}/>;})}</svg>);
-  if (k === 2) return ( // causal / clusters scatter
-    <svg viewBox="0 0 240 180">{Array.from({length:90}).map((_,i)=>{const cl=i%3;const cx=50+cl*70+(Math.sin(i*2.1))*26;const cy=90+(Math.cos(i*1.7))*58;return <circle key={i} cx={cx} cy={cy} r={cl===1?2.4:1.6} fill={cl===1?c:"#111"} opacity="0.65"/>;})}</svg>);
-  return ( // embeddings / graph
-    <svg viewBox="0 0 240 180">{Array.from({length:12}).map((_,i)=>{const a=i/12*6.283;const x=120+Math.cos(a)*(55+(i%3)*14);const y=90+Math.sin(a)*(46+(i%2)*12);return <g key={i}><line x1="120" y1="90" x2={x} y2={y} stroke="#ddd" strokeWidth="0.7"/><circle cx={x} cy={y} r={i%3?2:3} fill={c} opacity="0.85"/></g>;})}<circle cx="120" cy="90" r="4.5" fill="#111"/></svg>);
+/* ---------- per-project visuals: bespoke, deterministic, editorial (fine strokes, controlled pink) ---------- */
+const P = "#FF3B7D", PD = "#D91662", INK = "#111", G2 = "#8a8781", G3 = "#e5e2db";
+const srand = (s) => { const x = Math.sin(s * 9301 + 49297) * 233280; return x - Math.floor(x); };
+const pts = (arr) => arr.map(([x, y]) => `${x.toFixed(1)},${y.toFixed(1)}`).join(" ");
+const noiseLine = (seed, n, x0, x1, y, amp) => Array.from({ length: n }, (_, i) => {
+  const t = i / (n - 1), v = Math.sin(t * 9 + seed) * 0.5 + Math.sin(t * 23 + seed * 3) * 0.3 + (srand(seed * 100 + i) - 0.5) * 0.9;
+  return [x0 + t * (x1 - x0), y + v * amp];
+});
+
+// CV Hunter — candidates in embedding space, a role, its top-5 matches with cosine scores
+function VizCvHunter() {
+  const clusters = [[62, 78], [150, 60], [110, 150]], dots = [];
+  clusters.forEach(([cx, cy], c) => { for (let i = 0; i < 26; i++) { const a = srand(c * 50 + i) * 6.283, r = 6 + srand(c * 70 + i) * 34; dots.push([cx + Math.cos(a) * r * 1.15, cy + Math.sin(a) * r * 0.8]); } });
+  const role = [176, 132];
+  const top = dots.map((d) => [d, Math.hypot(d[0] - role[0], d[1] - role[1])]).sort((a, b) => a[1] - b[1]).slice(0, 5);
+  return (
+    <svg viewBox="0 0 240 220">
+      {dots.map(([x, y], i) => <circle key={i} cx={x.toFixed(1)} cy={y.toFixed(1)} r="1.7" fill={INK} opacity="0.32" />)}
+      {top.map(([d], k) => <line key={k} x1={role[0]} y1={role[1]} x2={d[0]} y2={d[1]} stroke={P} strokeWidth={k === 0 ? 1.3 : 0.8} opacity={0.9 - k * 0.15} />)}
+      {top.map(([d], k) => <g key={"t" + k}><circle cx={d[0]} cy={d[1]} r={k === 0 ? 3.2 : 2.4} fill={P} /><text className="annp" x={d[0] + 5} y={d[1] - 4}>{(0.93 - k * 0.025).toFixed(2)}</text></g>)}
+      <rect x={role[0] - 5} y={role[1] - 5} width="10" height="10" fill={INK} transform={`rotate(45 ${role[0]} ${role[1]})`} />
+      <text className="ann" x={role[0] + 9} y={role[1] + 3}>role</text>
+      <text className="ann" x="8" y="14">candidates · pgvector</text>
+      <text className="ann" x="8" y="210">embedding space · cosine similarity</text>
+    </svg>
+  );
 }
+
+// Sensorlab — six sensor traces, a detected fault window, and the RUL bar that drives the CHF decision
+function VizSensorlab() {
+  const rows = 6, x0 = 8, x1 = 232, win = [148, 186];
+  return (
+    <svg viewBox="0 0 240 220">
+      <rect x={win[0]} y="6" width={win[1] - win[0]} height="150" fill={P} opacity="0.10" />
+      {Array.from({ length: rows }).map((_, r) => {
+        const y = 22 + r * 24, line = noiseLine(r + 1, 60, x0, x1, y, 6);
+        const spiked = line.map(([x, v]) => (x > win[0] && x < win[1]) ? [x, v + (r % 2 ? -1 : 1) * (7 + srand(r * 9 + x) * 6)] : [x, v]);
+        return (<g key={r}>
+          <line x1={x0} y1={y} x2={x1} y2={y} stroke={G3} strokeWidth="0.6" />
+          <polyline points={pts(spiked)} fill="none" stroke={INK} strokeWidth="0.9" opacity="0.7" />
+          <polyline points={pts(spiked.filter(([x]) => x > win[0] && x < win[1]))} fill="none" stroke={P} strokeWidth="1.2" />
+          <text className="ann" x={x0} y={y - 9}>s{r + 1}</text>
+        </g>);
+      })}
+      <line x1={win[0]} y1="6" x2={win[0]} y2="156" stroke={PD} strokeWidth="0.8" strokeDasharray="2 2" />
+      <text className="annp" x={win[0] - 2} y="166" textAnchor="end">fault detected</text>
+      <text className="ann" x="8" y="188">remaining useful life</text>
+      <rect x="8" y="193" width="224" height="6" fill={G3} />
+      <rect x="8" y="193" width="96" height="6" fill={P} />
+      <text className="annp" x="108" y="199">43 cycles · schedule</text>
+      <text className="ann" x="8" y="214">intervene · schedule · wait — priced in CHF</text>
+    </svg>
+  );
+}
+
+// Züri-Kreislauf — Hotelling T² control chart with the real 8-month outage window, throughput bars below
+function VizZuri() {
+  const n = 78, x0 = 10, x1 = 232, ucl = 74, out = [20, 28];
+  const series = Array.from({ length: n }, (_, i) => { const base = 8 + srand(i * 3) * 9; const spike = i >= out[0] && i < out[1] ? 26 + srand(i) * 12 : (i === 41 || i === 63 ? 20 + srand(i) * 8 : 0); return 130 - (base + spike) * 2.0; });
+  const X = (i) => x0 + (i / (n - 1)) * (x1 - x0);
+  const bars = Array.from({ length: n }, (_, i) => 12 + Math.abs(Math.sin(i * 0.55)) * 10 + srand(i * 7) * 6);
+  return (
+    <svg viewBox="0 0 240 220">
+      <rect x={X(out[0])} y="18" width={X(out[1]) - X(out[0])} height="122" fill={P} opacity="0.12" />
+      <line x1={x0} y1={ucl} x2={x1} y2={ucl} stroke={PD} strokeWidth="0.8" strokeDasharray="3 2" />
+      <text className="ann" x={x1} y={ucl - 4} textAnchor="end">T² control limit</text>
+      <polyline points={pts(series.map((y, i) => [X(i), y]))} fill="none" stroke={INK} strokeWidth="0.9" opacity="0.8" />
+      {series.map((y, i) => y < ucl ? <circle key={i} cx={X(i).toFixed(1)} cy={y.toFixed(1)} r="2" fill={P} /> : null)}
+      <text className="annp" x={X(out[1]) + 4} y="30">8-month outage</text>
+      <text className="annp" x={X(out[1]) + 4} y="41">≈ CHF 18.8M</text>
+      <text className="ann" x={x0} y="152">monthly throughput · t</text>
+      {bars.map((h, i) => <rect key={i} x={(X(i) - 1.1).toFixed(1)} y={(198 - h).toFixed(1)} width="2.2" height={h.toFixed(1)} fill={i >= out[0] && i < out[1] ? P : INK} opacity={i >= out[0] && i < out[1] ? 0.9 : 0.35} />)}
+      <text className="ann" x={x0} y="214">2020</text><text className="ann" x={x1} y="214" textAnchor="end">2026</text>
+    </svg>
+  );
+}
+
+// Supply Chain Lab — observed demand, a P10–P90 forecast fan, and stock-health allocation by store
+function VizRetail() {
+  const x0 = 10, split = 138, x1 = 232, n = 40, m = 14;
+  const hist = Array.from({ length: n }, (_, i) => [x0 + (i / (n - 1)) * (split - x0), 96 - Math.sin(i * 0.6) * 14 - i * 0.35 + (srand(i * 5) - 0.5) * 10]);
+  const last = hist[n - 1];
+  const fc = Array.from({ length: m }, (_, i) => { const t = i / (m - 1); return [split + t * (x1 - split), last[1] - t * 12 - Math.sin(i * 0.7) * 6]; });
+  const band = (k) => [...fc.map(([x, y], i) => [x, y - (i / (m - 1)) * k]), ...fc.map(([x, y], i) => [x, y + (i / (m - 1)) * k]).reverse()];
+  const stores = [["ZRH", 0.82], ["BSL", 0.61], ["GVA", 0.44], ["BRN", 0.3]];
+  return (
+    <svg viewBox="0 0 240 220">
+      {[40, 70, 100, 130].map((y) => <line key={y} x1={x0} y1={y} x2={x1} y2={y} stroke={G3} strokeWidth="0.6" />)}
+      <polygon points={pts(band(30))} fill={P} opacity="0.12" />
+      <polygon points={pts(band(15))} fill={P} opacity="0.2" />
+      <polyline points={pts(hist)} fill="none" stroke={INK} strokeWidth="1.1" />
+      <polyline points={pts(fc)} fill="none" stroke={P} strokeWidth="1.4" />
+      <line x1={split} y1="24" x2={split} y2="140" stroke={G2} strokeWidth="0.7" strokeDasharray="2 2" />
+      <text className="ann" x={split - 3} y="22" textAnchor="end">observed</text>
+      <text className="ann" x={split + 3} y="22">forecast</text>
+      <text className="annp" x={x1} y={(fc[m - 1][1] - 6).toFixed(1)} textAnchor="end">P10–P90</text>
+      <text className="ann" x={x0} y="160">allocation · stock health by store</text>
+      {stores.map(([s, v], i) => <g key={s}><text className="ann" x={x0} y={172 + i * 12}>{s}</text><rect x="38" y={165 + i * 12} width="190" height="6" fill={G3} /><rect x="38" y={165 + i * 12} width={(190 * v).toFixed(1)} height="6" fill={i === 2 ? P : INK} opacity={i === 2 ? 1 : 0.75} /></g>)}
+    </svg>
+  );
+}
+
+// Swiss Governance — small multiples: one sparkline per indicator, last observation in pink
+function VizSwissGov() {
+  const cols = 4, rows = 3, cw = 54, ch = 52, gx = 8, gy = 12, names = ["CO₂", "PV", "water", "edu", "rail", "housing", "waste", "air", "forest", "energy", "health", "jobs"];
+  return (
+    <svg viewBox="0 0 240 220">
+      {Array.from({ length: cols * rows }).map((_, k) => {
+        const c = k % cols, r = Math.floor(k / cols), ox = 8 + c * (cw + gx), oy = 10 + r * (ch + gy);
+        const line = Array.from({ length: 16 }, (_, i) => [ox + (i / 15) * cw, oy + 34 - (Math.sin(i * 0.5 + k) * 6 + i * (srand(k) - 0.4) * 1.4 + srand(k * 31 + i) * 4)]);
+        const hot = k === 5;
+        return (<g key={k}>
+          <line x1={ox} y1={oy + 40} x2={ox + cw} y2={oy + 40} stroke={G3} strokeWidth="0.6" />
+          <polyline points={pts(line)} fill="none" stroke={hot ? P : INK} strokeWidth={hot ? 1.3 : 0.9} opacity={hot ? 1 : 0.7} />
+          <circle cx={line[15][0].toFixed(1)} cy={line[15][1].toFixed(1)} r="2" fill={P} />
+          <text className="ann" x={ox} y={oy + 49}>{names[k]}</text>
+        </g>);
+      })}
+      <text className="ann" x="8" y="210">32 indicators · 26 cantons · forecast to 2035</text>
+    </svg>
+  );
+}
+
+// LabM — incremental ROI per channel (Bayesian MMM) and the saturation curve behind the reallocation
+function VizLabm() {
+  const chans = ["TV", "search", "social", "OOH", "print", "radio", "display", "email"], x0 = 12, bw = 18, gap = 9, base = 150;
+  return (
+    <svg viewBox="0 0 240 220">
+      <text className="ann" x={x0} y="14">incremental ROI per channel · 90% credible</text>
+      {chans.map((c, i) => { const h = 30 + srand(i * 13) * 90, u = 10 + srand(i * 7) * 22, x = x0 + i * (bw + gap); return (<g key={c}>
+        <rect x={x} y={(base - h).toFixed(1)} width={bw} height={h.toFixed(1)} fill={INK} opacity="0.8" />
+        <rect x={x} y={(base - h - u).toFixed(1)} width={bw} height={u.toFixed(1)} fill={P} />
+        <text className="ann" x={x + bw / 2} y={base + 11} textAnchor="middle">{c}</text>
+      </g>); })}
+      <text className="ann" x={x0} y="190">response curve · saturation</text>
+      <path d={`M ${x0} 208 C 60 205, 90 185, 130 180 S 200 174, 230 173`} fill="none" stroke={P} strokeWidth="1.3" />
+      <text className="annp" x="232" y="168" textAnchor="end">+€31.5M reallocation</text>
+    </svg>
+  );
+}
+
+// Pharma RWD — forest plot: five estimators, 95% CI, null line
+function VizFarma() {
+  const rows = [["naïve", 0.31, 0.16], ["PSM", 0.18, 0.12], ["AIPW", 0.14, 0.09], ["DR-learner", 0.13, 0.10], ["E-value", 0.12, 0.08]], cx = 130, sc = 200;
+  return (
+    <svg viewBox="0 0 240 220">
+      <line x1={cx} y1="18" x2={cx} y2="176" stroke={G2} strokeWidth="0.8" strokeDasharray="2 2" />
+      <text className="ann" x={cx} y="12" textAnchor="middle">null</text>
+      {rows.map(([n, est, w], i) => { const y = 36 + i * 30, hot = i === 2; return (<g key={n}>
+        <text className="ann" x="8" y={y + 3}>{n}</text>
+        <line x1={(cx + (est - w) * sc).toFixed(1)} y1={y} x2={(cx + (est + w) * sc).toFixed(1)} y2={y} stroke={hot ? P : INK} strokeWidth={hot ? 1.6 : 1} />
+        <rect x={(cx + est * sc - 3.5).toFixed(1)} y={y - 3.5} width="7" height="7" fill={hot ? P : INK} />
+      </g>); })}
+      <text className="ann" x="8" y="196">effect estimate · 95% CI · n = 5,735</text>
+      <text className="annp" x="8" y="210">|SMD| 33 → 1 of 53 covariates</text>
+    </svg>
+  );
+}
+
+// Rovelló — an image patch grid and the top-5 species probabilities
+function VizRovello() {
+  const top = [["Lactarius deliciosus", 0.73], ["L. sanguifluus", 0.11], ["L. semisanguifluus", 0.06], ["L. quieticolor", 0.04], ["other", 0.06]];
+  return (
+    <svg viewBox="0 0 240 220">
+      {Array.from({ length: 36 }).map((_, i) => { const c = i % 6, r = Math.floor(i / 6), v = srand(i * 17); return <rect key={i} x={8 + c * 13} y={8 + r * 13} width="12" height="12" fill={v > 0.62 ? P : INK} opacity={(v > 0.62 ? 0.5 + v * 0.5 : 0.15 + v * 0.45).toFixed(2)} />; })}
+      <text className="ann" x="8" y="98">224×224 · ConvNeXt-Tiny</text>
+      {top.map(([n, p], i) => { const y = 116 + i * 20; return (<g key={n}>
+        <text className="ann" x="8" y={y - 3}>{n}</text>
+        <rect x="8" y={y} width="224" height="5" fill={G3} />
+        <rect x="8" y={y} width={(224 * p).toFixed(1)} height="5" fill={i === 0 ? P : INK} opacity={i === 0 ? 1 : 0.6} />
+        <text className="annp" x="232" y={y - 3} textAnchor="end">{(p * 100).toFixed(0)}%</text>
+      </g>); })}
+      <text className="ann" x="8" y="216">1,035 species · top-1 73.4%</text>
+    </svg>
+  );
+}
+
+// generic fallback by kind (projects without a bespoke visual)
+function VizGeneric({ kind }) {
+  const k = kind % 4;
+  if (k === 0) return (<svg viewBox="0 0 240 220"><g stroke={G3} strokeWidth="0.8">{[40, 80, 120, 160, 200].map((x) => <line key={x} x1={x} y1="14" x2={x} y2="200" />)}{[60, 110, 160].map((y) => <line key={y} x1="10" y1={y} x2="230" y2={y} />)}</g>
+    <polyline fill="none" stroke={P} strokeWidth="1.4" points="10,170 34,150 58,158 82,110 106,124 130,86 154,102 178,60 202,76 226,50" />
+    {[[34, 150], [82, 110], [130, 86], [178, 60], [226, 50]].map(([x, y], i) => <circle key={i} cx={x} cy={y} r="2" fill={P} />)}</svg>);
+  if (k === 1) return (<svg viewBox="0 0 240 220">{Array.from({ length: 14 }).map((_, i) => { const v = 20 + Math.abs(Math.sin(i * 1.3)) * 150; return <rect key={i} x={12 + i * 16} y={200 - v} width="9" height={v} fill={i % 2 ? P : INK} opacity={i % 2 ? 0.9 : 0.85} />; })}</svg>);
+  if (k === 2) return (<svg viewBox="0 0 240 220">{Array.from({ length: 90 }).map((_, i) => { const cl = i % 3; return <circle key={i} cx={50 + cl * 70 + Math.sin(i * 2.1) * 26} cy={110 + Math.cos(i * 1.7) * 70} r={cl === 1 ? 2.4 : 1.6} fill={cl === 1 ? P : INK} opacity="0.65" />; })}</svg>);
+  return (<svg viewBox="0 0 240 220">{Array.from({ length: 12 }).map((_, i) => { const a = (i / 12) * 6.283, x = 120 + Math.cos(a) * (55 + (i % 3) * 14), y = 110 + Math.sin(a) * (56 + (i % 2) * 12); return <g key={i}><line x1="120" y1="110" x2={x} y2={y} stroke="#ddd" strokeWidth="0.7" /><circle cx={x} cy={y} r={i % 3 ? 2 : 3} fill={P} opacity="0.85" /></g>; })}<circle cx="120" cy="110" r="4.5" fill={INK} /></svg>);
+}
+
+const VIZ_BY_ID = { cvHunter: VizCvHunter, sensorlab: VizSensorlab, zuriKreislauf: VizZuri, retail: VizRetail, swissGov: VizSwissGov, labm: VizLabm, farma: VizFarma, rovello: VizRovello };
+function CaseViz({ id, kind }) { const V = VIZ_BY_ID[id]; return V ? <V /> : <VizGeneric kind={kind} />; }
 
 // panoramic career map: faint dotted "map" + pink curve across, real work+study nodes
 function CareerMap({ exp, edu }) {
@@ -355,22 +541,29 @@ function CareerMap({ exp, edu }) {
   });
   const all = [...work, ...study].filter((d) => d.year).sort((a, b) => a.year - b.year);
   const W = 1400, H = 320, pad = 70, n = all.length;
-  // faint dot "map" grid
+  // dot-matrix "map": a smooth field modulates opacity so the dots read as land masses, not a grid
   const grid = [];
-  for (let y = 30; y < H - 30; y += 16) for (let x = 20; x < W - 20; x += 16) if ((x * 7 + y * 13) % 5 < 3) grid.push([x, y]);
-  const pts = all.map((s, i) => [pad + (i / Math.max(1, n - 1)) * (W - pad * 2), H / 2 - Math.sin(i * 0.8) * 46 - (i - n / 2) * 4, s]);
-  const d = pts.map(([x, y], i) => { if (i === 0) return `M ${x} ${y}`; const [px, py] = pts[i - 1], mx = (px + x) / 2; return `C ${mx} ${py}, ${mx} ${y}, ${x} ${y}`; }).join(" ");
+  for (let y = 24; y < H - 28; y += 12) for (let x = 16; x < W - 16; x += 12) {
+    const f = Math.sin(x / 140 + y / 60) * Math.cos(y / 45 - x / 220) + 0.35 * Math.sin(x / 37);
+    if (f > -0.15) grid.push([x, y, 0.18 + Math.min(1, (f + 0.15)) * 0.42]);
+  }
+  const lat = [0.28, 0.5, 0.72].map((t) => `M 0 ${H * t} Q ${W / 2} ${H * t - 26} ${W} ${H * t}`);
+  const nodes = all.map((s, i) => [pad + (i / Math.max(1, n - 1)) * (W - pad * 2), H / 2 - Math.sin(i * 0.8) * 46 - (i - n / 2) * 4, s]);
+  const d = nodes.map(([x, y], i) => { if (i === 0) return `M ${x} ${y}`; const [px, py] = nodes[i - 1], mx = (px + x) / 2; return `C ${mx} ${py}, ${mx} ${y}, ${x} ${y}`; }).join(" ");
+  const lastWork = [...nodes].reverse().find(([, , s]) => s.type === "work");
   return (
     <svg viewBox={`0 0 ${W} ${H}`}>
-      {grid.map(([x, y], i) => <circle key={i} cx={x} cy={y} r="0.9" fill="#2c2c31" />)}
+      {grid.map(([x, y, o], i) => <circle key={i} cx={x} cy={y} r="0.9" fill="#6a6a72" opacity={o.toFixed(2)} />)}
+      {lat.map((p, i) => <path key={"l" + i} d={p} fill="none" stroke="#2c2c31" strokeWidth="0.8" />)}
       <path data-draw d={d} fill="none" stroke="#FF3B7D" strokeWidth="2.2" />
-      {pts.map(([x, y, s], i) => (
+      {nodes.map(([x, y, s], i) => (
         <g key={i} data-pop>
           {s.type === "work"
-            ? <><circle cx={x} cy={y} r="5.5" fill="#FF3B7D" /><text x={x} y={y + 22} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#f2f0eb">{s.label}</text><text x={x} y={y + 37} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="9" fill="#8a8781">{s.year} · {s.sub}</text></>
+            ? <><circle cx={x} cy={y} r="10" fill="none" stroke="#FF3B7D" strokeWidth="0.8" opacity="0.35" /><circle cx={x} cy={y} r="5.5" fill="#FF3B7D" /><text x={x} y={y + 24} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#f2f0eb">{s.label}</text><text x={x} y={y + 39} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="9" fill="#8a8781">{s.year} · {s.sub}</text></>
             : <><circle cx={x} cy={y} r="4.5" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.4" /><text x={x} y={y - 18} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="9.5" fill="#c9c6c0">{s.label}</text><text x={x} y={y - 7} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="8.5" fill="#8a8781">{s.year}</text></>}
         </g>
       ))}
+      {lastWork && <g><circle cx={lastWork[0]} cy={lastWork[1]} r="16" fill="none" stroke="#FF3B7D" strokeWidth="0.8" opacity="0.5" strokeDasharray="2 3" /><text x={lastWork[0] + 20} y={lastWork[1] - 14} fontFamily="Space Mono, monospace" fontSize="9" fill="#FF3B7D" letterSpacing="1">NOW</text></g>}
       <g fontFamily="Space Mono, monospace" fontSize="9" fill="#8a8781">
         <circle cx={pad} cy={H - 12} r="4" fill="#FF3B7D" /><text x={pad + 10} y={H - 8}>WORK</text>
         <circle cx={pad + 86} cy={H - 12} r="4" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.4" /><text x={pad + 96} y={H - 8}>STUDIES</text>
