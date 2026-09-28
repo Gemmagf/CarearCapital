@@ -715,7 +715,7 @@ const translations = {
           period: "Gener 2026 – Present",
           description: [
             "Construcció d'un sistema de control de processos amb Power Apps per a les àrees de risc, substituint el seguiment manual per fluxos automatitzats i monitoratge d'estat en temps real.",
-            "Contribuïdora principal a Greta, un programa estratègic d'integració de risc, en el workstream de dades i analítica.",
+            "Contribuïdora principal a un programa estratègic d'integració de risc, en el workstream de dades i analítica.",
             "Disseny i simplificació de models de dades per millorar governança i usabilitat; automatització del reporting amb eines d'IA i analytics.",
           ],
         },
@@ -880,7 +880,7 @@ const translations = {
           period: "Enero 2026 – Presente",
           description: [
             "Construcción de un sistema de control de procesos con Power Apps para las áreas de riesgo, sustituyendo el seguimiento manual por flujos automatizados y monitorización de estado en tiempo real.",
-            "Contribuidora principal en Greta, un programa estratégico de integración de riesgo, en el workstream de datos y analítica.",
+            "Contribuidora principal en un programa estratégico de integración de riesgo, en el workstream de datos y analítica.",
             "Diseño y simplificación de modelos de datos para mejorar gobernanza y usabilidad; automatización del reporting con herramientas de IA y analytics.",
           ],
         },
@@ -1045,7 +1045,7 @@ const translations = {
           period: "January 2026 – Present",
           description: [
             "Built a Power Apps process-control system for the risk areas, replacing manual tracking with automated workflows and live status monitoring.",
-            "Core contributor to Greta, a strategic risk-integration programme, on the data and analytics workstream.",
+            "Core contributor to a strategic risk-integration programme, on the data and analytics workstream.",
             "Design and simplify data models to improve governance and usability; automate reporting with AI and analytics tools.",
           ],
         },
@@ -1210,7 +1210,7 @@ const translations = {
           period: "Janvier 2026 – Présent",
           description: [
             "Conception d'un système de contrôle des processus sous Power Apps pour les domaines du risque, remplaçant le suivi manuel par des flux automatisés et un suivi d'état en temps réel.",
-            "Contributrice clé à Greta, programme stratégique d'intégration du risque, sur le volet données et analytique.",
+            "Contributrice clé à un programme stratégique d'intégration du risque, sur le volet données et analytique.",
             "Conception et simplification de modèles de données pour améliorer gouvernance et usabilité ; automatisation du reporting avec des outils d'IA et d'analytics.",
           ],
         },
@@ -1375,7 +1375,7 @@ const translations = {
           period: "Januar 2026 – Gegenwart",
           description: [
             "Aufbau eines Prozesskontrollsystems mit Power Apps für die Risikobereiche – manuelles Tracking ersetzt durch automatisierte Workflows und Status-Monitoring in Echtzeit.",
-            "Zentrale Mitwirkung an Greta, einem strategischen Risk-Integration-Programm, im Daten- und Analytics-Workstream.",
+            "Zentrale Mitwirkung an einem strategischen Risk-Integration-Programm, im Daten- und Analytics-Workstream.",
             "Design und Vereinfachung von Datenmodellen zur Verbesserung von Governance und Usability; Automatisierung des Reportings mit KI- und Analytics-Tools.",
           ],
         },
@@ -1540,7 +1540,7 @@ const translations = {
           period: "Gennaio 2026 – Presente",
           description: [
             "Realizzazione di un sistema di controllo dei processi con Power Apps per le aree di rischio, sostituendo il tracciamento manuale con flussi automatizzati e monitoraggio dello stato in tempo reale.",
-            "Contributrice chiave a Greta, programma strategico di integrazione del rischio, nel workstream dati e analytics.",
+            "Contributrice chiave a un programma strategico di integrazione del rischio, nel workstream dati e analytics.",
             "Progettazione e semplificazione di modelli di dati per migliorare governance e usabilità; automazione del reporting con strumenti di IA e analytics.",
           ],
         },
