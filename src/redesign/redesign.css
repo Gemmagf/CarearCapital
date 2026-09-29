@@ -203,3 +203,10 @@
 .rd-skills .grp.pub a { display: inline; font-family: var(--sans); font-weight: 600; font-size: 13.5px; line-height: 1.45; color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--pink); }
 .rd-skills .grp.pub a:hover { color: var(--pink-dark); }
 .rd-skills .grp.pub .meta { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--ink-soft); margin-top: 8px; }
+
+/* epigraphs: collected sentences, kept in their original language */
+.rd .epigraph { font-family: var(--mono); font-size: 11px; line-height: 1.55; letter-spacing: 0.02em; color: var(--ink-soft); margin: 14px 0 0; max-width: 46ch; border-left: 2px solid var(--pink); padding-left: 10px; }
+.rd .epigraph span { color: var(--pink-dark); white-space: nowrap; }
+.rd-band.dark .epigraph { color: #b9b6ae; }
+.rd-band.dark .epigraph span { color: var(--pink); }
+.rd-footer .epigraph { flex-basis: 100%; border-left: 0; padding-left: 0; margin-top: 26px; }

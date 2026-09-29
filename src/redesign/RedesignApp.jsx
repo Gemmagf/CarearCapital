@@ -18,6 +18,16 @@ const CASE_IMAGES = {}; // real screenshots → public/images/projects/proj_<id>
 const HERO_PHOTO = `${process.env.PUBLIC_URL}/images/gemma_hero_cut.png`;
 const yearOf = (period = "") => (period.match(/\d{4}/) || [""])[0];
 
+const QUOTES = {
+  intro: ["Si observes, coneixes; si coneixes, estimes; si estimes, protegeixes.", "Jordi Sabater Pi"],
+  s1: ["If you can write the problem down clearly, the matter is half solved.", "Kidlin\u2019s Law"],
+  s2: ["\u7a7a\u6c17\u3092\u8aad\u3080 \u00b7 k\u016bki o yomu \u2014 to read the air.", ""],
+  s3: ["Quatre coses b\u00e0siques resolen el 80 % dels casos; quatre de dif\u00edcils, la resta.", "Enric, el meu pare"],
+  s4: ["There is nothing permanent except change.", "Heraclitus"],
+  footer: ["It\u2019s harder to be kind than clever.", ""],
+};
+const Epigraph = ({ q }) => q ? <p className="epigraph reveal">\u201c{q[0]}\u201d{q[1] ? <span> \u2014 {q[1]}</span> : null}</p> : null;
+
 export default function RedesignApp() {
   const [lang, setLang] = useState("english");
   const t = allTranslations[lang] || allTranslations.english;
@@ -112,7 +122,7 @@ export default function RedesignApp() {
               {C.intro[0]}<span className="pink">{C.intro[1]}</span>{C.intro[2]}
             </p>
           </div>
-          <p className="band-lead reveal" style={{ gridColumn: "7 / 13", alignSelf: "center", maxWidth: "48ch", fontSize: 15 }}>{C.summary}</p>
+          <div style={{ gridColumn: "7 / 13", alignSelf: "center", maxWidth: "48ch" }}><p className="band-lead reveal" style={{ fontSize: 15 }}>{C.summary}</p><Epigraph q={QUOTES.intro} /></div>
         </div>
       </section>
 
@@ -122,7 +132,7 @@ export default function RedesignApp() {
           <div className="colhead" style={{ gridColumn: "1 / 4" }}>
             <div className="band-head"><span className="section-index">01</span></div>
             <h2 className="rd-title reveal">{C.s1.title[0]}<br />{C.s1.title[1]}</h2>
-            <p className="band-lead reveal">{C.s1.lead}</p>
+            <p className="band-lead reveal">{C.s1.lead}</p><Epigraph q={QUOTES.s1} />
           </div>
           <div className="rd-viz reveal" style={{ gridColumn: "4 / 10", alignSelf: "center" }}><DataSurface /></div>
           <div className="rd-list reveal" style={{ gridColumn: "10 / 13" }}>
@@ -138,7 +148,7 @@ export default function RedesignApp() {
           <div className="colhead" style={{ gridColumn: "1 / 4" }}>
             <div className="band-head"><span className="section-index">02</span></div>
             <h2 className="rd-title reveal">{C.s2.title[0]}<br />{C.s2.title[1]}</h2>
-            <p className="band-lead reveal">{C.s2.lead}</p>
+            <p className="band-lead reveal">{C.s2.lead}</p><Epigraph q={QUOTES.s2} />
           </div>
           <div className="rd-viz reveal" style={{ gridColumn: "4 / 10", alignSelf: "center" }}><ChordOrbital /></div>
           <div className="rd-list reveal" style={{ gridColumn: "10 / 13" }}>
@@ -154,7 +164,7 @@ export default function RedesignApp() {
           <div className="colhead" style={{ gridColumn: "1 / 4" }}>
             <div className="band-head"><span className="section-index">03</span></div>
             <h2 className="rd-title reveal">{C.s3.title[0]}<br />{C.s3.title[1]}</h2>
-            <p className="band-lead reveal">{C.s3.lead}</p>
+            <p className="band-lead reveal">{C.s3.lead}</p><Epigraph q={QUOTES.s3} />
           </div>
           <div className="rd-cards reveal" style={{ gridColumn: "4 / 13", alignSelf: "center" }}>
             {selected.map((p, i) => (
@@ -177,7 +187,7 @@ export default function RedesignApp() {
           <div className="colhead" style={{ gridColumn: "1 / 4" }}>
             <div className="band-head"><span className="section-index">04</span></div>
             <h2 className="rd-title reveal">{C.s4.title[0]}<br />{C.s4.title[1]}</h2>
-            <p className="band-lead reveal">{C.s4.lead}</p>
+            <p className="band-lead reveal">{C.s4.lead}</p><Epigraph q={QUOTES.s4} />
           </div>
           <div className="rd-viz reveal" style={{ gridColumn: "4 / 13", alignSelf: "center" }}><CareerMap exp={exp} edu={cv?.education} legend={C.s4.legend} events={C.s4.events || []} /></div>
         </div>
@@ -203,6 +213,7 @@ export default function RedesignApp() {
             <div className="grp reveal"><h4>{cv?.methodologiesTitle || "Methods"}</h4><div className="chips">{C.methods.map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
             <div className="grp reveal"><h4>{cv?.techStackTitle || "Tools"}</h4><div className="chips">{(cv?.techStack || []).map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
             <div className="grp reveal"><h4>{cv?.languagesTitle || "Languages"}</h4><div className="chips">{(cv?.languages || []).map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
+            {C.books && <div className="grp reveal"><h4>{C.books.title}</h4><div className="chips">{C.books.list.map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>}
             {C.pub && <div className="grp reveal pub"><h4>{C.pub.title}</h4><a href={C.pub.url} target="_blank" rel="noreferrer">{C.pub.paper} ↗</a><div className="meta">{C.pub.journal} · {C.pub.cited}</div></div>}
             <div className="grp reveal"><h4>{cv?.educationTitle || "Education"}</h4><div className="chips" style={{ flexDirection: "column", alignItems: "flex-start" }}>{(cv?.education || []).map((m) => <span className="chip" key={m} style={{ border: 0, padding: "2px 0", fontSize: 12.5, color: "var(--ink-soft)" }}>{m}</span>)}</div></div>
           </div>
@@ -219,6 +230,7 @@ export default function RedesignApp() {
             <a href={t.social?.linkedin} target="_blank" rel="noreferrer" style={{ display: "block", color: "var(--ink)" }}>LinkedIn ↗</a>
             <a href={t.social?.github} target="_blank" rel="noreferrer" style={{ display: "block", color: "var(--ink)" }}>GitHub ↗</a>
           </div>
+          <Epigraph q={QUOTES.footer} />
         </div>
       </footer>
 
