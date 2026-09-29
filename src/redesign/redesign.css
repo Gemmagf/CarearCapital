@@ -210,3 +210,8 @@
 .rd-band.dark .epigraph { color: #b9b6ae; }
 .rd-band.dark .epigraph span { color: var(--pink); }
 .rd-footer .epigraph { flex-basis: 100%; border-left: 0; padding-left: 0; margin-top: 26px; }
+
+/* book chips are links (author site or a local bookshop) */
+.rd-skills .chip.link { text-decoration: none; color: var(--ink); border-color: var(--pink); }
+.rd-skills .chip.link em { font-style: italic; }
+.rd-skills .chip.link:hover { background: var(--pink); color: #fff; }
