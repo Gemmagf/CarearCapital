@@ -51,7 +51,8 @@ export default function HeroFigure({ src }) {
         const pinkP = 0.04 + 0.6 * smooth(0.5, 1, nx) + 0.25 * smooth(0.55, 1, ny) * smooth(0.3, 1, nx);
         const pink = hash2(i, j) < pinkP;
         const r = cell * 0.62 * Math.pow(dark, 1.25); // darks overlap into solid areas, mids stay airy
-        ctx.fillStyle = pink ? `rgba(${PINK},0.9)` : `rgba(${INK},0.84)`;
+        const fade = 1 - 0.92 * smooth(0.84, 1, ny); // the cut-out's straight bottom edge dissolves into the paper
+        ctx.fillStyle = pink ? `rgba(${PINK},${(0.9 * fade).toFixed(3)})` : `rgba(${INK},${(0.84 * fade).toFixed(3)})`;
         ctx.beginPath(); ctx.arc(dx + (i + 0.5) * cell, dy + (j + 0.5) * cell, r, 0, Math.PI * 2); ctx.fill();
       }
     }
