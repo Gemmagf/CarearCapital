@@ -203,15 +203,9 @@ export default function RedesignApp() {
             <div className="grp reveal"><h4>{cv?.methodologiesTitle || "Methods"}</h4><div className="chips">{C.methods.map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
             <div className="grp reveal"><h4>{cv?.techStackTitle || "Tools"}</h4><div className="chips">{(cv?.techStack || []).map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
             <div className="grp reveal"><h4>{cv?.languagesTitle || "Languages"}</h4><div className="chips">{(cv?.languages || []).map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
+            {C.pub && <div className="grp reveal pub"><h4>{C.pub.title}</h4><a href={C.pub.url} target="_blank" rel="noreferrer">{C.pub.paper} ↗</a><div className="meta">{C.pub.journal} · {C.pub.cited}</div></div>}
             <div className="grp reveal"><h4>{cv?.educationTitle || "Education"}</h4><div className="chips" style={{ flexDirection: "column", alignItems: "flex-start" }}>{(cv?.education || []).map((m) => <span className="chip" key={m} style={{ border: 0, padding: "2px 0", fontSize: 12.5, color: "var(--ink-soft)" }}>{m}</span>)}</div></div>
           </div>
-          {C.pub && (
-            <div className="rd-pub reveal">
-              <h4>{C.pub.title}</h4>
-              <a href={C.pub.url} target="_blank" rel="noreferrer">{C.pub.paper} ↗</a>
-              <div className="meta">{C.pub.journal} · {C.pub.cited}</div>
-            </div>
-          )}
         </div>
       </section>
 
