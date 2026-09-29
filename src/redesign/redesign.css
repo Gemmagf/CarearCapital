@@ -140,6 +140,8 @@
 .rd-modal .brief { display: grid; gap: 12px; margin: 16px 0 6px; padding-top: 14px; border-top: 1px solid var(--line); }
 .rd-modal .brief dt { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--pink-dark); margin-bottom: 3px; }
 .rd-modal .brief dd { margin: 0; font-size: 14px; line-height: 1.5; color: var(--ink-soft); }
+.rd-modal .credit { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin: 12px 0 0; }
+.rd-modal .credit::before { content: "◆ "; color: var(--pink); font-size: 8px; }
 .rd-modal h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(26px,4vw,44px); line-height: 0.98; margin: 6px 0 14px; }
 .rd-modal p { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
 .rd-modal .stack { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; margin-top: 14px; color: var(--ink); }

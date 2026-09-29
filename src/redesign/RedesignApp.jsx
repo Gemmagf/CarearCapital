@@ -232,9 +232,12 @@ export default function RedesignApp() {
               const B = PROJECT_BRIEFS[lang] || PROJECT_BRIEFS.english, EB = PROJECT_BRIEFS.english;
               const b = B[modal.id] || EB[modal.id], L = B.labels || EB.labels;
               return b ? (
-                <dl className="brief">
-                  {[["question", L.question], ["did", L.did], ["result", L.result], ["next", L.next]].map(([k, lab]) => b[k] ? <div key={k}><dt>{lab}</dt><dd>{b[k]}</dd></div> : null)}
-                </dl>
+                <>
+                  <dl className="brief">
+                    {[["question", L.question], ["did", L.did], ["result", L.result], ["next", L.next]].map(([k, lab]) => b[k] ? <div key={k}><dt>{lab}</dt><dd>{b[k]}</dd></div> : null)}
+                  </dl>
+                  {b.credit && <div className="credit">{b.credit}</div>}
+                </>
               ) : null;
             })()}
             <div className="stack">{(modal.stack || []).join(" · ")}</div>

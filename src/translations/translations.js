@@ -1777,6 +1777,7 @@ export const PROJECT_BRIEFS = {
       did: "Fine-tuned ConvNeXt-Tiny on 44k research-grade iNaturalist images across 1,035 species, trained locally on an Apple M4 (~52 h; MixUp, RandAugment, label smoothing, balanced sampling), and shipped it as a web app with a species dictionary, edible-vs-toxic checks and a seasonal map.",
       result: "73.4% top-1 / 89.8% top-5 on an independent test set — competitive for fine-grained classification at this scale — with the model running in the browser.",
       next: "Calibrate confidence and refuse to answer below a threshold, collect field feedback per region, and add a strict \"never eat on a prediction\" flow before any public release.",
+      credit: "UI in collaboration with Albert Almato",
     },
   },
   catalan: {
@@ -1810,6 +1811,7 @@ export const PROJECT_BRIEFS = {
       did: "Vaig fer fine-tuning de ConvNeXt-Tiny amb 44k imatges research-grade d'iNaturalist de 1.035 espècies, entrenat en local en un Apple M4 (~52 h; MixUp, RandAugment, label smoothing, mostreig equilibrat), i ho vaig publicar com a web app amb diccionari d'espècies, comprovació comestible/tòxic i mapa estacional.",
       result: "73,4 % top-1 / 89,8 % top-5 en un test independent — competitiu per a classificació fina a aquesta escala — amb el model corrent al navegador.",
       next: "Calibrar la confiança i no respondre per sota d'un llindar, recollir feedback de camp per regió i afegir un flux estricte de «mai menjar per una predicció» abans de cap llançament públic.",
+      credit: "UI en col·laboració amb Albert Almato",
     },
   },
   spanish: {
@@ -1843,6 +1845,7 @@ export const PROJECT_BRIEFS = {
       did: "Hice fine-tuning de ConvNeXt-Tiny con 44k imágenes research-grade de iNaturalist de 1.035 especies, entrenado en local en un Apple M4 (~52 h; MixUp, RandAugment, label smoothing, muestreo equilibrado), y lo publiqué como web app con diccionario de especies, comprobación comestible/tóxica y mapa estacional.",
       result: "73,4 % top-1 / 89,8 % top-5 en un test independiente — competitivo para clasificación fina a esta escala — con el modelo corriendo en el navegador.",
       next: "Calibrar la confianza y no responder por debajo de un umbral, recoger feedback de campo por región y añadir un flujo estricto de «nunca comer por una predicción» antes de cualquier lanzamiento público.",
+      credit: "UI en colaboración con Albert Almato",
     },
   },
   french: {
@@ -1876,6 +1879,7 @@ export const PROJECT_BRIEFS = {
       did: "Fine-tuning de ConvNeXt-Tiny sur 44k images research-grade d'iNaturalist couvrant 1 035 espèces, entraîné en local sur un Apple M4 (~52 h ; MixUp, RandAugment, label smoothing, échantillonnage équilibré), livré en web app avec dictionnaire des espèces, vérification comestible/toxique et carte saisonnière.",
       result: "73,4 % top-1 / 89,8 % top-5 sur un jeu de test indépendant — compétitif pour de la classification fine à cette échelle — avec le modèle qui tourne dans le navigateur.",
       next: "Calibrer la confiance et refuser de répondre sous un seuil, collecter du feedback terrain par région et ajouter un parcours strict « ne jamais manger sur une prédiction » avant toute sortie publique.",
+      credit: "UI en collaboration avec Albert Almato",
     },
   },
   german: {
@@ -1909,6 +1913,7 @@ export const PROJECT_BRIEFS = {
       did: "ConvNeXt-Tiny auf 44k research-grade iNaturalist-Bildern über 1.035 Arten feinjustiert, lokal auf einem Apple M4 trainiert (~52 h; MixUp, RandAugment, Label Smoothing, balanciertes Sampling) und als Web-App mit Artenlexikon, Essbar/Giftig-Prüfung und Saisonkarte ausgeliefert.",
       result: "73,4 % Top-1 / 89,8 % Top-5 auf einem unabhängigen Testset — konkurrenzfähig für feingranulare Klassifikation in dieser Grössenordnung — mit dem Modell direkt im Browser.",
       next: "Konfidenz kalibrieren und unter einer Schwelle keine Antwort geben, Feld-Feedback pro Region sammeln und vor jeder Veröffentlichung einen strikten „nie auf Basis einer Vorhersage essen\"-Flow einbauen.",
+      credit: "UI in Zusammenarbeit mit Albert Almato",
     },
   },
   italian: {
@@ -1942,6 +1947,7 @@ export const PROJECT_BRIEFS = {
       did: "Fine-tuning di ConvNeXt-Tiny su 44k immagini research-grade di iNaturalist per 1.035 specie, addestrato in locale su un Apple M4 (~52 h; MixUp, RandAugment, label smoothing, campionamento bilanciato) e rilasciato come web app con dizionario delle specie, verifica commestibile/tossico e mappa stagionale.",
       result: "73,4 % top-1 / 89,8 % top-5 su un test set indipendente — competitivo per la classificazione fine a questa scala — con il modello che gira nel browser.",
       next: "Calibrare la confidenza e non rispondere sotto una soglia, raccogliere feedback sul campo per regione e aggiungere un flusso rigoroso «mai mangiare sulla base di una previsione» prima di qualsiasi rilascio pubblico.",
+      credit: "UI in collaborazione con Albert Almato",
     },
   },
 };
