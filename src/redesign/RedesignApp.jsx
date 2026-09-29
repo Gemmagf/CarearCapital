@@ -24,9 +24,9 @@ const QUOTES = {
   s2: ["\u7a7a\u6c17\u3092\u8aad\u3080 \u00b7 k\u016bki o yomu \u2014 to read the air.", ""],
   s3: ["Quatre coses b\u00e0siques resolen el 80 % dels casos; quatre de dif\u00edcils, la resta.", "Enric, el meu pare"],
   s4: ["There is nothing permanent except change.", "Heraclitus"],
-  footer: ["It\u2019s harder to be kind than clever.", ""],
+  footer: ["I can do hard things \u2014 slowly, and never alone.", ""],
 };
-const Epigraph = ({ q }) => q ? <p className="epigraph reveal">\u201c{q[0]}\u201d{q[1] ? <span> \u2014 {q[1]}</span> : null}</p> : null;
+const Epigraph = ({ q }) => q ? <p className="epigraph reveal">{"“"}{q[0]}{"”"}{q[1] ? <span> {"—"} {q[1]}</span> : null}</p> : null;
 
 export default function RedesignApp() {
   const [lang, setLang] = useState("english");
@@ -117,13 +117,13 @@ export default function RedesignApp() {
       {/* 00 INTRO */}
       <section className="rd-band" id="intro">
         <div className="wrap grid12">
-          <div style={{ gridColumn: "1 / 7" }}>
+          <div style={{ gridColumn: "1 / 6" }}>
             <span className="section-index">00 / INTRO</span>
             <p className="reveal" style={{ fontFamily: "var(--display)", fontWeight: 400, textTransform: "uppercase", fontSize: "clamp(22px,2.6vw,40px)", lineHeight: 1.02, margin: "14px 0 0" }}>
               {C.intro[0]}<span className="pink">{C.intro[1]}</span>{C.intro[2]}
             </p>
           </div>
-          <div style={{ gridColumn: "7 / 13", alignSelf: "center", maxWidth: "48ch" }}><p className="band-lead reveal" style={{ fontSize: 15 }}>{C.summary}</p><Epigraph q={QUOTES.intro} /></div>
+          <div style={{ gridColumn: "6 / 13", alignSelf: "center", maxWidth: "66ch" }}><p className="band-lead reveal" style={{ fontSize: 15.5, maxWidth: "none" }}>{C.summary}</p><Epigraph q={QUOTES.intro} /></div>
         </div>
       </section>
 
