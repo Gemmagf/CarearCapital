@@ -24,7 +24,7 @@ const QUOTES = {
   s2: ["\u7a7a\u6c17\u3092\u8aad\u3080 \u00b7 k\u016bki o yomu \u2014 to read the air.", "Japanese culture, via Erin Meyer\u2019s The Culture Map"],
   s3: ["Quatre coses b\u00e0siques resolen el 80 % dels casos; quatre de dif\u00edcils, la resta.", "Enric, el meu pare"],
   s4: ["There is nothing permanent except change.", "Heraclitus"],
-  footer: ["Kind before clever. Hard things \u2014 slowly, and never alone.", ""],
+  footer: ["Being kind is harder than being smart. Let\u2019s try hard things together.", ""],
 };
 const Epigraph = ({ q }) => q ? <p className="epigraph reveal">{"“"}{q[0]}{"”"}{q[1] ? <span> {"—"} {q[1]}</span> : null}</p> : null;
 
