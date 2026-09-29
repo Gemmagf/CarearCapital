@@ -1779,6 +1779,13 @@ export const PROJECT_BRIEFS = {
       next: "Calibrate confidence and refuse to answer below a threshold, collect field feedback per region, and add a strict \"never eat on a prediction\" flow before any public release.",
       credit: "UI in collaboration with Albert Almato",
     },
+    puppyTracker: {
+      question: "How do you raise a puppy well when the advice is scattered across books, trainers and forums — and you're doing it alone in a flat in Zürich?",
+      did: "Designed and built an offline-first PWA for the first months: training reps that build a mastery level, growth plotted against the healthy breed range, care reminders, socialisation phases and a realistic daily routine — React, Vite, IndexedDB, git-synced.",
+      result: "A tool I actually use every day with Caleta. The public version runs on demo data, so anyone can try the flow.",
+      next: "Tractive activity feed, a shared view for the vet and the trainer, and export of the training log.",
+      credit: "Built for Caleta 🐾 · public demo on invented data",
+    },
   },
   catalan: {
     labels: { question: "La pregunta", did: "Què vaig fer", result: "Resultat", next: "Següent pas, en producció" },
@@ -1812,6 +1819,13 @@ export const PROJECT_BRIEFS = {
       result: "73,4 % top-1 / 89,8 % top-5 en un test independent — competitiu per a classificació fina a aquesta escala — amb el model corrent al navegador.",
       next: "Calibrar la confiança i no respondre per sota d'un llindar, recollir feedback de camp per regió i afegir un flux estricte de «mai menjar per una predicció» abans de cap llançament públic.",
       credit: "UI en col·laboració amb Albert Almato",
+    },
+    puppyTracker: {
+      question: "Com cries bé un cadell quan els consells estan escampats entre llibres, ensinistradors i fòrums — i ho fas sola en un pis a Zürich?",
+      did: "Vaig dissenyar i construir una PWA offline-first per als primers mesos: repeticions d'entrenament que construeixen un nivell de domini, creixement comparat amb la franja sana de la raça, recordatoris de cures, fases de socialització i una rutina diària realista — React, Vite, IndexedDB, sincronitzat amb git.",
+      result: "Una eina que faig servir cada dia amb la Caleta. La versió pública corre amb dades inventades perquè qualsevol pugui provar el flux.",
+      next: "Feed d'activitat de Tractive, una vista compartida per al veterinari i l'ensinistrador, i exportació del registre d'entrenament.",
+      credit: "Feta per a la Caleta 🐾 · demo pública amb dades inventades",
     },
   },
   spanish: {
@@ -1847,6 +1861,13 @@ export const PROJECT_BRIEFS = {
       next: "Calibrar la confianza y no responder por debajo de un umbral, recoger feedback de campo por región y añadir un flujo estricto de «nunca comer por una predicción» antes de cualquier lanzamiento público.",
       credit: "UI en colaboración con Albert Almato",
     },
+    puppyTracker: {
+      question: "¿Cómo crías bien a un cachorro cuando los consejos están dispersos entre libros, adiestradores y foros — y lo haces sola en un piso en Zúrich?",
+      did: "Diseñé y construí una PWA offline-first para los primeros meses: repeticiones de entrenamiento que construyen un nivel de dominio, crecimiento comparado con la franja sana de la raza, recordatorios de cuidados, fases de socialización y una rutina diaria realista — React, Vite, IndexedDB, sincronizado con git.",
+      result: "Una herramienta que uso cada día con Caleta. La versión pública corre con datos inventados para que cualquiera pruebe el flujo.",
+      next: "Feed de actividad de Tractive, una vista compartida para el veterinario y el adiestrador, y exportación del registro de entrenamiento.",
+      credit: "Hecha para Caleta 🐾 · demo pública con datos inventados",
+    },
   },
   french: {
     labels: { question: "La question", did: "Ce que j'ai fait", result: "Résultat", next: "Étape suivante, en production" },
@@ -1880,6 +1901,13 @@ export const PROJECT_BRIEFS = {
       result: "73,4 % top-1 / 89,8 % top-5 sur un jeu de test indépendant — compétitif pour de la classification fine à cette échelle — avec le modèle qui tourne dans le navigateur.",
       next: "Calibrer la confiance et refuser de répondre sous un seuil, collecter du feedback terrain par région et ajouter un parcours strict « ne jamais manger sur une prédiction » avant toute sortie publique.",
       credit: "UI en collaboration avec Albert Almato",
+    },
+    puppyTracker: {
+      question: "Comment bien élever un chiot quand les conseils sont éparpillés entre livres, éducateurs et forums — seule, dans un appartement à Zurich ?",
+      did: "Conception et développement d'une PWA offline-first pour les premiers mois : répétitions d'entraînement qui construisent un niveau de maîtrise, croissance comparée à la fourchette saine de la race, rappels de soins, phases de socialisation et une routine quotidienne réaliste — React, Vite, IndexedDB, synchronisée via git.",
+      result: "Un outil que j'utilise vraiment chaque jour avec Caleta. La version publique tourne sur des données fictives pour que chacun puisse essayer le parcours.",
+      next: "Flux d'activité Tractive, une vue partagée pour le vétérinaire et l'éducateur, et export du journal d'entraînement.",
+      credit: "Créée pour Caleta 🐾 · démo publique sur données fictives",
     },
   },
   german: {
@@ -1915,6 +1943,13 @@ export const PROJECT_BRIEFS = {
       next: "Konfidenz kalibrieren und unter einer Schwelle keine Antwort geben, Feld-Feedback pro Region sammeln und vor jeder Veröffentlichung einen strikten „nie auf Basis einer Vorhersage essen\"-Flow einbauen.",
       credit: "UI in Zusammenarbeit mit Albert Almato",
     },
+    puppyTracker: {
+      question: "Wie zieht man einen Welpen gut auf, wenn die Ratschläge über Bücher, Trainer und Foren verstreut sind — und man es allein in einer Zürcher Wohnung tut?",
+      did: "Eine offline-first PWA für die ersten Monate entworfen und gebaut: Trainingswiederholungen, die ein Beherrschungsniveau aufbauen, Wachstum gegen den gesunden Rassebereich, Pflege-Erinnerungen, Sozialisierungsphasen und eine realistische Tagesroutine — React, Vite, IndexedDB, git-synchronisiert.",
+      result: "Ein Tool, das ich täglich mit Caleta nutze. Die öffentliche Version läuft mit erfundenen Daten, damit jede:r den Ablauf ausprobieren kann.",
+      next: "Tractive-Aktivitätsfeed, eine geteilte Ansicht für Tierärztin und Trainer, und Export des Trainingsprotokolls.",
+      credit: "Gebaut für Caleta 🐾 · öffentliche Demo mit erfundenen Daten",
+    },
   },
   italian: {
     labels: { question: "La domanda", did: "Cosa ho fatto", result: "Risultato", next: "Prossimo passo, in produzione" },
@@ -1948,6 +1983,13 @@ export const PROJECT_BRIEFS = {
       result: "73,4 % top-1 / 89,8 % top-5 su un test set indipendente — competitivo per la classificazione fine a questa scala — con il modello che gira nel browser.",
       next: "Calibrare la confidenza e non rispondere sotto una soglia, raccogliere feedback sul campo per regione e aggiungere un flusso rigoroso «mai mangiare sulla base di una previsione» prima di qualsiasi rilascio pubblico.",
       credit: "UI in collaborazione con Albert Almato",
+    },
+    puppyTracker: {
+      question: "Come si cresce bene un cucciolo quando i consigli sono sparsi tra libri, addestratori e forum — e lo fai da sola in un appartamento a Zurigo?",
+      did: "Ho progettato e costruito una PWA offline-first per i primi mesi: ripetizioni di addestramento che costruiscono un livello di padronanza, crescita confrontata con la fascia sana della razza, promemoria di cura, fasi di socializzazione e una routine quotidiana realistica — React, Vite, IndexedDB, sincronizzata con git.",
+      result: "Uno strumento che uso davvero ogni giorno con Caleta. La versione pubblica gira su dati inventati, così chiunque può provare il flusso.",
+      next: "Feed attività Tractive, una vista condivisa per veterinaria e addestratore, ed export del registro di addestramento.",
+      credit: "Fatta per Caleta 🐾 · demo pubblica su dati inventati",
     },
   },
 };

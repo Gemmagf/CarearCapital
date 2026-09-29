@@ -12,7 +12,7 @@ const LANGS = [
   ["french", "FR"], ["german", "DE"], ["italian", "IT"],
 ];
 // Forward-deployed positioning: AI in production, tech tied to CHF decisions, end-to-end business tools.
-const SELECTED = ["cvHunter", "sensorlab", "swissGov", "retail", "rovello"];
+const SELECTED = ["cvHunter", "sensorlab", "swissGov", "retail", "rovello", "puppyTracker"];
 const VIZ_KIND = { cvHunter: 3, sensorlab: 0, zuriKreislauf: 2, retail: 1 }; // CaseViz motif per project
 const CASE_IMAGES = {}; // real screenshots → public/images/projects/proj_<id>.jpg
 const HERO_PHOTO = `${process.env.PUBLIC_URL}/images/gemma_hero_cut.png`;
@@ -543,7 +543,27 @@ function VizGeneric({ kind }) {
   return (<svg viewBox="0 0 240 220">{Array.from({ length: 12 }).map((_, i) => { const a = (i / 12) * 6.283, x = 120 + Math.cos(a) * (55 + (i % 3) * 14), y = 110 + Math.sin(a) * (56 + (i % 2) * 12); return <g key={i}><line x1="120" y1="110" x2={x} y2={y} stroke="#ddd" strokeWidth="0.7" /><circle cx={x} cy={y} r={i % 3 ? 2 : 3} fill={P} opacity="0.85" /></g>; })}<circle cx="120" cy="110" r="4.5" fill={INK} /></svg>);
 }
 
-const VIZ_BY_ID = { cvHunter: VizCvHunter, sensorlab: VizSensorlab, zuriKreislauf: VizZuri, retail: VizRetail, swissGov: VizSwissGov, labm: VizLabm, farma: VizFarma, rovello: VizRovello };
+
+// Puppy Tracker — growth curve inside the healthy breed band, and training mastery bars
+function VizPuppy() {
+  const x0 = 12, x1 = 228, n = 26;
+  const band = Array.from({ length: n }, (_, i) => { const t = i / (n - 1), x = x0 + t * (x1 - x0), w = 22 + 90 * (1 - Math.exp(-t * 2.6)); return [x, 120 - w * 0.8, 120 - w * 1.05]; });
+  const line = band.map(([x, lo, hi], i) => [x, lo + (hi - lo) * (0.35 + 0.3 * Math.sin(i * 0.9)) + (srand(i * 3) - 0.5) * 3]);
+  const skills = [["sit", 0.9], ["recall", 0.55], ["settle", 0.4], ["leash", 0.7]];
+  return (
+    <svg viewBox="0 0 240 220">
+      <polygon points={pts([...band.map(([x, lo]) => [x, lo]), ...band.map(([x, , hi]) => [x, hi]).reverse()])} fill={P} opacity="0.12" />
+      <polyline points={pts(line)} fill="none" stroke={INK} strokeWidth="1.3" />
+      <circle cx={line[n - 1][0].toFixed(1)} cy={line[n - 1][1].toFixed(1)} r="3" fill={P} />
+      <text className="ann" x={x0} y="14">weight · healthy breed range</text>
+      <text className="ann" x={x1} y="132" textAnchor="end">weeks 8 → 34</text>
+      <text className="ann" x={x0} y="152">training · mastery</text>
+      {skills.map(([s, v], i) => <g key={s}><text className="ann" x={x0} y={166 + i * 14}>{s}</text><rect x="52" y={159 + i * 14} width="176" height="6" fill={G3} /><rect x="52" y={159 + i * 14} width={(176 * v).toFixed(1)} height="6" fill={i === 1 ? P : INK} opacity={i === 1 ? 1 : 0.75} /></g>)}
+    </svg>
+  );
+}
+
+const VIZ_BY_ID = { puppyTracker: VizPuppy, cvHunter: VizCvHunter, sensorlab: VizSensorlab, zuriKreislauf: VizZuri, retail: VizRetail, swissGov: VizSwissGov, labm: VizLabm, farma: VizFarma, rovello: VizRovello };
 function CaseViz({ id, kind }) { const V = VIZ_BY_ID[id]; return V ? <V /> : <VizGeneric kind={kind} />; }
 
 // career graph on a real time axis: the life line runs through the middle; studies branch above and
