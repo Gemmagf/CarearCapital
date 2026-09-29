@@ -142,7 +142,6 @@ export default function HeroFigure({ src }) {
       if (alpha <= 0.01 || !box) return;
       const b = box; ctx.save(); ctx.globalAlpha = alpha; ctx.font = "9px 'Space Mono', monospace"; ctx.fillStyle = "#8a8781";
       if (name === "wave") {
-        ctx.strokeStyle = "#cfcbc3"; ctx.lineWidth = 0.8; ctx.beginPath(); ctx.moveTo(b.x, b.y + b.h * 0.9); ctx.lineTo(b.x + b.w, b.y + b.h * 0.9); ctx.stroke();
         ctx.fillText("SIGNAL SURFACE · PATTERN → ANOMALY → INSIGHT", b.x, b.y + 2);
       } else if (name === "network") {
         ctx.lineWidth = 0.6;

@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useMemo } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import allTranslations, { applyCvVariant } from "../translations/translations";
+import allTranslations, { applyCvVariant, PROJECT_BRIEFS } from "../translations/translations";
 import FlowField from "./FlowField";
 import HeroFigure from "./HeroFigure";
 import "./redesign.css";
@@ -11,7 +11,7 @@ const LANGS = [
   ["french", "FR"], ["german", "DE"], ["italian", "IT"],
 ];
 // Forward-deployed positioning: AI in production, tech tied to CHF decisions, end-to-end business tools.
-const SELECTED = ["cvHunter", "sensorlab", "zuriKreislauf", "retail"];
+const SELECTED = ["cvHunter", "sensorlab", "swissGov", "retail"];
 const VIZ_KIND = { cvHunter: 3, sensorlab: 0, zuriKreislauf: 2, retail: 1 }; // CaseViz motif per project
 const EXPERTISE = [
   "Rapid prototyping",
@@ -241,6 +241,15 @@ export default function RedesignApp() {
             <span className="cat">{modal.tag}</span>
             <h3>{modal.title}</h3>
             <p>{modal.description}</p>
+            {(() => {
+              const B = PROJECT_BRIEFS[lang] || PROJECT_BRIEFS.english, EB = PROJECT_BRIEFS.english;
+              const b = B[modal.id] || EB[modal.id], L = B.labels || EB.labels;
+              return b ? (
+                <dl className="brief">
+                  {[["question", L.question], ["did", L.did], ["result", L.result], ["next", L.next]].map(([k, lab]) => b[k] ? <div key={k}><dt>{lab}</dt><dd>{b[k]}</dd></div> : null)}
+                </dl>
+              ) : null;
+            })()}
             <div className="stack">{(modal.stack || []).join(" · ")}</div>
             <div className="acts">
               {modal.link && <a className="primary" href={modal.link} target="_blank" rel="noreferrer">Open live ↗</a>}
