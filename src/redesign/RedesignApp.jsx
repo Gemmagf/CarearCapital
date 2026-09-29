@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import allTranslations, { applyCvVariant, PROJECT_BRIEFS } from "../translations/translations";
 import FlowField from "./FlowField";
 import HeroFigure from "./HeroFigure";
+import RD from "./copy";
 import "./redesign.css";
 
 const LANGS = [
@@ -13,29 +14,15 @@ const LANGS = [
 // Forward-deployed positioning: AI in production, tech tied to CHF decisions, end-to-end business tools.
 const SELECTED = ["cvHunter", "sensorlab", "swissGov", "retail"];
 const VIZ_KIND = { cvHunter: 3, sensorlab: 0, zuriKreislauf: 2, retail: 1 }; // CaseViz motif per project
-const EXPERTISE = [
-  "Rapid prototyping",
-  "LLM integration (Claude API, embeddings)",
-  "Forecasting & anomaly detection",
-  "Experiment design",
-  "Dashboard & KPI design",
-  "Production delivery (CI, Docker)",
-];
 const CASE_IMAGES = {}; // real screenshots → public/images/projects/proj_<id>.jpg
 const HERO_PHOTO = `${process.env.PUBLIC_URL}/images/gemma_hero_cut.png`;
 const yearOf = (period = "") => (period.match(/\d{4}/) || [""])[0];
-const IMPACT = [
-  "Led a cross-functional pod of 5 — project time −50%",
-  "Product owner of 2 risk tools in production at UBS",
-  "Embedded with Google product & engineering teams",
-  "Mentored an intern for 1.5 years",
-  "Work in 6 languages across ES · CH · global teams",
-];
 
 export default function RedesignApp() {
   const [lang, setLang] = useState("english");
   const t = allTranslations[lang] || allTranslations.english;
-  const cv = applyCvVariant(t.cv, "fde"); // site copy is English; FDE positioning for summary/methods
+  const C = RD[lang] || RD.english;                 // editorial copy in the current language
+  const cv = applyCvVariant(t.cv, "fde");           // FDE variant for education order; copy comes from C
   const rootRef = useRef(null);
   const [openExp, setOpenExp] = useState(0);
   const [modal, setModal] = useState(null);
@@ -79,14 +66,14 @@ export default function RedesignApp() {
 
   return (
     <div className="rd" ref={rootRef}>
-      <a className="rd-brand-fixed" href="#redesign" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
+      <a className="rd-brand-fixed" href="#top" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
         <NavMark /><span>Gemma Garcia</span>
       </a>
       <header className="rd-topbar">
         <nav>
-          <button onClick={() => scrollTo("work")}>Work</button>
-          <button onClick={() => scrollTo("path")}>Path</button>
-          <button onClick={() => scrollTo("about")}>About</button>
+          <button onClick={() => scrollTo("work")}>{C.nav.work}</button>
+          <button onClick={() => scrollTo("path")}>{C.nav.path}</button>
+          <button onClick={() => scrollTo("about")}>{C.nav.about}</button>
         </nav>
         <div className="rd-lang" style={{ display: "flex", gap: 12 }}>
           {LANGS.map(([code, ab]) => (
@@ -105,15 +92,15 @@ export default function RedesignApp() {
           </div>
           <div className="hero-side">
             <div className="hero-labels">
-              <span className="lab">Data &amp; AI</span><span className="lab">Product</span><span className="lab">Business</span><span className="lab">Delivery</span>
+              {C.labels.map((l) => <span className="lab" key={l}>{l}</span>)}
             </div>
             <div className="hero-meta">
-              <span className="hero-loc">Based in Zürich · Working internationally</span>
-              <button className="rd-cta" onClick={() => scrollTo("complexity")}>Explore my work <span className="arrow">→</span></button>
+              <span className="hero-loc">{C.loc}</span>
+              <button className="rd-cta" onClick={() => scrollTo("complexity")}>{C.cta} <span className="arrow">→</span></button>
             </div>
           </div>
         </div>
-        <div className="scroll-hint">Scroll ↓</div>
+        <div className="scroll-hint">{C.scroll}</div>
       </section>
 
       {/* 00 INTRO */}
@@ -122,10 +109,10 @@ export default function RedesignApp() {
           <div style={{ gridColumn: "1 / 7" }}>
             <span className="section-index">00 / INTRO</span>
             <p className="reveal" style={{ fontFamily: "var(--display)", fontWeight: 400, textTransform: "uppercase", fontSize: "clamp(22px,2.6vw,40px)", lineHeight: 1.02, margin: "14px 0 0" }}>
-              I turn <span className="pink">ambiguous problems</span> into data, decisions and things that ship.
+              {C.intro[0]}<span className="pink">{C.intro[1]}</span>{C.intro[2]}
             </p>
           </div>
-          <p className="band-lead reveal" style={{ gridColumn: "7 / 13", alignSelf: "center", maxWidth: "48ch", fontSize: 15 }}>{cv?.summary}</p>
+          <p className="band-lead reveal" style={{ gridColumn: "7 / 13", alignSelf: "center", maxWidth: "48ch", fontSize: 15 }}>{C.summary}</p>
         </div>
       </section>
 
@@ -134,13 +121,13 @@ export default function RedesignApp() {
         <div className="wrap grid12">
           <div className="colhead" style={{ gridColumn: "1 / 4" }}>
             <div className="band-head"><span className="section-index">01</span></div>
-            <h2 className="rd-title reveal">I make sense<br />of complexity</h2>
-            <p className="band-lead reveal">From a vague business question to a working prototype — statistics, ML and LLMs, always in service of a decision someone has to make.</p>
+            <h2 className="rd-title reveal">{C.s1.title[0]}<br />{C.s1.title[1]}</h2>
+            <p className="band-lead reveal">{C.s1.lead}</p>
           </div>
           <div className="rd-viz reveal" style={{ gridColumn: "4 / 10", alignSelf: "center" }}><DataSurface /></div>
           <div className="rd-list reveal" style={{ gridColumn: "10 / 13" }}>
-            <h4>Expertise</h4>
-            <ul>{EXPERTISE.map((m) => <li key={m}>{m}<span className="pl">+</span></li>)}</ul>
+            <h4>{C.s1.listTitle}</h4>
+            <ul>{C.s1.list.map((m) => <li key={m}>{m}<span className="pl">+</span></li>)}</ul>
           </div>
         </div>
       </section>
@@ -150,13 +137,13 @@ export default function RedesignApp() {
         <div className="wrap grid12">
           <div className="colhead" style={{ gridColumn: "1 / 4" }}>
             <div className="band-head"><span className="section-index">02</span></div>
-            <h2 className="rd-title reveal">I connect<br />the dots</h2>
-            <p className="band-lead reveal">I'm the person between the engineers and the business — the one who makes both sides understood.</p>
+            <h2 className="rd-title reveal">{C.s2.title[0]}<br />{C.s2.title[1]}</h2>
+            <p className="band-lead reveal">{C.s2.lead}</p>
           </div>
           <div className="rd-viz reveal" style={{ gridColumn: "4 / 10", alignSelf: "center" }}><ChordOrbital /></div>
           <div className="rd-list reveal" style={{ gridColumn: "10 / 13" }}>
-            <h4>/ Cross-functional impact</h4>
-            <ul>{IMPACT.map((m) => <li key={m}>{m}</li>)}</ul>
+            <h4>{C.s2.listTitle}</h4>
+            <ul>{C.s2.list.map((m) => <li key={m}>{m}</li>)}</ul>
           </div>
         </div>
       </section>
@@ -166,8 +153,8 @@ export default function RedesignApp() {
         <div className="wrap grid12">
           <div className="colhead" style={{ gridColumn: "1 / 4" }}>
             <div className="band-head"><span className="section-index">03</span></div>
-            <h2 className="rd-title reveal">I make<br />things happen</h2>
-            <p className="band-lead reveal">Selected projects, from zero to shipped. Click any card for the full story.</p>
+            <h2 className="rd-title reveal">{C.s3.title[0]}<br />{C.s3.title[1]}</h2>
+            <p className="band-lead reveal">{C.s3.lead}</p>
           </div>
           <div className="rd-cards reveal" style={{ gridColumn: "4 / 13", alignSelf: "center" }}>
             {selected.map((p, i) => (
@@ -189,17 +176,17 @@ export default function RedesignApp() {
         <div className="wrap grid12">
           <div className="colhead" style={{ gridColumn: "1 / 4" }}>
             <div className="band-head"><span className="section-index">04</span></div>
-            <h2 className="rd-title reveal">My path isn't<br />a straight line</h2>
-            <p className="band-lead reveal">Different roles, sectors and countries — one trajectory. Growth is layers of learning and impact.</p>
+            <h2 className="rd-title reveal">{C.s4.title[0]}<br />{C.s4.title[1]}</h2>
+            <p className="band-lead reveal">{C.s4.lead}</p>
           </div>
-          <div className="rd-viz reveal" style={{ gridColumn: "4 / 13", alignSelf: "center" }}><CareerMap exp={exp} edu={cv?.education} /></div>
+          <div className="rd-viz reveal" style={{ gridColumn: "4 / 13", alignSelf: "center" }}><CareerMap exp={exp} edu={cv?.education} legend={C.s4.legend} /></div>
         </div>
       </section>
 
       {/* 05 FULL EXPERIENCE */}
       <section className="rd-band" id="about">
         <div className="wrap">
-          <div className="band-head"><span className="section-index">05</span><h2 className="rd-title reveal" style={{ fontSize: "clamp(24px,3vw,40px)" }}>Full experience</h2></div>
+          <div className="band-head"><span className="section-index">05</span><h2 className="rd-title reveal" style={{ fontSize: "clamp(24px,3vw,40px)" }}>{C.s5}</h2></div>
           <div className="rd-exp" style={{ marginTop: 18 }}>
             {exp.map((e, i) => (
               <div className={"exp-row" + (openExp === i ? " open" : "")} key={i}>
@@ -213,7 +200,7 @@ export default function RedesignApp() {
             ))}
           </div>
           <div style={{ marginTop: 40 }} className="rd-skills">
-            <div className="grp reveal"><h4>{cv?.methodologiesTitle || "Methods"}</h4><div className="chips">{(cv?.methodologies || []).map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
+            <div className="grp reveal"><h4>{cv?.methodologiesTitle || "Methods"}</h4><div className="chips">{C.methods.map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
             <div className="grp reveal"><h4>{cv?.techStackTitle || "Tools"}</h4><div className="chips">{(cv?.techStack || []).map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
             <div className="grp reveal"><h4>{cv?.languagesTitle || "Languages"}</h4><div className="chips">{(cv?.languages || []).map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
             <div className="grp reveal"><h4>{cv?.educationTitle || "Education"}</h4><div className="chips" style={{ flexDirection: "column", alignItems: "flex-start" }}>{(cv?.education || []).map((m) => <span className="chip" key={m} style={{ border: 0, padding: "2px 0", fontSize: 12.5, color: "var(--ink-soft)" }}>{m}</span>)}</div></div>
@@ -224,7 +211,7 @@ export default function RedesignApp() {
       <footer className="rd-footer">
         <div className="wrap" style={{ display: "flex", justifyContent: "space-between", flexWrap: "wrap", gap: 20, alignItems: "baseline" }}>
           <div>
-            <div className="mono">Let's talk</div>
+            <div className="mono">{C.footer}</div>
             <a href={`mailto:${t.social?.email}`} style={{ fontFamily: "var(--display)", fontSize: "clamp(24px,4vw,52px)", textTransform: "uppercase", color: "var(--ink)", textDecoration: "none", borderBottom: "3px solid var(--pink)" }}>{t.social?.email}</a>
           </div>
           <div className="mono" style={{ textAlign: "right", lineHeight: 2 }}>
@@ -252,8 +239,8 @@ export default function RedesignApp() {
             })()}
             <div className="stack">{(modal.stack || []).join(" · ")}</div>
             <div className="acts">
-              {modal.link && <a className="primary" href={modal.link} target="_blank" rel="noreferrer">Open live ↗</a>}
-              {modal.repo && <a href={modal.repo} target="_blank" rel="noreferrer">View code ↗</a>}
+              {modal.link && <a className="primary" href={modal.link} target="_blank" rel="noreferrer">{C.modal.open}</a>}
+              {modal.repo && <a href={modal.repo} target="_blank" rel="noreferrer">{C.modal.code}</a>}
             </div>
           </div>
         </div>
@@ -542,7 +529,7 @@ const VIZ_BY_ID = { cvHunter: VizCvHunter, sensorlab: VizSensorlab, zuriKreislau
 function CaseViz({ id, kind }) { const V = VIZ_BY_ID[id]; return V ? <V /> : <VizGeneric kind={kind} />; }
 
 // panoramic career map: faint dotted "map" + pink curve across, real work+study nodes
-function CareerMap({ exp, edu }) {
+function CareerMap({ exp, edu, legend = { work: "WORK", studies: "STUDIES" } }) {
   // order by year AND month (periods are localised: "April 2022", "Novembre 2022", "Januar 2026"…);
   // ties fall back to the CV order, which is most-recent-first.
   const MONTHS = { jan: 1, gen: 1, ene: 1, feb: 2, fev: 2, mar: 3, abr: 4, apr: 4, avr: 4, mai: 5, may: 5, mag: 5, jun: 6, giu: 6, jul: 7, lug: 7, aug: 8, ago: 8, aou: 8, sep: 9, set: 9, oct: 10, okt: 10, ott: 10, nov: 11, dec: 12, des: 12, dic: 12, dez: 12 };
@@ -580,8 +567,8 @@ function CareerMap({ exp, edu }) {
       ))}
       {lastWork && <g><circle cx={lastWork[0]} cy={lastWork[1]} r="16" fill="none" stroke="#FF3B7D" strokeWidth="0.8" opacity="0.5" strokeDasharray="2 3" /><text x={lastWork[0] + 20} y={lastWork[1] - 14} fontFamily="Space Mono, monospace" fontSize="9" fill="#FF3B7D" letterSpacing="1">NOW</text></g>}
       <g fontFamily="Space Mono, monospace" fontSize="9" fill="#8a8781">
-        <circle cx={pad} cy={H - 12} r="4" fill="#FF3B7D" /><text x={pad + 10} y={H - 8}>WORK</text>
-        <circle cx={pad + 86} cy={H - 12} r="4" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.4" /><text x={pad + 96} y={H - 8}>STUDIES</text>
+        <circle cx={pad} cy={H - 12} r="4" fill="#FF3B7D" /><text x={pad + 10} y={H - 8}>{legend.work}</text>
+        <circle cx={pad + 96} cy={H - 12} r="4" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.4" /><text x={pad + 106} y={H - 8}>{legend.studies}</text>
       </g>
     </svg>
   );

@@ -53,7 +53,7 @@
    overhang on the right so the flex centring centres the whole lockup, not just the name. */
 .rd-hero .hero-text { --pr: clamp(120px, 26vw, 360px); position: relative; z-index: 2;
   display: inline-block; max-width: 100%; padding-right: var(--pr); }
-.rd-hero .hero-name { font-family: var(--display); font-weight: 400; line-height: 0.86;
+.rd-hero .hero-name { font-family: var(--display); font-weight: 400; line-height: 0.86; text-align: left;
   letter-spacing: -0.01em; font-size: clamp(48px, 11.5vw, 150px); text-transform: uppercase; margin: 0; }
 .rd-hero .hero-side { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;
   gap: 14px; margin-top: 22px; }

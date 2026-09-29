@@ -1800,6 +1800,114 @@ export const PROJECT_BRIEFS = {
       next: "Connectar-hi feeds reals de POS i inventari, afegir un objectiu de nivell de servei per botiga i fer backtest del recomanador contra la temporada passada.",
     },
   },
+  spanish: {
+    labels: { question: "La pregunta", did: "Qué hice", result: "Resultado", next: "Siguiente paso, en producción" },
+    cvHunter: {
+      question: "¿Puede un equipo de RR. HH. pequeño hacer la shortlist de una vacante en minutos en lugar de días, sin perder a los buenos candidatos?",
+      did: "Construí todo el producto: ingesta de PDF/DOCX, extracción estructurada con la API de Claude, matching vectorial en pgvector, dashboard e importación masiva asíncrona — FastAPI + React, en Docker.",
+      result: "Un ranking rol→candidato con scores de similitud explicables; una bandeja entera importada de una vez; exportación de perfiles en PDF para los hiring managers.",
+      next: "Un bucle de feedback con las decisiones de los recruiters, controles de sesgo en el ranking y SSO antes de desplegarlo en un equipo real.",
+    },
+    sensorlab: {
+      question: "Cuando un sensor de una planta química se desvía, ¿intervenimos ahora, programamos mantenimiento o esperamos — y qué cuesta cada opción?",
+      did: "Comparé tres detectores sobre el benchmark Tennessee Eastman (T²/Q, IsolationForest, autoencoder LSTM), diagnostiqué fallos con XGBoost + SHAP, estimé la vida útil restante y puse precio a la decisión en CHF.",
+      result: "AUROC 0,93 en detección, atribución por fallo y una capa de decisión que traduce scores a intervenir / programar / esperar. 11 módulos pytest, CI en dos versiones de Python.",
+      next: "Conectarlo a un historiador real (OPC-UA / PI), calibrar las constantes de coste con la planta y ejecutarlo en modo sombra junto a los operadores.",
+    },
+    swissGov: {
+      question: "¿Puede un decisor ver, en una sola pantalla, dónde está Suiza respecto a sus objetivos legales — y qué cambiaría una palanca política en 2035?",
+      did: "Reuní 35 indicadores oficiales en 7 dominios (BFS, FOEN, SFOE, opendata.swiss, swisstopo), previsiones de tendencia con elasticidades por escenario, mapa cantonal, simulador de políticas e informes de situación generados automáticamente — un único HTML autocontenido, sin build.",
+      result: "Un scorecard nacional (on track / at risk / off track), una fuente trazable en cada cifra y una model card honesta con errores de hold-out. Deep links compartibles e informes imprimibles.",
+      next: "Se está integrando un nivel de activo con datos operativos reales (la planta KVA Hagenholz de Zúrich), para que el mismo cockpit vaya del indicador nacional hasta un activo físico.",
+    },
+    retail: {
+      question: "¿Cómo convierte un equipo de asignación de retail una previsión de demanda en la decisión de hoy sobre qué tienda recibe qué?",
+      did: "Modelé el flujo diario del equipo de principio a fin: dashboard de estado de stock, previsión por SKU, recomendador de asignación y simulador what-if — Next.js + TypeScript, siete idiomas, datos sintéticos realistas.",
+      result: "Una sola herramienta donde la previsión se convierte en una asignación concreta por tiendas y canales, con el impacto del escenario visible antes de decidir.",
+      next: "Conectar feeds reales de POS e inventario, añadir un objetivo de nivel de servicio por tienda y hacer backtest del recomendador contra la temporada pasada.",
+    },
+  },
+  french: {
+    labels: { question: "La question", did: "Ce que j'ai fait", result: "Résultat", next: "Étape suivante, en production" },
+    cvHunter: {
+      question: "Une petite équipe RH peut-elle présélectionner des candidats en minutes plutôt qu'en jours, sans perdre les bons ?",
+      did: "J'ai construit tout le produit : ingestion PDF/DOCX, extraction structurée avec l'API Claude, matching vectoriel dans pgvector, dashboard et import massif asynchrone — FastAPI + React, sous Docker.",
+      result: "Un classement poste→candidat avec des scores de similarité explicables ; une boîte entière importée d'un coup ; export de profils en PDF pour les hiring managers.",
+      next: "Une boucle de feedback à partir des décisions des recruteurs, des contrôles de biais sur le classement et le SSO avant un déploiement dans une vraie équipe.",
+    },
+    sensorlab: {
+      question: "Quand un capteur dérive dans une usine chimique, faut-il intervenir maintenant, planifier la maintenance ou attendre — et combien coûte chaque option ?",
+      did: "J'ai comparé trois détecteurs sur le benchmark Tennessee Eastman (T²/Q, IsolationForest, autoencodeur LSTM), diagnostiqué les défauts avec XGBoost + SHAP, estimé la durée de vie restante et chiffré la décision en CHF.",
+      result: "AUROC 0,93 en détection, attribution par défaut, et une couche de décision qui traduit les scores en intervenir / planifier / attendre. 11 modules pytest, CI sur deux versions de Python.",
+      next: "Le connecter à un historian réel (OPC-UA / PI), calibrer les constantes de coût avec l'usine et le faire tourner en mode ombre aux côtés des opérateurs.",
+    },
+    swissGov: {
+      question: "Un décideur peut-il voir, sur un seul écran, où en est la Suisse par rapport à ses objectifs légaux — et ce qu'un levier de politique publique changerait d'ici 2035 ?",
+      did: "J'ai réuni 35 indicateurs officiels dans 7 domaines (BFS, OFEV, OFEN, opendata.swiss, swisstopo), construit des prévisions de tendance avec élasticités par scénario, une carte cantonale, un simulateur de politiques et des rapports de situation générés automatiquement — un seul HTML autonome, sans build.",
+      result: "Un scorecard national (on track / at risk / off track), une source traçable pour chaque chiffre et une model card honnête avec erreurs de hold-out. Deep links partageables et rapports imprimables.",
+      next: "Un niveau « actif » avec de vraies données d'exploitation (l'usine KVA Hagenholz de Zurich) est en cours d'intégration, pour que le même cockpit aille de l'indicateur national jusqu'à un actif physique.",
+    },
+    retail: {
+      question: "Comment une équipe d'allocation retail transforme-t-elle une prévision de demande en décision du jour sur ce que reçoit chaque magasin ?",
+      did: "J'ai modélisé le flux quotidien de l'équipe de bout en bout : dashboard de santé des stocks, prévision par SKU, recommandeur d'allocation et simulateur what-if — Next.js + TypeScript, sept langues, données synthétiques réalistes.",
+      result: "Un seul outil où la prévision devient une allocation concrète par magasins et canaux, avec l'impact du scénario visible avant de décider.",
+      next: "Brancher de vrais flux POS et inventaire, ajouter un objectif de niveau de service par magasin et backtester le recommandeur sur la saison passée.",
+    },
+  },
+  german: {
+    labels: { question: "Die Frage", did: "Was ich gemacht habe", result: "Ergebnis", next: "Nächster Schritt, in Produktion" },
+    cvHunter: {
+      question: "Kann ein kleines HR-Team die Shortlist für eine Stelle in Minuten statt Tagen erstellen, ohne die guten Kandidat:innen zu verlieren?",
+      did: "Ich habe das ganze Produkt gebaut: PDF/DOCX-Ingestion, strukturierte Extraktion mit der Claude API, Vektor-Matching in pgvector, Dashboard und asynchroner Massenimport — FastAPI + React, in Docker.",
+      result: "Ein Ranking Stelle→Kandidat:in mit erklärbaren Ähnlichkeitsscores; ein ganzer Posteingang in einem Durchgang importiert; PDF-Profilexport für Hiring Manager.",
+      next: "Eine Feedback-Schleife aus den Entscheidungen der Recruiter, Bias-Checks im Ranking und SSO vor dem Rollout an ein echtes Team.",
+    },
+    sensorlab: {
+      question: "Wenn ein Sensor in einer Chemieanlage driftet: jetzt eingreifen, Wartung planen oder abwarten — und was kostet jede Option?",
+      did: "Drei Detektoren auf dem Tennessee-Eastman-Benchmark verglichen (T²/Q, IsolationForest, LSTM-Autoencoder), Fehler mit XGBoost + SHAP diagnostiziert, Restlebensdauer geschätzt und die Entscheidung in CHF bepreist.",
+      result: "AUROC 0,93 in der Erkennung, Attribution pro Fehler und eine Entscheidungsebene, die Scores in eingreifen / planen / abwarten übersetzt. 11 pytest-Module, CI auf zwei Python-Versionen.",
+      next: "Anbindung an einen echten Historian (OPC-UA / PI), Kalibrierung der Kostenkonstanten mit der Anlage und Schattenbetrieb neben den Operateuren.",
+    },
+    swissGov: {
+      question: "Kann eine Entscheiderin auf einem Bildschirm sehen, wo die Schweiz gegenüber ihren gesetzlichen Zielen steht — und was ein politischer Hebel bis 2035 verändern würde?",
+      did: "35 offizielle Indikatoren in 7 Domänen zusammengeführt (BFS, BAFU, BFE, opendata.swiss, swisstopo), Trendprognosen mit Szenario-Elastizitäten, eine Kantonskarte, einen Politik-Simulator und automatisch erzeugte Lageberichte gebaut — ein einziges, eigenständiges HTML ohne Build-Schritt.",
+      result: "Ein nationales Scorecard (on track / at risk / off track), eine nachvollziehbare Quelle bei jeder Zahl und eine ehrliche Model Card mit Hold-out-Fehlern. Teilbare Deep Links und druckbare Briefs.",
+      next: "Eine Asset-Ebene mit echten Betriebsdaten (KVA Hagenholz in Zürich) wird gerade integriert, damit dasselbe Cockpit vom nationalen Indikator bis zum einzelnen physischen Asset reicht.",
+    },
+    retail: {
+      question: "Wie macht ein Retail-Allocation-Team aus einer Nachfrageprognose die heutige Entscheidung, welche Filiale was bekommt?",
+      did: "Den Tagesablauf des Teams durchgängig modelliert: Bestands-Dashboard, Prognose pro SKU, Allocation-Recommender und What-if-Simulator — Next.js + TypeScript, sieben Sprachen, realistische synthetische Daten.",
+      result: "Ein Tool, in dem eine Prognose zu einer konkreten Zuteilung über Filialen und Kanäle wird — mit sichtbarem Szenario-Effekt, bevor man sich festlegt.",
+      next: "Echte POS- und Bestandsfeeds anbinden, ein Service-Level-Ziel pro Filiale ergänzen und den Recommender gegen die letzte Saison backtesten.",
+    },
+  },
+  italian: {
+    labels: { question: "La domanda", did: "Cosa ho fatto", result: "Risultato", next: "Prossimo passo, in produzione" },
+    cvHunter: {
+      question: "Un piccolo team HR può fare la shortlist per una posizione in minuti invece che in giorni, senza perdere i candidati validi?",
+      did: "Ho costruito l'intero prodotto: ingestione PDF/DOCX, estrazione strutturata con l'API Claude, matching vettoriale in pgvector, dashboard e import massivo asincrono — FastAPI + React, in Docker.",
+      result: "Un ranking ruolo→candidato con score di similarità spiegabili; un'intera casella importata in un colpo; export dei profili in PDF per gli hiring manager.",
+      next: "Un ciclo di feedback dalle decisioni dei recruiter, controlli di bias sul ranking e SSO prima del rollout a un team reale.",
+    },
+    sensorlab: {
+      question: "Quando un sensore di un impianto chimico deriva, interveniamo subito, programmiamo la manutenzione o aspettiamo — e quanto costa ogni scelta?",
+      did: "Ho confrontato tre rilevatori sul benchmark Tennessee Eastman (T²/Q, IsolationForest, autoencoder LSTM), diagnosticato i guasti con XGBoost + SHAP, stimato la vita utile residua e prezzato la decisione in CHF.",
+      result: "AUROC 0,93 nel rilevamento, attribuzione per guasto e un livello decisionale che traduce gli score in intervenire / programmare / attendere. 11 moduli pytest, CI su due versioni di Python.",
+      next: "Collegarlo a un historian reale (OPC-UA / PI), calibrare le costanti di costo con l'impianto e farlo girare in modalità ombra accanto agli operatori.",
+    },
+    swissGov: {
+      question: "Un decisore può vedere, in una sola schermata, dove si trova la Svizzera rispetto ai suoi obiettivi di legge — e cosa cambierebbe una leva politica entro il 2035?",
+      did: "Ho riunito 35 indicatori ufficiali in 7 domini (BFS, UFAM, UFE, opendata.swiss, swisstopo), costruito previsioni di tendenza con elasticità per scenario, una mappa cantonale, un simulatore di politiche e rapporti di situazione generati automaticamente — un unico HTML autonomo, senza build.",
+      result: "Uno scorecard nazionale (on track / at risk / off track), una fonte tracciabile per ogni cifra e una model card onesta con errori di hold-out. Deep link condivisibili e brief stampabili.",
+      next: "Si sta integrando un livello «asset» con dati operativi reali (l'impianto KVA Hagenholz di Zurigo), così lo stesso cockpit va dall'indicatore nazionale fino a un singolo asset fisico.",
+    },
+    retail: {
+      question: "Come trasforma un team di allocazione retail una previsione della domanda nella decisione di oggi su quale negozio riceve cosa?",
+      did: "Ho modellato il flusso quotidiano del team da cima a fondo: dashboard sullo stato delle scorte, previsione per SKU, recommender di allocazione e simulatore what-if — Next.js + TypeScript, sette lingue, dati sintetici realistici.",
+      result: "Un unico strumento in cui la previsione diventa un'allocazione concreta per negozi e canali, con l'impatto dello scenario visibile prima di decidere.",
+      next: "Collegare feed reali di POS e inventario, aggiungere un obiettivo di livello di servizio per negozio e fare backtest del recommender sulla stagione scorsa.",
+    },
+  },
 };
 
 export default translations;

@@ -9,41 +9,35 @@ import CvBuilderSection from "./components/CvBuilderSection";
 import RedesignApp from "./redesign/RedesignApp";
 
 const SECRET_HASH = "#secret";
-const REDESIGN_HASH = "#redesign";
+const LEGACY_HASH = "#legacy";
 
+// Routing by hash:
+//   (default)  → the editorial redesign (public site)
+//   #secret    → private CV builder
+//   #legacy    → the previous site, kept for reference (also preserved on the `legacy-site` branch)
 function App() {
   const [appLanguage, setAppLanguage] = useState('catalan');
   const [currentPage, setCurrentPage] = useState('home');
-  const [secret, setSecret] = useState(
-    typeof window !== 'undefined' && window.location.hash === SECRET_HASH
-  );
-  const [redesign, setRedesign] = useState(
-    typeof window !== 'undefined' && window.location.hash === REDESIGN_HASH
-  );
+  const readHash = () => (typeof window !== 'undefined' ? window.location.hash : "");
+  const [hash, setHash] = useState(readHash);
 
-  // React to hash changes (e.g. user navigates back/forward)
   useEffect(() => {
-    const onHash = () => {
-      setSecret(window.location.hash === SECRET_HASH);
-      setRedesign(window.location.hash === REDESIGN_HASH);
-    };
+    const onHash = () => setHash(readHash());
     window.addEventListener('hashchange', onHash);
     return () => window.removeEventListener('hashchange', onHash);
   }, []);
 
-  // Redesign preview (isolated; live site untouched until we swap)
-  if (redesign) return <RedesignApp />;
-
   const t = translations[appLanguage];
 
-  // Secret CV-builder page: hide normal nav, render only the builder
-  if (secret) {
+  if (hash === SECRET_HASH) {
     return (
       <div className="min-h-screen bg-gray-50">
         <CvBuilderSection translations={t} currentLanguage={appLanguage} />
       </div>
     );
   }
+
+  if (hash !== LEGACY_HASH) return <RedesignApp />;
 
   return (
     <div className="min-h-screen bg-gray-50">
