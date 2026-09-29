@@ -574,7 +574,7 @@ function CareerMap({ exp, edu, legend = { work: "WORK", studies: "STUDIES" }, ev
   const monthOf = (p = "") => { const w = p.trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); if (w.startsWith("juin")) return 6; if (w.startsWith("juil")) return 7; return MONTHS[w.slice(0, 3)] || 0; };
   const NOW = 2026.75, yr = (s) => +((s.match(/\d{4}/) || [0])[0]);
   const tOf = (s) => { const y = yr(s); return y ? y + (Math.max(1, monthOf(s)) - 1) / 12 : 0; };
-  const work = exp.map((e) => { const [a, b] = e.period.split(/\s*[–—]\s*/); const t0 = tOf(a || ""); const t1 = b && yr(b) ? tOf(b) + 1 / 12 : NOW; return { t0, t1, y0: yr(a || ""), y1: b && yr(b) ? yr(b) : null, type: "work", label: e.company.split(" ")[0], sub: e.location }; });
+  const work = exp.filter((e) => !e.siteOnly).map((e) => { const [a, b] = e.period.split(/\s*[–—]\s*/); const t0 = tOf(a || ""); const t1 = b && yr(b) ? tOf(b) + 1 / 12 : NOW; return { t0, t1, y0: yr(a || ""), y1: b && yr(b) ? yr(b) : null, type: "work", label: e.company.split(" ")[0], sub: e.location }; });
   const study = (edu || []).map((e) => { const m = e.match(/(\d{4})\s*[–—-]\s*(\d{4})/); if (!m) return null;
     return { t0: +m[1] + 0.7, t1: +m[2] + 0.5, y0: +m[1], y1: +m[2], type: "study", label: e.split("—")[0].trim().replace(/\s+in\s+/i, " "), sub: (e.match(/\(([^)]+)\)/) || [, ""])[1] }; }).filter(Boolean);
   const extra = events.map((ev) => ({ ...ev, t1: ev.t1 || ev.t0, y0: Math.floor(ev.t0), y1: ev.t1 ? Math.floor(ev.t1 - 0.02) : null }));

@@ -291,7 +291,7 @@ const CvDocument = ({
         {/* EXPERIENCE ------------------------------------------------------- */}
         {Array.isArray(cvData?.experiences) && cvData.experiences.length > 0 && (
           <Section title={L.experience}>
-            {cvData.experiences.map((exp, i) => (
+            {cvData.experiences.filter((e) => !e.siteOnly).map((exp, i) => (
               <View key={i} style={styles.expEntry} wrap={false}>
                 <View style={styles.expHeader}>
                   <Text style={styles.expRole}>{exp.role}</Text>
