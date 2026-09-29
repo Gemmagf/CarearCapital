@@ -34,7 +34,9 @@ export default function HeroFigure({ src }) {
       const boxX = ir.left - wr.left, boxY = ir.top - wr.top, boxW = ir.width, boxH = ir.height;
       const ar = img.naturalWidth / img.naturalHeight;
       let dw = boxW, dh = boxW / ar; if (dh > boxH) { dh = boxH; dw = boxH * ar; }
-      const dx = boxX + (boxW - dw) / 2, dy = boxY + (boxH - dh);
+      // object-position: bottom left on desktop, bottom center when the box is wider than the image
+      const pos = getComputedStyle(img).objectPosition || "";
+      const dx = boxX + (/left/.test(pos) ? 0 : (boxW - dw) / 2), dy = boxY + (boxH - dh);
       const cell = Math.max(2.6, Math.min(5, dw / 120));
       const cols = Math.ceil(dw / cell), rows = Math.ceil(dh / cell);
       sampler = sampler || document.createElement("canvas");
@@ -71,7 +73,7 @@ export default function HeroFigure({ src }) {
     let raf = 0, running = true, w = 0, h = 0, ps = [];
     const isMobile = window.matchMedia("(max-width: 820px)").matches;
     const COUNT = isMobile ? 140 : 420;
-    const SRC = { x: 0.72, y: 0.5 };
+    const SRC = { x: 0.5, y: 0.5 }; // burst emanates from the figure itself, radially
 
     function resize() {
       const r = canvas.getBoundingClientRect();
@@ -82,7 +84,7 @@ export default function HeroFigure({ src }) {
     function spawn() {
       const ang = Math.random() * Math.PI * 2, sp = 0.4 + Math.random() * 2.6;
       return { x: w * SRC.x + (Math.random() - 0.5) * w * 0.16, y: h * SRC.y + (Math.random() - 0.5) * h * 0.34,
-        vx: Math.cos(ang) * sp - 0.55, vy: Math.sin(ang) * sp * 0.8, life: 60 + Math.random() * 220, max: 280 };
+        vx: Math.cos(ang) * sp - 0.15, vy: Math.sin(ang) * sp * 0.8, life: 60 + Math.random() * 220, max: 280 };
     }
     function seed() { ps = Array.from({ length: COUNT }, () => { const p = spawn(); p.life = Math.random() * p.max; return p; }); }
     function frame() {
