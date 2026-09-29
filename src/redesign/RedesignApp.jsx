@@ -21,7 +21,7 @@ const yearOf = (period = "") => (period.match(/\d{4}/) || [""])[0];
 const QUOTES = {
   intro: ["Si observes, coneixes; si coneixes, estimes; si estimes, protegeixes.", "Jordi Sabater Pi"],
   s1: ["If you can write the problem down clearly, the matter is half solved.", "Kidlin\u2019s Law"],
-  s2: ["\u7a7a\u6c17\u3092\u8aad\u3080 \u00b7 k\u016bki o yomu \u2014 to read the air.", ""],
+  s2: ["\u7a7a\u6c17\u3092\u8aad\u3080 \u00b7 k\u016bki o yomu \u2014 to read the air.", "Japanese culture, via Erin Meyer\u2019s The Culture Map"],
   s3: ["Quatre coses b\u00e0siques resolen el 80 % dels casos; quatre de dif\u00edcils, la resta.", "Enric, el meu pare"],
   s4: ["There is nothing permanent except change.", "Heraclitus"],
   footer: ["Kind before clever. Hard things \u2014 slowly, and never alone.", ""],
