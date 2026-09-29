@@ -212,7 +212,7 @@ export default function RedesignApp() {
           </div>
           <div style={{ marginTop: 40 }} className="rd-skills">
             <div className="grp reveal"><h4>{cv?.methodologiesTitle || "Methods"}</h4><div className="chips">{C.methods.map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
-            <div className="grp reveal"><h4>{cv?.techStackTitle || "Tools"}</h4><div className="chips">{(cv?.techStack || []).map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
+            <div className="grp reveal"><h4>{cv?.techStackTitle || "Tools"}</h4><div className="chips">{C.tools && <span className="chip lead">{C.tools.lead}</span>}{(C.tools ? C.tools.list : (cv?.techStack || [])).map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
             <div className="grp reveal"><h4>{cv?.languagesTitle || "Languages"}</h4><div className="chips">{(cv?.languages || []).map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
             {C.books && <div className="grp reveal"><h4>{C.books.title}</h4><div className="chips">{C.books.list.map((b) => <a className="chip link" key={b.title} href={b.url} target="_blank" rel="noreferrer"><em>{b.title}</em> — {b.author} ↗</a>)}</div></div>}
             {C.pub && <div className="grp reveal pub"><h4>{C.pub.title}</h4><a href={C.pub.url} target="_blank" rel="noreferrer">{C.pub.paper} ↗</a><div className="meta">{C.pub.journal} · {C.pub.cited}</div></div>}
