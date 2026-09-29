@@ -468,7 +468,7 @@ function VizSwissGov() {
           <text className="ann" x={ox} y={oy + 49}>{names[k]}</text>
         </g>);
       })}
-      <text className="ann" x="8" y="210">32 indicators · 26 cantons · forecast to 2035</text>
+      <text className="ann" x="8" y="210">35 indicators · 26 cantons · forecast to 2040</text>
     </svg>
   );
 }
