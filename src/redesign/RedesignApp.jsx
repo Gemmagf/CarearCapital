@@ -101,8 +101,8 @@ export default function RedesignApp() {
         <div className="wrap hero-inner">
           <div className="hero-text">
             <h1 className="hero-name"><span className="em">Gemma</span><span>Garcia</span><span>de la</span><span>Fuente</span></h1>
-            {HERO_PHOTO && <HeroFigure src={HERO_PHOTO} />}
           </div>
+          {HERO_PHOTO && <HeroFigure src={HERO_PHOTO} />}
           <div className="hero-side">
             <div className="hero-labels">
               <span className="lab">Data &amp; AI</span><span className="lab">Product</span><span className="lab">Business</span><span className="lab">Delivery</span>
