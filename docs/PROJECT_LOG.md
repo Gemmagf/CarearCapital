@@ -49,7 +49,7 @@ scripts/render_map.cjs           render headless del mapa de carrera a SVG (per 
 ```
 
 Conceptes:
-- **`CV_VARIANTS`** (`""`, `consumer`, `industrial`, `dataeng`, `fde`): reenfoquen summary / mètodes / ordre d'estudis. El redisseny aplica `fde` i el builder deixa triar.
+- **`CV_VARIANTS`** (`""`, `consumer`, `industrial`, `dataeng`, `fde`, `aiplatform`, `dataai`): reenfoquen summary / mètodes / ordre d'estudis. El redisseny aplica `fde` i el builder deixa triar. `aiplatform` = GenAI/RAG en producció (Siemens); `dataai` = plataforma de dades + Power BI + forecasting + GenAI (Victorinox). Cap glif fora de WinAnsi als textos del PDF (la fletxa `→` es renderitza com `'`).
 - **`siteOnly: true`** en una experiència → surt a la web (secció 05) però **no** al PDF (que ha de cabre en 1 pàgina) ni com a branca al mapa (ja hi és com a llaç via `s4.events`).
 - **`PROJECT_BRIEFS[lang][id]`**: `{question, did, result, next, credit?}`; els idiomes sense brief cauen a l'anglès.
 - **`s4.events`** (copy.js): esdeveniments del mapa que no són al CV: `trip` (llaç), `work` curt (< 0,5 anys → "stint"/llaç), `study`, `life` (fita amb línia guia), `pub` (rombe enllaçat), `pet` (petjada). Temps en anys decimals (2013.45 = juny 2013).
@@ -75,7 +75,8 @@ Conceptes:
 npm start                      # dev server (CRA); obrir http://localhost:3000/  (#secret per al builder, #legacy per l'antiga)
 CI=false npx react-scripts build   # build de producció (CI=false perquè els warnings no trenquin)
 npm run deploy                 # build + publica build/ a la branca gh-pages → web viva (triga 1–3 min; el navegador cacheja 10 min → ⌘⇧R)
-node scripts/render_cv.cjs /tmp/cv.pdf fde cvHunter "Empresa" "Títol"   # PDF headless (variant, projecte, empresa, títol, idioma)
+node scripts/render_cv.cjs /tmp/cv.pdf fde cvHunter "Empresa" "Títol"   # PDF headless (variant, projecte, empresa, títol, idioma); MOTIVATION="…" afegeix un paràgraf "Why X"
+node scripts/render_letter.cjs carta.json /tmp/carta.pdf                # carta de presentació 1 pàgina, mateix estil (camps al capçal del script)
 node scripts/render_map.cjs /tmp                                          # mapa de carrera → /tmp/careermap.svg (qlmanage -t per rasteritzar)
 ```
 
@@ -120,6 +121,8 @@ Git: treballar a `main`; després de cada commit, `git branch -f portfolio-redes
 6. Detall del mapa: les etiquetes de Google/KH queden prop de l'eix; si molesta, donar més alçada (`H`) a `CareerMap`.
 
 ## 8. Diari de canvis
+
+- **2026-09-29 (tarda)** — Candidatures: variants CV `aiplatform` (Siemens Zug, AI Platform Engineer, projecte CV Hunter) i `dataai` (Victorinox Ibach, Data & AI Engineer, projecte Supply Chain Lab); nou `scripts/render_letter.cjs` (Anschreiben Siemens en alemany). PDFs a `~/Downloads/CV_Gemma_Garcia_Siemens_*.pdf`, `CV_Gemma_Garcia_Victorinox_*.pdf`, `Anschreiben_Gemma_Garcia_Siemens.pdf`. Scan de posicions ZH/ZG/SZ a la memòria `job_pipeline.md`. Sense desplegament (no toca la web).
 
 - **2026-09-29** — Redisseny publicat com a home; i18n complet; favicon/og-image; `legacy-site`; historial net de `projects/`. Cards: Rovelló, Puppy Tracker (demo), Who's Who (4 columnes). Modal amb briefs (6 idiomes) i crèdits. Graf de carrera amb bifurcacions, estades (2013–2016), UOC/ForceManager/Additius com a llaços, article Elsevier (DOI), trasllat a Zürich, Caleta. Secció 05: 7 etapes (3 `siteOnly`), methodologies de negoci, tools juganer, llibres enllaçats (títols originals), publicació. Epígrafs per secció; footer "Being kind is harder than being smart. Let's try hard things together." + colofó de Cala Marquesa. `scripts/` amb els renders headless. Aquest log i `CLAUDE.md`.
 - **2026-09-28** — Reposicionament FDE (variant `fde`, stack real, copy, impact amb proves); gràfics propis per projecte; wave/xarxa/mapa enriquits; brief per a la sessió del cockpit (`~/Documents/git_projects/swiss-governance-dashboard-ASSET-DRILLDOWN-BRIEF.md`).

@@ -1909,6 +1909,50 @@ export const CV_VARIANTS = [
       "Agile (Scrum)",
     ],
   },
+  {
+    id: "aiplatform",
+    label: "AI Platform / GenAI Engineer",
+    summary:
+      "Data scientist and product owner who takes generative-AI ideas from a first prototype to something engineers use every day. 4+ years shipping decision-driving models, dashboards and LLM tools in banking, marketing, industrial and public-sector settings — most recently an end-to-end LLM application (Claude API, embeddings and pgvector retrieval, FastAPI, React, Docker, CI). Pragmatic about quality, cost and guardrails; at ease bridging product managers, architects and engineers in six languages.",
+    education: [
+      "MSc in Data Science — Universitat Oberta de Catalunya (UOC), 2020–2022",
+      "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
+      "BSc in Statistics — Universitat Politècnica de Catalunya (UPC), 2015–2019",
+      "BSc in Psychology — Universitat de Barcelona (UB), 2014–2019",
+    ],
+    methodologies: [
+      "LLM Applications & RAG (Claude API, embeddings, pgvector)",
+      "Agentic Workflows & Tool Use",
+      "Evaluation, Guardrails & Cost Control",
+      "Backend Services (Python, FastAPI, Docker, CI/CD)",
+      "Forecasting & Anomaly Detection",
+      "Rapid Prototyping to Production",
+      "Stakeholder Management",
+      "Agile (Scrum, Product Ownership)",
+    ],
+  },
+  {
+    id: "dataai",
+    label: "Data & AI Engineer (platform, BI, forecasting, GenAI)",
+    summary:
+      "Data scientist and product owner with 4+ years on a risk function's central data platform: led the Tableau to Power BI migration, owned a data-quality product, hardened production Python pipelines, and delivered forecasting and anomaly-detection models the business acts on. Recently took GenAI use cases from idea to production (Claude API, pgvector, FastAPI, Docker, CI). Strong in SQL, Python and Power BI; at ease between business teams and engineers in six languages.",
+    education: [
+      "MSc in Data Science — Universitat Oberta de Catalunya (UOC), 2020–2022",
+      "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
+      "BSc in Statistics — Universitat Politècnica de Catalunya (UPC), 2015–2019",
+      "BSc in Psychology — Universitat de Barcelona (UB), 2014–2019",
+    ],
+    methodologies: [
+      "Power BI & Semantic Data Models",
+      "Data Pipelines (ELT, testing, CI/CD)",
+      "Forecasting & Predictive Analytics",
+      "Anomaly Detection & Data Quality",
+      "GenAI Use Cases (Claude API, RAG, pgvector)",
+      "Data Governance & Compliance",
+      "Stakeholder Management",
+      "Agile (Scrum, Product Ownership)",
+    ],
+  },
 ];
 
 // Merge a variant onto a language's cv object. Unknown/empty id → unchanged.
