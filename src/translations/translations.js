@@ -53,6 +53,13 @@ const PROJECT_META = [
     repo: null,
   },
   {
+    id: "whosWho",
+    tag: "Team game / Zero-backend",
+    stack: ["HTML", "JavaScript", "Web Crypto (AES-GCM)", "GitHub API", "Single-file PWA"],
+    link: "https://gemmagf.github.io/whos-who/",
+    repo: "https://github.com/Gemmagf/whos-who",
+  },
+  {
     id: "sensorlab",
     tag: "Industrial / Chemical Process Analytics",
     stack: ["Python", "scikit-learn", "PyTorch", "XGBoost", "SHAP", "Streamlit"],
@@ -162,6 +169,11 @@ const PROJECT_TEXTS = {
       description:
         "PWA offline-first per criar bé un cadell: repeticions d'entrenament que pugen de nivell (de Principiant a Dominat), creixement dibuixat contra el rang de pes sa de la raça, recordatoris de salut i cures, fases de socialització i una rutina diària curta i realista. Disseny de producte, front-end i data viz en un. React, Vite, IndexedDB, sincronitzat amb git; instal·lable i totalment offline. Funciona amb dades d'exemple.",
     },
+    whosWho: {
+      title: "Who's Who — Joc trencaglaç per a equips",
+      description:
+        "Un trencaglaç de 20 minuts per a equips de cinc a deu: tothom respon unes quantes preguntes en secret i després les respostes d'un company misteriós surten pista a pista mentre corres a endevinar qui és — tomba fitxes, bloqueja l'aposta aviat per guanyar més punts. Sense comptes, sense instal·lar res, sense guardar res: les respostes viatgen xifrades d'extrem a extrem (AES-GCM via Web Crypto) per una bústia temporal que s'esborra després de cada partida. Un sol fitxer HTML, pensat per al mòbil, mode fosc.",
+    },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
       description:
@@ -243,6 +255,11 @@ const PROJECT_TEXTS = {
       title: "Puppy Tracker — App para criar un cachorro",
       description:
         "PWA offline-first para criar bien a un cachorro: repeticiones de entrenamiento que suben de nivel (de Principiante a Dominado), crecimiento dibujado contra el rango de peso sano de la raza, recordatorios de salud y cuidados, fases de socialización y una rutina diaria corta y realista. Diseño de producto, front-end y data viz en uno. React, Vite, IndexedDB, sincronizado con git; instalable y totalmente offline. Funciona con datos de ejemplo.",
+    },
+    whosWho: {
+      title: "Who's Who — Juego rompehielos para equipos",
+      description:
+        "Un rompehielos de 20 minutos para equipos de cinco a diez: todos responden unas preguntas en secreto y luego las respuestas de un compañero misterioso salen pista a pista mientras corres a adivinar quién es — tumba fichas, bloquea tu apuesta pronto para ganar más puntos. Sin cuentas, sin instalar nada, sin guardar nada: las respuestas viajan cifradas de extremo a extremo (AES-GCM vía Web Crypto) por un buzón temporal que se borra tras cada partida. Un solo archivo HTML, pensado para el móvil, modo oscuro.",
     },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
@@ -326,6 +343,11 @@ const PROJECT_TEXTS = {
       description:
         "An offline-first PWA for raising a puppy well: training reps that build a mastery level (Beginning to Mastered), growth plotted against the healthy breed weight range, health and care reminders, socialisation phases and a short, realistic daily routine. Product design, front-end and data viz in one. React, Vite, IndexedDB, git-synced; installable and fully offline. Runs on demo data.",
     },
+    whosWho: {
+      title: "Who's Who — Team Icebreaker Game",
+      description:
+        "A 20-minute icebreaker for teams of five to ten: everyone answers a few questions in secret, then a mystery teammate's answers come out one clue at a time and you race to guess who it is — flip tiles down, lock in early for more points. No accounts, nothing installed, nothing stored: answers travel end-to-end encrypted (AES-GCM via Web Crypto) through a temporary mailbox that is wiped after each game. One HTML file, phone-first, dark mode.",
+    },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
       description:
@@ -407,6 +429,11 @@ const PROJECT_TEXTS = {
       title: "Puppy Tracker — App pour élever un chiot",
       description:
         "PWA offline-first pour bien élever un chiot : répétitions d'entraînement qui montent en niveau (de Débutant à Maîtrisé), croissance tracée face à la plage de poids saine de la race, rappels de santé et de soins, phases de socialisation et une routine quotidienne courte et réaliste. Design produit, front-end et data viz réunis. React, Vite, IndexedDB, synchronisé via git ; installable et entièrement hors ligne. Fonctionne avec des données de démonstration.",
+    },
+    whosWho: {
+      title: "Who's Who — Jeu brise-glace pour équipes",
+      description:
+        "Un brise-glace de 20 minutes pour des équipes de cinq à dix : chacun répond à quelques questions en secret, puis les réponses d'un coéquipier mystère sortent indice par indice pendant que vous courez à deviner qui c'est — rabattez les tuiles, verrouillez tôt pour gagner plus de points. Sans compte, rien à installer, rien de stocké : les réponses circulent chiffrées de bout en bout (AES-GCM via Web Crypto) par une boîte aux lettres temporaire effacée après chaque partie. Un seul fichier HTML, pensé pour le mobile, mode sombre.",
     },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
@@ -490,6 +517,11 @@ const PROJECT_TEXTS = {
       description:
         "Offline-first-PWA für die gute Aufzucht eines Welpen: Trainings-Wiederholungen mit Mastery-Level (von Anfang bis Gemeistert), Wachstum gegen den gesunden Gewichtsbereich der Rasse geplottet, Gesundheits- und Pflege-Erinnerungen, Sozialisierungsphasen und eine kurze, realistische Tagesroutine. Produktdesign, Frontend und Data-Viz in einem. React, Vite, IndexedDB, git-synchronisiert; installierbar und vollständig offline. Läuft mit Demodaten.",
     },
+    whosWho: {
+      title: "Who's Who — Icebreaker-Spiel für Teams",
+      description:
+        "Ein 20-Minuten-Icebreaker für Teams von fünf bis zehn: Alle beantworten heimlich ein paar Fragen, dann erscheinen die Antworten einer geheimen Teamkollegin Hinweis für Hinweis, und man rät um die Wette — Kacheln umklappen, früh festlegen bringt mehr Punkte. Keine Konten, nichts installieren, nichts gespeichert: Antworten reisen Ende-zu-Ende verschlüsselt (AES-GCM via Web Crypto) über ein temporäres Postfach, das nach jedem Spiel gelöscht wird. Eine einzige HTML-Datei, Mobile-first, Dark Mode.",
+    },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
       description:
@@ -571,6 +603,11 @@ const PROJECT_TEXTS = {
       title: "Puppy Tracker — App per crescere un cucciolo",
       description:
         "PWA offline-first per crescere bene un cucciolo: ripetizioni di addestramento che salgono di livello (da Principiante a Padroneggiato), crescita tracciata rispetto all'intervallo di peso sano della razza, promemoria di salute e cure, fasi di socializzazione e una routine quotidiana breve e realistica. Product design, front-end e data viz in uno. React, Vite, IndexedDB, sincronizzato con git; installabile e completamente offline. Funziona con dati demo.",
+    },
+    whosWho: {
+      title: "Who's Who — Gioco rompighiaccio per team",
+      description:
+        "Un rompighiaccio di 20 minuti per team da cinque a dieci: tutti rispondono in segreto a qualche domanda, poi le risposte di un collega misterioso escono un indizio alla volta mentre fai a gara a indovinare chi è — abbatti le tessere, blocca presto la tua scelta per più punti. Niente account, niente da installare, niente salvato: le risposte viaggiano cifrate end-to-end (AES-GCM via Web Crypto) attraverso una casella temporanea cancellata dopo ogni partita. Un solo file HTML, pensato per il telefono, dark mode.",
     },
     sensorlab: {
       title: "Sensorlab — Industrial Sensor Anomaly & RUL Lab",
@@ -1930,6 +1967,12 @@ export const PROJECT_BRIEFS = {
       next: "Tractive activity feed, a shared view for the vet and the trainer, and export of the training log.",
       credit: "Built for Caleta 🐾 · public demo on invented data",
     },
+    whosWho: {
+      question: "How do you get a new team — remote, multilingual, a bit shy — to actually learn something about each other in 20 minutes, without another 'two truths and a lie'?",
+      did: "Designed and built the whole game in one HTML file: secret answer cards, a shared board of tiles, clue-by-clue reveals with time-weighted points, and a zero-backend transport where answers travel end-to-end encrypted (Web Crypto AES-GCM) through a temporary GitHub 'rooms' mailbox wiped after each game.",
+      result: "Playable from a phone with no account or install; a full round for seven people takes about 20 minutes; nothing personal is ever stored.",
+      next: "Question packs per culture (it started from The Culture Map conversations), a facilitator mode for larger groups, and an optional relay that doesn't depend on GitHub.",
+    },
   },
   catalan: {
     labels: { question: "La pregunta", did: "Què vaig fer", result: "Resultat", next: "Següent pas, en producció" },
@@ -1970,6 +2013,12 @@ export const PROJECT_BRIEFS = {
       result: "Una eina que faig servir cada dia amb la Caleta. La versió pública corre amb dades inventades perquè qualsevol pugui provar el flux.",
       next: "Feed d'activitat de Tractive, una vista compartida per al veterinari i l'ensinistrador, i exportació del registre d'entrenament.",
       credit: "Feta per a la Caleta 🐾 · demo pública amb dades inventades",
+    },
+    whosWho: {
+      question: "Com fas que un equip nou — remot, multilingüe, una mica tímid — aprengui de debò alguna cosa dels altres en 20 minuts, sense un altre 'dues veritats i una mentida'?",
+      did: "Vaig dissenyar i construir tot el joc en un sol fitxer HTML: cartes de respostes secretes, un tauler compartit de fitxes, revelació pista a pista amb punts que valen més com més aviat apostes, i un transport sense backend on les respostes viatgen xifrades d'extrem a extrem (Web Crypto AES-GCM) per una bústia temporal a GitHub que s'esborra després de cada partida.",
+      result: "Es juga des del mòbil sense compte ni instal·lació; una ronda completa per a set persones dura uns 20 minuts; mai es guarda res personal.",
+      next: "Paquets de preguntes per cultura (va néixer de converses sobre The Culture Map), un mode facilitador per a grups grans i un relay opcional que no depengui de GitHub.",
     },
   },
   spanish: {
@@ -2012,6 +2061,12 @@ export const PROJECT_BRIEFS = {
       next: "Feed de actividad de Tractive, una vista compartida para el veterinario y el adiestrador, y exportación del registro de entrenamiento.",
       credit: "Hecha para Caleta 🐾 · demo pública con datos inventados",
     },
+    whosWho: {
+      question: "¿Cómo consigues que un equipo nuevo — remoto, multilingüe, algo tímido — aprenda de verdad algo de los demás en 20 minutos, sin otro 'dos verdades y una mentira'?",
+      did: "Diseñé y construí todo el juego en un solo archivo HTML: cartas de respuestas secretas, un tablero compartido de fichas, revelación pista a pista con puntos que valen más cuanto antes apuestas, y un transporte sin backend donde las respuestas viajan cifradas de extremo a extremo (Web Crypto AES-GCM) por un buzón temporal en GitHub que se borra tras cada partida.",
+      result: "Se juega desde el móvil sin cuenta ni instalación; una ronda completa para siete personas dura unos 20 minutos; nunca se guarda nada personal.",
+      next: "Packs de preguntas por cultura (nació de conversaciones sobre The Culture Map), un modo facilitador para grupos grandes y un relay opcional que no dependa de GitHub.",
+    },
   },
   french: {
     labels: { question: "La question", did: "Ce que j'ai fait", result: "Résultat", next: "Étape suivante, en production" },
@@ -2052,6 +2107,12 @@ export const PROJECT_BRIEFS = {
       result: "Un outil que j'utilise vraiment chaque jour avec Caleta. La version publique tourne sur des données fictives pour que chacun puisse essayer le parcours.",
       next: "Flux d'activité Tractive, une vue partagée pour le vétérinaire et l'éducateur, et export du journal d'entraînement.",
       credit: "Créée pour Caleta 🐾 · démo publique sur données fictives",
+    },
+    whosWho: {
+      question: "Comment faire qu'une nouvelle équipe — à distance, multilingue, un peu timide — apprenne vraiment quelque chose sur les autres en 20 minutes, sans un énième « deux vérités et un mensonge » ?",
+      did: "Conception et développement de tout le jeu dans un seul fichier HTML : cartes de réponses secrètes, plateau de tuiles partagé, révélation indice par indice avec des points pondérés par le temps, et un transport sans backend où les réponses circulent chiffrées de bout en bout (Web Crypto AES-GCM) via une boîte temporaire GitHub effacée après chaque partie.",
+      result: "Jouable depuis un téléphone sans compte ni installation ; une manche complète à sept prend environ 20 minutes ; rien de personnel n'est jamais stocké.",
+      next: "Des packs de questions par culture (né de conversations autour de The Culture Map), un mode animateur pour les grands groupes et un relais optionnel indépendant de GitHub.",
     },
   },
   german: {
@@ -2094,6 +2155,12 @@ export const PROJECT_BRIEFS = {
       next: "Tractive-Aktivitätsfeed, eine geteilte Ansicht für Tierärztin und Trainer, und Export des Trainingsprotokolls.",
       credit: "Gebaut für Caleta 🐾 · öffentliche Demo mit erfundenen Daten",
     },
+    whosWho: {
+      question: "Wie bringt man ein neues Team — remote, mehrsprachig, etwas schüchtern — dazu, in 20 Minuten wirklich etwas übereinander zu lernen, ohne noch ein „Zwei Wahrheiten, eine Lüge“?",
+      did: "Das ganze Spiel in einer einzigen HTML-Datei entworfen und gebaut: geheime Antwortkarten, ein geteiltes Kachelbrett, Hinweis-für-Hinweis-Enthüllung mit zeitgewichteten Punkten und ein Zero-Backend-Transport, bei dem Antworten Ende-zu-Ende verschlüsselt (Web Crypto AES-GCM) über ein temporäres GitHub-Postfach reisen, das nach jedem Spiel gelöscht wird.",
+      result: "Spielbar vom Handy ohne Konto oder Installation; eine volle Runde für sieben Personen dauert etwa 20 Minuten; nichts Persönliches wird je gespeichert.",
+      next: "Fragenpakete pro Kultur (entstanden aus Gesprächen über The Culture Map), ein Moderationsmodus für grössere Gruppen und ein optionales Relay, das nicht von GitHub abhängt.",
+    },
   },
   italian: {
     labels: { question: "La domanda", did: "Cosa ho fatto", result: "Risultato", next: "Prossimo passo, in produzione" },
@@ -2134,6 +2201,12 @@ export const PROJECT_BRIEFS = {
       result: "Uno strumento che uso davvero ogni giorno con Caleta. La versione pubblica gira su dati inventati, così chiunque può provare il flusso.",
       next: "Feed attività Tractive, una vista condivisa per veterinaria e addestratore, ed export del registro di addestramento.",
       credit: "Fatta per Caleta 🐾 · demo pubblica su dati inventati",
+    },
+    whosWho: {
+      question: "Come fai sì che un team nuovo — remoto, multilingue, un po' timido — impari davvero qualcosa degli altri in 20 minuti, senza l'ennesimo «due verità e una bugia»?",
+      did: "Ho progettato e costruito tutto il gioco in un unico file HTML: carte con risposte segrete, una plancia condivisa di tessere, rivelazione un indizio alla volta con punti pesati sul tempo, e un trasporto senza backend in cui le risposte viaggiano cifrate end-to-end (Web Crypto AES-GCM) attraverso una casella temporanea su GitHub cancellata dopo ogni partita.",
+      result: "Si gioca dal telefono senza account né installazione; un round completo per sette persone dura circa 20 minuti; nulla di personale viene mai salvato.",
+      next: "Pacchetti di domande per cultura (è nato da conversazioni su The Culture Map), una modalità facilitatore per gruppi grandi e un relay opzionale indipendente da GitHub.",
     },
   },
 };

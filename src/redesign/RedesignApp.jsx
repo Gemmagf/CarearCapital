@@ -12,7 +12,7 @@ const LANGS = [
   ["french", "FR"], ["german", "DE"], ["italian", "IT"],
 ];
 // Forward-deployed positioning: AI in production, tech tied to CHF decisions, end-to-end business tools.
-const SELECTED = ["cvHunter", "sensorlab", "swissGov", "retail", "rovello", "puppyTracker"];
+const SELECTED = ["cvHunter", "sensorlab", "swissGov", "retail", "rovello", "puppyTracker", "whosWho"];
 const VIZ_KIND = { cvHunter: 3, sensorlab: 0, zuriKreislauf: 2, retail: 1 }; // CaseViz motif per project
 const CASE_IMAGES = {}; // real screenshots → public/images/projects/proj_<id>.jpg
 const HERO_PHOTO = `${process.env.PUBLIC_URL}/images/gemma_hero_cut.png`;
@@ -563,7 +563,24 @@ function VizPuppy() {
   );
 }
 
-const VIZ_BY_ID = { puppyTracker: VizPuppy, cvHunter: VizCvHunter, sensorlab: VizSensorlab, zuriKreislauf: VizZuri, retail: VizRetail, swissGov: VizSwissGov, labm: VizLabm, farma: VizFarma, rovello: VizRovello };
+
+// Who's Who — a 5×5 board: tiles flipped down as clues arrive, one tile locked in as the guess
+function VizWhosWho() {
+  const down = new Set([1, 3, 6, 8, 9, 12, 15, 17, 20, 22, 23]), pick = 13, size = 34, gap = 8, ox = 22, oy = 30;
+  return (
+    <svg viewBox="0 0 240 220">
+      <text className="ann" x={ox} y="14">clue 3 of 5 · worth 3 pts</text>
+      {Array.from({ length: 25 }).map((_, i) => { const c = i % 5, r = Math.floor(i / 5), x = ox + c * (size + gap), y = oy + r * (size + gap), isDown = down.has(i), isPick = i === pick;
+        return (<g key={i}>
+          <rect x={x} y={y} width={size} height={isDown ? size * 0.42 : size} rx="4" fill={isPick ? P : INK} opacity={isDown ? 0.14 : isPick ? 1 : 0.8} />
+          {!isDown && <circle cx={x + size / 2} cy={y + size / 2 - 3} r="6" fill={isPick ? "#fff" : G3} opacity={isPick ? 0.9 : 0.5} />}
+        </g>); })}
+      {[5, 4, 3, 2, 1].map((v, i) => <text key={v} className={i === 2 ? "annp" : "ann"} x={ox + i * 42 + 14} y="212" textAnchor="middle">{v} pt</text>)}
+    </svg>
+  );
+}
+
+const VIZ_BY_ID = { whosWho: VizWhosWho, puppyTracker: VizPuppy, cvHunter: VizCvHunter, sensorlab: VizSensorlab, zuriKreislauf: VizZuri, retail: VizRetail, swissGov: VizSwissGov, labm: VizLabm, farma: VizFarma, rovello: VizRovello };
 function CaseViz({ id, kind }) { const V = VIZ_BY_ID[id]; return V ? <V /> : <VizGeneric kind={kind} />; }
 
 // career graph on a real time axis: the life line runs through the middle; studies branch above and
