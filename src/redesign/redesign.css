@@ -215,3 +215,5 @@
 .rd-skills .chip.link { text-decoration: none; color: var(--ink); border-color: var(--pink); }
 .rd-skills .chip.link em { font-style: italic; }
 .rd-skills .chip.link:hover { background: var(--pink); color: #fff; }
+
+.rd-footer .colophon { flex-basis: 100%; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--ink-soft); margin-top: 10px; }

@@ -67,6 +67,7 @@ export default function RedesignApp() {
     return () => { io.disconnect(); ctx.revert(); };
   }, [lang]);
 
+  useEffect(() => { console.log("%c🐾 Caleta was here", "color:#FF3B7D;font-family:monospace;font-size:12px"); }, []);
   useEffect(() => {
     const onKey = (e) => e.key === "Escape" && setModal(null);
     window.addEventListener("keydown", onKey); return () => window.removeEventListener("keydown", onKey);
@@ -231,6 +232,7 @@ export default function RedesignApp() {
             <a href={t.social?.github} target="_blank" rel="noreferrer" style={{ display: "block", color: "var(--ink)" }}>GitHub ↗</a>
           </div>
           <Epigraph q={QUOTES.footer} />
+          {C.colophon && <div className="colophon">🐾 {C.colophon}</div>}
         </div>
       </footer>
 
@@ -628,6 +630,12 @@ function CareerMap({ exp, edu, legend = { work: "WORK", studies: "STUDIES" }, ev
         <rect x={(X(it.t0) - 5).toFixed(1)} y={(yb(it.t0) - 5).toFixed(1)} width="10" height="10" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.4" transform={`rotate(45 ${X(it.t0).toFixed(1)} ${yb(it.t0).toFixed(1)})`} />
         <line x1={X(it.t0).toFixed(1)} y1={(yb(it.t0) + 8).toFixed(1)} x2={(X(it.t0) - 10).toFixed(1)} y2={(yb(it.t0) + 22).toFixed(1)} stroke="#FF3B7D" strokeWidth="0.7" opacity="0.7" />
         <text x={(X(it.t0) - 14).toFixed(1)} y={(yb(it.t0) + 26).toFixed(1)} textAnchor="end" {...mono} fontSize="8.5" fill="#c9c6c0" textDecoration="underline">{it.label} · {it.y0} ↗</text></g></a>))}
+      {/* the dog: a paw above the life line */}
+      {extra.filter((e) => e.type === "pet").map((it, i) => { const x = X(it.t0), y = yb(it.t0) - 22; return (<g key={"d" + i} data-pop>
+        <line x1={x.toFixed(1)} y1={(yb(it.t0) - 6).toFixed(1)} x2={x.toFixed(1)} y2={(y + 8).toFixed(1)} stroke="#FF3B7D" strokeWidth="0.7" opacity="0.7" />
+        <ellipse cx={x.toFixed(1)} cy={(y + 2).toFixed(1)} rx="3.6" ry="3" fill="#FF3B7D" />
+        {[[-4.2, -3.6], [-1.4, -5.6], [1.4, -5.6], [4.2, -3.6]].map(([dx, dy], k) => <circle key={k} cx={(x + dx).toFixed(1)} cy={(y + dy).toFixed(1)} r="1.5" fill="#FF3B7D" />)}
+        <text x={(x - 9).toFixed(1)} y={(y + 1).toFixed(1)} textAnchor="end" {...mono} fontSize="9" fill="#f0a3bd">{it.label} · {it.y0}</text></g>); })}
       {/* now */}
       <g><circle cx={X(NOW).toFixed(1)} cy={(yb(NOW) + 64).toFixed(1)} r="14" fill="none" stroke="#FF3B7D" strokeWidth="0.8" opacity="0.5" strokeDasharray="2 3" /><text x={(X(NOW) - 4).toFixed(1)} y={(yb(NOW) + 92).toFixed(1)} textAnchor="end" {...mono} fontSize="9" fill="#FF3B7D" letterSpacing="1">NOW</text></g>
       <g {...mono} fontSize="9" fill="#8a8781">
