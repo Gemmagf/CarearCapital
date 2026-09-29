@@ -18,7 +18,7 @@ const RD = {
     books: { title: "Books I recommend", list: [{ title: "The Culture Map", author: "Erin Meyer", url: "https://erinmeyer.com/books/the-culture-map/" }, { title: "La passadora", author: "Laia Perearnau", url: "https://www.onallibres.cat/la-passadora-9788466431460" }, { title: "Un animal sauvage", author: "Joël Dicker", url: "https://www.rosiewolfe.com/catalogue/joel-dicker/un-animal-sauvage" }] },
     tools: { lead: "Anything — with a little help from Claudia", list: ["Python", "SQL", "Streamlit", "Git", "Power BI"] },
     pub: { title: "Publication", paper: "Missing data imputation and synthetic data simulation through modeling graphical probabilistic dependencies between variables (ModGraProDep): an application to breast cancer survival", journal: "Artificial Intelligence in Medicine · Elsevier · 2020", cited: "Cited by 13", url: "https://doi.org/10.1016/j.artmed.2020.101875" },
-    methods: ["Rapid prototyping", "LLM integration (Claude API, embeddings)", "Forecasting & anomaly detection", "Experiment design", "Dashboard & KPI design", "Production delivery (CI, Docker)", "Stakeholder management", "Agile (Scrum)"],
+    methods: ["Problem framing & scoping", "Rapid prototyping", "From prototype to production", "Stakeholder management", "Agile delivery (Scrum, product ownership)", "Decision-oriented analytics", "Experimentation & measurement", "Enablement & knowledge transfer"],
   },
   catalan: {
     nav: { work: "Projectes", path: "Trajectòria", about: "Sobre mi" },
@@ -37,7 +37,7 @@ const RD = {
     books: { title: "Llibres que recomano", list: [{ title: "The Culture Map", author: "Erin Meyer", url: "https://erinmeyer.com/books/the-culture-map/" }, { title: "La passadora", author: "Laia Perearnau", url: "https://www.onallibres.cat/la-passadora-9788466431460" }, { title: "Un animal sauvage", author: "Joël Dicker", url: "https://www.rosiewolfe.com/catalogue/joel-dicker/un-animal-sauvage" }] },
     tools: { lead: "Qualsevol cosa — amb una mica d'ajuda de la Claudia", list: ["Python", "SQL", "Streamlit", "Git", "Power BI"] },
     pub: { title: "Publicació", paper: "Missing data imputation and synthetic data simulation through modeling graphical probabilistic dependencies between variables (ModGraProDep): an application to breast cancer survival", journal: "Artificial Intelligence in Medicine · Elsevier · 2020", cited: "Citat 13 vegades", url: "https://doi.org/10.1016/j.artmed.2020.101875" },
-    methods: ["Prototipatge ràpid", "Integració de LLMs (API de Claude, embeddings)", "Previsió i detecció d'anomalies", "Disseny d'experiments", "Disseny de dashboards i KPIs", "Lliurament a producció (CI, Docker)", "Gestió d'stakeholders", "Agile (Scrum)"],
+    methods: ["Definició i acotació del problema", "Prototipatge ràpid", "Del prototip a producció", "Gestió d'stakeholders", "Lliurament àgil (Scrum, product ownership)", "Analítica orientada a la decisió", "Experimentació i mesura", "Capacitació i transferència de coneixement"],
   },
   spanish: {
     nav: { work: "Proyectos", path: "Trayectoria", about: "Sobre mí" },
@@ -56,7 +56,7 @@ const RD = {
     books: { title: "Libros que recomiendo", list: [{ title: "The Culture Map", author: "Erin Meyer", url: "https://erinmeyer.com/books/the-culture-map/" }, { title: "La passadora", author: "Laia Perearnau", url: "https://www.onallibres.cat/la-passadora-9788466431460" }, { title: "Un animal sauvage", author: "Joël Dicker", url: "https://www.rosiewolfe.com/catalogue/joel-dicker/un-animal-sauvage" }] },
     tools: { lead: "Cualquier cosa — con un poco de ayuda de Claudia", list: ["Python", "SQL", "Streamlit", "Git", "Power BI"] },
     pub: { title: "Publicación", paper: "Missing data imputation and synthetic data simulation through modeling graphical probabilistic dependencies between variables (ModGraProDep): an application to breast cancer survival", journal: "Artificial Intelligence in Medicine · Elsevier · 2020", cited: "Citado 13 veces", url: "https://doi.org/10.1016/j.artmed.2020.101875" },
-    methods: ["Prototipado rápido", "Integración de LLMs (API de Claude, embeddings)", "Previsión y detección de anomalías", "Diseño de experimentos", "Diseño de dashboards y KPIs", "Entrega a producción (CI, Docker)", "Gestión de stakeholders", "Agile (Scrum)"],
+    methods: ["Definición y acotación del problema", "Prototipado rápido", "Del prototipo a producción", "Gestión de stakeholders", "Entrega ágil (Scrum, product ownership)", "Analítica orientada a la decisión", "Experimentación y medición", "Capacitación y transferencia de conocimiento"],
   },
   french: {
     nav: { work: "Projets", path: "Parcours", about: "À propos" },
@@ -75,7 +75,7 @@ const RD = {
     books: { title: "Livres que je recommande", list: [{ title: "The Culture Map", author: "Erin Meyer", url: "https://erinmeyer.com/books/the-culture-map/" }, { title: "La passadora", author: "Laia Perearnau", url: "https://www.onallibres.cat/la-passadora-9788466431460" }, { title: "Un animal sauvage", author: "Joël Dicker", url: "https://www.rosiewolfe.com/catalogue/joel-dicker/un-animal-sauvage" }] },
     tools: { lead: "N'importe quoi — avec un petit coup de main de Claudia", list: ["Python", "SQL", "Streamlit", "Git", "Power BI"] },
     pub: { title: "Publication", paper: "Missing data imputation and synthetic data simulation through modeling graphical probabilistic dependencies between variables (ModGraProDep): an application to breast cancer survival", journal: "Artificial Intelligence in Medicine · Elsevier · 2020", cited: "Cité 13 fois", url: "https://doi.org/10.1016/j.artmed.2020.101875" },
-    methods: ["Prototypage rapide", "Intégration de LLM (API Claude, embeddings)", "Prévision et détection d'anomalies", "Design d'expériences", "Design de dashboards et de KPI", "Mise en production (CI, Docker)", "Gestion des parties prenantes", "Agile (Scrum)"],
+    methods: ["Cadrage et périmètre du problème", "Prototypage rapide", "Du prototype à la production", "Gestion des parties prenantes", "Livraison agile (Scrum, product ownership)", "Analytique orientée décision", "Expérimentation et mesure", "Montée en compétence et transfert de savoir"],
   },
   german: {
     nav: { work: "Projekte", path: "Werdegang", about: "Über mich" },
@@ -94,7 +94,7 @@ const RD = {
     books: { title: "Bücher, die ich empfehle", list: [{ title: "The Culture Map", author: "Erin Meyer", url: "https://erinmeyer.com/books/the-culture-map/" }, { title: "La passadora", author: "Laia Perearnau", url: "https://www.onallibres.cat/la-passadora-9788466431460" }, { title: "Un animal sauvage", author: "Joël Dicker", url: "https://www.rosiewolfe.com/catalogue/joel-dicker/un-animal-sauvage" }] },
     tools: { lead: "Alles — mit ein bisschen Hilfe von Claudia", list: ["Python", "SQL", "Streamlit", "Git", "Power BI"] },
     pub: { title: "Publikation", paper: "Missing data imputation and synthetic data simulation through modeling graphical probabilistic dependencies between variables (ModGraProDep): an application to breast cancer survival", journal: "Artificial Intelligence in Medicine · Elsevier · 2020", cited: "13-mal zitiert", url: "https://doi.org/10.1016/j.artmed.2020.101875" },
-    methods: ["Rapid Prototyping", "LLM-Integration (Claude API, Embeddings)", "Forecasting & Anomalieerkennung", "Experimentdesign", "Dashboard- & KPI-Design", "Production Delivery (CI, Docker)", "Stakeholder-Management", "Agile (Scrum)"],
+    methods: ["Problemdefinition & Scoping", "Rapid Prototyping", "Vom Prototyp in die Produktion", "Stakeholder-Management", "Agile Delivery (Scrum, Product Ownership)", "Entscheidungsorientierte Analytik", "Experimentieren & Messen", "Befähigung & Wissenstransfer"],
   },
   italian: {
     nav: { work: "Progetti", path: "Percorso", about: "Chi sono" },
@@ -113,7 +113,7 @@ const RD = {
     books: { title: "Libri che consiglio", list: [{ title: "The Culture Map", author: "Erin Meyer", url: "https://erinmeyer.com/books/the-culture-map/" }, { title: "La passadora", author: "Laia Perearnau", url: "https://www.onallibres.cat/la-passadora-9788466431460" }, { title: "Un animal sauvage", author: "Joël Dicker", url: "https://www.rosiewolfe.com/catalogue/joel-dicker/un-animal-sauvage" }] },
     tools: { lead: "Qualsiasi cosa — con un piccolo aiuto di Claudia", list: ["Python", "SQL", "Streamlit", "Git", "Power BI"] },
     pub: { title: "Pubblicazione", paper: "Missing data imputation and synthetic data simulation through modeling graphical probabilistic dependencies between variables (ModGraProDep): an application to breast cancer survival", journal: "Artificial Intelligence in Medicine · Elsevier · 2020", cited: "Citato 13 volte", url: "https://doi.org/10.1016/j.artmed.2020.101875" },
-    methods: ["Prototipazione rapida", "Integrazione di LLM (API Claude, embeddings)", "Previsione e rilevamento di anomalie", "Design di esperimenti", "Design di dashboard e KPI", "Rilascio in produzione (CI, Docker)", "Gestione degli stakeholder", "Agile (Scrum)"],
+    methods: ["Inquadramento e perimetro del problema", "Prototipazione rapida", "Dal prototipo alla produzione", "Gestione degli stakeholder", "Delivery agile (Scrum, product ownership)", "Analytics orientata alla decisione", "Sperimentazione e misurazione", "Abilitazione e trasferimento di conoscenza"],
   },
 };
 export default RD;
