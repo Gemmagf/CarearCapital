@@ -83,8 +83,9 @@ export default function HeroFigure({ src }) {
     }
     function buildDisperse(photo) {
       return photo.map((p, i) => {
-        const ang = hash2(i, 5) * 6.2831, d = 40 + hash2(i, 6) * 260;
-        return { x: p.x + Math.cos(ang) * d * 1.3, y: p.y + Math.sin(ang) * d - 60, c: hash2(i, 7) < 0.45 ? PINK : INK, r: 1.3, a: 0.7 };
+        // a loosening, not an explosion: the portrait dissolves into dots where it stands
+        const ang = hash2(i, 5) * 6.2831, d = 12 + hash2(i, 6) * 80;
+        return { x: p.x + Math.cos(ang) * d * 1.2, y: p.y + Math.sin(ang) * d - 18, c: hash2(i, 7) < 0.45 ? PINK : INK, r: 1.3, a: 0.7 };
       });
     }
     function buildScatter(b) {
@@ -110,9 +111,8 @@ export default function HeroFigure({ src }) {
       canvas.width = Math.floor(W * dpr); canvas.height = Math.floor(H * dpr); ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       if (!img.naturalWidth) return;
       const pr = photoRect();
-      // charts live in the free left column on desktop; in place (over the photo area) on mobile
-      const chart = isMobile ? { x: pr.x - pr.w * 0.15, y: pr.y + pr.h * 0.1, w: pr.w * 1.3, h: pr.h * 0.8 }
-        : { x: 0, y: Math.max(40, H * 0.36), w: Math.min(W * 0.34, 440), h: Math.min(H * 0.5, 360) };
+      // the cycle happens IN PLACE: the charts form where the portrait was, from its own dots
+      const chart = { x: pr.x - pr.w * 0.18, y: pr.y + pr.h * 0.12, w: pr.w * 1.36, h: pr.h * 0.8 };
       boxes = { pr, chart };
       const photo = buildPhoto(pr);
       SHAPES = { photo, disperse: buildDisperse(photo), scatter: buildScatter(chart), bars: buildBars(chart) };

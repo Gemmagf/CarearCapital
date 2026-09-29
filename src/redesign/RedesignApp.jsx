@@ -534,14 +534,18 @@ function CaseViz({ id, kind }) { const V = VIZ_BY_ID[id]; return V ? <V /> : <Vi
 
 // panoramic career map: faint dotted "map" + pink curve across, real work+study nodes
 function CareerMap({ exp, edu }) {
-  const work = [...exp].map((s) => ({ year: +((s.period.match(/\d{4}/) || [0])[0]), label: s.company.split(" ")[0], sub: s.location, type: "work" }));
+  // order by year AND month (periods are localised: "April 2022", "Novembre 2022", "Januar 2026"…);
+  // ties fall back to the CV order, which is most-recent-first.
+  const MONTHS = { jan: 1, gen: 1, ene: 1, feb: 2, fev: 2, mar: 3, abr: 4, apr: 4, avr: 4, mai: 5, may: 5, mag: 5, jun: 6, giu: 6, jul: 7, lug: 7, aug: 8, ago: 8, aou: 8, sep: 9, set: 9, oct: 10, okt: 10, ott: 10, nov: 11, dec: 12, des: 12, dic: 12, dez: 12 };
+  const monthOf = (period = "") => { const w = period.trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); if (w.startsWith("juin")) return 6; if (w.startsWith("juil")) return 7; return MONTHS[w.slice(0, 3)] || 0; };
+  const work = exp.map((s, idx) => { const year = +((s.period.match(/\d{4}/) || [0])[0]); return { year, t: year + monthOf(s.period) / 12 + (exp.length - idx) / 1000, label: s.company.split(" ")[0], sub: s.location, type: "work" }; });
   const study = (edu || []).map((e) => {
     const year = +((e.match(/\d{4}/) || [0])[0]);
     const degree = e.split("—")[0].trim().replace(/\s+in\s+/i, " ");
     const inst = (e.match(/\(([^)]+)\)/) || [, ""])[1];
-    return { year, label: degree, sub: inst, type: "study" };
+    return { year, t: year + 0.75, label: degree, sub: inst, type: "study" }; // studies start in autumn
   });
-  const all = [...work, ...study].filter((d) => d.year).sort((a, b) => a.year - b.year);
+  const all = [...work, ...study].filter((d) => d.year).sort((a, b) => a.t - b.t);
   const W = 1400, H = 320, pad = 70, n = all.length;
   // dot-matrix "map": a smooth field modulates opacity so the dots read as land masses, not a grid
   const grid = [];
