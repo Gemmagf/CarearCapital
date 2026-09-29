@@ -150,7 +150,7 @@ const PROJECT_TEXTS = {
     swissGov: {
       title: "Swiss Governance Dashboard — Cockpit de dades cantonals",
       description:
-        "Cockpit de governança que converteix 32 indicadors públics oficials (educació, mobilitat, energia, aigua, habitatge, residus, qualitat de l'aire) dels 26 cantons suïssos en suport a la decisió. Només dades certificades (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), amb forecasting probabilístic, simulació d'escenaris fins al 2040, rànquings cantonals i alertes d'anomalies. Cada xifra és traçable a la seva font.",
+        "Cockpit de governança que converteix 35 indicadors públics oficials (educació, mobilitat, energia, aigua, habitatge, residus, qualitat de l'aire) dels 26 cantons suïssos en suport a la decisió. Només dades certificades (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), amb forecasting probabilístic, simulació d'escenaris fins al 2040, rànquings cantonals i alertes d'anomalies. Cada xifra és traçable a la seva font.",
     },
     elMeuEspai: {
       title: "El meu espai — Registre de salut unificat",
@@ -232,7 +232,7 @@ const PROJECT_TEXTS = {
     swissGov: {
       title: "Swiss Governance Dashboard — Cockpit de datos cantonales",
       description:
-        "Cockpit de gobernanza que convierte 32 indicadores públicos oficiales (educación, movilidad, energía, agua, vivienda, residuos, calidad del aire) de los 26 cantones suizos en soporte a la decisión. Solo datos certificados (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), con forecasting probabilístico, simulación de escenarios hasta 2040, rankings cantonales y alertas de anomalías. Cada cifra es trazable a su fuente.",
+        "Cockpit de gobernanza que convierte 35 indicadores públicos oficiales (educación, movilidad, energía, agua, vivienda, residuos, calidad del aire) de los 26 cantones suizos en soporte a la decisión. Solo datos certificados (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), con forecasting probabilístico, simulación de escenarios hasta 2040, rankings cantonales y alertas de anomalías. Cada cifra es trazable a su fuente.",
     },
     elMeuEspai: {
       title: "El meu espai — Registro de salud unificado",
@@ -314,7 +314,7 @@ const PROJECT_TEXTS = {
     swissGov: {
       title: "Swiss Governance Dashboard — Cantonal Data Cockpit",
       description:
-        "Governance cockpit turning 32 official public indicators (education, mobility, energy, water, housing, waste, air quality) across all 26 Swiss cantons into decision support. Certified data only (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), with probabilistic forecasting, scenario simulation to 2040, cantonal rankings and anomaly alerts. Every figure is traceable to its source.",
+        "Governance cockpit turning 35 official public indicators (education, mobility, energy, water, housing, waste, air quality) across all 26 Swiss cantons into decision support. Certified data only (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), with probabilistic forecasting, scenario simulation to 2040, cantonal rankings and anomaly alerts. Every figure is traceable to its source.",
     },
     elMeuEspai: {
       title: "El meu espai — Unified Health Tracker",
@@ -396,7 +396,7 @@ const PROJECT_TEXTS = {
     swissGov: {
       title: "Swiss Governance Dashboard — Cockpit de données cantonales",
       description:
-        "Cockpit de gouvernance qui transforme 32 indicateurs publics officiels (éducation, mobilité, énergie, eau, logement, déchets, qualité de l'air) des 26 cantons suisses en aide à la décision. Uniquement des données certifiées (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), avec prévision probabiliste, simulation de scénarios jusqu'en 2040, classements cantonaux et alertes d'anomalies. Chaque chiffre est traçable à sa source.",
+        "Cockpit de gouvernance qui transforme 35 indicateurs publics officiels (éducation, mobilité, énergie, eau, logement, déchets, qualité de l'air) des 26 cantons suisses en aide à la décision. Uniquement des données certifiées (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), avec prévision probabiliste, simulation de scénarios jusqu'en 2040, classements cantonaux et alertes d'anomalies. Chaque chiffre est traçable à sa source.",
     },
     elMeuEspai: {
       title: "El meu espai — Suivi de santé unifié",
@@ -478,7 +478,7 @@ const PROJECT_TEXTS = {
     swissGov: {
       title: "Swiss Governance Dashboard — Kantonales Datencockpit",
       description:
-        "Governance-Cockpit, das 32 offizielle öffentliche Indikatoren (Bildung, Mobilität, Energie, Wasser, Wohnen, Abfall, Luftqualität) über alle 26 Schweizer Kantone in Entscheidungsunterstützung verwandelt. Ausschliesslich zertifizierte Daten (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), mit probabilistischem Forecasting, Szenariosimulation bis 2040, Kantonsrankings und Anomalie-Warnungen. Jede Zahl ist bis zur Quelle nachvollziehbar.",
+        "Governance-Cockpit, das 35 offizielle öffentliche Indikatoren (Bildung, Mobilität, Energie, Wasser, Wohnen, Abfall, Luftqualität) über alle 26 Schweizer Kantone in Entscheidungsunterstützung verwandelt. Ausschliesslich zertifizierte Daten (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), mit probabilistischem Forecasting, Szenariosimulation bis 2040, Kantonsrankings und Anomalie-Warnungen. Jede Zahl ist bis zur Quelle nachvollziehbar.",
     },
     elMeuEspai: {
       title: "El meu espai — Vereinheitlichtes Gesundheits-Tracking",
@@ -560,7 +560,7 @@ const PROJECT_TEXTS = {
     swissGov: {
       title: "Swiss Governance Dashboard — Cockpit di dati cantonali",
       description:
-        "Cockpit di governance che trasforma 32 indicatori pubblici ufficiali (istruzione, mobilità, energia, acqua, abitazioni, rifiuti, qualità dell'aria) dei 26 cantoni svizzeri in supporto decisionale. Solo dati certificati (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), con forecasting probabilistico, simulazione di scenari fino al 2040, ranking cantonali e alert di anomalie. Ogni cifra è tracciabile alla sua fonte.",
+        "Cockpit di governance che trasforma 35 indicatori pubblici ufficiali (istruzione, mobilità, energia, acqua, abitazioni, rifiuti, qualità dell'aria) dei 26 cantoni svizzeri in supporto decisionale. Solo dati certificati (BFS, BAFU, opendata.swiss, Swisstopo, 2015–2024), con forecasting probabilistico, simulazione di scenari fino al 2040, ranking cantonali e alert di anomalie. Ogni cifra è tracciabile alla sua fonte.",
     },
     elMeuEspai: {
       title: "El meu espai — Registro di salute unificato",
