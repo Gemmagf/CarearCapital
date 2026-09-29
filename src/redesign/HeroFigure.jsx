@@ -142,18 +142,18 @@ export default function HeroFigure({ src }) {
       if (alpha <= 0.01 || !box) return;
       const b = box; ctx.save(); ctx.globalAlpha = alpha; ctx.font = "9px 'Space Mono', monospace"; ctx.fillStyle = "#8a8781";
       if (name === "wave") {
-        ctx.fillText("SIGNAL SURFACE · PATTERN → ANOMALY → INSIGHT", b.x, b.y + 2);
+        
       } else if (name === "network") {
         ctx.lineWidth = 0.6;
         for (let e = 0; e < edges.length; e++) { const [a, c] = edges[e], pa = P[a], pc = P[c]; const hub = a < 6 && c < 6;
           ctx.strokeStyle = hub ? rgba(PINK, 0.55) : rgba(INK, 0.16); ctx.lineWidth = hub ? 1.1 : 0.6;
           ctx.beginPath(); ctx.moveTo(pa.x, pa.y); ctx.lineTo(pc.x, pc.y); ctx.stroke(); }
-        ctx.fillText("STAKEHOLDER GRAPH · 6 COMMUNITIES · HUBS IN PINK", b.x, b.y + 2);
+        
       } else if (name === "globe") {
         const cx = b.x + b.w / 2, cy = b.y + b.h / 2, R = Math.min(b.w, b.h) * 0.42;
         ctx.strokeStyle = rgba(PINK, 0.5); ctx.lineWidth = 1; ctx.beginPath(); ctx.ellipse(cx, cy, R * 1.08, R * 0.28, -0.35, 0, 6.2832); ctx.stroke();
         ctx.strokeStyle = "#cfcbc3"; ctx.lineWidth = 0.7; ctx.beginPath(); ctx.arc(cx, cy, R * 1.01, 0, 6.2832); ctx.stroke();
-        ctx.fillText("26 CANTONS · 30 MARKETS · 6 LANGUAGES", b.x, b.y + 2);
+        
       }
       ctx.restore();
     }

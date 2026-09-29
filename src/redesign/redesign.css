@@ -53,7 +53,7 @@
    overhang on the right so the flex centring centres the whole lockup, not just the name. */
 /* .hero-text = name + portrait as ONE centred lockup. --pr reserves room for the portrait's
    overhang on the right so the flex centring centres the whole lockup, not just the name. */
-.rd-hero .hero-text { --pr: clamp(130px, 28vw, 380px); position: relative; z-index: 2;
+.rd-hero .hero-text { --pr: clamp(150px, 31vw, 420px); position: relative; z-index: 2;
   display: inline-block; max-width: 100%; padding-right: var(--pr); }
 .rd-hero .hero-name { font-family: var(--display); font-weight: 400; line-height: 0.86; text-align: left;
   letter-spacing: -0.01em; font-size: clamp(48px, 11.5vw, 150px); text-transform: uppercase; margin: 0; }
@@ -79,7 +79,7 @@
    photo sits bottom-right at a moderate size and is faded in/out by the animation (JS sets opacity) */
 /* portrait in front, anchored to the name's baseline, starting at ~62 % of the name width so it
    overlaps only the tail of GARCIA / FUENTE; taller than the name so the head rises above GEMMA */
-.rd-hero .hero-figure { position: absolute; left: calc((100% - var(--pr)) * 0.84); bottom: 0; z-index: 3;
+.rd-hero .hero-figure { position: absolute; left: calc((100% - var(--pr)) * 0.94); bottom: 0; z-index: 3;
   pointer-events: none; width: clamp(280px, 40vw, 520px); height: 104%; }
 .rd-hero .hero-figure .hero-cut { position: absolute; left: 0; bottom: 0;
   height: 100%; width: auto; max-width: 100%; object-fit: contain; object-position: bottom left;
@@ -198,3 +198,10 @@
   .rd .reveal { transition: none; opacity: 1; transform: none; }
   .rd-cta .arrow, .rd-carditem .cgo { transition: none; }
 }
+
+/* publication block (section 05) */
+.rd-pub { margin-top: 36px; padding-top: 18px; border-top: 1px solid var(--line); max-width: 78ch; }
+.rd-pub h4 { font-family: var(--mono); font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--pink-dark); margin: 0 0 8px; }
+.rd-pub a { font-family: var(--sans); font-weight: 600; font-size: 15px; line-height: 1.4; color: var(--ink); text-decoration: none; border-bottom: 1.5px solid var(--pink); }
+.rd-pub a:hover { color: var(--pink-dark); }
+.rd-pub .meta { font-family: var(--mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-soft); margin-top: 8px; }

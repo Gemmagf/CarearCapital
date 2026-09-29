@@ -179,7 +179,7 @@ export default function RedesignApp() {
             <h2 className="rd-title reveal">{C.s4.title[0]}<br />{C.s4.title[1]}</h2>
             <p className="band-lead reveal">{C.s4.lead}</p>
           </div>
-          <div className="rd-viz reveal" style={{ gridColumn: "4 / 13", alignSelf: "center" }}><CareerMap exp={exp} edu={cv?.education} legend={C.s4.legend} /></div>
+          <div className="rd-viz reveal" style={{ gridColumn: "4 / 13", alignSelf: "center" }}><CareerMap exp={exp} edu={cv?.education} legend={C.s4.legend} events={C.s4.events || []} /></div>
         </div>
       </section>
 
@@ -205,6 +205,13 @@ export default function RedesignApp() {
             <div className="grp reveal"><h4>{cv?.languagesTitle || "Languages"}</h4><div className="chips">{(cv?.languages || []).map((m) => <span className="chip" key={m}>{m}</span>)}</div></div>
             <div className="grp reveal"><h4>{cv?.educationTitle || "Education"}</h4><div className="chips" style={{ flexDirection: "column", alignItems: "flex-start" }}>{(cv?.education || []).map((m) => <span className="chip" key={m} style={{ border: 0, padding: "2px 0", fontSize: 12.5, color: "var(--ink-soft)" }}>{m}</span>)}</div></div>
           </div>
+          {C.pub && (
+            <div className="rd-pub reveal">
+              <h4>{C.pub.title}</h4>
+              <a href={C.pub.url} target="_blank" rel="noreferrer">{C.pub.paper} ↗</a>
+              <div className="meta">{C.pub.journal} · {C.pub.cited}</div>
+            </div>
+          )}
         </div>
       </section>
 
@@ -531,47 +538,95 @@ function VizGeneric({ kind }) {
 const VIZ_BY_ID = { cvHunter: VizCvHunter, sensorlab: VizSensorlab, zuriKreislauf: VizZuri, retail: VizRetail, swissGov: VizSwissGov, labm: VizLabm, farma: VizFarma, rovello: VizRovello };
 function CaseViz({ id, kind }) { const V = VIZ_BY_ID[id]; return V ? <V /> : <VizGeneric kind={kind} />; }
 
-// panoramic career map: faint dotted "map" + pink curve across, real work+study nodes
-function CareerMap({ exp, edu, legend = { work: "WORK", studies: "STUDIES" } }) {
-  // order by year AND month (periods are localised: "April 2022", "Novembre 2022", "Januar 2026"…);
-  // ties fall back to the CV order, which is most-recent-first.
+// career graph on a real time axis: the life line runs through the middle; studies branch above and
+// rejoin when they end, work branches below (simultaneous things run in parallel), stays abroad are
+// small pink loops, the move to Zürich is a milestone. Nothing here is a straight line on purpose.
+function CareerMap({ exp, edu, legend = { work: "WORK", studies: "STUDIES" }, events = [] }) {
   const MONTHS = { jan: 1, gen: 1, ene: 1, feb: 2, fev: 2, mar: 3, abr: 4, apr: 4, avr: 4, mai: 5, may: 5, mag: 5, jun: 6, giu: 6, jul: 7, lug: 7, aug: 8, ago: 8, aou: 8, sep: 9, set: 9, oct: 10, okt: 10, ott: 10, nov: 11, dec: 12, des: 12, dic: 12, dez: 12 };
-  const monthOf = (period = "") => { const w = period.trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); if (w.startsWith("juin")) return 6; if (w.startsWith("juil")) return 7; return MONTHS[w.slice(0, 3)] || 0; };
-  const work = exp.map((s, idx) => { const year = +((s.period.match(/\d{4}/) || [0])[0]); return { year, t: year + monthOf(s.period) / 12 + (exp.length - idx) / 1000, label: s.company.split(" ")[0], sub: s.location, type: "work" }; });
-  const study = (edu || []).map((e) => {
-    const year = +((e.match(/\d{4}/) || [0])[0]);
-    const degree = e.split("—")[0].trim().replace(/\s+in\s+/i, " ");
-    const inst = (e.match(/\(([^)]+)\)/) || [, ""])[1];
-    return { year, t: year + 0.75, label: degree, sub: inst, type: "study" }; // studies start in autumn
-  });
-  const all = [...work, ...study].filter((d) => d.year).sort((a, b) => a.t - b.t);
-  const W = 1400, H = 320, pad = 70, n = all.length;
-  // dot-matrix "map": a smooth field modulates opacity so the dots read as land masses, not a grid
-  const grid = [];
-  for (let y = 24; y < H - 28; y += 12) for (let x = 16; x < W - 16; x += 12) {
-    const f = Math.sin(x / 140 + y / 60) * Math.cos(y / 45 - x / 220) + 0.35 * Math.sin(x / 37);
-    if (f > -0.15) grid.push([x, y, 0.18 + Math.min(1, (f + 0.15)) * 0.42]);
-  }
-  const lat = [0.28, 0.5, 0.72].map((t) => `M 0 ${H * t} Q ${W / 2} ${H * t - 26} ${W} ${H * t}`);
-  const nodes = all.map((s, i) => [pad + (i / Math.max(1, n - 1)) * (W - pad * 2), H / 2 - Math.sin(i * 0.8) * 46 - (i - n / 2) * 4, s]);
-  const d = nodes.map(([x, y], i) => { if (i === 0) return `M ${x} ${y}`; const [px, py] = nodes[i - 1], mx = (px + x) / 2; return `C ${mx} ${py}, ${mx} ${y}, ${x} ${y}`; }).join(" ");
-  const lastWork = [...nodes].reverse().find(([, , s]) => s.type === "work");
+  const monthOf = (p = "") => { const w = p.trim().toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); if (w.startsWith("juin")) return 6; if (w.startsWith("juil")) return 7; return MONTHS[w.slice(0, 3)] || 0; };
+  const NOW = 2026.75, yr = (s) => +((s.match(/\d{4}/) || [0])[0]);
+  const tOf = (s) => { const y = yr(s); return y ? y + (Math.max(1, monthOf(s)) - 1) / 12 : 0; };
+  const work = exp.map((e) => { const [a, b] = e.period.split(/\s*[–—]\s*/); const t0 = tOf(a || ""); const t1 = b && yr(b) ? tOf(b) + 1 / 12 : NOW; return { t0, t1, y0: yr(a || ""), y1: b && yr(b) ? yr(b) : null, type: "work", label: e.company.split(" ")[0], sub: e.location }; });
+  const study = (edu || []).map((e) => { const m = e.match(/(\d{4})\s*[–—-]\s*(\d{4})/); if (!m) return null;
+    return { t0: +m[1] + 0.7, t1: +m[2] + 0.5, y0: +m[1], y1: +m[2], type: "study", label: e.split("—")[0].trim().replace(/\s+in\s+/i, " "), sub: (e.match(/\(([^)]+)\)/) || [, ""])[1] }; }).filter(Boolean);
+  const extra = events.map((ev) => ({ ...ev, t1: ev.t1 || ev.t0, y0: Math.floor(ev.t0), y1: ev.t1 ? Math.floor(ev.t1 - 0.02) : null }));
+  const span = (it) => (it.y1 === null || it.y1 === undefined) ? `${it.y0} →` : it.y1 === it.y0 ? `${it.y0}` : `${it.y0}–${it.y1}`;
+  // layout
+  const W = 1400, H = 420, padL = 56, padR = 44, T0 = 2012.6, T1 = 2027.1, PPY = (W - padL - padR) / (T1 - T0);
+  const X = (t) => padL + ((t - T0) / (T1 - T0)) * (W - padL - padR);
+  // the life line itself meanders and climbs — it is not a straight line by design
+  const yb = (t) => 214 + Math.sin((t - 2013) * 0.9) * 22 + Math.sin((t - 2013) * 2.1) * 8 - (t - 2013) * 2.4;
+  // lanes by real time overlap; inside a lane, labels that would collide drop to a second row
+  const lanes = (items, offsets) => { const ends = [], rows = []; return items.sort((p, q) => p.t0 - q.t0).map((it) => {
+    let k = ends.findIndex((e) => e <= it.t0 + 0.1); if (k < 0) k = ends.length; ends[k] = it.occ || it.t1; k = Math.min(k, offsets.length - 1);
+    const lw = (14 + Math.max((it.label || "").length * 6.8, ((it.sub || "") + "2020–2021 · ").length * 5.3)) / PPY;
+    rows[k] = rows[k] || []; let r = rows[k].findIndex((e) => e <= it.t0); if (r < 0) r = rows[k].length; rows[k][r] = it.t0 + lw;
+    return { ...it, dy: offsets[k], row: Math.min(r, 2) }; }); };
+  const above = lanes([...study, ...extra.filter((e) => e.type === "study")], [-56, -98, -140]);
+  const isStint = (e) => e.type === "work" && (e.t1 - e.t0) < 0.5;
+  // stints block their lane for as long as their label runs, so the long roles move to the next lane
+  const belowAll = lanes([...work, ...extra.filter((e) => e.type === "work")].map((e) => isStint(e) ? { ...e, occ: e.t1 + (14 + Math.max(e.label.length * 6.6, (e.sub || "").length * 5.3)) / PPY } : e), [62, 118]);
+  const below = belowAll.filter((e) => !isStint(e));
+  const stints = belowAll.filter(isStint).map((e, i) => ({ ...e, dy: 30, row: i % 2 }));
+  const trips = extra.filter((e) => e.type === "trip").map((e) => ({ ...e, dy: 38 }));
+  const life = extra.filter((e) => e.type === "life");
+  const pubs = extra.filter((e) => e.type === "pub");
+  const branch = (it) => { const x0 = X(it.t0), x1 = Math.max(X(it.t1), x0 + 26), e = Math.min(24, (x1 - x0) / 2.3), y0 = yb(it.t0), yB = (t) => yb(t) + it.dy;
+    let d = `M ${x0.toFixed(1)} ${y0.toFixed(1)} C ${(x0 + e * 0.55).toFixed(1)} ${y0.toFixed(1)}, ${(x0 + e * 0.45).toFixed(1)} ${yB(it.t0).toFixed(1)}, ${(x0 + e).toFixed(1)} ${yB(it.t0).toFixed(1)}`;
+    for (let x = x0 + e + 18; x < x1 - e; x += 18) { const t = T0 + ((x - padL) / (W - padL - padR)) * (T1 - T0); d += ` L ${x.toFixed(1)} ${yB(t).toFixed(1)}`; }
+    const y1 = yb(it.t1); d += ` L ${(x1 - e).toFixed(1)} ${yB(it.t1).toFixed(1)} C ${(x1 - e * 0.45).toFixed(1)} ${yB(it.t1).toFixed(1)}, ${(x1 - e * 0.55).toFixed(1)} ${y1.toFixed(1)}, ${x1.toFixed(1)} ${y1.toFixed(1)}`;
+    return { d, xs: x0 + e, xe: x1 - e, xm: (x0 + x1) / 2, yl: yB((it.t0 + it.t1) / 2) }; };
+  const base = (() => { let d = ""; for (let t = T0 + 0.3; t <= T1 - 0.3; t += 0.12) d += (d ? " L " : "M ") + X(t).toFixed(1) + " " + yb(t).toFixed(1); return d; })();
+  const grid = []; for (let y = 22; y < H - 40; y += 14) for (let x = 16; x < W - 16; x += 14) { const f = Math.sin(x / 140 + y / 60) * Math.cos(y / 45 - x / 220) + 0.35 * Math.sin(x / 37); if (f > 0.05) grid.push([x, y, 0.12 + Math.min(1, f) * 0.3]); }
+  const years = []; for (let y = 2013; y <= 2026; y++) years.push(y);
+  const mono = { fontFamily: "Space Mono, monospace" };
   return (
     <svg viewBox={`0 0 ${W} ${H}`}>
       {grid.map(([x, y, o], i) => <circle key={i} cx={x} cy={y} r="0.9" fill="#6a6a72" opacity={o.toFixed(2)} />)}
-      {lat.map((p, i) => <path key={"l" + i} d={p} fill="none" stroke="#2c2c31" strokeWidth="0.8" />)}
-      <path data-draw d={d} fill="none" stroke="#FF3B7D" strokeWidth="2.2" />
-      {nodes.map(([x, y, s], i) => (
-        <g key={i} data-pop>
-          {s.type === "work"
-            ? <><circle cx={x} cy={y} r="10" fill="none" stroke="#FF3B7D" strokeWidth="0.8" opacity="0.35" /><circle cx={x} cy={y} r="5.5" fill="#FF3B7D" /><text x={x} y={y + 24} textAnchor="middle" fontFamily="Inter, sans-serif" fontSize="12" fontWeight="600" fill="#f2f0eb">{s.label}</text><text x={x} y={y + 39} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="9" fill="#8a8781">{s.year} · {s.sub}</text></>
-            : <><circle cx={x} cy={y} r="4.5" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.4" /><text x={x} y={y - 18} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="9.5" fill="#c9c6c0">{s.label}</text><text x={x} y={y - 7} textAnchor="middle" fontFamily="Space Mono, monospace" fontSize="8.5" fill="#8a8781">{s.year}</text></>}
-        </g>
-      ))}
-      {lastWork && <g><circle cx={lastWork[0]} cy={lastWork[1]} r="16" fill="none" stroke="#FF3B7D" strokeWidth="0.8" opacity="0.5" strokeDasharray="2 3" /><text x={lastWork[0] + 20} y={lastWork[1] - 14} fontFamily="Space Mono, monospace" fontSize="9" fill="#FF3B7D" letterSpacing="1">NOW</text></g>}
-      <g fontFamily="Space Mono, monospace" fontSize="9" fill="#8a8781">
-        <circle cx={pad} cy={H - 12} r="4" fill="#FF3B7D" /><text x={pad + 10} y={H - 8}>{legend.work}</text>
-        <circle cx={pad + 96} cy={H - 12} r="4" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.4" /><text x={pad + 106} y={H - 8}>{legend.studies}</text>
+      {/* year axis */}
+      <line x1={padL} y1={H - 26} x2={W - padR} y2={H - 26} stroke="#2c2c31" strokeWidth="0.8" />
+      {years.map((y) => <g key={y}><line x1={X(y)} y1={H - 30} x2={X(y)} y2={H - 22} stroke="#4a4a52" strokeWidth="0.8" /><text x={X(y)} y={H - 10} textAnchor="middle" {...mono} fontSize="8.5" fill="#8a8781">{y}</text></g>)}
+      {/* life line */}
+      <path data-draw d={base} fill="none" stroke="#FF3B7D" strokeWidth="2" opacity="0.9" />
+      {/* studies above */}
+      {above.map((it, i) => { const b = branch(it); return (<g key={"s" + i}>
+        <path data-draw d={b.d} fill="none" stroke="#FF3B7D" strokeWidth="1.3" opacity="0.75" strokeDasharray="4 3" />
+        <g data-pop><circle cx={b.xs.toFixed(1)} cy={(yb(it.t0) + it.dy).toFixed(1)} r="4.5" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.4" />
+          <text x={(b.xs + 9).toFixed(1)} y={(yb(it.t0) + it.dy - 7 - it.row * 24).toFixed(1)} {...mono} fontSize="9.5" fill="#e6e3dc">{it.label}</text>
+          <text x={(b.xs + 9).toFixed(1)} y={(yb(it.t0) + it.dy + 12 - it.row * 24).toFixed(1)} {...mono} fontSize="8.5" fill="#8a8781">{span(it)} · {it.sub}</text></g></g>); })}
+      {/* work below */}
+      {below.map((it, i) => { const b = branch(it); return (<g key={"w" + i}>
+        <path data-draw d={b.d} fill="none" stroke="#FF3B7D" strokeWidth="2" />
+        <g data-pop><circle cx={b.xs.toFixed(1)} cy={(yb(it.t0) + it.dy).toFixed(1)} r="5.5" fill="#FF3B7D" />
+          <text x={(b.xs + 10).toFixed(1)} y={(yb(it.t0) + it.dy + 4 + it.row * 24).toFixed(1)} fontFamily="Inter, sans-serif" fontSize="11.5" fontWeight="600" fill="#f2f0eb">{it.label}</text>
+          <text x={(b.xs + 10).toFixed(1)} y={(yb(it.t0) + it.dy + 18 + it.row * 24).toFixed(1)} {...mono} fontSize="8.5" fill="#8a8781">{it.t1 >= NOW - 0.01 ? `${it.y0} →` : span(it)} · {it.sub}</text></g></g>); })}
+      {/* stays abroad: small loops under the line */}
+      {trips.map((it, i) => { const b = branch(it); return (<g key={"t" + i}>
+        <path data-draw d={b.d} fill="none" stroke="#FF3B7D" strokeWidth="1.2" opacity="0.8" />
+        <g data-pop><circle cx={b.xm.toFixed(1)} cy={b.yl.toFixed(1)} r="2.6" fill="#FF3B7D" />
+          <text x={b.xm.toFixed(1)} y={(b.yl + 14 + (i % 2) * 15).toFixed(1)} textAnchor="middle" {...mono} fontSize="8.5" fill="#f0a3bd">{it.label}</text></g></g>); })}
+      {/* short roles: shallow loops with compact labels */}
+      {stints.map((it, i) => { const b = branch(it); const y = b.yl + 13 + it.row * 26; return (<g key={"k" + i}>
+        <path data-draw d={b.d} fill="none" stroke="#FF3B7D" strokeWidth="1.4" />
+        <g data-pop><circle cx={b.xs.toFixed(1)} cy={(yb(it.t0) + it.dy).toFixed(1)} r="3.5" fill="#FF3B7D" />
+          <text x={b.xs.toFixed(1)} y={y.toFixed(1)} {...mono} fontSize="9" fill="#e6e3dc">{it.label}</text>
+          <text x={b.xs.toFixed(1)} y={(y + 11).toFixed(1)} {...mono} fontSize="8" fill="#8a8781">{span(it)} · {it.sub}</text></g></g>); })}
+      {/* milestone: the move */}
+      {life.map((it, i) => (<g key={"l" + i} data-pop>
+        <circle cx={X(it.t0).toFixed(1)} cy={yb(it.t0).toFixed(1)} r="9" fill="none" stroke="#FF3B7D" strokeWidth="1" strokeDasharray="2 2" />
+        <circle cx={X(it.t0).toFixed(1)} cy={yb(it.t0).toFixed(1)} r="3.5" fill="#FF3B7D" />
+        <line x1={X(it.t0).toFixed(1)} y1={(yb(it.t0) - 10).toFixed(1)} x2={X(it.t0).toFixed(1)} y2={(yb(it.t0) - 108).toFixed(1)} stroke="#FF3B7D" strokeWidth="0.7" strokeDasharray="2 3" opacity="0.7" />
+        <text x={(X(it.t0) + 6).toFixed(1)} y={(yb(it.t0) - 112).toFixed(1)} {...mono} fontSize="9" fill="#FF3B7D" letterSpacing="0.8">{it.label} · {it.y0}</text></g>))}
+      {/* publications: a diamond on the life line, label to the left */}
+      {pubs.map((it, i) => (<a key={"p" + i} href={it.url} target="_blank" rel="noreferrer" style={{ cursor: "pointer" }}><g data-pop>
+        <rect x={(X(it.t0) - 5).toFixed(1)} y={(yb(it.t0) - 5).toFixed(1)} width="10" height="10" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.4" transform={`rotate(45 ${X(it.t0).toFixed(1)} ${yb(it.t0).toFixed(1)})`} />
+        <line x1={X(it.t0).toFixed(1)} y1={(yb(it.t0) + 8).toFixed(1)} x2={(X(it.t0) - 10).toFixed(1)} y2={(yb(it.t0) + 22).toFixed(1)} stroke="#FF3B7D" strokeWidth="0.7" opacity="0.7" />
+        <text x={(X(it.t0) - 14).toFixed(1)} y={(yb(it.t0) + 26).toFixed(1)} textAnchor="end" {...mono} fontSize="8.5" fill="#c9c6c0" textDecoration="underline">{it.label} · {it.y0} ↗</text></g></a>))}
+      {/* now */}
+      <g><circle cx={X(NOW).toFixed(1)} cy={(yb(NOW) + 64).toFixed(1)} r="14" fill="none" stroke="#FF3B7D" strokeWidth="0.8" opacity="0.5" strokeDasharray="2 3" /><text x={(X(NOW) - 4).toFixed(1)} y={(yb(NOW) + 92).toFixed(1)} textAnchor="end" {...mono} fontSize="9" fill="#FF3B7D" letterSpacing="1">NOW</text></g>
+      <g {...mono} fontSize="9" fill="#8a8781">
+        <circle cx={padL} cy="14" r="4" fill="#FF3B7D" /><text x={padL + 10} y="18">{legend.work}</text>
+        <circle cx={padL + 96} cy="14" r="4" fill="#0d0d0f" stroke="#FF3B7D" strokeWidth="1.4" /><text x={padL + 106} y="18">{legend.studies}</text>
       </g>
     </svg>
   );
