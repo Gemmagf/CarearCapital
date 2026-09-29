@@ -49,7 +49,10 @@
   justify-content: flex-end; text-align: center; min-height: clamp(560px, 80vh, 780px); }
 /* .hero-text = name + portrait as ONE centred lockup. --pr reserves room for the portrait's
    overhang on the right so the flex centring centres the whole lockup, not just the name. */
-.rd-hero .hero-text { position: relative; z-index: 2; display: inline-block; max-width: 100%; }
+/* .hero-text = name + portrait as ONE centred lockup. --pr reserves room for the portrait's
+   overhang on the right so the flex centring centres the whole lockup, not just the name. */
+.rd-hero .hero-text { --pr: clamp(90px, 21vw, 290px); position: relative; z-index: 2;
+  display: inline-block; max-width: 100%; padding-right: var(--pr); }
 .rd-hero .hero-name { font-family: var(--display); font-weight: 400; line-height: 0.86;
   letter-spacing: -0.01em; font-size: clamp(48px, 11.5vw, 150px); text-transform: uppercase; margin: 0; }
 .rd-hero .hero-side { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;
@@ -72,11 +75,15 @@
 /* discreet portrait: a small halftone medallion in the lower-right corner, clear of the name and rows */
 /* "data spectacle": the wrap spans the whole hero-inner so particles can travel; the sharp
    photo sits bottom-right at a moderate size and is faded in/out by the animation (JS sets opacity) */
-.rd-hero .hero-figure { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
-.rd-hero .hero-figure .hero-cut { position: absolute; right: 0; bottom: 0;
-  height: clamp(300px, 52vh, 520px); width: auto; max-width: 34%; object-fit: contain; object-position: bottom right;
+/* portrait in front, anchored to the name's baseline, starting at ~62 % of the name width so it
+   overlaps only the tail of GARCIA / FUENTE; taller than the name so the head rises above GEMMA */
+.rd-hero .hero-figure { position: absolute; left: calc((100% - var(--pr)) * 0.62); bottom: 0; z-index: 3;
+  pointer-events: none; width: clamp(280px, 40vw, 520px); height: 112%; }
+.rd-hero .hero-figure .hero-cut { position: absolute; left: 0; bottom: 0;
+  height: 100%; width: auto; max-width: 100%; object-fit: contain; object-position: bottom left;
   filter: grayscale(1) contrast(1.05); opacity: 1; pointer-events: none; }
-.rd-hero .hero-figure .hero-anim { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 1; }
+/* the particle canvas bleeds well beyond the portrait box so the shapes have room to form */
+.rd-hero .hero-figure .hero-anim { position: absolute; inset: -22% -40% -4% -60%; width: 200%; height: 126%; z-index: 1; }
 
 /* generic band -------------------------------------------- */
 .rd-band { padding: clamp(30px, 4vh, 52px) 0; position: relative; border-top: 1px solid var(--line); }
@@ -171,8 +178,9 @@
   .rd-hero .hero-name { font-size: clamp(58px, 15vw, 150px); }
   .rd-hero .hero-side { align-items: flex-start; margin-top: 18px; }
   .rd-hero .hero-labels, .rd-hero .hero-meta { justify-content: flex-start; }
-  .rd-hero .hero-figure { opacity: 0.5; }
-  .rd-hero .hero-figure .hero-cut { height: 62%; max-width: 70%; right: -4%; }
+  .rd-hero .hero-figure { position: absolute; inset: 0; left: 0; width: 100%; height: 100%; opacity: 0.5; z-index: 1; }
+  .rd-hero .hero-figure .hero-cut { left: auto; right: -4%; height: 62%; max-width: 70%; object-position: bottom right; }
+  .rd-hero .hero-figure .hero-anim { inset: 0; width: 100%; height: 100%; }
   .rd-cards { grid-template-columns: 1fr; }
   .rd-exp .exp-head { grid-template-columns: 64px 1fr auto; gap: 12px; }
   .rd-exp .exp-body ul { padding-left: 0; }
