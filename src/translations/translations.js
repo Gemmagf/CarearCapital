@@ -1772,6 +1772,12 @@ export const PROJECT_BRIEFS = {
       result: "One tool where a forecast becomes a concrete allocation across stores and channels, with the scenario's impact visible before committing.",
       next: "Plug in real POS and inventory feeds, add a service-level target per store, and backtest the recommender against last season.",
     },
+    rovello: {
+      question: "Can a phone photo tell a beginner which mushroom they are looking at — and whether it is safe — for the species that actually grow in Catalonia and Switzerland?",
+      did: "Fine-tuned ConvNeXt-Tiny on 44k research-grade iNaturalist images across 1,035 species, trained locally on an Apple M4 (~52 h; MixUp, RandAugment, label smoothing, balanced sampling), and shipped it as a web app with a species dictionary, edible-vs-toxic checks and a seasonal map.",
+      result: "73.4% top-1 / 89.8% top-5 on an independent test set — competitive for fine-grained classification at this scale — with the model running in the browser.",
+      next: "Calibrate confidence and refuse to answer below a threshold, collect field feedback per region, and add a strict \"never eat on a prediction\" flow before any public release.",
+    },
   },
   catalan: {
     labels: { question: "La pregunta", did: "Què vaig fer", result: "Resultat", next: "Següent pas, en producció" },
@@ -1798,6 +1804,12 @@ export const PROJECT_BRIEFS = {
       did: "Vaig modelar el flux diari de l'equip de cap a cap: dashboard d'estat d'estoc, previsió per SKU, recomanador d'assignació i simulador what-if — Next.js + TypeScript, set idiomes, dades sintètiques realistes.",
       result: "Una sola eina on la previsió es converteix en una assignació concreta per botigues i canals, amb l'impacte de l'escenari visible abans de decidir.",
       next: "Connectar-hi feeds reals de POS i inventari, afegir un objectiu de nivell de servei per botiga i fer backtest del recomanador contra la temporada passada.",
+    },
+    rovello: {
+      question: "Pot una foto de mòbil dir-li a un principiant quin bolet té davant — i si és segur — per a les espècies que realment creixen a Catalunya i Suïssa?",
+      did: "Vaig fer fine-tuning de ConvNeXt-Tiny amb 44k imatges research-grade d'iNaturalist de 1.035 espècies, entrenat en local en un Apple M4 (~52 h; MixUp, RandAugment, label smoothing, mostreig equilibrat), i ho vaig publicar com a web app amb diccionari d'espècies, comprovació comestible/tòxic i mapa estacional.",
+      result: "73,4 % top-1 / 89,8 % top-5 en un test independent — competitiu per a classificació fina a aquesta escala — amb el model corrent al navegador.",
+      next: "Calibrar la confiança i no respondre per sota d'un llindar, recollir feedback de camp per regió i afegir un flux estricte de «mai menjar per una predicció» abans de cap llançament públic.",
     },
   },
   spanish: {
@@ -1826,6 +1838,12 @@ export const PROJECT_BRIEFS = {
       result: "Una sola herramienta donde la previsión se convierte en una asignación concreta por tiendas y canales, con el impacto del escenario visible antes de decidir.",
       next: "Conectar feeds reales de POS e inventario, añadir un objetivo de nivel de servicio por tienda y hacer backtest del recomendador contra la temporada pasada.",
     },
+    rovello: {
+      question: "¿Puede una foto de móvil decirle a un principiante qué seta tiene delante — y si es segura — para las especies que realmente crecen en Cataluña y Suiza?",
+      did: "Hice fine-tuning de ConvNeXt-Tiny con 44k imágenes research-grade de iNaturalist de 1.035 especies, entrenado en local en un Apple M4 (~52 h; MixUp, RandAugment, label smoothing, muestreo equilibrado), y lo publiqué como web app con diccionario de especies, comprobación comestible/tóxica y mapa estacional.",
+      result: "73,4 % top-1 / 89,8 % top-5 en un test independiente — competitivo para clasificación fina a esta escala — con el modelo corriendo en el navegador.",
+      next: "Calibrar la confianza y no responder por debajo de un umbral, recoger feedback de campo por región y añadir un flujo estricto de «nunca comer por una predicción» antes de cualquier lanzamiento público.",
+    },
   },
   french: {
     labels: { question: "La question", did: "Ce que j'ai fait", result: "Résultat", next: "Étape suivante, en production" },
@@ -1852,6 +1870,12 @@ export const PROJECT_BRIEFS = {
       did: "J'ai modélisé le flux quotidien de l'équipe de bout en bout : dashboard de santé des stocks, prévision par SKU, recommandeur d'allocation et simulateur what-if — Next.js + TypeScript, sept langues, données synthétiques réalistes.",
       result: "Un seul outil où la prévision devient une allocation concrète par magasins et canaux, avec l'impact du scénario visible avant de décider.",
       next: "Brancher de vrais flux POS et inventaire, ajouter un objectif de niveau de service par magasin et backtester le recommandeur sur la saison passée.",
+    },
+    rovello: {
+      question: "Une photo de téléphone peut-elle dire à un débutant quel champignon il regarde — et s'il est sûr — pour les espèces qui poussent vraiment en Catalogne et en Suisse ?",
+      did: "Fine-tuning de ConvNeXt-Tiny sur 44k images research-grade d'iNaturalist couvrant 1 035 espèces, entraîné en local sur un Apple M4 (~52 h ; MixUp, RandAugment, label smoothing, échantillonnage équilibré), livré en web app avec dictionnaire des espèces, vérification comestible/toxique et carte saisonnière.",
+      result: "73,4 % top-1 / 89,8 % top-5 sur un jeu de test indépendant — compétitif pour de la classification fine à cette échelle — avec le modèle qui tourne dans le navigateur.",
+      next: "Calibrer la confiance et refuser de répondre sous un seuil, collecter du feedback terrain par région et ajouter un parcours strict « ne jamais manger sur une prédiction » avant toute sortie publique.",
     },
   },
   german: {
@@ -1880,6 +1904,12 @@ export const PROJECT_BRIEFS = {
       result: "Ein Tool, in dem eine Prognose zu einer konkreten Zuteilung über Filialen und Kanäle wird — mit sichtbarem Szenario-Effekt, bevor man sich festlegt.",
       next: "Echte POS- und Bestandsfeeds anbinden, ein Service-Level-Ziel pro Filiale ergänzen und den Recommender gegen die letzte Saison backtesten.",
     },
+    rovello: {
+      question: "Kann ein Handyfoto Anfänger:innen sagen, welchen Pilz sie vor sich haben — und ob er sicher ist — für die Arten, die in Katalonien und der Schweiz tatsächlich wachsen?",
+      did: "ConvNeXt-Tiny auf 44k research-grade iNaturalist-Bildern über 1.035 Arten feinjustiert, lokal auf einem Apple M4 trainiert (~52 h; MixUp, RandAugment, Label Smoothing, balanciertes Sampling) und als Web-App mit Artenlexikon, Essbar/Giftig-Prüfung und Saisonkarte ausgeliefert.",
+      result: "73,4 % Top-1 / 89,8 % Top-5 auf einem unabhängigen Testset — konkurrenzfähig für feingranulare Klassifikation in dieser Grössenordnung — mit dem Modell direkt im Browser.",
+      next: "Konfidenz kalibrieren und unter einer Schwelle keine Antwort geben, Feld-Feedback pro Region sammeln und vor jeder Veröffentlichung einen strikten „nie auf Basis einer Vorhersage essen\"-Flow einbauen.",
+    },
   },
   italian: {
     labels: { question: "La domanda", did: "Cosa ho fatto", result: "Risultato", next: "Prossimo passo, in produzione" },
@@ -1906,6 +1936,12 @@ export const PROJECT_BRIEFS = {
       did: "Ho modellato il flusso quotidiano del team da cima a fondo: dashboard sullo stato delle scorte, previsione per SKU, recommender di allocazione e simulatore what-if — Next.js + TypeScript, sette lingue, dati sintetici realistici.",
       result: "Un unico strumento in cui la previsione diventa un'allocazione concreta per negozi e canali, con l'impatto dello scenario visibile prima di decidere.",
       next: "Collegare feed reali di POS e inventario, aggiungere un obiettivo di livello di servizio per negozio e fare backtest del recommender sulla stagione scorsa.",
+    },
+    rovello: {
+      question: "Una foto dal telefono può dire a un principiante quale fungo ha davanti — e se è sicuro — per le specie che crescono davvero in Catalogna e in Svizzera?",
+      did: "Fine-tuning di ConvNeXt-Tiny su 44k immagini research-grade di iNaturalist per 1.035 specie, addestrato in locale su un Apple M4 (~52 h; MixUp, RandAugment, label smoothing, campionamento bilanciato) e rilasciato come web app con dizionario delle specie, verifica commestibile/tossico e mappa stagionale.",
+      result: "73,4 % top-1 / 89,8 % top-5 su un test set indipendente — competitivo per la classificazione fine a questa scala — con il modello che gira nel browser.",
+      next: "Calibrare la confidenza e non rispondere sotto una soglia, raccogliere feedback sul campo per regione e aggiungere un flusso rigoroso «mai mangiare sulla base di una previsione» prima di qualsiasi rilascio pubblico.",
     },
   },
 };

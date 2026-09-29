@@ -35,8 +35,8 @@
   font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
 
 /* hero ----------------------------------------------------- */
-.rd-hero { position: relative; min-height: 88vh; display: flex; align-items: center;
-  padding-top: clamp(56px, 8vh, 92px); padding-bottom: clamp(56px, 8vh, 88px); }
+.rd-hero { position: relative; min-height: 80vh; display: flex; align-items: center;
+  padding-top: clamp(64px, 8vh, 88px); padding-bottom: clamp(40px, 6vh, 64px); }
 .rd-hero > canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
 /* note: keeps the .wrap width (min(94vw,1500px)) so the name sits inside the
    same left margin as every section below — do NOT set width:100% here.
@@ -45,13 +45,15 @@
 /* masthead lockup: the name is the masthead, the halftone portrait stands IN FRONT of it,
    overlapping the tail of the surname lines — no gap between figure and name. */
 /* centred poster: the halftone portrait sits behind a centred name; labels + meta in rows below */
+/* no vh-based min-height: the lockup is as tall as its content, so tall screens don't pile
+   empty space above the name; the section's align-items:center splits what is left */
 .rd-hero .hero-inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;
-  justify-content: flex-end; text-align: center; min-height: clamp(560px, 80vh, 780px); }
+  justify-content: flex-end; text-align: center; min-height: 0; }
 /* .hero-text = name + portrait as ONE centred lockup. --pr reserves room for the portrait's
    overhang on the right so the flex centring centres the whole lockup, not just the name. */
 /* .hero-text = name + portrait as ONE centred lockup. --pr reserves room for the portrait's
    overhang on the right so the flex centring centres the whole lockup, not just the name. */
-.rd-hero .hero-text { --pr: clamp(120px, 26vw, 360px); position: relative; z-index: 2;
+.rd-hero .hero-text { --pr: clamp(130px, 28vw, 380px); position: relative; z-index: 2;
   display: inline-block; max-width: 100%; padding-right: var(--pr); }
 .rd-hero .hero-name { font-family: var(--display); font-weight: 400; line-height: 0.86; text-align: left;
   letter-spacing: -0.01em; font-size: clamp(48px, 11.5vw, 150px); text-transform: uppercase; margin: 0; }
@@ -77,8 +79,8 @@
    photo sits bottom-right at a moderate size and is faded in/out by the animation (JS sets opacity) */
 /* portrait in front, anchored to the name's baseline, starting at ~62 % of the name width so it
    overlaps only the tail of GARCIA / FUENTE; taller than the name so the head rises above GEMMA */
-.rd-hero .hero-figure { position: absolute; left: calc((100% - var(--pr)) * 0.78); bottom: 0; z-index: 3;
-  pointer-events: none; width: clamp(280px, 40vw, 520px); height: 112%; }
+.rd-hero .hero-figure { position: absolute; left: calc((100% - var(--pr)) * 0.84); bottom: 0; z-index: 3;
+  pointer-events: none; width: clamp(280px, 40vw, 520px); height: 104%; }
 .rd-hero .hero-figure .hero-cut { position: absolute; left: 0; bottom: 0;
   height: 100%; width: auto; max-width: 100%; object-fit: contain; object-position: bottom left;
   filter: grayscale(1) contrast(1.05); opacity: 1; pointer-events: none; }
@@ -115,11 +117,12 @@
 .rd-list li .pl { color: var(--pink); }
 
 /* projects: 4 cards in one row ---------------------------- */
-.rd-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+.rd-cards { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; }
+@media (max-width: 1240px) { .rd-cards { grid-template-columns: repeat(3, 1fr); } }
 .rd-carditem { text-align: left; background: none; border: 0; padding: 0; cursor: pointer;
   display: flex; flex-direction: column; color: var(--ink); border-top: 2px solid var(--ink); padding-top: 10px; }
 .rd-carditem .cat { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink-dark); }
-.rd-carditem .ct { font-family: var(--sans); font-weight: 700; font-size: 16px; line-height: 1.12; margin: 6px 0 10px; min-height: 2.4em; }
+.rd-carditem .ct { font-family: var(--sans); font-weight: 700; font-size: 15px; line-height: 1.12; margin: 6px 0 10px; min-height: 2.4em; }
 .rd-carditem .cviz { aspect-ratio: 12/11; width: 100%; }
 .rd-carditem .cviz svg { width: 100%; height: 100%; overflow: visible; }
 .rd-carditem .cviz .ann { font-family: var(--mono); font-size: 8px; letter-spacing: 0.08em; fill: var(--ink-soft); text-transform: uppercase; }

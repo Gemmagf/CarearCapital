@@ -12,7 +12,7 @@ const LANGS = [
   ["french", "FR"], ["german", "DE"], ["italian", "IT"],
 ];
 // Forward-deployed positioning: AI in production, tech tied to CHF decisions, end-to-end business tools.
-const SELECTED = ["cvHunter", "sensorlab", "swissGov", "retail"];
+const SELECTED = ["cvHunter", "sensorlab", "swissGov", "retail", "rovello"];
 const VIZ_KIND = { cvHunter: 3, sensorlab: 0, zuriKreislauf: 2, retail: 1 }; // CaseViz motif per project
 const CASE_IMAGES = {}; // real screenshots → public/images/projects/proj_<id>.jpg
 const HERO_PHOTO = `${process.env.PUBLIC_URL}/images/gemma_hero_cut.png`;
