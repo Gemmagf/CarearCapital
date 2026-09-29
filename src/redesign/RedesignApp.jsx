@@ -12,9 +12,20 @@ const LANGS = [
   ["french", "FR"], ["german", "DE"], ["italian", "IT"],
 ];
 // Forward-deployed positioning: AI in production, tech tied to CHF decisions, end-to-end business tools.
-const SELECTED = ["cvHunter", "sensorlab", "swissGov", "retail", "rovello", "puppyTracker", "whosWho"];
+const SELECTED = ["cvHunter", "sensorlab", "swissGov", "retail", "pedretes", "logistic", "rovello", "puppyTracker", "whosWho"];
 const VIZ_KIND = { cvHunter: 3, sensorlab: 0, zuriKreislauf: 2, retail: 1 }; // CaseViz motif per project
 const CASE_IMAGES = {}; // real screenshots → public/images/projects/proj_<id>.jpg
+// downloadable one-page CVs, built by scripts/build_public_cvs.cjs from translations.js (english, variant fde)
+const CV_FILES = { creative: `${process.env.PUBLIC_URL}/cv/Gemma_Garcia_de_la_Fuente_CV.pdf`, ats: `${process.env.PUBLIC_URL}/cv/Gemma_Garcia_de_la_Fuente_CV_ATS.pdf` };
+function CvDownloads({ dl }) {
+  return (
+    <div className="cv-dl reveal">
+      <span className="mono lab">{dl.title} · {dl.note}</span>
+      <a href={CV_FILES.creative} download>{dl.creative} <span className="arrow">↓</span></a>
+      <a href={CV_FILES.ats} download>{dl.ats} <span className="arrow">↓</span></a>
+    </div>
+  );
+}
 const HERO_PHOTO = `${process.env.PUBLIC_URL}/images/gemma_hero_cut.png`;
 const yearOf = (period = "") => (period.match(/\d{4}/) || [""])[0];
 
@@ -197,7 +208,10 @@ export default function RedesignApp() {
       {/* 05 FULL EXPERIENCE */}
       <section className="rd-band" id="about">
         <div className="wrap">
-          <div className="band-head"><span className="section-index">05</span><h2 className="rd-title reveal" style={{ fontSize: "clamp(24px,3vw,40px)" }}>{C.s5}</h2></div>
+          <div className="band-head" style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 12 }}>
+            <div><span className="section-index">05</span><h2 className="rd-title reveal" style={{ fontSize: "clamp(24px,3vw,40px)" }}>{C.s5}</h2></div>
+            {C.dl && <CvDownloads dl={C.dl} />}
+          </div>
           <div className="rd-exp" style={{ marginTop: 18 }}>
             {exp.map((e, i) => (
               <div className={"exp-row" + (openExp === i ? " open" : "")} key={i}>
@@ -230,6 +244,8 @@ export default function RedesignApp() {
           <div className="mono" style={{ textAlign: "right", lineHeight: 2 }}>
             <a href={t.social?.linkedin} target="_blank" rel="noreferrer" style={{ display: "block", color: "var(--ink)" }}>LinkedIn ↗</a>
             <a href={t.social?.github} target="_blank" rel="noreferrer" style={{ display: "block", color: "var(--ink)" }}>GitHub ↗</a>
+            {C.dl && <a href={CV_FILES.creative} download style={{ display: "block", color: "var(--ink)" }}>{C.dl.creative} ↓</a>}
+            {C.dl && <a href={CV_FILES.ats} download style={{ display: "block", color: "var(--ink)" }}>{C.dl.ats} ↓</a>}
           </div>
           <Epigraph q={QUOTES.footer} />
           {C.colophon && <div className="colophon">🐾 {C.colophon}</div>}
@@ -580,7 +596,53 @@ function VizWhosWho() {
   );
 }
 
-const VIZ_BY_ID = { whosWho: VizWhosWho, puppyTracker: VizPuppy, cvHunter: VizCvHunter, sensorlab: VizSensorlab, zuriKreislauf: VizZuri, retail: VizRetail, swissGov: VizSwissGov, labm: VizLabm, farma: VizFarma, rovello: VizRovello };
+// Pedretes — one ring quoted: cost stack (hours · stones · gold) on today's gold price, and the margin line
+function VizPedretes() {
+  const gold = Array.from({ length: 30 }, (_, i) => [12 + (i / 29) * 216, 52 - Math.sin(i * 0.45) * 5 - i * 0.55 + (srand(i * 11) - 0.5) * 4]);
+  const parts = [["hours · 120/h", 0.46], ["stones", 0.31], ["gold · 18k", 0.23]], x0 = 12, w = 216, y = 118;
+  let acc = 0;
+  return (
+    <svg viewBox="0 0 240 220">
+      <text className="ann" x={x0} y="14">gold price · CHF/g · live</text>
+      <polyline points={pts(gold)} fill="none" stroke={INK} strokeWidth="1" opacity="0.75" />
+      <circle cx={gold[29][0].toFixed(1)} cy={gold[29][1].toFixed(1)} r="2.6" fill={P} />
+      <text className="annp" x={gold[29][0] - 4} y={gold[29][1] - 7} textAnchor="end">95.4</text>
+      <text className="ann" x={x0} y="100">offer · alliance ring · cost stack</text>
+      {parts.map(([n, v], i) => { const x = x0 + acc * w; acc += v; return (<g key={n}>
+        <rect x={x.toFixed(1)} y={y} width={(v * w - 2).toFixed(1)} height="16" fill={i === 2 ? P : INK} opacity={i === 0 ? 0.85 : i === 1 ? 0.55 : 1} />
+        <text className="ann" x={x.toFixed(1)} y={y + 28}>{n}</text>
+      </g>); })}
+      <line x1={x0} y1="170" x2={x0 + w} y2="170" stroke={G3} strokeWidth="0.6" />
+      {[["subtotal", 0.78], ["MwSt 8.1%", 0.84], ["margin", 1]].map(([n, v], i) => <g key={n}><text className="ann" x={x0} y={182 + i * 12}>{n}</text><rect x="70" y={175 + i * 12} width="158" height="5" fill={G3} /><rect x="70" y={175 + i * 12} width={(158 * v).toFixed(1)} height="5" fill={i === 2 ? P : INK} opacity={i === 2 ? 1 : 0.6} /></g>)}
+      <text className="annp" x="228" y="214" textAnchor="end">PDF offer · same day</text>
+    </svg>
+  );
+}
+
+// Coffee Logistics — next week's shifts across three cafés, drafted by the proposal generator; one conflict flagged
+function VizCafgic() {
+  const days = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"], sites = ["Central", "Seefeld", "Wiedikon"], ox = 40, oy = 30, cw = 27, rh = 40;
+  return (
+    <svg viewBox="0 0 240 220">
+      <text className="ann" x="8" y="14">shift proposal · week 41 · 3 sites</text>
+      {days.map((d, c) => <text key={d} className="ann" x={ox + c * cw + cw / 2} y={oy - 6} textAnchor="middle">{d}</text>)}
+      {sites.map((s, r) => (<g key={s}>
+        <text className="ann" x="8" y={oy + r * rh + 20}>{s}</text>
+        {days.map((_, c) => { const v = srand(r * 17 + c * 3), two = v > 0.55, conflict = r === 1 && c === 4, pref = r === 0 && c === 2;
+          return (<g key={c}>
+            <rect x={ox + c * cw + 1} y={oy + r * rh + 2} width={cw - 3} height={rh - 6} fill={G3} opacity="0.55" />
+            <rect x={ox + c * cw + 3} y={oy + r * rh + 5} width={cw - 7} height={two ? 12 : 26} fill={conflict ? P : pref ? PD : INK} opacity={conflict ? 1 : 0.8} />
+            {two && <rect x={ox + c * cw + 3} y={oy + r * rh + 19} width={cw - 7} height="12" fill={INK} opacity="0.45" />}
+          </g>); })}
+      </g>))}
+      <text className="annp" x={ox + 4 * cw + cw / 2} y={oy + 3 * rh + 8} textAnchor="middle">holiday conflict</text>
+      <text className="ann" x="8" y="178">orders · cash closing · tonight</text>
+      {[["Central", 0.9], ["Seefeld", 0.62], ["Wiedikon", 0.74]].map(([s, v], i) => <g key={s}><text className="ann" x="8" y={192 + i * 11}>{s}</text><rect x="58" y={186 + i * 11} width="170" height="5" fill={G3} /><rect x="58" y={186 + i * 11} width={(170 * v).toFixed(1)} height="5" fill={i === 1 ? P : INK} opacity={i === 1 ? 1 : 0.7} /></g>)}
+    </svg>
+  );
+}
+
+const VIZ_BY_ID = { whosWho: VizWhosWho, puppyTracker: VizPuppy, cvHunter: VizCvHunter, sensorlab: VizSensorlab, zuriKreislauf: VizZuri, retail: VizRetail, swissGov: VizSwissGov, labm: VizLabm, farma: VizFarma, rovello: VizRovello, pedretes: VizPedretes, logistic: VizCafgic };
 function CaseViz({ id, kind }) { const V = VIZ_BY_ID[id]; return V ? <V /> : <VizGeneric kind={kind} />; }
 
 // career graph on a real time axis: the life line runs through the middle; studies branch above and

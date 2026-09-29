@@ -116,9 +116,8 @@
 .rd-band.dark .rd-list li { border-color: #26262b; }
 .rd-list li .pl { color: var(--pink); }
 
-/* projects: 4 cards in one row ---------------------------- */
-.rd-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px 18px; }
-@media (max-width: 1240px) { .rd-cards { grid-template-columns: repeat(3, 1fr); } }
+/* projects: 9 cards, 3 per row ---------------------------- */
+.rd-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px 22px; }
 .rd-carditem { text-align: left; background: none; border: 0; padding: 0; cursor: pointer;
   display: flex; flex-direction: column; color: var(--ink); border-top: 2px solid var(--ink); padding-top: 10px; }
 .rd-carditem .cat { font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pink-dark); }
@@ -173,6 +172,13 @@
 
 /* footer --------------------------------------------------- */
 .rd-footer { padding: 40px 0 34px; border-top: 1px solid var(--line); }
+
+/* downloadable CVs (section 05 head) */
+.cv-dl { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; }
+.cv-dl .lab { font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
+.cv-dl a { font-family: var(--mono); font-size: 13px; color: var(--ink); text-decoration: none; border-bottom: 2px solid var(--pink); padding-bottom: 2px; display: inline-flex; gap: 8px; align-items: center; }
+.cv-dl a .arrow { color: var(--pink); transition: transform .25s ease; }
+.cv-dl a:hover .arrow { transform: translateY(4px); }
 
 /* responsive ---------------------------------------------- */
 @media (max-width: 1000px) {

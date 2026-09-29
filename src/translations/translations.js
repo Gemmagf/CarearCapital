@@ -96,15 +96,15 @@ const PROJECT_META = [
   },
   {
     id: "logistic",
-    tag: "Logistics / SaaS",
-    stack: ["TypeScript", "Node.js", "Prisma", "React"],
-    link: "https://github.com/Gemmagf/coffe_logic",
-    repo: null, // private repo
+    tag: "Multi-site ops / Scheduling",
+    stack: ["TypeScript", "Node.js", "Express", "Prisma", "React", "i18n"],
+    link: null, // private codebase — demo on request
+    repo: null,
   },
   {
     id: "pedretes",
-    tag: "Workshop Mgmt",
-    stack: ["React", "Vercel"],
+    tag: "Atelier ops / SaaS",
+    stack: ["React", "TypeScript", "Supabase", "Tailwind", "jsPDF", "Vercel"],
     link: "https://pedretes-one.vercel.app",
     repo: "https://github.com/Gemmagf/Pedretes",
   },
@@ -200,14 +200,14 @@ const PROJECT_TEXTS = {
         "Demo end-to-end construïda específicament per modelar les decisions diàries d'un equip d'allocation retail: dashboard de salut d'estoc, catàleg de productes, recomanador d'allocations amb IA, forecasting de demanda a nivell de SKU i simulador d'escenaris what-if. Next.js, TypeScript, Recharts, Tailwind sobre dades sintètiques però realistes; multilingüe (7 idiomes). Mostra, en una sola eina, com les sortides del forecasting es tradueixen en decisions concretes d'allocation entre botigues i canals.",
     },
     logistic: {
-      title: "Plataforma logística multi-seu",
+      title: "Coffee Logistics — Operativa multi-local de cafeteries (Cafgic)",
       description:
-        "Plataforma SaaS multi-local per a la gestió operativa de negocis de servei al mercat suís: stocks, comandes, personal i KPIs en una sola eina. Backend i frontend separats amb workspaces, base de dades amb Prisma. Codi privat.",
+        "Plataforma per gestionar diverses cafeteries des d'un sol lloc: locals i equips, torns amb un generador de propostes que respecta vacances i preferències, comandes a proveïdors i tancaments de caixa. Backend Node + Prisma amb JWT, frontend React multilingüe, mode demo sense backend. Codi privat, demo sota petició.",
     },
     pedretes: {
-      title: "Pedretes — Gestió de taller artesà",
+      title: "Pedretes — Gestor d'obrador de joieria",
       description:
-        "App web per a la gestió diària d'un petit taller: comandes de clients, seguiment de la producció i inventari de materials. Optimitzada per a treballar amb peces úniques i lots petits.",
+        "App per a un obrador de joieria de Zúric: projectes Alliance, Fassung i Pavé amb temporitzador, càlcul de costos (hores, pedres, or al preu del dia), predicció de temps i preu a partir de projectes similars, ofertes PDF en format suís (MwSt 8,1 %), accés multiusuari i demo pública personalitzable per sector.",
     },
     dietaripa: {
       title: "Dietaripa — Planificador de dietes",
@@ -287,14 +287,14 @@ const PROJECT_TEXTS = {
         "Demo end-to-end construida específicamente para modelar las decisiones diarias de un equipo de allocation retail: dashboard de salud de stock, catálogo de productos, recomendador de allocations con IA, forecasting de demanda a nivel de SKU y simulador de escenarios what-if. Next.js, TypeScript, Recharts, Tailwind sobre datos sintéticos pero realistas; multilingüe (7 idiomas). Muestra, en una sola herramienta, cómo las salidas del forecasting se traducen en decisiones concretas de allocation entre tiendas y canales.",
     },
     logistic: {
-      title: "Plataforma logística multi-sede",
+      title: "Coffee Logistics — Operativa multi-local de cafeterías (Cafgic)",
       description:
-        "Plataforma SaaS multi-local para la gestión operativa de negocios de servicio en el mercado suizo: stocks, pedidos, personal y KPIs en una sola herramienta. Backend y frontend separados con workspaces, base de datos con Prisma. Código privado.",
+        "Plataforma para gestionar varias cafeterías desde un solo sitio: locales y equipos, turnos con un generador de propuestas que respeta vacaciones y preferencias, pedidos a proveedores y cierres de caja. Backend Node + Prisma con JWT, frontend React multilingüe, modo demo sin backend. Código privado, demo bajo petición.",
     },
     pedretes: {
-      title: "Pedretes — Gestión de taller artesano",
+      title: "Pedretes — Gestor de taller de joyería",
       description:
-        "App web para la gestión diaria de un pequeño taller: pedidos de clientes, seguimiento de la producción e inventario de materiales. Optimizada para trabajar con piezas únicas y lotes pequeños.",
+        "App para un taller de joyería de Zúrich: proyectos Alliance, Fassung y Pavé con temporizador, cálculo de costes (horas, piedras, oro al precio del día), predicción de tiempo y precio a partir de proyectos similares, ofertas PDF en formato suizo (MwSt 8,1 %), acceso multiusuario y demo pública personalizable por sector.",
     },
     dietaripa: {
       title: "Dietaripa — Planificador de dietas",
@@ -374,14 +374,14 @@ const PROJECT_TEXTS = {
         "End-to-end demo built specifically to model the daily decisions of a retail allocation team: stock-health dashboard, product catalogue, AI-driven allocation recommender, SKU-level demand forecasting and what-if scenario simulator. Next.js, TypeScript, Recharts, Tailwind on synthetic but realistic retail data; multilingual (7 languages). Shows, in one tool, how forecasting outputs translate into concrete allocation decisions across stores and channels.",
     },
     logistic: {
-      title: "Multi-location Logistics Platform",
+      title: "Coffee Logistics — Multi-site café operations (Cafgic)",
       description:
-        "Multi-location SaaS platform for the operational management of service businesses in the Swiss market: stock, orders, staff and KPIs in one tool. Separate backend/frontend workspaces, database with Prisma. Private codebase.",
+        "One place to run several coffee shops: locations and teams, shift planning with a proposal generator that respects holidays and preferences, supplier orders and cash closings. Node + Prisma backend with JWT, multilingual React frontend, a demo mode that runs without a backend. Private codebase, demo on request.",
     },
     pedretes: {
-      title: "Pedretes — Artisan Workshop Manager",
+      title: "Pedretes — Jewellery atelier manager",
       description:
-        "Web app for the day-to-day management of a small workshop: customer orders, production tracking and materials inventory. Tailored for one-of-a-kind pieces and small batches.",
+        "Built for a goldsmith atelier in Zürich: Alliance, Fassung and Pavé projects with a work timer, cost calculation (hours, stones, gold at today's price), time and price prediction from similar past projects, Swiss-format PDF offers (MwSt 8.1%), multi-user access and a public demo you can tailor to your own trade.",
     },
     dietaripa: {
       title: "Dietaripa — Diet Planner",
@@ -461,14 +461,14 @@ const PROJECT_TEXTS = {
         "Démo de bout en bout conçue spécifiquement pour modéliser les décisions quotidiennes d'une équipe d'allocation retail : dashboard de santé du stock, catalogue produits, recommandateur d'allocations par IA, prévision de demande au niveau SKU et simulateur de scénarios what-if. Next.js, TypeScript, Recharts, Tailwind sur des données synthétiques mais réalistes ; multilingue (7 langues). Montre, en un seul outil, comment les sorties de prévision se traduisent en décisions concrètes d'allocation entre magasins et canaux.",
     },
     logistic: {
-      title: "Plateforme logistique multi-sites",
+      title: "Coffee Logistics — Exploitation multi-sites de cafés (Cafgic)",
       description:
-        "Plateforme SaaS multi-sites pour la gestion opérationnelle de commerces de service sur le marché suisse : stocks, commandes, équipes et KPI dans un seul outil. Backend et frontend séparés en workspaces, base de données avec Prisma. Code privé.",
+        "Un seul outil pour piloter plusieurs cafés : sites et équipes, planning des horaires avec un générateur de propositions qui respecte congés et préférences, commandes fournisseurs et clôtures de caisse. Backend Node + Prisma avec JWT, frontend React multilingue, mode démo sans backend. Code privé, démo sur demande.",
     },
     pedretes: {
-      title: "Pedretes — Gestion d'atelier artisanal",
+      title: "Pedretes — Gestion d'atelier de bijouterie",
       description:
-        "App web pour la gestion quotidienne d'un petit atelier : commandes clients, suivi de la production et inventaire des matériaux. Pensée pour les pièces uniques et les petites séries.",
+        "Conçu pour un atelier d'orfèvrerie à Zurich : projets Alliance, Fassung et Pavé avec minuteur, calcul des coûts (heures, pierres, or au cours du jour), prédiction du temps et du prix à partir de projets similaires, offres PDF au format suisse (TVA 8,1 %), accès multi-utilisateurs et démo publique adaptable à votre métier.",
     },
     dietaripa: {
       title: "Dietaripa — Planificateur de régimes",
@@ -548,14 +548,14 @@ const PROJECT_TEXTS = {
         "End-to-End-Demo, speziell entwickelt, um die täglichen Entscheidungen eines Retail-Allocation-Teams abzubilden: Stock-Health-Dashboard, Produktkatalog, KI-gestützter Allocation-Recommender, Demand Forecasting auf SKU-Ebene und What-if-Szenario-Simulator. Next.js, TypeScript, Recharts, Tailwind auf synthetischen, aber realistischen Daten; mehrsprachig (7 Sprachen). Zeigt in einem einzigen Tool, wie Forecasting-Ergebnisse in konkrete Allocation-Entscheidungen über Filialen und Kanäle hinweg übersetzt werden.",
     },
     logistic: {
-      title: "Multi-Standort Logistik-Plattform",
+      title: "Coffee Logistics — Filialübergreifender Café-Betrieb (Cafgic)",
       description:
-        "Multi-Standort-SaaS-Plattform für das operative Management von Dienstleistungsbetrieben im Schweizer Markt: Bestand, Bestellungen, Personal und KPIs in einem Tool. Getrennte Backend-/Frontend-Workspaces, DB mit Prisma. Privater Quellcode.",
+        "Mehrere Cafés an einem Ort führen: Standorte und Teams, Schichtplanung mit einem Vorschlagsgenerator, der Ferien und Präferenzen berücksichtigt, Lieferantenbestellungen und Kassenabschlüsse. Node + Prisma Backend mit JWT, mehrsprachiges React-Frontend, Demo-Modus ohne Backend. Privater Code, Demo auf Anfrage.",
     },
     pedretes: {
-      title: "Pedretes — Werkstatt-Management",
+      title: "Pedretes — Werkstattmanager für Goldschmiede",
       description:
-        "Web-App für das Tagesgeschäft einer kleinen Werkstatt: Kundenaufträge, Produktionsverfolgung und Materialinventar. Auf Einzelstücke und Kleinserien ausgelegt.",
+        "Für ein Goldschmiedeatelier in Zürich gebaut: Alliance-, Fassungs- und Pavé-Projekte mit Zeiterfassung, Kostenkalkulation (Stunden, Steine, Gold zum Tagespreis), Zeit- und Preisprognose aus ähnlichen Projekten, Offerten als PDF im Schweizer Format (MwSt 8.1 %), Mehrbenutzerzugang und eine öffentliche Demo, die sich auf das eigene Handwerk anpassen lässt.",
     },
     dietaripa: {
       title: "Dietaripa — Diätplaner",
@@ -635,14 +635,14 @@ const PROJECT_TEXTS = {
         "Demo end-to-end costruita specificamente per modellare le decisioni quotidiane di un team di allocation retail: dashboard di stock health, catalogo prodotti, recommender di allocations con IA, forecasting della domanda a livello SKU e simulatore di scenari what-if. Next.js, TypeScript, Recharts, Tailwind su dati sintetici ma realistici; multilingue (7 lingue). Mostra, in un unico strumento, come gli output del forecasting si traducono in decisioni concrete di allocation tra negozi e canali.",
     },
     logistic: {
-      title: "Piattaforma logistica multi-sede",
+      title: "Coffee Logistics — Gestione multi-sede di caffetterie (Cafgic)",
       description:
-        "Piattaforma SaaS multi-sede per la gestione operativa di attività di servizio nel mercato svizzero: stock, ordini, personale e KPI in un'unica soluzione. Backend e frontend separati in workspaces, database con Prisma. Codice privato.",
+        "Un solo strumento per gestire più caffetterie: sedi e team, turni con un generatore di proposte che rispetta ferie e preferenze, ordini ai fornitori e chiusure di cassa. Backend Node + Prisma con JWT, frontend React multilingue, modalità demo senza backend. Codice privato, demo su richiesta.",
     },
     pedretes: {
-      title: "Pedretes — Gestione laboratorio artigiano",
+      title: "Pedretes — Gestionale per laboratorio orafo",
       description:
-        "App web per la gestione quotidiana di un piccolo laboratorio: ordini clienti, tracciamento della produzione e inventario dei materiali. Pensata per pezzi unici e piccole serie.",
+        "Realizzato per un laboratorio orafo di Zurigo: progetti Alliance, Fassung e Pavé con timer, calcolo dei costi (ore, pietre, oro al prezzo del giorno), previsione di tempi e prezzo da progetti simili, offerte PDF in formato svizzero (IVA 8,1 %), accesso multiutente e demo pubblica adattabile al proprio mestiere.",
     },
     dietaripa: {
       title: "Dietaripa — Pianificatore di diete",
@@ -2017,6 +2017,19 @@ export const PROJECT_BRIEFS = {
       result: "Playable from a phone with no account or install; a full round for seven people takes about 20 minutes; nothing personal is ever stored.",
       next: "Question packs per culture (it started from The Culture Map conversations), a facilitator mode for larger groups, and an optional relay that doesn't depend on GitHub.",
     },
+    pedretes: {
+      question: "Can a three-person goldsmith atelier quote a ring in minutes — with today's gold price, the stones and the hours — and know whether a piece is still profitable?",
+      did: "Built the whole tool with the atelier: three job types (Alliance, Fassung, Pavé) as guided forms, a work timer, cost calculation on live gold prices, a prediction of time and price from similar past pieces, Swiss-format PDF offers, Supabase auth for the team and a public demo that generates realistic data for eleven trades.",
+      result: "Offers go out the same day in the client's format; every piece carries its real hours and margin; the demo lets any small workshop try it without an account.",
+      next: "Analytics inside the demo, a custom domain, and the first real atelier onboarded as a paying user.",
+      credit: "Built for a goldsmith atelier in Zürich",
+    },
+    logistic: {
+      question: "How do you run three coffee shops with one small team — who works where next week, what to order, how much cash closed tonight — without a spreadsheet per site?",
+      did: "Designed the data model (groups, locations, employees, schedules, suppliers, orders, cash closings, holiday requests, shift preferences) and built it end-to-end: Node + Express + Prisma API with JWT roles, a React frontend in several languages, and a proposal generator that drafts next week's shifts from availability and preferences and flags the conflicts.",
+      result: "One login for all sites; a week of shifts drafted in seconds and corrected by hand; a demo mode that runs entirely in the browser for showing it to owners.",
+      next: "Order suggestions from sales history, and a public demo once the codebase is opened.",
+    },
   },
   catalan: {
     labels: { question: "La pregunta", did: "Què vaig fer", result: "Resultat", next: "Següent pas, en producció" },
@@ -2063,6 +2076,19 @@ export const PROJECT_BRIEFS = {
       did: "Vaig dissenyar i construir tot el joc en un sol fitxer HTML: cartes de respostes secretes, un tauler compartit de fitxes, revelació pista a pista amb punts que valen més com més aviat apostes, i un transport sense backend on les respostes viatgen xifrades d'extrem a extrem (Web Crypto AES-GCM) per una bústia temporal a GitHub que s'esborra després de cada partida.",
       result: "Es juga des del mòbil sense compte ni instal·lació; una ronda completa per a set persones dura uns 20 minuts; mai es guarda res personal.",
       next: "Paquets de preguntes per cultura (va néixer de converses sobre The Culture Map), un mode facilitador per a grups grans i un relay opcional que no depengui de GitHub.",
+    },
+    pedretes: {
+      question: "Pot un obrador de joieria de tres persones fer una oferta d'un anell en minuts — amb el preu de l'or d'avui, les pedres i les hores — i saber si una peça encara és rendible?",
+      did: "Vaig construir tota l'eina amb l'obrador: tres tipus de feina (Alliance, Fassung, Pavé) com a formularis guiats, temporitzador de treball, càlcul de costos amb el preu de l'or en viu, predicció de temps i preu a partir de peces similars, ofertes PDF en format suís, autenticació Supabase per a l'equip i una demo pública que genera dades realistes per a onze oficis.",
+      result: "Les ofertes surten el mateix dia en el format del client; cada peça porta les hores i el marge reals; la demo permet a qualsevol taller petit provar-ho sense compte.",
+      next: "Analítica dins la demo, domini propi i el primer obrador real com a usuari de pagament.",
+      credit: "Fet per a un obrador de joieria de Zúric",
+    },
+    logistic: {
+      question: "Com portes tres cafeteries amb un equip petit — qui treballa on la setmana que ve, què cal demanar, quanta caixa ha tancat avui — sense un full de càlcul per local?",
+      did: "Vaig dissenyar el model de dades (grups, locals, empleats, torns, proveïdors, comandes, tancaments de caixa, vacances, preferències de torn) i ho vaig construir de punta a punta: API Node + Express + Prisma amb rols JWT, frontend React en diversos idiomes i un generador de propostes que esbossa els torns de la setmana següent a partir de disponibilitat i preferències i marca els conflictes.",
+      result: "Un sol accés per a tots els locals; una setmana de torns esbossada en segons i corregida a mà; un mode demo que corre íntegrament al navegador per ensenyar-ho als propietaris.",
+      next: "Suggeriments de comanda a partir de l'historial de vendes i una demo pública quan s'obri el codi.",
     },
   },
   spanish: {
@@ -2111,6 +2137,19 @@ export const PROJECT_BRIEFS = {
       result: "Se juega desde el móvil sin cuenta ni instalación; una ronda completa para siete personas dura unos 20 minutos; nunca se guarda nada personal.",
       next: "Packs de preguntas por cultura (nació de conversaciones sobre The Culture Map), un modo facilitador para grupos grandes y un relay opcional que no dependa de GitHub.",
     },
+    pedretes: {
+      question: "¿Puede un taller de joyería de tres personas presupuestar un anillo en minutos — con el precio del oro de hoy, las piedras y las horas — y saber si una pieza sigue siendo rentable?",
+      did: "Construí toda la herramienta con el taller: tres tipos de trabajo (Alliance, Fassung, Pavé) como formularios guiados, temporizador, cálculo de costes con el precio del oro en vivo, predicción de tiempo y precio a partir de piezas similares, ofertas PDF en formato suizo, autenticación Supabase para el equipo y una demo pública que genera datos realistas para once oficios.",
+      result: "Las ofertas salen el mismo día en el formato del cliente; cada pieza lleva sus horas y margen reales; la demo permite a cualquier taller pequeño probarlo sin cuenta.",
+      next: "Analítica dentro de la demo, dominio propio y el primer taller real como usuario de pago.",
+      credit: "Hecho para un taller de joyería de Zúrich",
+    },
+    logistic: {
+      question: "¿Cómo llevas tres cafeterías con un equipo pequeño — quién trabaja dónde la semana que viene, qué pedir, cuánta caja ha cerrado hoy — sin una hoja de cálculo por local?",
+      did: "Diseñé el modelo de datos (grupos, locales, empleados, turnos, proveedores, pedidos, cierres de caja, vacaciones, preferencias de turno) y lo construí de principio a fin: API Node + Express + Prisma con roles JWT, frontend React en varios idiomas y un generador de propuestas que esboza los turnos de la semana siguiente a partir de disponibilidad y preferencias y marca los conflictos.",
+      result: "Un solo acceso para todos los locales; una semana de turnos esbozada en segundos y corregida a mano; un modo demo que corre íntegramente en el navegador para enseñarlo a los propietarios.",
+      next: "Sugerencias de pedido a partir del historial de ventas y una demo pública cuando se abra el código.",
+    },
   },
   french: {
     labels: { question: "La question", did: "Ce que j'ai fait", result: "Résultat", next: "Étape suivante, en production" },
@@ -2157,6 +2196,19 @@ export const PROJECT_BRIEFS = {
       did: "Conception et développement de tout le jeu dans un seul fichier HTML : cartes de réponses secrètes, plateau de tuiles partagé, révélation indice par indice avec des points pondérés par le temps, et un transport sans backend où les réponses circulent chiffrées de bout en bout (Web Crypto AES-GCM) via une boîte temporaire GitHub effacée après chaque partie.",
       result: "Jouable depuis un téléphone sans compte ni installation ; une manche complète à sept prend environ 20 minutes ; rien de personnel n'est jamais stocké.",
       next: "Des packs de questions par culture (né de conversations autour de The Culture Map), un mode animateur pour les grands groupes et un relais optionnel indépendant de GitHub.",
+    },
+    pedretes: {
+      question: "Un atelier d'orfèvrerie de trois personnes peut-il chiffrer une bague en quelques minutes — avec le cours de l'or du jour, les pierres et les heures — et savoir si une pièce reste rentable ?",
+      did: "J'ai construit tout l'outil avec l'atelier : trois types de travaux (Alliance, Fassung, Pavé) en formulaires guidés, minuteur, calcul des coûts sur le cours de l'or en direct, prédiction du temps et du prix à partir de pièces similaires, offres PDF au format suisse, authentification Supabase pour l'équipe et une démo publique qui génère des données réalistes pour onze métiers.",
+      result: "Les offres partent le jour même au format du client ; chaque pièce porte ses heures et sa marge réelles ; la démo permet à tout petit atelier d'essayer sans compte.",
+      next: "L'analytique dans la démo, un domaine propre et le premier atelier réel comme client payant.",
+      credit: "Conçu pour un atelier d'orfèvrerie à Zurich",
+    },
+    logistic: {
+      question: "Comment gérer trois cafés avec une petite équipe — qui travaille où la semaine prochaine, quoi commander, combien la caisse a fermé ce soir — sans un tableur par site ?",
+      did: "J'ai conçu le modèle de données (groupes, sites, employés, horaires, fournisseurs, commandes, clôtures de caisse, congés, préférences d'horaires) et tout construit de bout en bout : API Node + Express + Prisma avec rôles JWT, frontend React multilingue et un générateur de propositions qui ébauche les horaires de la semaine suivante à partir des disponibilités et préférences et signale les conflits.",
+      result: "Une seule connexion pour tous les sites ; une semaine d'horaires ébauchée en secondes et corrigée à la main ; un mode démo qui tourne entièrement dans le navigateur pour le montrer aux propriétaires.",
+      next: "Des suggestions de commande à partir de l'historique des ventes et une démo publique une fois le code ouvert.",
     },
   },
   german: {
@@ -2205,6 +2257,19 @@ export const PROJECT_BRIEFS = {
       result: "Spielbar vom Handy ohne Konto oder Installation; eine volle Runde für sieben Personen dauert etwa 20 Minuten; nichts Persönliches wird je gespeichert.",
       next: "Fragenpakete pro Kultur (entstanden aus Gesprächen über The Culture Map), ein Moderationsmodus für grössere Gruppen und ein optionales Relay, das nicht von GitHub abhängt.",
     },
+    pedretes: {
+      question: "Kann ein Goldschmiedeatelier mit drei Personen einen Ring in Minuten offerieren — mit dem heutigen Goldpreis, den Steinen und den Stunden — und wissen, ob ein Stück noch rentabel ist?",
+      did: "Das ganze Werkzeug gemeinsam mit dem Atelier gebaut: drei Auftragsarten (Alliance, Fassung, Pavé) als geführte Formulare, Zeiterfassung, Kostenkalkulation auf dem Live-Goldpreis, Zeit- und Preisprognose aus ähnlichen Stücken, Offerten als PDF im Schweizer Format, Supabase-Login für das Team und eine öffentliche Demo, die realistische Daten für elf Handwerke erzeugt.",
+      result: "Offerten gehen am selben Tag im Format des Kunden raus; jedes Stück trägt seine echten Stunden und seine Marge; mit der Demo kann jede kleine Werkstatt es ohne Konto ausprobieren.",
+      next: "Analytik in der Demo, eigene Domain und das erste echte Atelier als zahlender Nutzer.",
+      credit: "Gebaut für ein Goldschmiedeatelier in Zürich",
+    },
+    logistic: {
+      question: "Wie führt man drei Cafés mit einem kleinen Team — wer arbeitet nächste Woche wo, was muss bestellt werden, wie viel Kasse wurde heute abgeschlossen — ohne eine Tabelle pro Standort?",
+      did: "Datenmodell entworfen (Gruppen, Standorte, Mitarbeitende, Schichten, Lieferanten, Bestellungen, Kassenabschlüsse, Ferienanträge, Schichtpräferenzen) und Ende-zu-Ende gebaut: Node + Express + Prisma API mit JWT-Rollen, mehrsprachiges React-Frontend und ein Vorschlagsgenerator, der die Schichten der nächsten Woche aus Verfügbarkeit und Präferenzen entwirft und Konflikte markiert.",
+      result: "Ein Login für alle Standorte; eine Woche Schichten in Sekunden entworfen und von Hand korrigiert; ein Demo-Modus, der komplett im Browser läuft, um es Inhabern zu zeigen.",
+      next: "Bestellvorschläge aus der Verkaufshistorie und eine öffentliche Demo, sobald der Code geöffnet wird.",
+    },
   },
   italian: {
     labels: { question: "La domanda", did: "Cosa ho fatto", result: "Risultato", next: "Prossimo passo, in produzione" },
@@ -2251,6 +2316,19 @@ export const PROJECT_BRIEFS = {
       did: "Ho progettato e costruito tutto il gioco in un unico file HTML: carte con risposte segrete, una plancia condivisa di tessere, rivelazione un indizio alla volta con punti pesati sul tempo, e un trasporto senza backend in cui le risposte viaggiano cifrate end-to-end (Web Crypto AES-GCM) attraverso una casella temporanea su GitHub cancellata dopo ogni partita.",
       result: "Si gioca dal telefono senza account né installazione; un round completo per sette persone dura circa 20 minuti; nulla di personale viene mai salvato.",
       next: "Pacchetti di domande per cultura (è nato da conversazioni su The Culture Map), una modalità facilitatore per gruppi grandi e un relay opzionale indipendente da GitHub.",
+    },
+    pedretes: {
+      question: "Un laboratorio orafo di tre persone può preventivare un anello in pochi minuti — con il prezzo dell'oro di oggi, le pietre e le ore — e sapere se un pezzo è ancora redditizio?",
+      did: "Ho costruito tutto lo strumento con il laboratorio: tre tipi di lavoro (Alliance, Fassung, Pavé) come moduli guidati, timer, calcolo dei costi sul prezzo dell'oro in tempo reale, previsione di tempi e prezzo da pezzi simili, offerte PDF in formato svizzero, autenticazione Supabase per il team e una demo pubblica che genera dati realistici per undici mestieri.",
+      result: "Le offerte partono lo stesso giorno nel formato del cliente; ogni pezzo porta le sue ore e il suo margine reali; la demo permette a qualsiasi piccolo laboratorio di provarlo senza account.",
+      next: "Analitica nella demo, dominio proprio e il primo laboratorio reale come utente pagante.",
+      credit: "Realizzato per un laboratorio orafo di Zurigo",
+    },
+    logistic: {
+      question: "Come gestisci tre caffetterie con un team piccolo — chi lavora dove la prossima settimana, cosa ordinare, quanta cassa ha chiuso stasera — senza un foglio di calcolo per sede?",
+      did: "Ho progettato il modello dati (gruppi, sedi, dipendenti, turni, fornitori, ordini, chiusure di cassa, ferie, preferenze di turno) e l'ho costruito da cima a fondo: API Node + Express + Prisma con ruoli JWT, frontend React multilingue e un generatore di proposte che abbozza i turni della settimana successiva da disponibilità e preferenze e segnala i conflitti.",
+      result: "Un solo accesso per tutte le sedi; una settimana di turni abbozzata in secondi e corretta a mano; una modalità demo che gira interamente nel browser per mostrarla ai titolari.",
+      next: "Suggerimenti d'ordine dallo storico vendite e una demo pubblica quando il codice sarà aperto.",
     },
   },
 };

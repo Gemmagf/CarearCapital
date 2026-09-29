@@ -77,6 +77,8 @@ CI=false npx react-scripts build   # build de producció (CI=false perquè els w
 npm run deploy                 # build + publica build/ a la branca gh-pages → web viva (triga 1–3 min; el navegador cacheja 10 min → ⌘⇧R)
 node scripts/render_cv.cjs /tmp/cv.pdf fde cvHunter "Empresa" "Títol"   # PDF headless (variant, projecte, empresa, títol, idioma); MOTIVATION="…" afegeix un paràgraf "Why X"
 node scripts/render_letter.cjs carta.json /tmp/carta.pdf                # carta de presentació 1 pàgina, mateix estil (camps al capçal del script)
+node scripts/build_public_cvs.cjs                                       # regenera els 2 CVs descarregables de la web (public/cv/), 1 pàgina cadascun
+node scripts/render_viz.cjs /tmp VizPedretes                            # gràfic d'una targeta de projecte → SVG (qlmanage -t per veure'l)
 node scripts/render_map.cjs /tmp                                          # mapa de carrera → /tmp/careermap.svg (qlmanage -t per rasteritzar)
 ```
 
@@ -114,7 +116,7 @@ Git: treballar a `main`; després de cada commit, `git branch -f portfolio-redes
 ## 7. Pendents
 
 1. Vídeos/captures reals dels projectes ⭐ (`CASE_IMAGES` a `RedesignApp.jsx` → `public/images/projects/proj_<id>.jpg`).
-2. Logistics (`coffe_logic`) té el link a un repo privat (404) — treure o landing pública.
+2. ~~Logistics (`coffe_logic`) té el link a un repo privat (404)~~ — resolt 29-09-2026: `link: null` + brief "demo on request". Si s'obre el repo o es publica la demo (mode demo sense backend a GitHub Pages), posar-hi l'URL.
 3. Keep-alive dels Streamlit (GitHub Action cron) o vídeo als cards.
 4. Swiss Governance: quan la branca `asset-drilldown` del cockpit (fusió de Züri-Kreislauf) arribi a `main` i es desplegui, actualitzar descripció + deep link.
 5. Opcional: *Expertise* (01) en clau de negoci com les methodologies; "Cala Marquesa" també al mapa/Puppy Tracker si es vol.
@@ -122,6 +124,7 @@ Git: treballar a `main`; després de cada commit, `git branch -f portfolio-redes
 
 ## 8. Diari de canvis
 
+- **2026-09-29 (vespre)** — Web: dos projectes nous a la secció 03, **Pedretes** (gestor d'obrador de joieria de Zúric: Alliance/Fassung/Pavé, preu de l'or en viu, ofertes PDF suïsses, Supabase, demo pública per sectors; `pedretes-one.vercel.app`) i **Coffee Logistics / Cafgic** (operativa multi-local de cafeteries: torns amb generador de propostes, comandes, caixa; Node+Prisma+React; codi privat → `link: null`, tanca el pendent del 404). 9 targetes → graella de 3 columnes. Gràfics `VizPedretes` i `VizCafgic`; textos + briefs en 6 idiomes. **Dos CVs descarregables d'una pàgina** (consell extern): editorial (`public/cv/Gemma_Garcia_de_la_Fuente_CV.pdf`, disseny de la web: columna fosca + marca de nodes) i ATS (`..._CV_ATS.pdf`, una columna, sense gràfics ni foto), generats amb `scripts/build_public_cvs.cjs` des de `translations.js` (english, `fde`) — **regenerar-los quan canviï el CV** i comprovar 1 pàgina. Enllaços a la capçalera de la secció 05 (`CvDownloads`, copy `dl` en 6 idiomes) i al peu. `scripts/render_viz.cjs` renderitza els gràfics de les targetes a SVG per verificar sense navegador.
 - **2026-09-29 (tarda)** — Candidatures: variants CV `aiplatform` (Siemens Zug, AI Platform Engineer, projecte CV Hunter) i `dataai` (Victorinox Ibach, Data & AI Engineer, projecte Supply Chain Lab); nou `scripts/render_letter.cjs` (Anschreiben Siemens en alemany). PDFs a `~/Downloads/CV_Gemma_Garcia_Siemens_*.pdf`, `CV_Gemma_Garcia_Victorinox_*.pdf`, `Anschreiben_Gemma_Garcia_Siemens.pdf`. Scan de posicions ZH/ZG/SZ a la memòria `job_pipeline.md`. Sense desplegament (no toca la web).
 
 - **2026-09-29** — Redisseny publicat com a home; i18n complet; favicon/og-image; `legacy-site`; historial net de `projects/`. Cards: Rovelló, Puppy Tracker (demo), Who's Who (4 columnes). Modal amb briefs (6 idiomes) i crèdits. Graf de carrera amb bifurcacions, estades (2013–2016), UOC/ForceManager/Additius com a llaços, article Elsevier (DOI), trasllat a Zürich, Caleta. Secció 05: 7 etapes (3 `siteOnly`), methodologies de negoci, tools juganer, llibres enllaçats (títols originals), publicació. Epígrafs per secció; footer "Being kind is harder than being smart. Let's try hard things together." + colofó de Cala Marquesa. `scripts/` amb els renders headless. Aquest log i `CLAUDE.md`.
