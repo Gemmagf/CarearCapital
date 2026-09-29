@@ -3,3 +3,6 @@ node_modules/
 package-lock.json
 .DS_Store
 build
+
+# local project material, never part of the site
+projects/
