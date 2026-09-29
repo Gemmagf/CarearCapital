@@ -39,10 +39,22 @@ export default function HeroFigure({ src }) {
       const dx = boxX + (/left/.test(pos) ? 0 : (boxW - dw) / 2), dy = boxY + (boxH - dh);
       const cell = Math.max(2.6, Math.min(5, dw / 120));
       const cols = Math.ceil(dw / cell), rows = Math.ceil(dh / cell);
+      // Progressive downscale (halve until within 2× of the grid) with high-quality smoothing —
+      // a single 10×+ drawImage step aliases badly and distorts facial features.
+      let src = img, sw = img.naturalWidth, sh = img.naturalHeight;
+      while (sw / 2 >= cols * 2 && sh / 2 >= rows * 2) {
+        const half = document.createElement("canvas");
+        half.width = Math.round(sw / 2); half.height = Math.round(sh / 2);
+        const hctx = half.getContext("2d");
+        hctx.imageSmoothingEnabled = true; hctx.imageSmoothingQuality = "high";
+        hctx.drawImage(src, 0, 0, sw, sh, 0, 0, half.width, half.height);
+        src = half; sw = half.width; sh = half.height;
+      }
       sampler = sampler || document.createElement("canvas");
       sampler.width = cols; sampler.height = rows;
       const sctx = sampler.getContext("2d", { willReadFrequently: true });
-      sctx.clearRect(0, 0, cols, rows); sctx.drawImage(img, 0, 0, cols, rows);
+      sctx.imageSmoothingEnabled = true; sctx.imageSmoothingQuality = "high";
+      sctx.clearRect(0, 0, cols, rows); sctx.drawImage(src, 0, 0, sw, sh, 0, 0, cols, rows);
       const px = sctx.getImageData(0, 0, cols, rows).data;
       for (let j = 0; j < rows; j++) for (let i = 0; i < cols; i++) {
         const k = (j * cols + i) * 4, a = px[k + 3] / 255; if (a < 0.35) continue;

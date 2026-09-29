@@ -36,7 +36,7 @@
 
 /* hero ----------------------------------------------------- */
 .rd-hero { position: relative; min-height: 88vh; display: flex; align-items: center;
-  padding-top: clamp(56px, 8vh, 92px); padding-bottom: clamp(24px, 4vh, 48px); }
+  padding-top: clamp(56px, 8vh, 92px); padding-bottom: clamp(56px, 8vh, 88px); }
 .rd-hero > canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; }
 /* note: keeps the .wrap width (min(94vw,1500px)) so the name sits inside the
    same left margin as every section below — do NOT set width:100% here.
@@ -44,20 +44,23 @@
    empty space falls in the outer margins rather than a hole in the middle. */
 /* masthead lockup: the name is the masthead, the halftone portrait stands IN FRONT of it,
    overlapping the tail of the surname lines — no gap between figure and name. */
-.rd-hero .hero-inner { position: relative; z-index: 2; display: block; min-height: clamp(560px, 80vh, 780px); }
-.rd-hero .hero-text { position: absolute; left: 0; bottom: 0; z-index: 2; max-width: 100%; }
-/* 4 lines × 0.86 must fit the min-height above: 14vw ≈ 180px at 1280 → 619px */
+/* centred poster: the halftone portrait sits behind a centred name; labels + meta in rows below */
+.rd-hero .hero-inner { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;
+  justify-content: flex-end; text-align: center; min-height: clamp(560px, 80vh, 780px); }
+/* .hero-text = name + portrait as ONE centred lockup. --pr reserves room for the portrait's
+   overhang on the right so the flex centring centres the whole lockup, not just the name. */
+.rd-hero .hero-text { --pr: clamp(90px, 21vw, 290px); position: relative; z-index: 2;
+  display: inline-block; max-width: 100%; padding-right: var(--pr); }
 .rd-hero .hero-name { font-family: var(--display); font-weight: 400; line-height: 0.86;
-  letter-spacing: -0.01em; font-size: clamp(56px, 14vw, 180px); text-transform: uppercase; margin: 0; }
-/* right column: labels, location and CTA stacked beside the portrait */
-.rd-hero .hero-side { position: absolute; right: 0; bottom: 8px; z-index: 2; width: 28%; min-width: 230px;
-  display: flex; flex-direction: column; gap: 18px; }
+  letter-spacing: -0.01em; font-size: clamp(48px, 11.5vw, 150px); text-transform: uppercase; margin: 0; }
+.rd-hero .hero-side { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center;
+  gap: 14px; margin-top: 22px; }
 .rd-hero .hero-name span { display: block; }
 .rd-hero .hero-name .em { color: var(--pink); }
-.rd-hero .hero-labels { display: flex; flex-direction: column; gap: 8px; margin-top: 0; }
+.rd-hero .hero-labels { display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin-top: 0; }
 .rd-hero .hero-labels .lab { font-family: var(--mono); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; }
 .rd-hero .hero-labels .lab::before { content: "◆ "; color: var(--pink); font-size: 8px; }
-.rd-hero .hero-meta { margin-top: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 12px; }
+.rd-hero .hero-meta { margin-top: 0; display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 22px; }
 .rd-hero .hero-loc { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; color: var(--ink-soft); text-transform: uppercase; }
 .rd-cta { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); background: none; border: 0; cursor: pointer; padding: 0; }
@@ -65,8 +68,10 @@
 .rd-cta:hover .arrow { transform: translateX(6px); }
 .rd-hero .scroll-hint { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); z-index: 2;
   font-family: var(--mono); font-size: 10px; letter-spacing: 0.2em; color: var(--ink-soft); text-transform: uppercase; }
-.rd-hero .hero-figure { position: absolute; left: 27%; bottom: 0; z-index: 3; pointer-events: none;
-  width: 46%; height: 100%; }
+/* portrait in front, anchored to the name's baseline, starting at ~62 % of the name width so it
+   overlaps only the tail of GARCIA / FUENTE; taller than the name so the head rises above GEMMA */
+.rd-hero .hero-figure { position: absolute; left: calc((100% - var(--pr)) * 0.62); bottom: 0; z-index: 3;
+  pointer-events: none; width: clamp(280px, 40vw, 520px); height: 112%; }
 /* the <img> is invisible but keeps its layout: the halftone canvas is drawn into its rect.
    width:auto → the box IS the image, hugging the name from the left. */
 .rd-hero .hero-figure .hero-cut { position: absolute; left: 0; bottom: 0;
@@ -164,12 +169,12 @@
 @media (max-width: 820px) {
   .rd-topbar nav { display: none; }
   .rd-brand-fixed span { display: none; }
-  .rd-hero .hero-inner { min-height: 0; }
-  .rd-hero .hero-text { position: static; }
-  .rd-hero .hero-side { position: static; width: auto; min-width: 0; margin-top: 18px; gap: 14px; }
-  .rd-hero .hero-labels { flex-direction: row; flex-wrap: wrap; gap: 6px 20px; }
-  .rd-hero .hero-figure { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.32; z-index: 1; }
-  .rd-hero .hero-figure .hero-cut { max-width: 74%; left: auto; right: -6%; }
+  .rd-hero .hero-inner { min-height: 0; align-items: flex-start; text-align: left; }
+  .rd-hero .hero-text { padding-right: 0; display: block; }
+  .rd-hero .hero-side { align-items: flex-start; margin-top: 18px; }
+  .rd-hero .hero-labels, .rd-hero .hero-meta { justify-content: flex-start; }
+  .rd-hero .hero-figure { position: absolute; inset: 0; width: 100%; height: 100%; transform: none; opacity: 0.42; z-index: 1; }
+  .rd-hero .hero-figure .hero-cut { max-width: 74%; left: auto; right: -6%; transform: none; }
   .rd-cards { grid-template-columns: 1fr; }
   .rd-exp .exp-head { grid-template-columns: 64px 1fr auto; gap: 12px; }
   .rd-exp .exp-body ul { padding-left: 0; }
