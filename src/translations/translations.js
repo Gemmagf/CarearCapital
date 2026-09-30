@@ -1954,6 +1954,28 @@ export const CV_VARIANTS = [
     ],
   },
   {
+    id: "aisolutions",
+    label: "In-house AI Solutions (use-case discovery to production, finance)",
+    summary:
+      "Data scientist and product owner who finds where AI pays off inside a financial institution and then builds it. 4+ years in a bank's risk function: anomaly detection, statistical validation, process automation and product ownership of internal tools. Built an end-to-end LLM application on my own (Claude API extraction, embeddings and pgvector retrieval, FastAPI, Docker, CI) and fine-tuned a vision model on 44k images with a held-out evaluation. Cares about adoption, measurable value, cost and controls from day one.",
+    education: [
+      "MSc in Data Science — Universitat Oberta de Catalunya (UOC), 2020–2022",
+      "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
+      "BSc in Statistics — Universitat Politècnica de Catalunya (UPC), 2015–2019",
+      "BSc in Psychology — Universitat de Barcelona (UB), 2014–2019",
+    ],
+    methodologies: [
+      "AI Use-Case Discovery & Scoping",
+      "LLM Applications & RAG (Claude API, pgvector)",
+      "Model Fine-tuning & Evaluation (PyTorch)",
+      "Backend Services (Python, FastAPI, Docker, CI/CD)",
+      "Anomaly Detection & Forecasting",
+      "Governance, Controls & Cost Tracking",
+      "Product Ownership (Scrum)",
+      "Stakeholder Management",
+    ],
+  },
+  {
     id: "riskaudit",
     label: "Risk, Controls & Audit Analytics (Data & AI)",
     summary:
