@@ -49,7 +49,7 @@ scripts/render_map.cjs           render headless del mapa de carrera a SVG (per 
 ```
 
 Conceptes:
-- **`CV_VARIANTS`** (`""`, `consumer`, `industrial`, `dataeng`, `fde`, `aiplatform`, `dataai`, `automation`, `mktauto`, `riskaudit`, `aisolutions`): reenfoquen summary / mètodes / ordre d'estudis. El redisseny aplica `fde` i el builder deixa triar. `aiplatform` = GenAI/RAG en producció (Siemens); `dataai` = plataforma de dades + Power BI + forecasting + GenAI (Victorinox). Cap glif fora de WinAnsi als textos del PDF (la fletxa `→` es renderitza com `'`).
+- **`CV_VARIANTS`** (`""`, `consumer`, `industrial`, `dataeng`, `fde`, `aiplatform`, `dataai`, `automation`, `mktauto`, `riskaudit`, `aisolutions`, `enablement`): reenfoquen summary / mètodes / ordre d'estudis. El redisseny aplica `fde` i el builder deixa triar. `aiplatform` = GenAI/RAG en producció (Siemens); `dataai` = plataforma de dades + Power BI + forecasting + GenAI (Victorinox). Cap glif fora de WinAnsi als textos del PDF (la fletxa `→` es renderitza com `'`).
 - **`siteOnly: true`** en una experiència → surt a la web (secció 05) però **no** al PDF (que ha de cabre en 1 pàgina) ni com a branca al mapa (ja hi és com a llaç via `s4.events`).
 - **`PROJECT_BRIEFS[lang][id]`**: `{question, did, result, next, credit?}`; els idiomes sense brief cauen a l'anglès.
 - **`s4.events`** (copy.js): esdeveniments del mapa que no són al CV: `trip` (llaç), `work` curt (< 0,5 anys → "stint"/llaç), `study`, `life` (fita amb línia guia), `pub` (rombe enllaçat), `pet` (petjada). Temps en anys decimals (2013.45 = juny 2013).
@@ -128,6 +128,7 @@ Git: treballar a `main`; després de cada commit, `git branch -f portfolio-redes
 
 ## 8. Diari de canvis
 
+- **2026-09-30 (nit, 3)** — Variant de CV `enablement` (adopció d'IA: formació, casos d'ús, canvi; esmenta la docència a la UOC) per a Rittmeyer/BRUGG *AI Enablement Specialist* (Baar). Més dossiers del dia a la memòria `job_pipeline.md` (AMAG, Aman, Holcim, AWS, enshift, Richemont, TotalEnergies, Crédit Agricole next bank, MET).
 - **2026-09-30 (nit, 2)** — Variant de CV `aisolutions` (IA in-house en una entitat financera: descobrir casos d'ús → producció) per a Partners Group *AI Engineer*. CVs i cartes (EN) també per a Partners Group *Business Analyst – Investment Platform* (`automation`) i JTI *Digital Solutions & AI Manager* (`mktauto`).
 - **2026-09-30 (nit)** — Variant de CV `riskaudit` (risc, controls i analítica d'auditoria amb dades i IA) per a Partners Group, *Senior Auditor – Data & AI* (Baar). Cartes fetes avui amb `scripts/render_letter.cjs`: VZ, SwissComply i mobilezone (DE), Partners Group (EN). Objectiu salarial de la Gemma: CHF 140k; les empreses que el paguen publiquen a la seva pròpia web (detall a la memòria `job_pipeline.md`).
 - **2026-09-30 (vespre)** — **Canvi d'objectiu professional**: la Gemma vol un rol *in-house* (automatitzar i integrar IA dins d'una empresa), no proveïdors d'IA ni consultoria; "forward deployed" ja no és el relat (pendent de decidir si es reformula el portfoli). Variants de CV noves: `automation` (automatització de processos + IA in-house) i `mktauto` (CRM / automatització de màrqueting). Sis CVs de dos projectes a `~/Downloads`: VZ, SwissComply, Fairway (`automation`), mobilezone (`mktauto`), Kanadevia Inova (`industrial`), Julius Bär (`dataeng`). LabM no es fa servir als CVs.

@@ -1976,6 +1976,28 @@ export const CV_VARIANTS = [
     ],
   },
   {
+    id: "enablement",
+    label: "AI Enablement & Adoption (training, use cases, change)",
+    summary:
+      "Data scientist and product owner who helps people adopt data and AI in their daily work. 4+ years in a bank's risk function building and introducing internal tools — process automation with the Power Platform, AI-assisted reporting, anomaly detection — always including user training and adoption. Taught at university level as associate teacher at UOC, mentored an analyst for 18 months, and builds generative-AI applications hands-on. Translates between business, technology and governance in six languages.",
+    education: [
+      "MSc in Data Science — Universitat Oberta de Catalunya (UOC), 2020–2022",
+      "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
+      "BSc in Statistics — Universitat Politècnica de Catalunya (UPC), 2015–2019",
+      "BSc in Psychology — Universitat de Barcelona (UB), 2014–2019",
+    ],
+    methodologies: [
+      "AI Literacy & Training",
+      "Use-Case Discovery & Assessment (value, effort, feasibility)",
+      "Workshop Facilitation",
+      "Generative AI (LLMs, Microsoft Power Platform)",
+      "Business & Process Analysis",
+      "Change & Adoption Measurement",
+      "AI Governance Awareness",
+      "Product Ownership (Scrum)",
+    ],
+  },
+  {
     id: "riskaudit",
     label: "Risk, Controls & Audit Analytics (Data & AI)",
     summary:
