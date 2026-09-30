@@ -1,3 +1,13 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#E7E3DC">
+<meta name="description" content="Puppy Tracker — an offline-first app for raising a puppy well: training reps, growth against breed benchmarks, health and daily care. Interactive demo on invented data.">
+<meta property="og:title" content="Puppy Tracker — interactive demo">
+<meta property="og:description" content="Training reps, growth vs. breed, health and daily care in one offline-first app. Demo on invented data.">
+<meta property="og:type" content="website">
 <title>Puppy Tracker</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -252,7 +262,45 @@
   .foot{margin-top:clamp(30px,5vw,54px);padding-top:20px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:13px;color:var(--ink-faint)}
   .foot .mono{font-family:var(--font-mono);font-size:12px}
   .note{font-size:12px;color:var(--ink-faint);text-align:center;margin-top:14px;font-style:italic}
+
+  /* ---------- phone-sized screens & touch (added 2026-09-30) ----------
+     The page had no <meta viewport>, so phones rendered it as a shrunken desktop page.
+     With the viewport fixed, these rules put the demo first, let it use the full width,
+     size it to the visible screen (dvh) and give every control a finger-sized hit area. */
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  .tabbtn{min-height:48px;justify-content:center;touch-action:manipulation}
+  .subtab{min-height:40px;touch-action:manipulation}
+  .rbtn,.toggle{position:relative;touch-action:manipulation}
+  .rbtn::before,.toggle::before{content:"";position:absolute;inset:-9px}
+  .demo-jump{display:none}
+  /* the sub-tab row must scroll inside the phone, never widen it (it used to push the Training tab past the screen edge) */
+  .phone,.device,.screen-wrap,.body,.screen{min-width:0}
+  .subtabs{max-width:100%}
+  html{scroll-behavior:smooth}
+  #demo{scroll-margin-top:10px}
+  :focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+  @media (max-width:980px){
+    .phone{order:-1}
+    .stage{grid-template-columns:minmax(0,1fr)}
+    .demo-jump{display:inline-flex;align-items:center;gap:8px;margin-top:18px;min-height:46px;padding:0 18px;border-radius:999px;
+      background:var(--ink);color:var(--surface);font-weight:600;font-size:14.5px;text-decoration:none}
+  }
+  @media (max-width:640px){
+    .wrap{padding:22px 14px 40px}
+    .title{font-size:clamp(40px,13vw,64px)}
+    .phone{width:100%;max-width:430px}
+    .device{border-radius:32px;padding:7px}
+    .device::after{display:none}
+    .screen-wrap{border-radius:26px;max-height:none;height:min(740px,calc(100vh - 96px));height:min(740px,calc(100dvh - 96px))}
+    .statusbar{padding:12px 20px 6px}
+    .callouts{max-width:none}
+    .subtabs{flex-wrap:wrap;overflow:visible}  /* all five sub-tabs visible: nothing hidden behind a sideways swipe */
+    .subtab{padding:7px 11px}
+    .foot{flex-direction:column}
+  }
 </style>
+</head>
+<body>
 
 <div class="wrap">
 
@@ -263,6 +311,7 @@
         <span class="eyebrow">Case study · Personal project</span>
         <h1 class="title">Puppy <span class="ghost">Tracker</span></h1>
         <p class="sub">An offline-first mobile app for raising a puppy well — training reps, growth against breed benchmarks, health and daily care, all in one place.</p>
+        <a class="demo-jump" href="#demo">Try the demo ↓</a>
       </div>
       <div class="meta">
         <div class="meta-row"><span class="meta-k">Role</span><span class="chip">Product design</span><span class="chip">Front-end</span><span class="chip">Data viz</span></div>
@@ -288,12 +337,12 @@
     </aside>
 
     <!-- PHONE -->
-    <div class="phone">
+    <div class="phone" id="demo">
       <div class="device">
         <div class="screen-wrap">
           <div class="statusbar">
             <span>9:41</span>
-            <span class="dots"><span>􀙇</span><span>􀛨</span><span>100%</span></span>
+            <span class="dots"><span>5G</span><span>100%</span></span>
           </div>
           <div class="appbar">
             <div class="brand">
@@ -719,3 +768,5 @@
   renderCommands(); renderDaily(); renderWeight();
 })();
 </script>
+</body>
+</html>
