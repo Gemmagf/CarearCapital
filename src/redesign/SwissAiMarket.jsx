@@ -42,33 +42,54 @@ export default function SwissAiMarket() {
         <div style={S.kicker}>Nota de mercat · Suïssa</div>
         <h1 style={S.h1}>AI Engineer a Suïssa:<br />sous, demanda i el filtre que no surt als estudis</h1>
         <p style={S.lede}>
-          El mateix exercici que nothiring.me va fer per a Espanya, repetit a mà per a Zúric, Zug i Ginebra:
-          què s'amaga darrere del títol, qui publica, quant es paga i per què costa entrar-hi.
+          El mateix exercici que nothiring.me va fer per a Espanya, repetit per a Suïssa: 405 ofertes de LinkedIn dels últims
+          trenta dies a vuit ciutats, 199 de rellevants per a IA i 156 llegides senceres. Què s'amaga darrere del títol, qui publica,
+          quant es paga, quanta gent s'hi presenta i què et demanen de veritat.
         </p>
-        <p style={S.meta}>Gemma Garcia de la Fuente · 1 d'octubre de 2026 · mostra petita: ordres de magnitud, no estadística</p>
+        <p style={S.meta}>Gemma Garcia de la Fuente · 1 d'octubre de 2026 · dades del 1 al 30 de setembre de 2026</p>
 
-        <h2 style={S.h2}>Un títol, quatre feines</h2>
+        <h2 style={S.h2}>Un títol, quatre feines (i mitja)</h2>
         <p style={S.p}>
           A Espanya, nothiring troba que "AI Engineer" agrupa quatre rols diferents. A Suïssa passa el mateix, amb un matís:
           la quarta categoria, la que treballa colze a colze amb el negoci, existeix en dues versions que no es paguen ni es viuen igual.
         </p>
         <Table
-          head={["Tipus", "Què fa", "Qui el publica aquí", "Exemples oberts aquesta setmana"]}
+          head={["Tipus", "Què fa", "Ofertes (n=199)", "Exemples oberts al setembre"]}
           rows={[
-            ["ML Engineer", "Entrena models i els posa en producció", "Industrials, pharma", "Kanadevia Inova, Holcim, Accelleron"],
-            ["AI Platform Engineer", "RAG, agents, infraestructura al núvol", "Grans corporacions", "Siemens (Zug), Swiss Life, Partners Group"],
-            ["LLM Application Engineer", "Productes sobre models externs, amb dades de la casa", "Bancs, asseguradores, scale-ups", "Partners Group, Unique, DeepJudge"],
-            [<span style={S.strong}>Forward-deployed</span>, "Desplegat a casa del client pel proveïdor d'IA", "Proveïdors d'IA i SaaS", "Salesforce, Google Cloud, Unique, DeepJudge"],
-            [<span style={S.strong}>AI enablement / automation in-house</span>, "El mateix ofici, però en nòmina de l'empresa", "Empreses mitjanes i grans que es modernitzen", "Rittmeyer, AMAG, VZ, SwissComply, Aman"],
+            ["AI / LLM application engineer", "Productes sobre models externs, RAG, agents", "81 · 41 %", "Partners Group, Swiss Life, Sonar, PostFinance"],
+            ["ML Engineer / scientist", "Entrena models i els posa en producció", "36 · 18 %", "Kanadevia Inova, Holcim, Roche, Nestlé"],
+            [<span style={S.strong}>In-house: enablement / automation / producte</span>, "El mateix ofici que un FDE, però en nòmina de l'empresa", "22 · 11 %", "Rittmeyer, AMAG, Swiss Post, BKW, Helvetia, PMI"],
+            [<span style={S.strong}>Forward-deployed / customer-facing</span>, "Desplegat a casa del client pel proveïdor", "20 · 10 %", "Google Cloud, AWS, Salesforce, Unique, DeepJudge"],
+            ["Data scientist / analyst", "Anàlisi i models per a decisions", "19 · 10 %", "Digitec Galaxus, UBP, FIA"],
+            ["AI Platform / MLOps / data engineering", "Infraestructura perquè tot l'anterior funcioni", "15 · 8 %", "Siemens, Axpo, enshift"],
           ]}
         />
         <div style={S.callout}>
-          La cinquena fila és la novetat suïssa: empreses que no venen IA a ningú contracten algú que la implanti a dins.
-          En una setmana n'he trobat sis en obert entre Zug, Zúric i Ginebra. Gairebé totes demanen alemany.
+          Una de cada cinc ofertes és per a algú que fa d'enllaç entre la tecnologia i el negoci: la meitat des del proveïdor
+          (forward-deployed), l'altra meitat des de dins de l'empresa (enablement, automation, transformation). La segona
+          meitat gairebé no existia fa un any i és la que més demana alemany.
         </div>
 
+        <h2 style={S.h2}>Qui publica</h2>
+        <Table
+          head={["Tipus de publicador", "Ofertes (n=199)", "Candidats per oferta (mediana)", "Anys demanats (mediana)"]}
+          rows={[
+            ["Empresa: in-house, producte o scale-up", "118 · 59 %", "97", "4"],
+            ["Consultora o serveis IT", "51 · 26 %", "49", "7"],
+            ["Big tech (Google, AWS, NVIDIA, Salesforce…)", "21 · 11 %", "119", "5"],
+            ["Agència o headhunter", "8 · 4 %", "38", "5"],
+          ]}
+        />
+        <p style={S.p}>
+          A Espanya les consultores publiquen el 43 % de les ofertes; a Suïssa, el 26 %. Però demanen més anys que ningú (mediana 7)
+          i són les que més exigeixen alemany. Els que més publiquen al setembre: adesso (11), Roche (9), Sonar (7), ERNI, Google i Deloitte (6).
+        </p>
+
         <h2 style={S.h2}>Sous: el que diuen les fonts i el que diuen els anuncis</h2>
-        <p style={S.p}>Les medianes públiques es contradiuen segons qui respon a l'enquesta:</p>
+        <p style={S.p}>
+          Només 3 de les 156 ofertes llegides publiquen el sou (2 %; a Espanya, 7 %): un lead d'ML a 140.000–150.000 CHF,
+          i dos rols d'automatització a PostFinance i Swiss Post a 110.000 CHF. La resta cal inferir-la:
+        </p>
         <Table
           head={["Font", "AI / ML Engineer, Zúric", "Comentari"]}
           rows={[
@@ -77,54 +98,90 @@ export default function SwissAiMarket() {
             ["CompVerdict", "153.000 CHF (128–183k), 3–5 anys", "Mostra petita"],
           ]}
         />
-        <p style={S.p}>Més fiables són les forquilles que publiquen les mateixes empreses, tot i que són poques:</p>
         <Table
-          head={["Tipus d'empresa", "Forquilla vista", "D'on surt"]}
+          head={["Tipus d'empresa", "Forquilla observada", "D'on surt"]}
           rows={[
             ["Pharma i grans corporacions", "126.000–173.000 CHF", "Takeda, rang publicat a l'anunci"],
             ["Proveïdor d'IA, forward-deployed", "120.000–170.000 CHF", "Glassdoor, FDE a Zúric"],
             ["Scale-up suïssa d'IA", "120.000–160.000 CHF + equity", "Estimació (Unique, DeepJudge)"],
+            ["Empresa pública o semipública", "110.000 CHF", "PostFinance, Swiss Post, rangs publicats"],
             ["Industrial mitjana, rol intern", "100.000–130.000 CHF", "swissdevjobs; sostre 130–155k per a ML Engineer"],
             ["Consultora i body leasing", "110.000–140.000 CHF", "Estimació (ERNI, ti&m, Eraneos)"],
-            ["Administració pública", "100.000–130.000 CHF", "Barems cantonals"],
           ]}
         />
         <p style={S.p}>
           La bretxa consultora–producte que nothiring mesura a Espanya (19.600 €) també hi és. Però a Suïssa la partició que mana
           no és aquesta, és el <span style={S.strong}>sector</span>: finances, pharma i multinacionals paguen 140.000 i més per un
-          perfil amb quatre o cinc anys; indústria mitjana, retail i sector públic, rarament.
-        </p>
-        <p style={S.p}>
-          Per a referència: el sostre espanyol de l'article (100.000–130.000 €, sis ofertes de 476) és aquí la part baixa de la taula.
+          perfil amb quatre o cinc anys; indústria mitjana, sector públic i retail, rarament. El sostre espanyol de l'article
+          (100.000–130.000 €) és aquí la part baixa de la taula.
         </p>
 
-        <h2 style={S.h2}>Demanda i competència</h2>
-        <ul style={S.ul}>
-          <li><span style={S.strong}>Volum</span>: unes 400 ofertes d'IA obertes a tot Suïssa, unes 200 a l'àrea de Zúric (Glassdoor, setembre de 2026). En un rastreig de trenta dies a Zug, Schwyz i Ginebra: 127 ofertes amb dades o IA al títol.</li>
-          <li><span style={S.strong}>Qui publica</span>: com a Espanya, consultores i intermediaris són majoria, prop de la meitat de les 127. Les empreses que paguen més publiquen a la seva web i sovint no surten als portals.</li>
-          <li><span style={S.strong}>Competència</span>: molt menor que a Espanya. Un anunci amb 10 candidats en sis dies és normal; la mediana espanyola és 67. No tinc prou dades per donar una mediana suïssa.</li>
-        </ul>
+        <h2 style={S.h2}>Competència: més de la que sembla</h2>
+        <p style={S.p}>
+          LinkedIn mostra quants candidats ha rebut cada oferta. És la mateixa mètrica que fa servir nothiring, així que es pot comparar:
+        </p>
+        <Table
+          head={["", "Suïssa (n=156)", "Espanya (nothiring)"]}
+          rows={[
+            ["Candidats per oferta, mediana", <span style={S.strong}>81</span>, "67"],
+            ["Ofertes amb més de 100 candidats", "43 %", "37 %"],
+            ["Ofertes que publiquen el sou", "2 %", "7 %"],
+          ]}
+        />
+        <Table
+          head={["Per tipus de rol", "Candidats (mediana)"]}
+          rows={[
+            ["Data scientist / analyst", "104"],
+            ["ML Engineer / scientist", "103"],
+            ["AI / LLM application engineer", "83"],
+            ["Forward-deployed / customer-facing", "74"],
+            ["In-house: enablement / automation / producte", "69"],
+            ["AI Platform / MLOps", "43"],
+          ]}
+        />
+        <p style={S.p}>
+          Sorpresa: la competència a Suïssa és més alta que a Espanya, no més baixa. On menys gent es presenta és a la infraestructura
+          i als rols interns d'automatització; on més, als títols clàssics de data scientist i ML engineer, i a les big tech (mediana 119).
+        </p>
 
         <h2 style={S.h2}>El filtre real: idioma i anys</h2>
         <p style={S.p}>
-          A Espanya el coll d'ampolla és la quantitat de candidats. A Suïssa és un altre. Dels rols interns d'automatització i IA
-          en empreses suïsses mitjanes llegits sencers aquesta setmana, tots menys tres demanaven alemany fluent o natiu.
-          Els que accepten només anglès són tres tipus: grans corporacions, scale-ups d'IA i Ginebra, en francès.
+          De les 156 ofertes llegides, el 67 % estan escrites en anglès, el 26 % en alemany i el 8 % en francès. Comptant com a
+          "cal alemany" les que estan escrites en alemany o que l'exigeixen explícitament:
+        </p>
+        <Table
+          head={["Alemany necessari", "Ofertes", "Percentatge"]}
+          rows={[
+            ["Tot Suïssa", "55 de 156", "35 %"],
+            ["Suïssa alemanya", "53 de 118", "45 %"],
+            ["Suïssa alemanya, rols in-house d'automatització i enablement", <span style={S.strong}>11 de 15</span>, <span style={S.strong}>73 %</span>],
+            ["Suïssa alemanya, consultores", "19 de 23", "83 %"],
+            ["Suïssa alemanya, ML engineer / scientist", "5 de 26", "19 %"],
+            ["Suïssa alemanya, big tech", "2 de 16", "13 %"],
+            ["Suïssa francesa, francès exigit", "5 de 36", "14 %"],
+          ]}
+        />
+        <p style={S.p}>
+          El patró és clar: com més a prop del negoci, més alemany. Els rols d'enginyeria pura es fan en anglès; els d'implantar
+          IA dins d'una empresa suïssa mitjana, en alemany. Ginebra i Lausana són l'excepció: hi mana l'anglès, i el francès
+          gairebé mai és eliminatori.
         </p>
         <p style={S.p}>
-          El segon filtre són els anys: els rols que paguen 140.000 i més demanen entre 5 i 8 anys d'experiència.
-          El títol sènior s'atorga per anys, no per abast.
+          Els anys: de les 71 ofertes que en concreten, la mediana és 5. Les empreses en demanen 4; les consultores, 7. Un 27 %
+          demana 8 o més. El títol sènior s'atorga per anys, no per abast.
         </p>
         <div style={S.callout}>
-          En una frase: a Suïssa el problema no és que hi hagi poques ofertes ni massa candidats. És que la meitat de les bones
-          demanen alemany i l'altra meitat demanen anys.
+          En una frase: a Suïssa hi ha ofertes i hi ha sou, però la meitat de les que t'acosten al negoci demanen alemany,
+          i les que paguen més de 140.000 demanen més de cinc anys.
         </div>
 
         <h2 style={S.h2}>Metodologia i límits</h2>
         <ul style={S.ul}>
-          <li>Rastreig manual de jobs.ch, jobup.ch, la cerca pública de LinkedIn i les webs de carreres de 25 empreses, 29 i 30 de setembre de 2026.</li>
-          <li>Sous: forquilles publicades als anuncis quan n'hi ha; si no, Glassdoor, levels.fyi, CompVerdict i swissdevjobs. Les estimacions marcades com a tals són pròpies.</li>
-          <li>Mostres petites: una sola oferta pot moure una forquilla. Cap xifra d'aquí és un valor de mercat contrastat.</li>
+          <li>Cerca pública de LinkedIn, ofertes publicades entre l'1 i el 30 de setembre de 2026, a Zúric, Zug, Basilea, Berna, Ginebra, Lausana, Lucerna i St. Gallen (radi 15 km), amb sis cerques per ciutat: "AI engineer", "machine learning engineer", "data scientist", "AI automation", "LLM / generative AI" i "AI product owner / manager".</li>
+          <li>405 ofertes úniques. Excloses les de pràctiques, estudiants, doctorats i aprenents, i les que no tenen IA, ML, dades o automatització al títol: en queden 199. De 156 se n'ha llegit el text sencer.</li>
+          <li>Classificació per títol i per empresa amb regles fixes; "cal alemany" = anunci escrit en alemany o que l'exigeix explícitament. Candidats = el comptador que mostra LinkedIn, que satura a 200.</li>
+          <li>Sous: forquilles publicades als anuncis quan n'hi ha (3); si no, Glassdoor, levels.fyi, CompVerdict i swissdevjobs. Les estimacions marcades com a tals són pròpies.</li>
+          <li>Mostra d'un sol mes i d'un sol portal. Les empreses que paguen més sovint publiquen només a la seva web i hi estan infrarepresentades.</li>
         </ul>
 
         <p style={S.note}>
