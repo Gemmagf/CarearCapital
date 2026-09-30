@@ -7,13 +7,16 @@ import ContactSection from './components/ContactSection';
 import PersonalProjectsSection from "./components/PersonalProjectsSection";
 import CvBuilderSection from "./components/CvBuilderSection";
 import RedesignApp from "./redesign/RedesignApp";
+import SwissAiMarket from "./redesign/SwissAiMarket";
 
 const SECRET_HASH = "#secret";
 const LEGACY_HASH = "#legacy";
+const SECRET2_HASH = "#secret2"; // shareable market note (Catalan), not linked from the site
 
 // Routing by hash:
 //   (default)  → the editorial redesign (public site)
 //   #secret    → private CV builder
+//   #secret2   → "AI Engineer a Suïssa" market note, shared by URL only
 //   #legacy    → the previous site, kept for reference (also preserved on the `legacy-site` branch)
 function App() {
   const [appLanguage, setAppLanguage] = useState('catalan');
@@ -36,6 +39,8 @@ function App() {
       </div>
     );
   }
+
+  if (hash === SECRET2_HASH) return <SwissAiMarket />;
 
   if (hash !== LEGACY_HASH) return <RedesignApp />;
 

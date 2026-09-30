@@ -128,6 +128,7 @@ Git: treballar a `main`; després de cada commit, `git branch -f portfolio-redes
 
 ## 8. Diari de canvis
 
+- **2026-10-01** — Ruta amagada **`#secret2`** (`src/redesign/SwissAiMarket.jsx`): nota de mercat en català "AI Engineer a Suïssa" (quatre tipus de rol, sous per tipus d'empresa, demanda, filtre d'idioma i anys), format d'article amb taules, per compartir per URL; no surt al menú. Rutes ara: arrel, `#secret` (CV builder), `#secret2` (nota), `#legacy`.
 - **2026-09-30 (nit, 3)** — Variant de CV `enablement` (adopció d'IA: formació, casos d'ús, canvi; esmenta la docència a la UOC) per a Rittmeyer/BRUGG *AI Enablement Specialist* (Baar). Més dossiers del dia a la memòria `job_pipeline.md` (AMAG, Aman, Holcim, AWS, enshift, Richemont, TotalEnergies, Crédit Agricole next bank, MET).
 - **2026-09-30 (nit, 2)** — Variant de CV `aisolutions` (IA in-house en una entitat financera: descobrir casos d'ús → producció) per a Partners Group *AI Engineer*. CVs i cartes (EN) també per a Partners Group *Business Analyst – Investment Platform* (`automation`) i JTI *Digital Solutions & AI Manager* (`mktauto`).
 - **2026-09-30 (nit)** — Variant de CV `riskaudit` (risc, controls i analítica d'auditoria amb dades i IA) per a Partners Group, *Senior Auditor – Data & AI* (Baar). Cartes fetes avui amb `scripts/render_letter.cjs`: VZ, SwissComply i mobilezone (DE), Partners Group (EN). Objectiu salarial de la Gemma: CHF 140k; les empreses que el paguen publiquen a la seva pròpia web (detall a la memòria `job_pipeline.md`).
