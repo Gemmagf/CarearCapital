@@ -1932,6 +1932,50 @@ export const CV_VARIANTS = [
     ],
   },
   {
+    id: "automation",
+    label: "In-house AI & Process Automation",
+    summary:
+      "Data scientist and product owner who automates how a business works from the inside. 4+ years in a bank's risk function: built a Power Apps process-control system that replaced manual tracking with automated workflows, automated reporting with AI tools, owned an anomaly-detection dashboard and a validation engine as product owner, and led a cross-functional pod of five. Hands-on with LLMs (Claude API, retrieval, FastAPI) and used to turning a business process into a working solution that people actually adopt.",
+    education: [
+      "MSc in Data Science — Universitat Oberta de Catalunya (UOC), 2020–2022",
+      "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
+      "BSc in Statistics — Universitat Politècnica de Catalunya (UPC), 2015–2019",
+      "BSc in Psychology — Universitat de Barcelona (UB), 2014–2019",
+    ],
+    methodologies: [
+      "Process Analysis & Automation (Power Apps, Python)",
+      "AI Integration (LLMs, Claude API, RAG)",
+      "Reporting Automation (Power BI)",
+      "Product Ownership (Scrum)",
+      "Business Cases & KPI Design",
+      "Data Quality & Controls",
+      "Training & Adoption",
+      "Stakeholder Management",
+    ],
+  },
+  {
+    id: "mktauto",
+    label: "CRM / Marketing Automation & AI",
+    summary:
+      "Data scientist with a statistics and psychology background who connects customer data, marketing and automation. Measured campaigns end to end at KH-7 (ROI, ROAS, CPA, channel mix) and built conversion-funnel dashboards for a new YouTube feature at Google; at UBS I now automate processes and reporting with Power Apps and AI tools as product owner of internal data products. Hands-on with LLMs (Claude API, retrieval) and comfortable owning projects with marketing, IT and external partners.",
+    education: [
+      "BSc in Statistics — Universitat Politècnica de Catalunya (UPC), 2015–2019",
+      "BSc in Psychology — Universitat de Barcelona (UB), 2014–2019",
+      "MSc in Data Science — Universitat Oberta de Catalunya (UOC), 2020–2022",
+      "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
+    ],
+    methodologies: [
+      "Customer & Campaign Analytics",
+      "Campaign Measurement (ROI / ROAS / CPA)",
+      "Marketing & Process Automation",
+      "AI Integration (LLMs, Claude API)",
+      "Experiment Design (A/B)",
+      "KPI & Dashboard Design",
+      "Project Ownership (Scrum)",
+      "Stakeholder Management",
+    ],
+  },
+  {
     id: "dataai",
     label: "Data & AI Engineer (platform, BI, forecasting, GenAI)",
     summary:
