@@ -1954,6 +1954,28 @@ export const CV_VARIANTS = [
     ],
   },
   {
+    id: "riskaudit",
+    label: "Risk, Controls & Audit Analytics (Data & AI)",
+    summary:
+      "Data scientist with a statistics background and 4+ years inside a bank's risk function, using data to find what should not be there. Owned an anomaly-detection dashboard and a statistical validation engine as product owner, led a risk data-quality product, and built process controls that replaced manual tracking with automated workflows. Works in Python and SQL every day, applies machine learning and LLM tooling to real problems, and explains findings to senior stakeholders in plain language.",
+    education: [
+      "MSc in Data Science — Universitat Oberta de Catalunya (UOC), 2020–2022",
+      "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
+      "BSc in Statistics — Universitat Politècnica de Catalunya (UPC), 2015–2019",
+      "BSc in Psychology — Universitat de Barcelona (UB), 2014–2019",
+    ],
+    methodologies: [
+      "Anomaly & Outlier Detection",
+      "Statistical Testing & Validation",
+      "Data Quality & Process Controls",
+      "Risk Analytics",
+      "Machine Learning & LLM Tooling",
+      "Explainability (SHAP)",
+      "Dashboards & Reporting (Power BI)",
+      "Stakeholder Communication",
+    ],
+  },
+  {
     id: "mktauto",
     label: "CRM / Marketing Automation & AI",
     summary:
