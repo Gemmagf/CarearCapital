@@ -18,6 +18,9 @@ const GRAY = "#6B7280";
 
 const PORTFOLIO_URL = "https://gemmagf.github.io/CarearCapital";
 
+// first n sentences of a description (used when two projects share the section)
+const firstSentences = (t = "", n = 2) => t.split(/(?<=[.!?])\s+(?=[A-ZÀ-Ý0-9])/).slice(0, n).join(" ");
+
 const stripProto = (u = "") => u.replace(/^https?:\/\//, "").replace(/\/$/, "");
 
 const makeStyles = (accent) =>
@@ -139,11 +142,13 @@ const CvDocument = ({
   positionTitle,
   companyName,
   featuredProject,
+  featuredProjects, // optional: 2+ projects → compact entries (first two sentences each)
   motivation,
   photoUrl,
   accentColor = DEFAULT_ACCENT,
 }) => {
   const styles = makeStyles(accentColor);
+  const feats = Array.isArray(featuredProjects) && featuredProjects.length ? featuredProjects : featuredProject ? [featuredProject] : [];
   const c = cvData?.contact || {};
   const tagline = positionTitle?.trim() || cvData?.headline;
 
@@ -244,47 +249,31 @@ const CvDocument = ({
           </Section>
         )}
 
-        {/* FEATURED PROJECT ------------------------------------------------- */}
-        {featuredProject && (
-          <Section title={L.featured}>
-            <Text style={styles.projectTitle}>{featuredProject.title}</Text>
-            {(featuredProject.link || featuredProject.repo) && (
-              <Text style={styles.projectMeta}>
-                {featuredProject.link && (
-                  <>
-                    Live:{" "}
-                    <Link
-                      src={featuredProject.link}
-                      style={styles.metaLink}
-                    >
-                      {stripProto(featuredProject.link)}
-                    </Link>
-                  </>
+        {/* FEATURED PROJECT(S) ---------------------------------------------- */}
+        {feats.length > 0 && (
+          <Section title={feats.length > 1 ? `${L.featured}s` : L.featured}>
+            {feats.map((fp, fi) => (
+              <View key={fi} style={feats.length > 1 ? { marginBottom: 2.5 } : null} wrap={false}>
+                <Text style={styles.projectTitle}>{fp.title}</Text>
+                {(fp.link || fp.repo) && (
+                  <Text style={styles.projectMeta}>
+                    {fp.link && (<>Live:{" "}<Link src={fp.link} style={styles.metaLink}>{stripProto(fp.link)}</Link></>)}
+                    {fp.link && fp.repo && "  ·  "}
+                    {fp.repo && (<>Code:{" "}<Link src={fp.repo} style={styles.metaLink}>{stripProto(fp.repo)}</Link></>)}
+                    {feats.length > 1 && Array.isArray(fp.stack) && fp.stack.length > 0 && `  ·  ${fp.stack.slice(0, 5).join(", ")}`}
+                  </Text>
                 )}
-                {featuredProject.link && featuredProject.repo && "  ·  "}
-                {featuredProject.repo && (
-                  <>
-                    Code:{" "}
-                    <Link
-                      src={featuredProject.repo}
-                      style={styles.metaLink}
-                    >
-                      {stripProto(featuredProject.repo)}
-                    </Link>
-                  </>
+                {fp.description && (
+                  <Text style={styles.body}>{feats.length > 1 ? firstSentences(fp.description, 2) : fp.description}</Text>
                 )}
-              </Text>
-            )}
-            {featuredProject.description && (
-              <Text style={styles.body}>{featuredProject.description}</Text>
-            )}
-            {Array.isArray(featuredProject.stack) &&
-              featuredProject.stack.length > 0 && (
-                <Text style={styles.body}>
-                  <Text style={styles.inlineLabel}>Stack: </Text>
-                  {featuredProject.stack.join(" · ")}
-                </Text>
-              )}
+                {feats.length === 1 && Array.isArray(fp.stack) && fp.stack.length > 0 && (
+                  <Text style={styles.body}>
+                    <Text style={styles.inlineLabel}>Stack: </Text>
+                    {fp.stack.join(" · ")}
+                  </Text>
+                )}
+              </View>
+            ))}
           </Section>
         )}
 

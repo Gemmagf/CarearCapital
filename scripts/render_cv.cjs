@@ -1,5 +1,5 @@
 /* Headless render of CvDocument → PDF, replicating CvBuilderSection's assembly.
-   Usage: node render_cv.cjs OUT.pdf [variant] [projectId] [company] [title] [lang] */
+   Usage: node render_cv.cjs OUT.pdf [variant] [projectId|id1,id2] [company] [title] [lang] */
 const path = require("path");
 const fs = require("fs");
 const REPO = require("path").resolve(__dirname, "..");
@@ -37,14 +37,16 @@ const photoChoice = "cv";
 
 const langPack = allTranslations[outputLanguage] || allTranslations.english;
 const projects = (langPack.personalProjects && langPack.personalProjects.projects) || [];
-const featuredProject = projects.find((p) => p.id === featuredProjectId) || null;
+// projectId may be a comma-separated list ("labm,retail") → two compact featured projects
+const featuredList = featuredProjectId.split(",").map((id) => projects.find((p) => p.id === id.trim())).filter(Boolean);
+const featuredProject = featuredList[0] || null;
 const imgPath = path.join(REPO, `public/images/gemma_${photoChoice}.jpg`);
 const photoUrl = "data:image/jpeg;base64," + fs.readFileSync(imgPath).toString("base64");
 
 const props = {
   name: langPack.name || "Gemma Garcia de la Fuente",
   cvData: applyCvVariant(langPack.cv, cvVariant),
-  positionTitle, companyName, featuredProject, motivation, photoUrl, accentColor: "#E11D48",
+  positionTitle, companyName, featuredProject, featuredProjects: featuredList.length > 1 ? featuredList : undefined, motivation, photoUrl, accentColor: "#E11D48",
 };
 
 (async () => {
