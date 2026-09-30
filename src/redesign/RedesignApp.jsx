@@ -83,6 +83,15 @@ export default function RedesignApp() {
     const onKey = (e) => e.key === "Escape" && setModal(null);
     window.addEventListener("keydown", onKey); return () => window.removeEventListener("keydown", onKey);
   }, []);
+  // modal open → lock the page behind it (no double scroll on phones) and move focus into the dialog
+  const closeRef = useRef(null);
+  useEffect(() => {
+    if (!modal) return undefined;
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeRef.current?.focus({ preventScroll: true });
+    return () => { document.body.style.overflow = prev; };
+  }, [modal]);
 
   const scrollTo = (id) => document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
 
@@ -149,7 +158,7 @@ export default function RedesignApp() {
           <div className="rd-viz reveal" style={{ gridColumn: "4 / 10", alignSelf: "center" }}><DataSurface /></div>
           <div className="rd-list reveal" style={{ gridColumn: "10 / 13" }}>
             <h4>{C.s1.listTitle}</h4>
-            <ul>{C.s1.list.map((m) => <li key={m}>{m}<span className="pl">+</span></li>)}</ul>
+            <ul>{C.s1.list.map((m) => <li key={m}>{m}</li>)}</ul>
           </div>
         </div>
       </section>
@@ -201,7 +210,9 @@ export default function RedesignApp() {
             <h2 className="rd-title reveal">{C.s4.title[0]}<br />{C.s4.title[1]}</h2>
             <p className="band-lead reveal">{C.s4.lead}</p><Epigraph q={QUOTES.s4} />
           </div>
-          <div className="rd-viz reveal" style={{ gridColumn: "4 / 13", alignSelf: "center" }}><CareerMap exp={exp} edu={cv?.education} legend={C.s4.legend} events={C.s4.events || []} /></div>
+          {/* on phones the map keeps a readable size and scrolls sideways inside its own box */}
+          <div className="rd-viz rd-map reveal" tabIndex={0} role="img" aria-label={C.s4.title.join(" ")} style={{ gridColumn: "4 / 13", alignSelf: "center" }}><CareerMap exp={exp} edu={cv?.education} legend={C.s4.legend} events={C.s4.events || []} /></div>
+          <div className="swipe-hint" aria-hidden="true">← →</div>
         </div>
       </section>
 
@@ -209,7 +220,7 @@ export default function RedesignApp() {
       <section className="rd-band" id="about">
         <div className="wrap">
           <div className="band-head" style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", flexWrap: "wrap", gap: 12 }}>
-            <div><span className="section-index">05</span><h2 className="rd-title reveal" style={{ fontSize: "clamp(24px,3vw,40px)" }}>{C.s5}</h2></div>
+            <div style={{ display: "flex", alignItems: "baseline", gap: 14 }}><span className="section-index">05</span><h2 className="rd-title reveal" style={{ fontSize: "clamp(24px,3vw,40px)" }}>{C.s5}</h2></div>
             {C.dl && <CvDownloads dl={C.dl} />}
           </div>
           <div className="rd-exp" style={{ marginTop: 18 }}>
@@ -254,10 +265,12 @@ export default function RedesignApp() {
 
       {modal && (
         <div className="rd-modal" onClick={() => setModal(null)}>
-          <div className="box" onClick={(e) => e.stopPropagation()}>
-            <button className="close" onClick={() => setModal(null)}>✕</button>
+          {/* box = fixed header (close) + scrolling body + action bar that never leaves the screen */}
+          <div className="box" role="dialog" aria-modal="true" aria-labelledby="rd-modal-title" onClick={(e) => e.stopPropagation()}>
+            <button className="close" ref={closeRef} aria-label="Close" onClick={() => setModal(null)}>✕</button>
+            <div className="mbody">
             <span className="cat">{modal.tag}</span>
-            <h3>{modal.title}</h3>
+            <h3 id="rd-modal-title">{modal.title}</h3>
             <p>{modal.description}</p>
             {(() => {
               const B = PROJECT_BRIEFS[lang] || PROJECT_BRIEFS.english, EB = PROJECT_BRIEFS.english;
@@ -272,10 +285,13 @@ export default function RedesignApp() {
               ) : null;
             })()}
             <div className="stack">{(modal.stack || []).join(" · ")}</div>
-            <div className="acts">
-              {modal.link && <a className="primary" href={modal.link} target="_blank" rel="noreferrer">{C.modal.open}</a>}
-              {modal.repo && <a href={modal.repo} target="_blank" rel="noreferrer">{C.modal.code}</a>}
             </div>
+            {(modal.link || modal.repo) && (
+              <div className="acts">
+                {modal.link && <a className="primary" href={modal.link} target="_blank" rel="noreferrer">{C.modal.open}</a>}
+                {modal.repo && <a href={modal.repo} target="_blank" rel="noreferrer">{C.modal.code}</a>}
+              </div>
+            )}
           </div>
         </div>
       )}

@@ -131,9 +131,16 @@
 .rd-carditem:hover .ct { color: var(--pink-dark); }
 
 /* project modal ------------------------------------------- */
+/* The box never exceeds the visible viewport (dvh = what is left once the mobile browser bars are
+   showing): the text scrolls inside .mbody and the action bar (.acts) stays pinned at the bottom,
+   so "Open live" is always reachable. Before this the box had no max-height and was cut off. */
 .rd-modal { position: fixed; inset: 0; z-index: 100; display: flex; align-items: center; justify-content: center;
-  background: rgba(13,13,15,0.55); padding: 24px; }
-.rd-modal .box { background: var(--bg); max-width: 720px; width: 100%; padding: clamp(24px, 4vw, 48px); position: relative; border-top: 4px solid var(--pink); }
+  background: rgba(13,13,15,0.55); padding: 24px; overscroll-behavior: contain; }
+.rd-modal .box { background: var(--bg); max-width: 720px; width: 100%; position: relative; border-top: 4px solid var(--pink);
+  display: flex; flex-direction: column; max-height: calc(100vh - 48px); max-height: calc(100dvh - 48px); }
+.rd-modal .mbody { flex: 1 1 auto; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain;
+  padding: clamp(24px, 4vw, 48px); padding-right: clamp(44px, 5vw, 56px); }
+.rd-modal .mbody > :last-child { margin-bottom: 0; }
 .rd-modal .cat { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pink-dark); }
 /* project brief: the question it answered → what I did → result → what's next in production */
 .rd-modal .brief { display: grid; gap: 12px; margin: 16px 0 6px; padding-top: 14px; border-top: 1px solid var(--line); }
@@ -144,11 +151,14 @@
 .rd-modal h3 { font-family: var(--display); font-weight: 400; text-transform: uppercase; font-size: clamp(26px,4vw,44px); line-height: 0.98; margin: 6px 0 14px; }
 .rd-modal p { font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
 .rd-modal .stack { font-family: var(--mono); font-size: 11px; letter-spacing: 0.05em; margin-top: 14px; color: var(--ink); }
-.rd-modal .acts { margin-top: 20px; display: flex; gap: 14px; }
+.rd-modal .acts { flex: 0 0 auto; display: flex; flex-wrap: wrap; gap: 12px; padding: 14px clamp(24px, 4vw, 48px);
+  padding-bottom: calc(14px + env(safe-area-inset-bottom)); border-top: 1px solid var(--line); background: var(--bg); }
 .rd-modal .acts a { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none;
-  padding: 10px 18px; border: 1px solid var(--pink); color: var(--pink-dark); }
-.rd-modal .acts a.primary { background: var(--pink); color: #fff; }
-.rd-modal .close { position: absolute; top: 14px; right: 16px; background: none; border: 0; font-size: 22px; cursor: pointer; color: var(--ink); font-family: var(--mono); }
+  padding: 12px 18px; min-height: 44px; display: inline-flex; align-items: center; justify-content: center;
+  border: 1px solid var(--pink); color: var(--pink-dark); }
+.rd-modal .acts a.primary { background: var(--pink-dark); color: #fff; border-color: var(--pink-dark); }
+.rd-modal .close { position: absolute; top: 6px; right: 6px; z-index: 2; width: 44px; height: 44px; display: grid; place-items: center;
+  background: var(--bg); border: 0; border-radius: 50%; font-size: 20px; cursor: pointer; color: var(--ink); font-family: var(--mono); }
 
 /* full experience — compact rows -------------------------- */
 .rd-exp .exp-row { border-top: 1px solid var(--line); }
@@ -160,7 +170,7 @@
 .rd-exp .exp-role .co { color: var(--ink-soft); font-weight: 400; }
 .rd-exp .exp-toggle { font-family: var(--mono); font-size: 18px; color: var(--pink); }
 .rd-exp .exp-body { overflow: hidden; max-height: 0; transition: max-height .35s ease; }
-.rd-exp .exp-row.open .exp-body { max-height: 400px; }
+.rd-exp .exp-row.open .exp-body { max-height: 1600px; } /* tall enough for wrapped bullets on a narrow phone */
 .rd-exp .exp-body ul { margin: 0 0 16px; padding-left: 140px; }
 .rd-exp .exp-body li { font-size: 13px; line-height: 1.5; color: var(--ink-soft); margin-bottom: 5px; }
 
@@ -180,14 +190,37 @@
 .cv-dl a .arrow { color: var(--pink); transition: transform .25s ease; }
 .cv-dl a:hover .arrow { transform: translateY(4px); }
 
+/* keyboard / switch users: a visible focus ring everywhere */
+.rd :focus-visible { outline: 2px solid var(--pink); outline-offset: 3px; }
+.rd .swipe-hint { display: none; }
+
 /* responsive ---------------------------------------------- */
 @media (max-width: 1000px) {
   .rd-band .grid12 > * { grid-column: 1 / -1 !important; }
   .rd-cards { grid-template-columns: repeat(2, 1fr); }
 }
 @media (max-width: 820px) {
-  .rd-topbar nav { display: none; }
+  .rd { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+  /* top bar: section links stay available on phones (second row), with finger-sized targets */
+  /* on phones the bar belongs to the top of the page and scrolls away with it: a fixed two-row bar
+     sat on top of the section titles. The pink mark (top-left) stays fixed as "back to top". */
+  .rd-topbar { position: absolute; mix-blend-mode: normal; color: var(--ink); flex-wrap: wrap; gap: 0 14px; padding: 8px 12px 6px 56px; }
+  .rd-topbar nav { display: flex; gap: 4px; width: 100%; justify-content: flex-end; order: 2; }
+  .rd-topbar nav button, .rd-lang button { min-height: 40px; min-width: 40px; padding: 10px 8px; }
+  .rd-lang { gap: 0 !important; }
+  .rd-brand-fixed { min-width: 44px; min-height: 44px; top: 8px; }
   .rd-brand-fixed span { display: none; }
+  .rd-hero { padding-top: 104px; }
+  /* project popup: a bottom sheet that uses the whole width */
+  .rd-modal { padding: 0; align-items: flex-end; }
+  .rd-modal .box { max-width: none; max-height: calc(100vh - 28px); max-height: calc(100dvh - 28px); }
+  .rd-modal .mbody { padding: 22px 18px 18px; padding-right: 52px; }
+  .rd-modal .acts { padding-left: 18px; padding-right: 18px; }
+  .rd-modal .acts a { flex: 1 1 140px; }
+  /* career map: readable size, scrolls sideways inside its own box */
+  .rd .rd-map { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; overscroll-behavior-x: contain; padding-bottom: 6px; }
+  .rd .rd-map svg { width: 960px; max-width: none; }
+  .rd .swipe-hint { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: 0.2em; color: var(--pink); text-align: center; margin-top: -6px; }
   .rd-hero .hero-inner { min-height: 0; align-items: flex-start; text-align: left; }
   .rd-hero .hero-text { padding-right: 0; display: block; position: static; width: 100%; } /* static → the figure's inset:0 spans the whole hero-inner again */
   .rd-hero .hero-name { font-size: clamp(58px, 15vw, 150px); }
@@ -196,9 +229,13 @@
   .rd-hero .hero-figure { position: absolute; inset: 0; left: 0; width: 100%; height: 100%; opacity: 0.5; z-index: 1; }
   .rd-hero .hero-figure .hero-cut { left: auto; right: -4%; height: 62%; max-width: 70%; object-position: bottom right; }
   .rd-hero .hero-figure .hero-anim { inset: 0; width: 100%; height: 100%; }
+  .rd-exp .exp-head { grid-template-columns: 52px 1fr 28px; gap: 10px; min-height: 48px; }
+  .rd-exp .exp-role { font-size: 15px; }
+  .rd-exp .exp-role .co { display: block; font-size: 13px; margin-top: 2px; }
+  .rd-exp .exp-body ul { padding-left: 18px; }
+}
+@media (max-width: 560px) {
   .rd-cards { grid-template-columns: 1fr; }
-  .rd-exp .exp-head { grid-template-columns: 64px 1fr auto; gap: 12px; }
-  .rd-exp .exp-body ul { padding-left: 0; }
 }
 @media (prefers-reduced-motion: reduce) {
   .rd .reveal { transition: none; opacity: 1; transform: none; }
@@ -225,3 +262,15 @@
 .rd-footer .colophon { flex-basis: 100%; font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.06em; color: var(--ink-soft); margin-top: 10px; }
 
 .rd-skills .chip.lead { border-color: var(--pink); color: var(--pink-dark); font-style: italic; }
+
+/* phone overrides that must come LAST (they override rules declared after the main responsive block) */
+@media (max-width: 820px) {
+  /* attributions may wrap instead of being cut at the screen edge */
+  .rd .epigraph span { white-space: normal; }
+  /* finger-sized links and buttons */
+  .rd-cta { min-height: 44px; padding: 10px 0; }
+  .rd-footer .mono a, .cv-dl a { padding-top: 8px; padding-bottom: 8px; }
+  .rd-footer .mono { text-align: left !important; }
+  .rd-skills .chip.link { padding: 9px 12px; }
+  .rd-list li { padding: 9px 0; }
+}
