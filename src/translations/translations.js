@@ -1998,6 +1998,28 @@ export const CV_VARIANTS = [
     ],
   },
   {
+    id: "datagov",
+    label: "Data Governance, Quality & Knowledge Management (with AI)",
+    summary:
+      "Data scientist and product owner with 4+ years governing data inside a bank's risk function: led a data-quality product, defined standards and controls, simplified data models and moved reporting to Power BI. Builds AI solutions that make documents and knowledge searchable (LLM extraction, embeddings, retrieval) and gets them adopted by business, technical and IT stakeholders.",
+    education: [
+      "MSc in Data Science — Universitat Oberta de Catalunya (UOC), 2020–2022",
+      "MSc in Financial Management — Universitat Oberta de Catalunya (UOC), 2022–2024",
+      "BSc in Statistics — Universitat Politècnica de Catalunya (UPC), 2015–2019",
+      "BSc in Psychology — Universitat de Barcelona (UB), 2014–2019",
+    ],
+    methodologies: [
+      "Data Governance & Ownership Models",
+      "Data Quality Management",
+      "Knowledge Structuring & Retrieval (LLMs, embeddings)",
+      "Process & Documentation Standards",
+      "Analytics & BI (Power BI)",
+      "Digital & AI Solution Adoption",
+      "Change & Stakeholder Management",
+      "Product Ownership (Scrum)",
+    ],
+  },
+  {
     id: "riskaudit",
     label: "Risk, Controls & Audit Analytics (Data & AI)",
     summary:

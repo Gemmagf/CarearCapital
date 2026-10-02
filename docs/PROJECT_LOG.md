@@ -110,6 +110,7 @@ Cada variant reenfoca summary, mètodes i ordre d'estudis; l'experiència no can
 | `automation` | **IA i automatització de processos in-house** (el relat actual) |
 | `aisolutions` | IA in-house en una entitat financera: del cas d'ús a producció |
 | `enablement` | Adopció d'IA: formació, casos d'ús, canvi (esmenta la docència a la UOC) |
+| `datagov` | Governança i qualitat de dades, gestió del coneixement amb IA (extracció, cerca, adopció) |
 | `riskaudit` | Risc, controls i analítica d'auditoria amb dades i IA |
 | `mktauto` | CRM, automatització de màrqueting i IA |
 
@@ -271,6 +272,8 @@ Manera de treballar
 
 ## 8. Diari de canvis
 
+- **2026-10-02 (tarda)** — Variant de CV `datagov` (governança i qualitat de dades + gestió del coneixement amb IA); ja en són 13.
+  Verificada amb `render_cv.cjs … datagov cvHunter,pedretes`: 1 pàgina (amb `cvHunter,swissGov` no hi cap).
 - **2026-10-02** — Log reescrit de dalt a baix (rutes, variants, scripts, receptes, evolució amb commits, trampes, pendents).
   Regla de privacitat: el repo és públic, les candidatures van a la memòria privada. `CLAUDE.md` actualitzat. Data de la
   nota de mercat corregida (es va escriure el 30-09 i deia 1-10).
