@@ -46,7 +46,7 @@ export default function SwissAiMarket() {
           trenta dies a vuit ciutats, 199 de rellevants per a IA i 156 llegides senceres. Què s'amaga darrere del títol, qui publica,
           quant es paga, quanta gent s'hi presenta i què et demanen de veritat.
         </p>
-        <p style={S.meta}>Gemma Garcia de la Fuente · 1 d'octubre de 2026 · dades del 1 al 30 de setembre de 2026</p>
+        <p style={S.meta}>Gemma Garcia de la Fuente · 30 de setembre de 2026 · ofertes publicades entre el 31 d'agost i el 30 de setembre de 2026</p>
 
         <h2 style={S.h2}>Un títol, quatre feines (i mitja)</h2>
         <p style={S.p}>
@@ -177,7 +177,7 @@ export default function SwissAiMarket() {
 
         <h2 style={S.h2}>Metodologia i límits</h2>
         <ul style={S.ul}>
-          <li>Cerca pública de LinkedIn, ofertes publicades entre l'1 i el 30 de setembre de 2026, a Zúric, Zug, Basilea, Berna, Ginebra, Lausana, Lucerna i St. Gallen (radi 15 km), amb sis cerques per ciutat: "AI engineer", "machine learning engineer", "data scientist", "AI automation", "LLM / generative AI" i "AI product owner / manager".</li>
+          <li>Cerca pública de LinkedIn feta el 30 de setembre de 2026 (ofertes dels trenta dies anteriors), a Zúric, Zug, Basilea, Berna, Ginebra, Lausana, Lucerna i St. Gallen (radi 15 km), amb sis cerques per ciutat: "AI engineer", "machine learning engineer", "data scientist", "AI automation", "LLM / generative AI" i "AI product owner / manager".</li>
           <li>405 ofertes úniques. Excloses les de pràctiques, estudiants, doctorats i aprenents, i les que no tenen IA, ML, dades o automatització al títol: en queden 199. De 156 se n'ha llegit el text sencer.</li>
           <li>Classificació per títol i per empresa amb regles fixes; "cal alemany" = anunci escrit en alemany o que l'exigeix explícitament. Candidats = el comptador que mostra LinkedIn, que satura a 200.</li>
           <li>Sous: forquilles publicades als anuncis quan n'hi ha (3); si no, Glassdoor, levels.fyi, CompVerdict i swissdevjobs. Les estimacions marcades com a tals són pròpies.</li>
