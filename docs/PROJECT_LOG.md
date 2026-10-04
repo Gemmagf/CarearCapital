@@ -272,6 +272,8 @@ Manera de treballar
 
 ## 8. Diari de canvis
 
+- **2026-10-04** — `scripts/render_cv.cjs`: variable d'entorn `SUMMARY` que substitueix el resum de la variant per a un CV
+  puntual (`SUMMARY="..." node scripts/render_cv.cjs ...`). Serveix per ajustar el to sense afegir variants al repo.
 - **2026-10-02 (tarda)** — Variant de CV `datagov` (governança i qualitat de dades + gestió del coneixement amb IA); ja en són 13.
   Verificada amb `render_cv.cjs … datagov cvHunter,pedretes`: 1 pàgina (amb `cvHunter,swissGov` no hi cap).
 - **2026-10-02** — Log reescrit de dalt a baix (rutes, variants, scripts, receptes, evolució amb commits, trampes, pendents).

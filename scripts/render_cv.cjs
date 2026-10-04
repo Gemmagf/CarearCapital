@@ -33,6 +33,8 @@ const CvDocument = require(path.join(REPO, "src/components/CvDocument.js")).defa
 const [OUT = "/tmp/cv.pdf", cvVariant = "fde", featuredProjectId = "cvHunter",
   companyName = "", positionTitle = "Forward Deployed Engineer", outputLanguage = "english"] = process.argv.slice(2);
 const motivation = process.env.MOTIVATION || "";
+// SUMMARY env replaces the variant summary for a one-off application (keeps company-specific text out of the repo)
+const summaryOverride = process.env.SUMMARY || "";
 const photoChoice = "cv";
 
 const langPack = allTranslations[outputLanguage] || allTranslations.english;
@@ -45,7 +47,7 @@ const photoUrl = "data:image/jpeg;base64," + fs.readFileSync(imgPath).toString("
 
 const props = {
   name: langPack.name || "Gemma Garcia de la Fuente",
-  cvData: applyCvVariant(langPack.cv, cvVariant),
+  cvData: { ...applyCvVariant(langPack.cv, cvVariant), ...(summaryOverride ? { summary: summaryOverride } : {}) },
   positionTitle, companyName, featuredProject, featuredProjects: featuredList.length > 1 ? featuredList : undefined, motivation, photoUrl, accentColor: "#E11D48",
 };
 
