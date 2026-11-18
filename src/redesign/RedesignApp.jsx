@@ -12,7 +12,7 @@ const LANGS = [
   ["french", "FR"], ["german", "DE"], ["italian", "IT"],
 ];
 // Forward-deployed positioning: AI in production, tech tied to CHF decisions, end-to-end business tools.
-const SELECTED = ["cvHunter", "sensorlab", "swissGov", "retail", "pedretes", "logistic", "rovello", "puppyTracker", "whosWho"];
+const SELECTED = ["cvHunter", "sensorlab", "swissGov", "fragrance", "retail", "pedretes", "logistic", "rovello", "whosWho"];
 const VIZ_KIND = { cvHunter: 3, sensorlab: 0, zuriKreislauf: 2, retail: 1 }; // CaseViz motif per project
 const CASE_IMAGES = {}; // real screenshots → public/images/projects/proj_<id>.jpg
 // downloadable one-page CVs, built by scripts/build_public_cvs.cjs from translations.js (english, variant fde)
@@ -658,7 +658,31 @@ function VizCafgic() {
   );
 }
 
-const VIZ_BY_ID = { whosWho: VizWhosWho, puppyTracker: VizPuppy, cvHunter: VizCvHunter, sensorlab: VizSensorlab, zuriKreislauf: VizZuri, retail: VizRetail, swissGov: VizSwissGov, labm: VizLabm, farma: VizFarma, rovello: VizRovello, pedretes: VizPedretes, logistic: VizCafgic };
+// Fragrance Data Platform — medallion layers with a quality gate between silver and gold
+function VizFragrance() {
+  const W = 52, layers = [["bronze", 18, "#b08d57"], ["silver", 94, "#9a9a9a"], ["gold", 170, "#c9a227"]];
+  const rows = (x, k) => Array.from({ length: 6 }, (_, i) => <rect key={k + i} x={x + 7} y={50 + i * 15} width={38 - srand(k.length * 9 + i) * 14} height="7" fill={INK} opacity={0.18 + srand(i * 3 + k.length) * 0.25} />);
+  const arrow = (x1, x2, c) => <g><line x1={x1 + 3} y1="88" x2={x2 - 4} y2="88" stroke={c} strokeWidth="1.1" /><polygon points={`${x2 - 4},84 ${x2},88 ${x2 - 4},92`} fill={c} /></g>;
+  return (
+    <svg viewBox="0 0 240 220">
+      {layers.map(([name, x, c]) => (
+        <g key={name}>
+          <rect x={x} y="38" width={W} height="104" fill="none" stroke={c} strokeWidth="1.2" />
+          <text className="ann" x={x} y="31">{name}</text>
+          {rows(x, name)}
+        </g>
+      ))}
+      {arrow(18 + W, 94, INK)}
+      {arrow(94 + W, 170, P)}
+      <rect x="153" y="102" width="10" height="14" fill={P} />
+      <text className="annp" x="158" y="160" textAnchor="middle">quality gate</text>
+      <text className="ann" x="8" y="196">contracts · run log · 22 tests</text>
+      <text className="ann" x="8" y="210">raw exports → one trusted model</text>
+    </svg>
+  );
+}
+
+const VIZ_BY_ID = { fragrance: VizFragrance, whosWho: VizWhosWho, puppyTracker: VizPuppy, cvHunter: VizCvHunter, sensorlab: VizSensorlab, zuriKreislauf: VizZuri, retail: VizRetail, swissGov: VizSwissGov, labm: VizLabm, farma: VizFarma, rovello: VizRovello, pedretes: VizPedretes, logistic: VizCafgic };
 function CaseViz({ id, kind }) { const V = VIZ_BY_ID[id]; return V ? <V /> : <VizGeneric kind={kind} />; }
 
 // career graph on a real time axis: the life line runs through the middle; studies branch above and

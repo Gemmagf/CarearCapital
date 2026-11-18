@@ -149,6 +149,12 @@ const PROJECT_META = [
     stack: ["Python", "statsmodels", "scikit-learn", "PyMC", "Streamlit"],
     link: "https://tracker-lab.streamlit.app",
     repo: "https://github.com/Gemmagf/tracker-lab",
+  },  {
+    id: "fragrance",
+    tag: "Data Engineering / Lakehouse",
+    stack: ["Python", "pandas", "Parquet", "statsmodels", "YAML data contracts", "Next.js", "GitHub Actions"],
+    link: "https://gemmagf.github.io/fragrance-data-platform/",
+    repo: "https://github.com/Gemmagf/fragrance-data-platform",
   },
 ];
 
@@ -233,6 +239,11 @@ const PROJECT_TEXTS = {
       title: "Züri-Kreislauf — Waste-to-Energy Analytics de Zúric",
       description:
         "Forecasting, monitoratge d'eficiència de procés i capa de decisió CHF/tCO2eq per a la planta KVA Hagenholz, amb dades obertes de la Stadt Zürich. Hotelling T²/Q + IsolationForest detecten una aturada real de turbina de 8 mesos (~CHF 18,8M · ~9.000 tCO2eq). SARIMA validat contra baseline naive; pytest, CI i dashboard Streamlit bilingüe.",
+    },
+    fragrance: {
+      title: "Fragrance Data Platform — Lakehouse preparat per a Fabric",
+      description:
+        "Plataforma de dades funcional per a un fabricant suís de fragàncies simulat: connectors a les fonts, capes bronze-silver-gold, contractes de dades en YAML, una porta de qualitat que atura les càrregues dolentes, un catàleg de mètriques amb una sola definició per KPI i dashboards sobre les taules gold. Anàlisis de factors d'èxit de briefs, elasticitat de preu per segment, risc de matèries primeres d'un sol proveïdor, impacte de límits IFRA i CO2e per kg; 22 tests, CI i correspondència amb Microsoft Fabric i Power BI. Totes les dades són simulades.",
     },
     trackerLab: {
       title: "Tracker Lab — Consumer Tracker Analytics",
@@ -321,6 +332,11 @@ const PROJECT_TEXTS = {
       description:
         "Forecasting, monitorización de eficiencia de proceso y capa de decisión CHF/tCO2eq para la planta KVA Hagenholz, con datos abiertos de la Stadt Zürich. Hotelling T²/Q + IsolationForest detectan una parada real de turbina de 8 meses (~CHF 18,8M · ~9.000 tCO2eq). SARIMA validado contra baseline naive; pytest, CI y dashboard Streamlit bilingüe.",
     },
+    fragrance: {
+      title: "Fragrance Data Platform — Lakehouse preparado para Fabric",
+      description:
+        "Plataforma de datos funcional para un fabricante suizo de fragancias simulado: conectores a las fuentes, capas bronze-silver-gold, contratos de datos en YAML, una puerta de calidad que bloquea las cargas erróneas, un catálogo de métricas con una única definición por KPI y dashboards sobre las tablas gold. Análisis de factores de éxito de briefs, elasticidad de precio por segmento, riesgo de materias primas de proveedor único, impacto de límites IFRA y CO2e por kg; 22 tests, CI y correspondencia con Microsoft Fabric y Power BI. Todos los datos son simulados.",
+    },
     trackerLab: {
       title: "Tracker Lab — Consumer Tracker Analytics",
       description:
@@ -407,6 +423,11 @@ const PROJECT_TEXTS = {
       title: "Züri-Kreislauf — Zurich Waste-to-Energy Analytics",
       description:
         "Forecasting, process-efficiency monitoring and a CHF/tCO2eq decision layer for Zurich's KVA Hagenholz plant, on Stadt Zürich open data. Hotelling T²/Q + IsolationForest automatically flag a real 8-month turbine outage (~CHF 18.8M · ~9,000 tCO2eq). SARIMA validated against a naive baseline; pytest, CI and a bilingual Streamlit dashboard.",
+    },
+    fragrance: {
+      title: "Fragrance Data Platform — Fabric-ready lakehouse",
+      description:
+        "A working data platform for a simulated Swiss fragrance manufacturer: source connectors, bronze-silver-gold layers, YAML data contracts, a quality gate that blocks bad loads, a metrics catalogue with one definition per KPI and dashboards on the gold tables. Analyses for brief win drivers, price elasticity by tier, single-source raw-material risk, IFRA cap impact and CO2e per kg; 22 tests, CI and a mapping to Microsoft Fabric and Power BI. All data is simulated.",
     },
     trackerLab: {
       title: "Tracker Lab — Consumer Tracker Analytics",
@@ -495,6 +516,11 @@ const PROJECT_TEXTS = {
       description:
         "Prévision, suivi de l'efficacité du procédé et couche de décision CHF/tCO2eq pour l'usine KVA Hagenholz, sur données ouvertes de la Stadt Zürich. Hotelling T²/Q + IsolationForest détectent un arrêt réel de turbine de 8 mois (~CHF 18,8M · ~9 000 tCO2eq). SARIMA validé contre un baseline naïf ; pytest, CI et dashboard Streamlit bilingue.",
     },
+    fragrance: {
+      title: "Fragrance Data Platform — Lakehouse prêt pour Fabric",
+      description:
+        "Plateforme de données fonctionnelle pour un fabricant suisse de parfums simulé : connecteurs aux sources, couches bronze-silver-gold, contrats de données en YAML, une porte qualité qui bloque les chargements défectueux, un catalogue de métriques avec une seule définition par KPI et des dashboards sur les tables gold. Analyses des facteurs de succès des briefs, élasticité-prix par segment, risque matières premières mono-fournisseur, impact des limites IFRA et CO2e par kg ; 22 tests, CI et correspondance avec Microsoft Fabric et Power BI. Toutes les données sont simulées.",
+    },
     trackerLab: {
       title: "Tracker Lab — Consumer Tracker Analytics",
       description:
@@ -582,6 +608,11 @@ const PROJECT_TEXTS = {
       description:
         "Forecasting, Prozesseffizienz-Monitoring und eine CHF/tCO2eq-Entscheidungsschicht für die KVA Hagenholz, auf Basis offener Daten der Stadt Zürich. Hotelling T²/Q + IsolationForest erkennen einen realen 8-monatigen Turbinenausfall (~CHF 18,8 Mio. · ~9.000 tCO2eq). SARIMA gegen eine naive Baseline validiert; pytest, CI und zweisprachiges Streamlit-Dashboard.",
     },
+    fragrance: {
+      title: "Fragrance Data Platform — Fabric-fähiges Lakehouse",
+      description:
+        "Lauffähige Datenplattform für einen simulierten Schweizer Duftstoffhersteller: Quell-Konnektoren, Bronze-Silver-Gold-Schichten, YAML-Datenverträge, ein Quality Gate, das fehlerhafte Ladungen stoppt, ein Kennzahlenkatalog mit einer Definition pro KPI und Dashboards auf den Gold-Tabellen. Analysen zu Erfolgsfaktoren von Briefs, Preiselastizität nach Segment, Single-Source-Rohstoffrisiko, Auswirkungen von IFRA-Grenzwerten und CO2e pro kg; 22 Tests, CI und ein Mapping auf Microsoft Fabric und Power BI. Alle Daten sind simuliert.",
+    },
     trackerLab: {
       title: "Tracker Lab — Consumer Tracker Analytics",
       description:
@@ -668,6 +699,11 @@ const PROJECT_TEXTS = {
       title: "Züri-Kreislauf — Waste-to-Energy Analytics di Zurigo",
       description:
         "Forecasting, monitoraggio dell'efficienza di processo e layer decisionale CHF/tCO2eq per l'impianto KVA Hagenholz, su dati aperti della Stadt Zürich. Hotelling T²/Q + IsolationForest rilevano un fermo reale di turbina di 8 mesi (~CHF 18,8M · ~9.000 tCO2eq). SARIMA validato contro baseline naive; pytest, CI e dashboard Streamlit bilingue.",
+    },
+    fragrance: {
+      title: "Fragrance Data Platform — Lakehouse pronto per Fabric",
+      description:
+        "Piattaforma dati funzionante per un produttore svizzero di fragranze simulato: connettori alle fonti, livelli bronze-silver-gold, data contract in YAML, un quality gate che blocca i caricamenti errati, un catalogo di metriche con una sola definizione per KPI e dashboard sulle tabelle gold. Analisi dei fattori di successo dei brief, elasticità di prezzo per segmento, rischio materie prime a fornitore unico, impatto dei limiti IFRA e CO2e per kg; 22 test, CI e mappatura su Microsoft Fabric e Power BI. Tutti i dati sono simulati.",
     },
     trackerLab: {
       title: "Tracker Lab — Consumer Tracker Analytics",
@@ -2105,6 +2141,12 @@ export function applyCvVariant(cv, variantId) {
 export const PROJECT_BRIEFS = {
   english: {
     labels: { question: "The question", did: "What I did", result: "Result", next: "Next, in production" },
+    fragrance: {
+      question: "How can a mid-size manufacturer move from scattered ERP, CRM and formulation exports to one trusted data platform that answers pricing, supply-risk and sustainability questions?",
+      did: "Simulated the business end to end, then built the platform on it: source connectors, bronze-silver-gold layers, YAML data contracts, a quality gate with a run log, a metrics catalogue and eight analyses with planted ground truth that the tests check against.",
+      result: "One repeatable build from raw exports to dashboards, 22 automated tests, and a plain-language web case with every gap stated honestly.",
+      next: "Deploy the same layers as Fabric Lakehouses on OneLake, connect the real sources, and serve Power BI from one semantic model.",
+    },
     cvHunter: {
       question: "Can a small HR team shortlist candidates for a role in minutes instead of days, without losing the good ones?",
       did: "Built the whole product: PDF/DOCX ingestion, structured extraction with the Claude API, vector matching in pgvector, a dashboard and async bulk import — FastAPI + React, Dockerised.",

@@ -44,9 +44,9 @@ Estructura de la pàgina (`src/redesign/RedesignApp.jsx`):
 | 05 Full experience | Descàrrega dels 2 CVs · totes les etapes (acordió) · Methodologies · Tech stack · Languages · Books · Publication · Education | `cv.*`, `copy.js` (`dl`, `methods`, `tools`, `books`, `pub`) |
 | Footer | Contacte, LinkedIn, GitHub, els 2 CVs, epígraf, colofó (Cala Marquesa 🐾) | `copy.js` `footer`, `colophon` |
 
-Targetes (ordre de `SELECTED`): `cvHunter`, `sensorlab`, `swissGov`, `retail`, `pedretes`, `logistic`, `rovello`,
-`puppyTracker`, `whosWho`. A `translations.js` hi ha més projectes definits que no surten a la web (`labm`, `farma`,
-`elMeuEspai`, `dietaripa`, `xina`, `receptes`, `zuriKreislauf`, `trackerLab`) però es poden usar al CV.
+Targetes (ordre de `SELECTED`): `cvHunter`, `sensorlab`, `swissGov`, `fragrance`, `retail`, `pedretes`, `logistic`,
+`rovello`, `whosWho`. A `translations.js` hi ha més projectes definits que no surten a la web (`labm`, `farma`,
+`elMeuEspai`, `puppyTracker`, `dietaripa`, `xina`, `receptes`, `zuriKreislauf`, `trackerLab`) però es poden usar al CV.
 
 Rutes (`src/App.js`, per hash):
 
@@ -272,6 +272,11 @@ Manera de treballar
 
 ## 8. Diari de canvis
 
+- **2026-11-18** — Projecte nou `fragrance` (Fragrance Data Platform: lakehouse bronze-silver-gold, contractes de dades,
+  porta de qualitat, 22 tests; dades simulades) a la web, en 4a posició, amb gràfic propi `VizFragrance`, textos en
+  6 idiomes i brief en anglès. Repo i demo: `github.com/Gemmagf/fragrance-data-platform`, Pages a
+  `gemmagf.github.io/fragrance-data-platform/` (el repo s'ha reanomenat per mantenir el nom neutre al portfoli públic;
+  l'URL antic de Pages ja no funciona). `puppyTracker` surt de les targetes (les dades es mantenen).
 - **2026-10-04** — `scripts/render_cv.cjs`: variable d'entorn `SUMMARY` que substitueix el resum de la variant per a un CV
   puntual (`SUMMARY="..." node scripts/render_cv.cjs ...`). Serveix per ajustar el to sense afegir variants al repo.
 - **2026-10-02 (tarda)** — Variant de CV `datagov` (governança i qualitat de dades + gestió del coneixement amb IA); ja en són 13.
